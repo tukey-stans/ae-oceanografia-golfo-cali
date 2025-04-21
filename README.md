@@ -2,7 +2,7 @@
 
 Repositorio dedicado al analisis estadistico de la variabilidad ambiental y la dinamica oceanografica de la zona costera occidental del Golfo de California. Se utilizaran las metricas de Temperatura Superficial del Mar (TSM) y de Colorofila a (Chl a).
 
-![Python](https://img.shields.io/badge/Python-3-blue?logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3-blue?style=for-the-badge&logo=python&logoColor=white)
 ![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
 
 ---
