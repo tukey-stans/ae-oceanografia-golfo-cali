@@ -48,3 +48,13 @@ Analizar la variabilidad ambiental y dinámica oceanográfica espacio-temporal d
 - Establecimiento de una regionalización del noroeste de México mediante el análisis de Temperatura Superficial del Mar (TSM) y Clorofila a (Chl a).
 
 - Analizar el efecto interanual, intranual y estacional del ENSO en los niveles de Temperatura Superficial del Mar (TSM) y concentración de Clorofila a (Chl a).
+
+---
+
+#### Desarrolladores: :keyboard:
+
+* **Barraza Angel |** Email: PON TU CORREO ANJEL **|** [LinkedIn AABR](https://mx.linkedin.com/in/angelbarrazareal)
+* **Cirett Federico |** Email: fd.cirett@gmail.com **|** [LinkedIn FMCT](https://www.linkedin.com/in/federico-cirett-torres-11908628b/)
+* **Cota Manuel |** Email: manuel.cota@rocketmail.com **|** [LinkedIn MACS](https://www.linkedin.com/in/maancosa/) 
+* **Martinez Fernando |** Email: lfmartinezmendoza@gmail.com **|** [LinkedIn LFMM](www.linkedin.com/in/lf-mm)
+* **Solis Jesus|** Email: jesolis_14@hotmail.com **|** [LinkedIn JMSD](https://www.linkedin.com/in/jesolis14/)
