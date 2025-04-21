@@ -2,8 +2,36 @@
 
 Repositorio dedicado al analisis estadistico de la variabilidad ambiental y la dinamica oceanografica de la zona costera occidental del Golfo de California. Se utilizaran las metricas de Temperatura Superficial del Mar (TSM) y de Colorofila a (Chl a).
 
-![Python](https://img.shields.io/badge/Python-3-blue?style=for-the-badge&logo=python&logoColor=white)
-![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
+[python-shield]: https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
+[python-url]: https://www.python.org/
+
+[r-shield]: https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white
+[r-url]: https://www.r-project.org/
+
+[md-shield]: https://img.shields.io/badge/Markdown-000?style=for-the-badge&logo=markdown
+[md-url]: https://www.markdownguide.org/
+
+[git-shield]: https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white
+[git-url]: https://git-scm.com/
+
+[github-shield]: https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white
+[github-url]: https://github.com/
+
+[jupyter-shield]: https://img.shields.io/badge/Jupyter-Notebook-orange?style=for-the-badge&logo=jupyter
+[jupyter-url]: https://jupyter.org/
+
+[ccds-shield]: https://img.shields.io/badge/CCDS-Project%20template-328F97?style=for-the-badge&logo=cookiecutter
+[ccds-url]: https://cookiecutter-data-science.drivendata.org/
+
+[![Python][python-shield]][python-url]
+[![R][r-shield]][r-url]
+
+[![Markdown][md-shield]][md-url]
+[![Git][git-shield]][git-url]
+[![GitHub][github-shield]][github-url]
+
+[![Jupyter][jupyter-shield]][jupyter-url]
+[![CCDS][ccds-shield]][ccds-url]
 
 ---
 
