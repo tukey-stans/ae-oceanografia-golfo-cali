@@ -56,7 +56,7 @@ Analizar la variabilidad ambiental y dinámica oceanográfica espacio-temporal d
 ---
 ## Desarrolladores: :keyboard:
 
-* **Barraza Angel |** Email: PON TU CORREO ANJEL **|** [LinkedIn AABR](https://mx.linkedin.com/in/angelbarrazareal)
+* **Barraza Angel |** Email: angelbarrazareal@gmail **|** [LinkedIn AABR](https://mx.linkedin.com/in/angelbarrazareal)
 * **Cirett Federico |** Email: fd.cirett@gmail.com **|** [LinkedIn FMCT](https://www.linkedin.com/in/federico-cirett-torres-11908628b/)
 * **Cota Manuel |** Email: manuel.cota@rocketmail.com **|** [LinkedIn MACS](https://www.linkedin.com/in/maancosa/) 
 * **Martinez Fernando |** Email: lfmartinezmendoza@gmail.com **|** [LinkedIn LFMM](www.linkedin.com/in/lf-mm)
