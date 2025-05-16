@@ -1,37 +1,79 @@
 [
   {
+    "objectID": "team.html",
+    "href": "team.html",
+    "title": "Equipo",
+    "section": "",
+    "text": "Desarrolladores\n\nBarraza Angel | LinkedIn\nCirett Federico | LinkedIn\nCota Manuel | LinkedIn\nMartinez Fernando | LinkedIn\nSolis Jesus | LinkedIn"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Analisis Estadistico de Oceanografia del Golfo de California",
+    "title": "Inicio",
     "section": "",
-    "text": "Analizar la variabilidad ambiental y dinámica oceanográfica espacio-temporal de la zona costera occidental del Golfo de California través del análisis de la Temperatura Superficial del Mar (TSM) y de Clorofila a (Chl a) medidas vía percepción remota."
+    "text": "Consultoría Estadística Aplicada a Oceanografía\nBienvenidos al sitio del proyecto Análisis de la variabilidad ambiental y dinámica oceanográfica del Golfo de California. Aquí compartimos resultados de nuestra consultoría estadística, con enfoque en datos satelitales de Temperatura Superficial del Mar (TSM) y Clorofila a (Chl a).\nJustificación\nEl monitoreo a largo plazo del océano es clave para entender y predecir cambios ecosistémicos. Analizar la zona costera occidental del Golfo de California permite detectar tendencias vinculadas a procesos oceanográficos y climáticos como El Niño y La Niña.\nHipótesis\nLa variabilidad observada en esta región está influenciada por la dinámica del Pacífico y su ubicación geográfica, generando patrones espacio-temporales complejos a distintas escalas.\nExplora la metodología →"
   },
   {
-    "objectID": "index.html#objetivo-general",
-    "href": "index.html#objetivo-general",
-    "title": "Analisis Estadistico de Oceanografia del Golfo de California",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Metodología",
     "section": "",
-    "text": "Analizar la variabilidad ambiental y dinámica oceanográfica espacio-temporal de la zona costera occidental del Golfo de California través del análisis de la Temperatura Superficial del Mar (TSM) y de Clorofila a (Chl a) medidas vía percepción remota."
+    "text": "Metodología de la Consultoría"
   },
   {
-    "objectID": "index.html#objetivos-especificos",
-    "href": "index.html#objetivos-especificos",
-    "title": "Analisis Estadistico de Oceanografia del Golfo de California",
-    "section": "Objetivos Especificos",
-    "text": "Objetivos Especificos\n\nDeterminar variabilidad de la Temperatura Superficial del Mar (TSM) entre 1981 y 2018 y de Clorofila a (Chl a) de 1997 a 2018 y sus principales frecuencias de variación en la zona costera occidental del Golfo de California.\nEstablecimiento de una regionalización del noroeste de México mediante el análisis de Temperatura Superficial del Mar (TSM) y Clorofila a (Chl a).\nAnalizar el efecto interanual, intranual y estacional del ENSO en los niveles de Temperatura Superficial del Mar (TSM) y concentración de Clorofila a (Chl a)."
-  },
-  {
-    "objectID": "index.html#enlaces-relevantes",
-    "href": "index.html#enlaces-relevantes",
-    "title": "Analisis Estadistico de Oceanografia del Golfo de California",
-    "section": "Enlaces Relevantes",
-    "text": "Enlaces Relevantes\nFenomenos Niño y Niña"
-  },
-  {
-    "objectID": "objetivos.html",
-    "href": "objetivos.html",
-    "title": "About",
+    "objectID": "about.html#comprensión-del-problema",
+    "href": "about.html#comprensión-del-problema",
+    "title": "Metodología",
     "section": "",
-    "text": "About this site"
+    "text": "Análisis del contexto marino y ambiental.\nFormulación de hipótesis de trabajo."
+  },
+  {
+    "objectID": "about.html#planificación",
+    "href": "about.html#planificación",
+    "title": "Metodología",
+    "section": "",
+    "text": "Definición de alcances, objetivos y cronograma.\nSelección de métodos estadísticos apropiados."
+  },
+  {
+    "objectID": "about.html#análisis-de-datos",
+    "href": "about.html#análisis-de-datos",
+    "title": "Metodología",
+    "section": "",
+    "text": "Recolección y limpieza de datos satelitales (TSM, Chl a, ONI).\nAplicación de clustering, análisis espacio-temporal y gráficos."
+  },
+  {
+    "objectID": "about.html#interpretación-y-comunicación",
+    "href": "about.html#interpretación-y-comunicación",
+    "title": "Metodología",
+    "section": "",
+    "text": "Visualización de resultados mediante mapas interactivos y notebooks en Python.\nConclusiones claras y recomendaciones para la toma de decisiones."
+  },
+  {
+    "objectID": "about.html#evaluación",
+    "href": "about.html#evaluación",
+    "title": "Metodología",
+    "section": "",
+    "text": "Revisión y mejora continua basada en retroalimentación del equipo y comunidad académica."
+  },
+  {
+    "objectID": "data.html",
+    "href": "data.html",
+    "title": "Datos",
+    "section": "",
+    "text": "Temperatura Superficial del Mar (TSM): 1981–2018\nClorofila a (Chl a): 1997–2018\nÍndice ENSO (ONI)\n\n\n\n\n\nNOAA ONI: Enlace oficial\nDatasets satelitales preprocesados por el equipo (detalles en análisis)."
+  },
+  {
+    "objectID": "data.html#variables-analizadas",
+    "href": "data.html#variables-analizadas",
+    "title": "Datos",
+    "section": "",
+    "text": "Temperatura Superficial del Mar (TSM): 1981–2018\nClorofila a (Chl a): 1997–2018\nÍndice ENSO (ONI)"
+  },
+  {
+    "objectID": "data.html#fuentes",
+    "href": "data.html#fuentes",
+    "title": "Datos",
+    "section": "",
+    "text": "NOAA ONI: Enlace oficial\nDatasets satelitales preprocesados por el equipo (detalles en análisis)."
   }
 ]
