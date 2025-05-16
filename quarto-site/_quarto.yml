@@ -3,20 +3,22 @@ project:
   output-dir: docs
 
 website:
-  title: "quarto-site"
+  title: "Análisis Oceanográfico"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - text: "Inicio"
+        href: index.qmd
+      - text: "Objetivos"
+        href: objetivos.qmd
+      - text: "Equipo"
+        href: equipo.qmd
+      - text: "Resultados"
+        href: resultados.qmd
+  page-navigation: true
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
-    css: styles.css
+    theme: cosmo
     toc: true
-
 
 

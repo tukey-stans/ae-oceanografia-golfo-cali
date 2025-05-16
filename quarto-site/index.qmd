@@ -1,7 +1,27 @@
 ---
-title: "quarto-site"
+title: "Analisis Estadistico de Oceanografia del Golfo de California"
 ---
 
-This is a Quarto website.
+## Objetivo General
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Analizar la variabilidad ambiental y dinámica oceanográfica espacio-temporal de la zona costera occidental del Golfo de California través del análisis de la Temperatura Superficial del Mar (TSM) y de Clorofila a (Chl a) medidas vía percepción remota.
+
+---
+
+## Objetivos Especificos
+
+- Determinar variabilidad de la Temperatura Superficial del Mar (TSM) entre 1981 y 2018 y de Clorofila a (Chl a) de 1997 a 2018 y sus principales frecuencias de variación en la zona costera occidental del Golfo de California.
+
+- Establecimiento de una regionalización del noroeste de México mediante el análisis de Temperatura Superficial del Mar (TSM) y Clorofila a (Chl a).
+
+- Analizar el efecto interanual, intranual y estacional del ENSO en los niveles de Temperatura Superficial del Mar (TSM) y concentración de Clorofila a (Chl a).
+
+---
+
+## Enlaces Relevantes
+
+[Fenomenos Niño y Niña](https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php)
+
+---
+
+

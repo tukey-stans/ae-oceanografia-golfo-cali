@@ -2,13 +2,34 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "quarto-site",
+    "title": "Analisis Estadistico de Oceanografia del Golfo de California",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Analizar la variabilidad ambiental y dinámica oceanográfica espacio-temporal de la zona costera occidental del Golfo de California través del análisis de la Temperatura Superficial del Mar (TSM) y de Clorofila a (Chl a) medidas vía percepción remota."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
+    "objectID": "index.html#objetivo-general",
+    "href": "index.html#objetivo-general",
+    "title": "Analisis Estadistico de Oceanografia del Golfo de California",
+    "section": "",
+    "text": "Analizar la variabilidad ambiental y dinámica oceanográfica espacio-temporal de la zona costera occidental del Golfo de California través del análisis de la Temperatura Superficial del Mar (TSM) y de Clorofila a (Chl a) medidas vía percepción remota."
+  },
+  {
+    "objectID": "index.html#objetivos-especificos",
+    "href": "index.html#objetivos-especificos",
+    "title": "Analisis Estadistico de Oceanografia del Golfo de California",
+    "section": "Objetivos Especificos",
+    "text": "Objetivos Especificos\n\nDeterminar variabilidad de la Temperatura Superficial del Mar (TSM) entre 1981 y 2018 y de Clorofila a (Chl a) de 1997 a 2018 y sus principales frecuencias de variación en la zona costera occidental del Golfo de California.\nEstablecimiento de una regionalización del noroeste de México mediante el análisis de Temperatura Superficial del Mar (TSM) y Clorofila a (Chl a).\nAnalizar el efecto interanual, intranual y estacional del ENSO en los niveles de Temperatura Superficial del Mar (TSM) y concentración de Clorofila a (Chl a)."
+  },
+  {
+    "objectID": "index.html#enlaces-relevantes",
+    "href": "index.html#enlaces-relevantes",
+    "title": "Analisis Estadistico de Oceanografia del Golfo de California",
+    "section": "Enlaces Relevantes",
+    "text": "Enlaces Relevantes\nFenomenos Niño y Niña"
+  },
+  {
+    "objectID": "objetivos.html",
+    "href": "objetivos.html",
     "title": "About",
     "section": "",
     "text": "About this site"
