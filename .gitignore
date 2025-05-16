@@ -172,3 +172,19 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# quarto
+# Quarto build artifacts
+/.quarto/
+_quarto.yml.local
+_site/
+_book/
+_manuscript/
+*.log
+*.aux
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
