@@ -190,4 +190,7 @@ _manuscript/
 *.synctex.gz
 
 # Data
-data/
+data/raw/Base de datos Chla consultoria estadística.xlsx
+data/raw/Base de datos TSM consultoria estadística.xlsx
+data/raw/Coordenadas zona costera occidental GC.csv
+data/raw/oni-Cold & Warm Episodes by Season.csv - Sheet1.csv
