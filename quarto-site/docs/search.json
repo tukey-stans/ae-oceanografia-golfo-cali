@@ -21,41 +21,6 @@
     "text": "Metodología de la Consultoría"
   },
   {
-    "objectID": "about.html#comprensión-del-problema",
-    "href": "about.html#comprensión-del-problema",
-    "title": "Metodología",
-    "section": "",
-    "text": "Análisis del contexto marino y ambiental.\nFormulación de hipótesis de trabajo."
-  },
-  {
-    "objectID": "about.html#planificación",
-    "href": "about.html#planificación",
-    "title": "Metodología",
-    "section": "",
-    "text": "Definición de alcances, objetivos y cronograma.\nSelección de métodos estadísticos apropiados."
-  },
-  {
-    "objectID": "about.html#análisis-de-datos",
-    "href": "about.html#análisis-de-datos",
-    "title": "Metodología",
-    "section": "",
-    "text": "Recolección y limpieza de datos satelitales (TSM, Chl a, ONI).\nAplicación de clustering, análisis espacio-temporal y gráficos."
-  },
-  {
-    "objectID": "about.html#interpretación-y-comunicación",
-    "href": "about.html#interpretación-y-comunicación",
-    "title": "Metodología",
-    "section": "",
-    "text": "Visualización de resultados mediante mapas interactivos y notebooks en Python.\nConclusiones claras y recomendaciones para la toma de decisiones."
-  },
-  {
-    "objectID": "about.html#evaluación",
-    "href": "about.html#evaluación",
-    "title": "Metodología",
-    "section": "",
-    "text": "Revisión y mejora continua basada en retroalimentación del equipo y comunidad académica."
-  },
-  {
     "objectID": "data.html",
     "href": "data.html",
     "title": "Datos",
