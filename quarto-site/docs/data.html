@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>equipo – Análisis Oceanográfico</title>
+<title>Datos – Análisis Oceanográfico</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,16 +93,24 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./objetivos.html"> 
-<span class="menu-text">Objetivos</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">Metodología</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./equipo.html" aria-current="page"> 
+    <a class="nav-link active" href="./data.html" aria-current="page"> 
+<span class="menu-text">Datos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./analysis.qmd"> 
+<span class="menu-text">Análisis</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./team.html"> 
 <span class="menu-text">Equipo</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resultados.html"> 
-<span class="menu-text">Resultados</span></a>
+    <a class="nav-link" href="./references.qmd"> 
+<span class="menu-text">Referencias</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -115,17 +123,61 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#datasets-y-fuentes-de-información" id="toc-datasets-y-fuentes-de-información" class="nav-link active" data-scroll-target="#datasets-y-fuentes-de-información">Datasets y Fuentes de Información</a>
+  <ul class="collapse">
+  <li><a href="#variables-analizadas" id="toc-variables-analizadas" class="nav-link" data-scroll-target="#variables-analizadas">Variables analizadas</a></li>
+  <li><a href="#fuentes" id="toc-fuentes" class="nav-link" data-scroll-target="#fuentes">Fuentes</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Datos</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="datasets-y-fuentes-de-información" class="level1">
+<h1>Datasets y Fuentes de Información</h1>
+<section id="variables-analizadas" class="level2">
+<h2 class="anchored" data-anchor-id="variables-analizadas">Variables analizadas</h2>
+<ul>
+<li><strong>Temperatura Superficial del Mar (TSM)</strong>: 1981–2018</li>
+<li><strong>Clorofila a (Chl a)</strong>: 1997–2018</li>
+<li><strong>Índice ENSO (ONI)</strong></li>
+</ul>
+</section>
+<section id="fuentes" class="level2">
+<h2 class="anchored" data-anchor-id="fuentes">Fuentes</h2>
+<ul>
+<li>NOAA ONI: <a href="https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php">Enlace oficial</a></li>
+<li>Datasets satelitales preprocesados por el equipo (detalles en análisis).</li>
+</ul>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -200,7 +252,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/tukey-stans\.github\.io\/ae-oceanografia-golfo-cali\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

@@ -1,0 +1,12 @@
+---
+title: "Equipo"
+format: html
+---
+
+# Desarrolladores
+
+- **Barraza Angel** | [LinkedIn](https://mx.linkedin.com/in/angelbarrazareal)
+- **Cirett Federico** | [LinkedIn](https://www.linkedin.com/in/federico-cirett-torres-11908628b/)
+- **Cota Manuel** | [LinkedIn](https://www.linkedin.com/in/maancosa/)
+- **Martinez Fernando** | [LinkedIn](www.linkedin.com/in/lf-mm)
+- **Solis Jesus** | [LinkedIn](https://www.linkedin.com/in/jesolis14/)

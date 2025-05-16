@@ -8,13 +8,23 @@ website:
     left:
       - text: "Inicio"
         href: index.qmd
-      - text: "Objetivos"
-        href: objetivos.qmd
+      - text: "Metodología"
+        href: about.qmd
+      - text: "Datos"
+        href: data.qmd
+      - text: "Análisis"
+        href: analysis.qmd
       - text: "Equipo"
-        href: equipo.qmd
-      - text: "Resultados"
-        href: resultados.qmd
+        href: team.qmd
+      - text: "Referencias"
+        href: references.qmd
   page-navigation: true
+
+execute:
+  enabled: true
+  echo: false  # show the code
+  output: true
+  eval: true
 
 format:
   html:

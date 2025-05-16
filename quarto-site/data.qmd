@@ -1,0 +1,15 @@
+---
+title: "Datos"
+format: html
+---
+
+# Datasets y Fuentes de Información
+
+## Variables analizadas
+- **Temperatura Superficial del Mar (TSM)**: 1981–2018
+- **Clorofila a (Chl a)**: 1997–2018
+- **Índice ENSO (ONI)**
+
+## Fuentes
+- NOAA ONI: [Enlace oficial](https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php)
+- Datasets satelitales preprocesados por el equipo (detalles en análisis).
