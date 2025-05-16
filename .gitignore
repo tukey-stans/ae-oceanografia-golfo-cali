@@ -188,3 +188,6 @@ _manuscript/
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+
+# Data
+data/
