@@ -21,7 +21,7 @@ Antes de analizar el efecto de las fases **ENSO** en **TSM** y **Chl a** respect
 
 Es notorio como se han tenido multiples periodos para cada una de las fases **ENSO**, predominando los periodos neutros.
 
-Los periodos de fase Neutra suelen alcanzar mayores duraciones, de aproximadamente 2 años, solo competido por un periodo de fase Niña entre 1998 y 2001, el resto para Niña y Niño suelen estar por debajo del anio y medio de duración.
+Los periodos de fase Neutra suelen alcanzar mayores duraciones, de aproximadamente 2 años, solo competido por un periodo de fase Niña entre 1998 y 2001, el resto para Niña y Niño suelen estar por debajo del año y medio de duración.
 
 ### Desviacion para **TSM** y **Chl a** respecto a la Media y Varianza Media por agrupamientos temporales y espaciales
 
@@ -30,8 +30,8 @@ De acorde a los objetivos específicos del proyecto, se optó por agrupar los da
 Los grupos fueron:
 
 * Interanual (Temporal - Comparativa entre años)
-* Intraanual (Temporal - Comparativa por meses del anio)
-* Estacional (Temporal - Comparativa por las 4 estaciones climatologicas del anio)
+* Intraanual (Temporal - Comparativa por meses del año)
+* Estacional (Temporal - Comparativa por las 4 estaciones climatologicas del año)
 * Por Estacion de Medicion - (Espacial - Comparativas por las 17 estaciones de medicion ubicadas en el Golfo de California)
 
 A continuacion se muestra una figura que contiene dos graficos de paleta para cada grupo. Cada gráfico contiene la información tanto de la **TSM** como de **Chl a**, sin embargo la diferencia reside en que el gráfico ubicado en la parte superior muestra la desviacion respecto a la Media de los valores propios de cada variable, mientras que el gráfico de la parte inferior muestra la desviacion respecto a la Media de la Varianza para cada variable.
