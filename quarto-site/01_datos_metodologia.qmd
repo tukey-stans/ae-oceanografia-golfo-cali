@@ -76,5 +76,6 @@ Se realizó análisis inicial de frecuencia, tendencias, periodogramas globales 
 * **Análisis espectral**: periodograma para detección de ciclos dominantes.
 * **PCA**: para evaluación de patrones multivariados por fase ENSO.
 * **Pruebas estadísticas (ANOVA, Kruskal-Wallis)**: para evaluar diferencias por fase ENSO en grupos temporales y espaciales.
+* **Prophet**: para analizar estacionalidad y patrones anuales.
 
 Esta metodología permite cubrir los tres objetivos específicos del estudio, integrando el análisis espacio-temporal de las variables TSM y Chl a con la influencia del fenómeno ENSO de forma sólida y replicable.
