@@ -76,301 +76,346 @@ Excelente material. Con base en todo lo que compartiste, aquí tienes una **reda
 
 ---
 
-# 1. Cluster Global por Estación (promedios fijos)
+# Parte 1. Regionalización Fija por Agrupamiento de Estaciones
 
-## Objetivo específico 1: Determinar la variabilidad de la TSM y Chl a y sus principales frecuencias de variación
+Esta sección presenta un análisis exploratorio y de agrupamiento sobre las estaciones de monitoreo distribuidas a lo largo de la zona costera occidental del Golfo de California. El objetivo es proponer una **regionalización objetiva** basada en estadísticas resumen de Temperatura Superficial del Mar (TSM), Clorofila a (Chl a) y su relación promedio con el fenómeno ENSO.
 
-### Resultados
+## Preparación de los datos
 
-* Se realizó una agregación mensual y anual de TSM y Chl a por estación.
-* Las gráficas de estacionalidad muestran un **patrón claro anual de temperatura**, con máximos en agosto y mínimos en febrero, consistente con el ciclo solar.
-* La **clorofila a** presenta una distribución estacional inversa: mayores concentraciones en invierno-primavera y una disminución marcada en verano.
-* Las tendencias interanuales muestran una **ligera disminución en Chl a** (posible indicio de desnutrición del sistema), y una **tendencia al alza en TSM**, especialmente en estaciones agrupadas en el Cluster 3.
+Se calcularon estadísticas agregadas por estación considerando:
 
-### Interpretación
+- Media, desviación estándar, mínimo y máximo de TSM y Chl a
+- Promedio del índice ONI (como indicador promedio de influencia ENSO por estación)
+- Coordenadas geográficas de cada estación
 
-* Las fluctuaciones estacionales en TSM reflejan el forzamiento térmico anual, mientras que los picos de clorofila a en primavera probablemente responden a procesos de surgencia y mezcla vertical.
-* La disminución en la clorofila a puede estar relacionada con eventos de calentamiento sostenido y estratificación más prolongada.
+Estas variables fueron estandarizadas para aplicar técnicas de agrupamiento.
 
----
+## Determinación del número óptimo de clusters
 
-## Objetivo específico 2: Establecer una regionalización mediante análisis de TSM y Chl a
+Se aplicó el **método del codo** sobre el valor de inercia (SSE) para distintas cantidades de clusters. El punto de inflexión sugiere que **4 clusters** representa una solución adecuada que equilibra simplicidad y diferenciación estadística.
 
-### Metodología
+![Método del codo para determinar número óptimo de clusters](metodo_codo.png)
 
-* Se agruparon las estaciones usando **KMeans con K=4**, determinado mediante el método del codo.
-* Las variables incluidas fueron: media y desviación estándar de TSM y Chl a, así como el promedio del índice ONI.
-* Las estaciones se visualizaron en un mapa interactivo según su pertenencia a cada cluster.
+## Resultados del agrupamiento
 
-### Resultados
+Utilizando K-Means con k=4 se asignó una etiqueta de cluster a cada estación. A continuación se visualiza la distribución geográfica de las estaciones agrupadas:
 
-A continuación se presentan las características medias por cluster:
+![Mapa con distribución espacial de clusters](mapa_clusters.png)
 
-| Cluster | TSM\_media | Chla\_media | Descripción propuesta                                     |
-| ------- | ---------- | ----------- | --------------------------------------------------------- |
-| 0       | \~23.0 °C  | \~2.0 mg/m³ | **Productivo Norte**: frío y muy productivo               |
-| 1       | \~25.0 °C  | \~0.8 mg/m³ | **Centro cálido**: cálido con baja productividad          |
-| 2       | \~23.5 °C  | \~1.4 mg/m³ | **Transicional**: zona intermedia                         |
-| 3       | \~26.0 °C  | \~0.5 mg/m³ | **Sur cálido oligotrófico**: cálido y pobre en nutrientes |
+La regionalización resultante distingue claramente zonas con diferentes características ambientales:
 
-### Interpretación
+| Cluster | TSM media (°C) | Chl a media (mg/m³) | Latitud media | Descripción general |
+|--------:|----------------|----------------------|----------------|----------------------|
+| 0       | 22.99          | 2.01                 | 29.6           | Alta productividad, baja TSM (norte) |
+| 1       | 25.02          | 0.84                 | 25.8           | Zona cálida de baja productividad (centro-sur) |
+| 2       | 23.55          | 1.38                 | 28.4           | Intermedia en TSM y productividad (centro-norte) |
+| 3       | 25.98          | 0.48                 | 24.2           | Región cálida y oligotrófica (sur) |
 
-* El análisis permite establecer **cuatro regiones oceanográficas funcionales**, determinadas por condiciones térmicas y biológicas agregadas.
-* Los clusters muestran un gradiente claro norte-sur: mayor productividad al norte, mayor temperatura al sur.
+## Variabilidad intra-cluster en función de ENSO
 
----
+A continuación, se analiza cómo se comportan TSM y Chl a dentro de cada cluster bajo distintas fases del ENSO: Neutro, Niño y Niña.
 
-## Objetivo específico 3: Analizar el efecto interanual, intranual y estacional del ENSO
+### TSM por fase ENSO
 
-### Resultados
+Se observa que los valores de TSM tienden a incrementarse durante fases Niño en todos los clusters, siendo más notorio en los clusters cálidos (1 y 3).
 
-**Boxplots por cluster y fase ENSO:**
+![Boxplot de TSM por ENSO y Cluster](boxplot_tsm_enso.png)
 
-* Durante eventos **Niño**, la TSM tiende a aumentar ligeramente, con menor dispersión en los clusters cálidos (1 y 3).
-* Durante **Niña**, la TSM desciende de forma visible, particularmente en el Cluster 0 (más frío).
-* La clorofila a presenta **descensos marcados durante eventos Niño** en todos los clusters, especialmente en el Cluster 0, lo que sugiere inhibición de procesos de mezcla.
+### Chl a por fase ENSO
 
-**Estacionalidad:**
+En cuanto a la Clorofila a, los valores más altos se presentan en el Cluster 0, mientras que los más bajos se concentran en el Cluster 3. La fase ENSO influye en la variabilidad, con ligeros aumentos durante eventos Niño.
 
-* Todos los clusters siguen una misma dinámica estacional, pero con diferentes magnitudes:
+![Boxplot de Chl a por ENSO y Cluster](boxplot_chla_enso.png)
 
-  * Cluster 0 muestra **máximos de clorofila a** en primavera y **mínimos de TSM** en invierno.
-  * Cluster 3 tiene **TSM constantemente altas** y clorofila baja todo el año.
+## Estacionalidad de las variables por cluster
 
-**Tendencia interanual:**
+Se identificaron patrones estacionales bien diferenciados en cada agrupación:
 
-* La TSM muestra una tendencia ascendente en todos los clusters, más marcada en el Cluster 3.
-* La clorofila a muestra tendencia a la baja en los clusters 1 y 3.
+- TSM muestra una marcada **estacionalidad térmica**, con máximos en verano y mínimos en invierno.
+- Chl a presenta **picos de productividad en invierno y primavera** en los clusters del norte, lo cual es consistente con procesos de mezcla vertical y surgencia.
 
----
+### TSM mensual promedio por cluster
 
-## Sugerencias de nombres para los clusters
+![Estacionalidad de TSM por mes y cluster](tsm_mensual_cluster.png)
 
-| Cluster | Nombre descriptivo          | Justificación                                      |
-| ------- | --------------------------- | -------------------------------------------------- |
-| 0       | **Norte productivo**        | TSM baja, Chla alta, al norte del golfo            |
-| 1       | **Centro cálido**           | TSM media-alta, Chla baja, transición hacia el sur |
-| 2       | **Franja intermedia**       | Térmicamente y biológicamente intermedio           |
-| 3       | **Sur cálido oligotrófico** | Altas TSM, baja productividad, al sur del golfo    |
+### Chl a mensual promedio por cluster
 
+![Estacionalidad de Clorofila a por mes y cluster](chla_mensual_cluster.png)
 
----
+## Tendencia interanual por cluster
 
-# 2. Cluster por Año (interanual dinámico)
+Finalmente, se observó la evolución anual de TSM y Chl a dentro de cada cluster.
 
-## Objetivo específico 1: Determinar la variabilidad interanual de TSM y Chl a
+### TSM interanual promedio por cluster (1981–2018)
 
-### Resultados principales
+![Tendencia de TSM por año y cluster](tsm_interanual_cluster.png)
 
-* Se agruparon las estaciones **por año** y se aplicó KMeans (K=4) sobre estadísticas anuales de TSM, Chl a y ONI.
-* Se identificaron **cuatro clusters dinámicos**, que agrupan condiciones ambientales similares:
+### Clorofila a interanual promedio por cluster (1997–2018)
 
-| Cluster | TSM\_mean | Chla\_mean | ONI\_mean | Descripción funcional           |
-| ------- | --------- | ---------- | --------- | ------------------------------- |
-| 0       | 23.2 °C   | 2.37 mg/m³ | -0.06     | Frío y altamente productivo     |
-| 1       | 24.8 °C   | 0.90 mg/m³ | -0.65     | Moderadamente cálido – La Niña  |
-| 2       | 23.5 °C   | 1.57 mg/m³ | -0.07     | Intermedio (neutro)             |
-| 3       | 25.9 °C   | 0.69 mg/m³ | +0.20     | Cálido y oligotrófico – El Niño |
+![Tendencia de Chl a por año y cluster](chla_interanual_cluster.png)
 
-### Visualizaciones clave
-
-* **Boxplots de TSM y Chl a por cluster:** muestran una progresión clara entre condiciones frías-productivas (Cluster 0) y cálidas-oligotróficas (Cluster 3).
-* **Gráfico de área de distribución anual de clusters:** revela cómo varía la composición ambiental del Golfo de año en año.
-
-### Interpretación
-
-* La variabilidad anual es significativa: hay años dominados por condiciones frías/productivas (2002, 2005) y otros por condiciones cálidas/pobres (1998, 2007, 2012).
-* El clustering dinámico evidencia los **efectos interanuales de ENSO sobre la productividad y temperatura** en toda la región.
+Los clusters más cálidos (1 y 3) muestran una tendencia leve al aumento en TSM en las últimas décadas, mientras que los valores de Clorofila a permanecen relativamente estables con ligeras oscilaciones. El cluster norte (Cluster 0), caracterizado por alta productividad, muestra mayor variabilidad interanual.
 
 ---
 
-## Objetivo específico 2: Regionalización espacio-temporal dinámica
+## Contribución a los objetivos específicos
 
-### Resultados
+Este análisis contribuye directamente a:
 
-* Se elaboró una **matriz de evolución de cluster por estación** (heatmap), que muestra cómo cada estación cambia de cluster a lo largo de los años.
-* Se cuantificó la **inestabilidad de cada estación** (número de cambios de cluster en 20 años):
-
-| Estaciones más inestables | Cambios | Duración promedio en un cluster |
-| ------------------------- | ------- | ------------------------------- |
-| Est. 9°, Est. 15°         | 14–12   | \~1.5 años                      |
-| Est. 11°, Est. 14°        | 2–3     | \~7.0 años                      |
-
-* Se clasificaron las estaciones según **estabilidad**:
-
-  * **Alta (rojo):** norte-centro del golfo
-  * **Media (naranja):** franja media
-  * **Baja (verde):** extremo sur
-
-### Visualizaciones clave
-
-* **Mapa de estabilidad de estaciones:** usando círculos codificados por color y tamaño según número de cambios.
-* **Gráfica de barras de duración promedio por estación.**
-
-### Interpretación
-
-* La dinámica espacial del Golfo no es homogénea: hay estaciones persistentemente estables (Est. 11°) y otras muy volátiles (Est. 9°, Est. 15°), lo cual refleja diferencias en la sensibilidad local al clima.
-* Esta regionalización **dinámica** complementa la visión estática del clustering espacial previo.
+✅ **Objetivo 1**: Al describir las principales estadísticas de TSM y Chl a por estación, e identificar patrones estacionales e interanuales.  
+✅ **Objetivo 2**: Al establecer una primera propuesta de regionalización basada en características térmicas y biológicas agregadas.  
+✅ **Objetivo 3**: Al mostrar cómo la fase ENSO influye en los valores promedio de TSM y Chl a por región.
 
 ---
 
-## Objetivo específico 3: Impacto del ENSO en la dinámica interanual
+# Parte 2. Clustering Dinámico Interanual (Estación × Año)
 
-### Resultados
+En esta sección se presenta un análisis de clustering dinámico, donde cada observación representa una estación en un año específico. Esto permite capturar variaciones temporales en las condiciones oceanográficas y establecer patrones interanuales de similitud entre estaciones.
 
-* Se clasificaron los años por su condición ENSO dominante (Niño, Neutro, Niña).
-* Se observó lo siguiente:
+## Preparación y características
 
-| ENSO   | Cluster más común                |
-| ------ | -------------------------------- |
-| Niño   | Cluster 3 (cálido-oligotrófico)  |
-| Niña   | Cluster 1 (moderado, baja Chla)  |
-| Neutro | Clusters 2 y 0 (más productivos) |
+Se calcularon los siguientes indicadores para cada par `(estación, año)`:
 
-* La **matriz de transición entre años consecutivos** muestra:
+- TSM: media y desviación estándar anual
+- Chl a: media y desviación estándar anual
+- ONI: índice medio anual ENSO por observación
+- Coordenadas geográficas (constantes por estación)
 
-| De / A | C0 | C1 | C2 | C3 |
-| ------ | -- | -- | -- | -- |
-| C0     | 18 | 0  | 16 | 1  |
-| C1     | 2  | 38 | 8  | 26 |
-| C2     | 17 | 11 | 88 | 3  |
-| C3     | 0  | 29 | 5  | 78 |
+Se estandarizaron las variables y se aplicó el algoritmo K-Means con `k=4` para identificar patrones comunes a través del tiempo.
 
-* El Cluster 2 es el más **estable** (88 repeticiones), seguido del 3 (78); los clusters más variables son el 0 y 1.
+## Distribución y evolución de los clusters
 
-### Visualizaciones clave
+La siguiente gráfica muestra la distribución de las estaciones en cada cluster a lo largo de los años:
 
-* **Countplot ENSO vs Cluster dinámico:** destaca la relación Niño ↔ Cluster 3, y Niña ↔ Cluster 1.
-* **Matriz de transiciones** entre clusters por año.
-* **Mapa y gráfica de permanencias:** muestran patrones de estabilidad temporal por estación.
+![Distribución de clusters por año](clusters_por_anio.png)
 
-### Interpretación
+Se observa que los clusters no son estáticos; hay años donde dominan ciertas condiciones (e.g., Cluster 3 en años recientes) y otros donde la distribución está más fragmentada.
 
-* ENSO tiene un **efecto directo y observable** sobre la clasificación anual de las estaciones.
-* Los cambios más comunes (ej. C1 → C3) podrían reflejar **transiciones entre fases ENSO**.
-* La alta estabilidad de C2 sugiere que **los años neutros permiten mayor persistencia** de condiciones intermedias.
+En el siguiente **mapa de calor** se puede ver cómo cada estación cambia de cluster con el tiempo:
 
----
+![Evolución de clusters por estación](evolucion_clusters_heatmap.png)
 
-## Conclusión general del análisis dinámico
+Algunas estaciones presentan mayor estabilidad en su clasificación, mientras que otras transitan entre múltiples agrupaciones.
 
-El clustering interanual permite capturar la **dimensión temporal de la variabilidad ambiental** del Golfo de California, ofreciendo una visión más rica que el clustering estático. Al incorporar la variación año a año, se identifican:
+## Estabilidad espacio-temporal
 
-* Patrones de cambio vinculados a ENSO.
-* Zonas del golfo más sensibles o estables.
-* Trayectorias comunes entre condiciones ambientales.
+Para visualizar esta estabilidad, se construyó un mapa con el **número de cambios de cluster por estación**. A mayor número de cambios, menor estabilidad:
 
-Este enfoque es útil para generar **alertas tempranas, identificar zonas vulnerables o resilientes**, y apoyar la gestión pesquera y ambiental.
+![Mapa de estabilidad por estación](mapa_estabilidad.png)
 
----
-Perfecto, aquí tienes el análisis completo del **clustering mensual por estación y mes (dinámico)** siguiendo el mismo formato estructurado que los bloques anteriores:
+Las estaciones en rojo muestran **alta inestabilidad** (más de 10 cambios de cluster en el periodo), mientras que las estaciones en verde presentan **mayor consistencia temporal**.
 
----
+## Relación con ENSO
 
-# 3. Cluster por Mes (espacio-temporal dinámico mensual)
+Se analizó cómo se distribuyen los clusters en función de la **fase dominante del ENSO**:
 
-## Objetivo específico 1: Detectar la variabilidad mensual de TSM y Clorofila a
+![Conteo de clusters por fase ENSO](conteo_clusters_enso.png)
 
-### Resultados principales
+Aunque el cluster 1 está más representado en años Niña y el cluster 3 en años Niño, no se observa una dominancia clara que permita asociar directamente cada cluster con una fase ENSO, aunque hay indicios de relación que pueden explorarse en análisis complementarios.
 
-* Se agruparon las estaciones **por mes y año**, aplicando KMeans (K=4) sobre TSM media, Chl a media y ONI mensual.
-* Se identificaron **cuatro clusters dinámicos mensuales**, reflejando distintos regímenes ambientales:
+## Comparación de TSM y Chl a por cluster
 
-| Cluster | TSM\_mean | Chla\_mean | ONI\_mean | Descripción funcional                    |
-| ------- | --------- | ---------- | --------- | ---------------------------------------- |
-| 0       | 28.9 °C   | 0.64 mg/m³ | -0.15     | Muy cálido y oligotrófico (verano)       |
-| 1       | 20.9 °C   | 3.65 mg/m³ | -0.10     | Frío y muy productivo (invierno extremo) |
-| 2       | 20.2 °C   | 1.39 mg/m³ | -0.83     | Frío intermedio – fase Niña              |
-| 3       | 22.4 °C   | 1.26 mg/m³ | +1.10     | Cálido-moderado – fase Niño              |
+Los siguientes gráficos muestran la distribución de TSM y Chl a anuales por cluster dinámico:
 
-### Visualizaciones clave
+![Boxplots de TSM y Chl a por cluster dinámico](boxplot_tsm_chla_dinamico.png)
 
-* **Distribución por mes del año:** muestra transiciones estacionales claras: el Cluster 0 domina de julio a septiembre, el 1 en enero-marzo, el 3 en primavera.
-* **Gráfico de área por año:** refleja la estacionalidad interanual del sistema.
+- El **cluster 0** tiene la mayor concentración de clorofila a.
+- El **cluster 3** presenta las **temperaturas más elevadas** y la **productividad más baja**.
 
-### Interpretación
+Estas diferencias sugieren que los clusters reflejan bien las condiciones ambientales anuales.
 
-* El Golfo presenta una **estacionalidad ambiental clara**, con presencia alternante de condiciones frías-productivas y cálidas-oligotróficas.
-* El Cluster 0 representa **condiciones veraniegas extremas**, mientras que el Cluster 1 refleja **invierno profundo con alta productividad**.
+## Permanencia de estaciones en un mismo cluster
+
+Para evaluar la estabilidad interna de las estaciones, se calculó la duración promedio (en años consecutivos) que cada estación permaneció dentro de un mismo cluster:
+
+![Duración promedio por estación](duracion_cluster_por_estacion.png)
+
+Algunas estaciones (Est 11°, 14°) muestran alta estabilidad con permanencias de hasta 7 años en el mismo cluster, mientras que otras estaciones (Est 9°, 15°) cambian frecuentemente de agrupación.
+
+## Matriz de transición entre clusters
+
+La siguiente tabla resume las **transiciones de un cluster al siguiente** para años consecutivos:
+
+| Cluster Actual | Hacia Cluster 0 | 1 | 2 | 3 |
+|----------------|------------------|---|---|---|
+| 0              | 18               | 0 | 16 | 1 |
+| 1              | 2                | 38 | 8 | 26 |
+| 2              | 17               | 11 | 88 | 3 |
+| 3              | 0                | 29 | 5 | 78 |
+
+Esto permite identificar la **estabilidad relativa** de cada cluster. Por ejemplo, el Cluster 2 presenta alta retención (88 transiciones consigo mismo), mientras que el Cluster 1 muestra mayor propensión a cambiar hacia otros estados (principalmente hacia 3).
 
 ---
 
-## Objetivo específico 2: Regionalización espacio-temporal detallada por mes
+## Contribución a los objetivos específicos
 
-### Resultados
+✅ **Objetivo 1**: Se capturan las principales frecuencias de variación anual en TSM y Chl a a través de agrupaciones dinámicas.  
+✅ **Objetivo 2**: Se refuerza la regionalización desde un enfoque **temporalmente variable**, complementando la Parte 1.  
+✅ **Objetivo 3**: Se evalúa la relación entre fases del ENSO y la distribución de clusters en distintas estaciones y años.
 
-* Se generó un **heatmap mensual por estación**, evidenciando patrones únicos de variación intra-anual por sitio.
-* Se cuantificó la **inestabilidad mensual** por estación (cambios de cluster entre meses consecutivos):
+---
+# Parte 3. Clustering Dinámico Estacional (Estación × Año × Estación del Año)
 
-| Estaciones más inestables              | Cambios mensuales totales |
-| -------------------------------------- | ------------------------- |
-| Est. 12°, Est. 13°, Est. 16°, Est. 17° | 75–89                     |
-| Est. 1°, Est. 2°, Est. 3°              | 35–45                     |
+En esta etapa se aplicó un análisis de clustering con mayor granularidad temporal: cada observación representa una combinación de **estación de monitoreo fija**, **año** y **estación del año** (primavera, verano, otoño, invierno). El objetivo fue identificar agrupaciones de comportamiento ambiental recurrentes en escalas **intra-anuales**, capturando efectos estacionales y transitorios.
 
-* Clasificación espacial:
+## Estructura de los datos y metodología
 
-  * **Alta inestabilidad (rojo):** norte-centro
-  * **Media (naranja):** centro
-  * **Baja (verde):** sur del Golfo
+Las variables incluidas en el clustering fueron:
 
-### Visualizaciones clave
+- TSM media y desviación estándar por estación del año
+- Chl a media y desviación estándar por estación del año
+- Índice ENSO (ONI) promedio por registro
 
-* **Mapa de inestabilidad mensual:** codificado por color y tamaño de círculo.
-* **Heatmap por estación y mes:** permite seguir la evolución clusterizada de cada estación a nivel mensual.
+Se aplicó escalado estándar y posteriormente K-Means con `k=4` para clasificar los perfiles estacionales. La asignación de clusters resultó en patrones diferenciados que se exploran a continuación.
 
-### Interpretación
+## Caracterización de los clusters estacionales
 
-* La escala mensual revela una **gran variabilidad ambiental incluso dentro del mismo año**.
-* Algunas estaciones (ej. Est. 12°) experimentan frecuentes cambios de régimen, lo que podría implicar una **mayor sensibilidad ambiental** o transición de masas de agua.
+| Cluster | TSM (°C) | Chl a (mg/m³) | ONI | Características |
+|--------:|----------|----------------|------|-----------------|
+| 0       | 24.0     | 2.41           | -0.30 | Intermedio-cálido con productividad alta |
+| 1       | 28.4     | 0.66           | -0.03 | Cálido, oligotrófico (probablemente verano) |
+| 2       | 20.7     | 1.51           | +0.73 | Frío y productivo (posiblemente invierno con Niño) |
+| 3       | 20.2     | 1.37           | -0.73 | Frío, menor productividad (posible Niña) |
+
+## Distribución por estación del año
+
+La siguiente gráfica muestra cómo se distribuyen los clusters entre estaciones del año:
+
+![Distribución de clusters por estación del año](d8671e5e-0a63-41b1-a1d6-80fd42045221.png)
+
+El **cluster 1**, caracterizado por temperaturas más altas y baja concentración de clorofila, domina en **verano y otoño**, mientras que **invierno y primavera** presentan una mayor variedad de condiciones.
+
+## Evolución estacional interanual
+
+En este gráfico se observa cómo los clusters estacionales evolucionan a lo largo de los años:
+
+![Evolución de clusters estacionales por año](fe0d9929-240f-4600-bb43-ae40fbc5ab77.png)
+
+Si bien hay cierta persistencia en algunos patrones (e.g., el cluster 1), también se detectan años con mayor presencia de clusters fríos (2 y 3), lo cual puede estar relacionado con eventos ENSO u otros factores climáticos.
+
+## Variabilidad espacio-temporal detallada
+
+El siguiente **heatmap** muestra cómo cambian los clusters estacionales en cada estación fija, año y estación del año:
+
+![Variabilidad por estación y temporada](d574f95f-589c-446e-933e-954bf9787a00.png)
+
+Se identifican estaciones con comportamientos más variables (e.g., Est 10° a 17°) y otras más estables (Est 1° a 5°). Estos patrones refuerzan la importancia de considerar la dimensión estacional además del año.
+
+## Estabilidad estacional por estación
+
+Se calculó el número total de **cambios de cluster entre estaciones del año**, por estación fija. Esto permite visualizar qué estaciones presentan mayor variabilidad **intra-anual**.
+
+![Mapa de inestabilidad estacional](89d0c7df-e5ad-49d0-9fca-9e94917108a3.png)
+
+- Las estaciones con **inestabilidad muy alta** (rojo) muestran más de 60 cambios estacionales en el periodo.
+- Las estaciones en verde muestran menor variación entre estaciones del año, a lo largo del tiempo.
+
+## Matriz de transición entre estaciones del año
+
+Se calculó la **frecuencia de transición** de un cluster a otro dentro del mismo año, entre estaciones consecutivas:
+
+| Cluster Actual → Siguiente | 0   | 1   | 2   | 3   |
+|----------------------------|-----|-----|-----|-----|
+| 0                          | 48  | 74  | 23  | 29  |
+| 1                          | 48  | 122 | 55  | 102 |
+| 2                          | 44  | 181 | 6   | 6   |
+| 3                          | 55  | 269 | 5   | 4   |
+
+La mayoría de las transiciones ocurren hacia el **cluster 1**, indicando que muchas estaciones tienden a entrar en condiciones cálidas y menos productivas a lo largo del año. El **cluster 2** tiene muy baja retención, posiblemente reflejando condiciones más inestables o transitorias.
 
 ---
 
-## Objetivo específico 3: Evaluar la estabilidad y transiciones entre clusters
+## Contribución a los objetivos específicos
 
-### Resultados
+✅ **Objetivo 1**: Se identifica variabilidad significativa intra-anual, revelando diferencias entre estaciones del año.  
+✅ **Objetivo 2**: Se complementa la regionalización con un enfoque **dinámico estacional**, más sensible a la variación temporal.  
+✅ **Objetivo 3**: Se asocian patrones estacionales con posibles fases del ENSO, reflejadas en los promedios del índice ONI por cluster.
 
-* Se calculó la **matriz de transición mensual**, es decir, la probabilidad de pasar de un cluster a otro en el siguiente mes:
+---
+# Parte 4. Clustering Dinámico Mensual (Estación × Año × Mes)
 
-| De / A | C0   | C1  | C2  | C3  |
-| ------ | ---- | --- | --- | --- |
-| C0     | 1533 | 43  | 176 | 115 |
-| C1     | 58   | 134 | 85  | 58  |
-| C2     | 182  | 97  | 714 | 12  |
-| C3     | 119  | 65  | 16  | 486 |
+Este análisis representa el nivel más detallado del proyecto, con una resolución temporal mensual. Cada observación está compuesta por una estación fija, un año y un mes. El objetivo es detectar con mayor precisión las variaciones ambientales de alta frecuencia y los cambios que podrían estar asociados a fenómenos de corto plazo.
 
-* Los clusters más estables son:
+## Variables consideradas
 
-  * **C0 (verano cálido):** 1533 repeticiones.
-  * **C2 (frío tipo Niña):** 714 repeticiones.
-* Las transiciones más comunes incluyen:
+- TSM mensual promedio
+- Clorofila a mensual promedio
+- ONI mensual (índice ENSO)
 
-  * **C2 → C0 (frío a cálido):** 182 veces.
-  * **C3 → C0 (primavera → verano):** 119 veces.
+Se aplicó escalado estándar y se usó K-Means con `k=4` para clasificar perfiles mensuales en función de estas variables.
 
-### Visualizaciones clave
+## Caracterización de clusters mensuales
 
-* **Matriz de transición normalizada.**
-* **Gráfico de evolución anual:** revela estacionalidad climática interanual.
+| Cluster | TSM (°C) | Chl a (mg/m³) | ONI | Interpretación posible |
+|--------:|----------|----------------|------|-------------------------|
+| 0       | 28.91    | 0.64           | -0.15 | Muy cálido, baja productividad |
+| 1       | 20.91    | 3.65           | -0.10 | Frío y altamente productivo |
+| 2       | 20.24    | 1.39           | -0.84 | Frío con productividad media, asociado a Niña |
+| 3       | 22.41    | 1.26           | +1.11 | Moderadamente cálido, posible influencia de Niño |
 
-### Interpretación
+## Heatmap mensual de variabilidad espacio-temporal
 
-* La transición entre **clusters de invierno (C1/C2)** hacia **verano (C0)** es regular y esperable.
-* La **estabilidad de C0 y C2** destaca patrones climáticos bien definidos en el Golfo de California.
-* El **Cluster 3** (asociado a fase Niño) presenta menor permanencia.
+La siguiente visualización muestra cómo varían los clusters mensuales en cada estación, año y mes:
+
+![Heatmap mensual](d47e474b-5641-42f5-ab8b-29afe834b4a2.png)
+
+Este nivel de resolución evidencia una alta dinámica mensual, especialmente en estaciones intermedias y sureñas.
+
+## Distribución mensual de clusters
+
+El siguiente gráfico muestra cómo se distribuyen los clusters a lo largo de los 12 meses del año:
+
+![Distribución mensual por cluster](15cb3a45-2e65-4711-ac31-8c3afa59f085.png)
+
+El **cluster 0** (cálido y poco productivo) domina en los meses de verano (julio-septiembre), mientras que el **cluster 1** (frío y productivo) predomina en los primeros meses del año.
+
+## Evolución anual de clusters mensuales
+
+Se agruparon los resultados por año para visualizar la evolución de los patrones mensuales agregados:
+
+![Evolución anual de clusters mensuales](07b43088-9bb4-40e0-813b-011b0f0ff344.png)
+
+Este análisis refleja eventos de cambio abrupto, como en 2015, y también una posible transición de regímenes en periodos multianuales.
+
+## Estabilidad mensual por estación
+
+Se cuantificaron los cambios de cluster de un mes a otro dentro de cada estación para evaluar inestabilidad:
+
+| Estación | Cambios Mensuales Totales |
+|----------|----------------------------|
+| Est 12°  | 89                         |
+| Est 13°  | 77                         |
+| Est 16°  | 77                         |
+| Est 17°  | 77                         |
+| ...      | ...                        |
+| Est 1°   | 36                         |
+
+En el siguiente mapa se clasifica el grado de **inestabilidad mensual** por estación:
+
+![Mapa de inestabilidad mensual](47caf905-eb06-48bd-848f-295fbc106669.png)
+
+- Verde: estaciones con menor variabilidad mensual
+- Rojo: estaciones con múltiples cambios mes a mes
+
+## Matriz de transición entre clusters mensuales
+
+Se estimó la frecuencia con la que las estaciones cambian de un cluster a otro de un mes al siguiente:
+
+| Cluster Actual → Siguiente | 0    | 1   | 2   | 3   |
+|----------------------------|------|-----|-----|-----|
+| 0                          | 1533 | 43  | 176 | 115 |
+| 1                          | 58   | 134 | 85  | 58  |
+| 2                          | 182  | 97  | 714 | 12  |
+| 3                          | 119  | 65  | 16  | 486 |
+
+Se observa que el **cluster 0** tiene una gran retención (persistencia estacional), mientras que el cluster 1 presenta una mayor movilidad hacia otros estados.
 
 ---
 
-## Conclusión general del análisis mensual
+## Contribución a los objetivos específicos
 
-El clustering mensual ofrece una visión **fina y altamente detallada** de la dinámica ambiental del Golfo de California. A diferencia del análisis anual o estacional, este enfoque permite:
-
-* Detectar **patrones intra-anuales** y eventos breves de transición.
-* Identificar estaciones **con alta variabilidad mes a mes**.
-* Evaluar cómo cambian los regímenes ambientales de **manera rápida y localizada**.
-
-Este enfoque mensual es útil para:
-
-* Estudios de **reclutamiento de especies**, productividad primaria, o detección de **anomalías climáticas rápidas**.
-* Fortalecer la planificación **pesquera o de conservación** con base en condiciones de alta resolución.
+✅ **Objetivo 1**: Este análisis permite caracterizar variabilidad mensual con precisión, observando ciclos cortos.  
+✅ **Objetivo 2**: Aporta una perspectiva alternativa de regionalización basada en perfiles dinámicos mensuales.  
+✅ **Objetivo 3**: Se identifican patrones que coinciden con eventos ENSO (e.g., alta prevalencia del cluster 3 con Niño).
 
 ---

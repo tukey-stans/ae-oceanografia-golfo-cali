@@ -1,25 +1,27 @@
 project:
   type: website
-  output-dir: docs
 
 website:
-  title: "Análisis Oceanográfico"
+  title: "Analisis Estadistico de Oceanografia del Golfo de California"
   navbar:
+    background: primary
     left:
       - text: "Inicio"
-        href: index.qmd
-      - text: "Metodología"
-        href: about.qmd
-      - text: "Datos"
-        href: data.qmd
-      - text: "Resultados"
-        href: resultados.qmd
-      - text: "Equipo"
-        href: team.qmd
-      - text: "Referencias"
-        href: references.qmd
-  page-navigation: true
-
+        file: index.qmd
+      - text: "Datos y Metodología"
+        file: 01_datos_metodologia.qmd
+      - text: "Clustering"
+        file: 02_clustering_ang.qmd
+      - text: "Frecuencias Dominantes"
+        file: 03_frecuencia_chuy.qmd
+      - text: "Gradiente Inverso"
+        file: 04_gradiente_fede.qmd
+      - text: "Modelo Prophet"
+        file: 05_prophet_manuel.qmd
+      - text: "PCA y Análisis Exploratorio"
+        file: 06_pca_elfer.qmd
+      - text: "Conclusiones"
+        file: 07_conclusiones.qmd
 execute:
   enabled: true
   echo: false  # show the code
