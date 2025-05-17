@@ -12,8 +12,8 @@ website:
         href: about.qmd
       - text: "Datos"
         href: data.qmd
-      - text: "Análisis"
-        href: analysis.qmd
+      - text: "Resultados"
+        href: resultados.qmd
       - text: "Equipo"
         href: team.qmd
       - text: "Referencias"
