@@ -1,72 +1,15 @@
 
 # Análisis de Clustering Espacio-Temporal
 
-# Preparación e Integración de Datos para Análisis Espacio-Temporal
+---
 
-## 1. Descripción de los Datos Originales
+### Preparación e Integración de Datos
 
-Se trabajó con cuatro fuentes principales de datos:
+Se trabajó con cuatro fuentes principales: datos mensuales de Temperatura Superficial del Mar (TSM, 1981–2018), Clorofila a (Chl a, 1997–2018), coordenadas de 17 estaciones de medición, e índice ENSO (ONI) de NOAA.
 
-* **Temperatura Superficial del Mar (TSM)**: Datos mensuales por estación de monitoreo para el periodo 1981–2018.
-* **Clorofila a (Chl a)**: Datos mensuales por estación para el periodo 1997–2018.
-* **Coordenadas de estaciones**: Posiciones geográficas (latitud y longitud) de 17 estaciones distribuidas en la zona costera occidental del Golfo de California.
-* **Índice ONI (Oceanic Niño Index)**: Serie temporal trimestral estandarizada de NOAA para identificar eventos ENSO (Niño, Niña, Neutro).
+Los datos fueron reorganizados en formato largo (una fila por estación, mes y año), se unieron las variables físicas con ubicación geográfica, y se enriquecieron con una clasificación mensual de eventos ENSO (Niño, Niña o Neutro). El resultado fue un único dataset con información temporal, espacial y climática para cada observación mensual.
 
-## 2. Transformación y Enriquecimiento de los Datos
-
-### 2.1 Estructura Longitudinal de TSM y Chl a
-
-Para facilitar análisis multivariados y temporales, los datasets de TSM y Chl a se reestructuraron de formato ancho a formato largo. En esta estructura, cada fila representa una única observación por estación, mes y año. Se incluyeron variables auxiliares como:
-
-* Año y mes de medición
-* Estación del año (Primavera, Verano, Otoño, Invierno)
-* Clasificación de evento interanual (Niño, Niña o Neutro, original del dataset)
-
-### 2.2 Unión de Variables Oceanográficas
-
-Se realizó una unión por claves comunes entre TSM y Chl a, consolidando las observaciones por estación y fecha en un único dataframe (`data_long`).
-
-### 2.3 Asociación Geoespacial
-
-Mediante un mapeo explícito de nombres, se incorporaron las coordenadas geográficas (latitud y longitud) a cada estación, asegurando la disponibilidad de variables espaciales para posteriores análisis geoespaciales y de clustering.
-
-### 2.4 Enriquecimiento con ENSO a Nivel Mensual
-
-El índice ONI original se encontraba a nivel trimestral. Para convertirlo a un formato mensual, se definió una estrategia de expansión: cada trimestre se descompuso en los meses correspondientes, asignando el mismo valor de ONI.
-
-Posteriormente, se clasificó cada valor mensual de ONI como:
-
-* **Niño**: ONI ≥ 0.5
-* **Niña**: ONI ≤ -0.5
-* **Neutro**: -0.5 < ONI < 0.5
-
-Esta clasificación fue incorporada como variable `ENSO_CLASE`.
-
-## 3. Consolidación Final del Dataset
-
-El dataframe final (`data_final_common`) resultó de unir la información enriquecida de TSM, Chl a, coordenadas y ENSO. Este dataset cuenta con la siguiente estructura para cada observación mensual por estación:
-
-* **Variables temporales**: Año, mes (nombre y número), estación del año
-* **Variables físicas**: TSM, Chl a
-* **Variables espaciales**: Latitud, longitud, estación de medición
-* **Información ENSO**: Valor ONI y su clasificación (Niño, Niña, Neutro)
-
-Ejemplo de observaciones:
-
-```plaintext
-| FECHA      | AÑO  | MES     | ESTACIÓN DEL AÑO | estacion | TSM     | Chla   | lon    | lat  | MES_NUM | ONI | ENSO_CLASE |
-|------------|------|---------|------------------|----------|---------|--------|--------|------|---------|-----|-------------|
-| 2018-10-01 | 2018 | Octubre | Otoño            | Est 1°   | 29.91   | 0.15   | -109.3 | 23.8 | 10      | 0.5 | Niño        |
-| 2018-10-01 | 2018 | Octubre | Otoño            | Est 2°   | 29.77   | 0.17   | -109.7 | 24.2 | 10      | 0.5 | Niño        |
-```
-
-## 4. Justificación Metodológica
-
-Esta etapa fue esencial para cumplir los tres objetivos específicos del proyecto, ya que:
-
-* Permite analizar la variabilidad temporal y espacial de TSM y Chl a, con integración completa de ENSO como variable explicativa.
-* Habilita análisis de clustering geoespacial y temporal para regionalizar dinámicamente el Golfo de California.
-* Establece una base robusta para explorar relaciones entre ENSO y cambios en la productividad marina.
+Este proceso permitió preparar la base de datos para análisis espacio-temporales como clustering, detección de patrones y evaluación del impacto de ENSO en la región.
 
 ---
 
