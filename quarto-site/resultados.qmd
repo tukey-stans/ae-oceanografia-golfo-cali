@@ -1,0 +1,155 @@
+---
+title: "Análisis de Clustering Espacio-Temporal en el Golfo de California"
+format: html
+toc: true
+number-sections: true
+page-layout: full
+---
+
+## Objetivo del Análisis
+
+Este estudio forma parte del proyecto:  
+**“Análisis de la variabilidad ambiental y dinámica oceanográfica espacio-temporal de la zona costera occidental del Golfo de California”**.
+
+Se enfoca específicamente en el cumplimiento de los siguientes **objetivos específicos** mediante técnicas de *clustering* y análisis multivariado:
+
+1. Determinar la variabilidad de la Temperatura Superficial del Mar (TSM) y de Clorofila a (Chl a) y sus principales frecuencias de variación.
+2. Establecer una regionalización funcional del Golfo basada en TSM y Chl a.
+3. Analizar el impacto interanual, estacional e intranual del fenómeno ENSO (El Niño–La Niña) en dichas variables.
+
+---
+
+## 1. Preparación e Integración de Datos
+
+### 1.1 Datos Utilizados
+
+Se trabajó con cuatro fuentes principales:
+
+- **TSM mensual (1981–2018)**  
+- **Chl a mensual (1997–2018)**  
+- **Coordenadas de estaciones** (latitud, longitud)  
+- **Índice ONI (trimestral, convertido a mensual)**
+
+### 1.2 Transformaciones Aplicadas
+
+- Estandarización a formato largo (por estación, mes, año).
+- Categorización de eventos ENSO a nivel mensual.
+- Unión espacial (lat/lon) y temporal de TSM, Chl a y ONI.
+- Generación de variables auxiliares: estación del año, número de mes, clasificación ENSO (`ENSO_CLASE`).
+
+El dataset final (`data_final`) contiene observaciones mensuales por estación, con variables ambientales y climáticas listas para análisis multivariado y clustering.
+
+---
+
+## 2. Clustering por Estación (Global Fijo)
+
+### Objetivos Atendidos
+- Variabilidad ambiental (Obj. 1)
+- Regionalización funcional (Obj. 2)
+- Relación con ENSO (Obj. 3)
+
+### Resultados Relevantes
+
+- Análisis de estacionalidad muestra patrones consistentes con el ciclo solar.
+- TSM con máximos en verano e invierno mínimo; Chl a muestra el patrón opuesto.
+- Tendencia a la baja en Chl a y al alza en TSM.
+- **KMeans (K=4)** agrupó estaciones en cuatro zonas oceanográficas:
+
+| Cluster | TSM | Chla | Descripción                         |
+|--------|------|------|-------------------------------------|
+| 0 | 23.0 °C | 2.0 | **Norte productivo** |
+| 1 | 25.0 °C | 0.8 | **Centro cálido** |
+| 2 | 23.5 °C | 1.4 | **Franja intermedia** |
+| 3 | 26.0 °C | 0.5 | **Sur cálido oligotrófico** |
+
+### Interpretación
+
+- El gradiente norte-sur es claro: más frío y productivo al norte.
+- La disminución en Chl a sugiere posibles efectos de calentamiento o estratificación.
+
+---
+
+## 3. Clustering Dinámico Anual (Interanual)
+
+### Objetivos Atendidos
+- Variabilidad interanual (Obj. 1)
+- Regionalización espacio-temporal (Obj. 2)
+- Impacto de ENSO (Obj. 3)
+
+### Resultados Relevantes
+
+| Cluster | TSM | Chla | ONI | Descripción |
+|--------|------|------|------|-------------|
+| 0 | 23.2 °C | 2.37 | -0.06 | Frío y productivo |
+| 1 | 24.8 °C | 0.90 | -0.65 | La Niña |
+| 2 | 23.5 °C | 1.57 | -0.07 | Neutro |
+| 3 | 25.9 °C | 0.69 | +0.20 | El Niño |
+
+- Boxplots evidencian progresión fría-productiva → cálido-oligotrófico.
+- Años dominados por El Niño muestran condiciones del Cluster 3.
+
+### Estabilidad por Estación
+
+- Estaciones como Est. 9° cambiaron de cluster más de 14 veces.
+- Est. 11° y Est. 14° mostraron alta estabilidad.
+
+---
+
+## 4. Clustering Mensual por Estación y Mes (Espacio-Temporal Fino)
+
+### Objetivos Atendidos
+- Variabilidad mensual detallada (Obj. 1)
+- Regionalización espacio-temporal dinámica (Obj. 2)
+- Estacionalidad y transición por ENSO (Obj. 3)
+
+### Resultados Relevantes
+
+| Cluster | TSM | Chla | ONI | Descripción |
+|--------|------|------|------|-------------|
+| 0 | 28.9 °C | 0.64 | -0.15 | Verano extremo |
+| 1 | 20.9 °C | 3.65 | -0.10 | Invierno productivo |
+| 2 | 20.2 °C | 1.39 | -0.83 | Frío – La Niña |
+| 3 | 22.4 °C | 1.26 | +1.10 | Primavera – Niño |
+
+- El cluster veraniego (C0) domina entre julio-septiembre.
+- El cluster invernal (C1) en enero-marzo.
+- El cluster Niño (C3) en primavera.
+
+### Inestabilidad por Estación
+
+- Estaciones como Est. 12°, Est. 13° y Est. 16° cambiaron más de 80 veces.
+- El sur del golfo fue más estable (menos cambios mensuales).
+
+---
+
+## 5. Matriz de Transición Mensual
+
+| De / A | C0 | C1 | C2 | C3 |
+|--------|----|----|----|----|
+| C0 | 1533 | 43 | 176 | 115 |
+| C1 | 58 | 134 | 85 | 58 |
+| C2 | 182 | 97 | 714 | 12 |
+| C3 | 119 | 65 | 16 | 486 |
+
+- Clusters más estables: **C0 (verano)** y **C2 (La Niña)**.
+- Transiciones comunes: **C2 → C0** y **C3 → C0**.
+
+---
+
+## Conclusiones Generales
+
+- El clustering fijo permitió regionalizar el Golfo con base en promedios históricos.
+- Los análisis dinámicos (anual y mensual) capturaron variaciones inducidas por ENSO y cambios intra-anuales.
+- La estacionalidad, el ENSO y la ubicación geográfica explican gran parte de la dinámica ambiental observada.
+- Este enfoque es valioso para monitoreo ambiental, estudios de productividad marina y gestión pesquera basada en condiciones oceanográficas de alta resolución.
+
+---
+
+## Próximos Pasos Recomendados
+
+- Aplicar clustering jerárquico a perfiles temporales para evaluar persistencias temporales.
+- Estudiar correlaciones entre Chl a y TSM para detectar relaciones causa-efecto.
+- Implementar modelos predictivos de clase de cluster en función de ONI y mes.
+
+---
+
