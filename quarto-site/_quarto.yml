@@ -2,13 +2,15 @@ project:
   type: website
 
 website:
-  title: "Analisis Estadistico de Oceanografia del Golfo de California"
+  title: "Análisis Estadístico del Golfo de California"
+  site-url: "https://github.com/tukey-stans/ae-oceanografia-golfo-cali"
+  favicon: img/logo.png  # (opcional) Ícono de la pestaña del navegador
   navbar:
-    background: primary
+    logo: img/logo.png  # Logo institucional, por ejemplo de UNISON o el curso
     left:
       - text: "Inicio"
         file: index.qmd
-      - text: "Datos y Metodología"
+      - text: "Datos"
         file: 01_datos_metodologia.qmd
       - text: "Clustering"
         file: 02_clustering_ang.qmd
@@ -18,7 +20,7 @@ website:
         file: 04_gradiente_fede.qmd
       - text: "Modelo Prophet"
         file: 05_prophet_manuel.qmd
-      - text: "PCA y Análisis Exploratorio"
+      - text: "PCA"
         file: 06_pca_elfer.qmd
       - text: "Conclusiones"
         file: 07_conclusiones.qmd

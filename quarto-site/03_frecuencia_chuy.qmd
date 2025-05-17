@@ -41,13 +41,13 @@ Usamos datos agregados por mes (o por año) combinando todas las estaciones, par
 - Para **Chl a**, usamos datos desde enero de 1997 hasta diciembre de 2018.
 
     
-![png](quarto-site/img/clusterso/otro_eda_files/otro_eda_12_0.png)
+![png](img/otro_eda_files/otro_eda_12_0.png)
     
 
 
 
     
-![png](quarto-site/img/clusterso/otro_eda_files/otro_eda_12_1.png)
+![png](img/otro_eda_files/otro_eda_12_1.png)
     
 
 
@@ -72,7 +72,7 @@ Una vez identificadas las frecuencias principales a nivel regional, más adelant
 
 
     
-![png](quarto-site/img/clusterso/otro_eda_files/otro_eda_13_0.png)
+![png](img/otro_eda_files/otro_eda_13_0.png)
     
 
 
@@ -202,7 +202,7 @@ Aplicamos el periodograma sobre la serie temporal de cada estación, tanto para 
 
 
     
-![png](quarto-site/img/clusterso/otro_eda_files/otro_eda_22_0.png)
+![png](img/otro_eda_files/otro_eda_22_0.png)
     
 
 
