@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>TSM por Cluster – Análisis Estadístico del Golfo de California</title>
+<title>prophet_manuel – Análisis Estadístico del Golfo de California</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -140,38 +140,77 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#chla-por-cluster" id="toc-chla-por-cluster" class="nav-link active" data-scroll-target="#chla-por-cluster">CHLa por CLuster</a></li>
+  <li><a href="#modelo-prophet-para-la-estacionalidad-de-la-tsm-y-chla" id="toc-modelo-prophet-para-la-estacionalidad-de-la-tsm-y-chla" class="nav-link active" data-scroll-target="#modelo-prophet-para-la-estacionalidad-de-la-tsm-y-chla">Modelo Prophet para la Estacionalidad de la TSM y CHLa</a>
+  <ul class="collapse">
+  <li><a href="#modelos-de-tsm-por-cluster" id="toc-modelos-de-tsm-por-cluster" class="nav-link" data-scroll-target="#modelos-de-tsm-por-cluster">Modelos de TSM por Cluster</a></li>
+  <li><a href="#modelos-de-chla-por-cluster" id="toc-modelos-de-chla-por-cluster" class="nav-link" data-scroll-target="#modelos-de-chla-por-cluster">Modelos de CHLa por Cluster</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">TSM por Cluster</h1>
+
+
+
+<section id="modelo-prophet-para-la-estacionalidad-de-la-tsm-y-chla" class="level1">
+<h1>Modelo Prophet para la Estacionalidad de la TSM y CHLa</h1>
+<hr>
+<p>Se usó Prophet para obtener varios modelos en series de tiempo e intentar notar cierto patrón de estacionalidad.</p>
+<section id="modelos-de-tsm-por-cluster" class="level2">
+<h2 class="anchored" data-anchor-id="modelos-de-tsm-por-cluster">Modelos de TSM por Cluster</h2>
+<p>Se decidió calcular un modelo para las mediciones de cada uno de los Clusters. A continuación podemos ver los ajustes para la temperatura.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/prophet/cluster_tsm.png" class="img-fluid figure-img"></p>
+<figcaption>Modelos de Prophet de TSM por Cluster</figcaption>
+</figure>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<p>A simple vista no parece haber otro patrón más que el de las estaciones anuales. Sin embargo, se hizo un análisis de las tendencias, tanto generales como anuales.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/prophet/cluster_TSM_trend_general.png" class="img-fluid figure-img"></p>
+<figcaption>Tendencias Generales de Temperatura por Cluster</figcaption>
+</figure>
+</div>
 <p>Parece ser que, a lo largo de los años, la temperatura ha tendido a aumentar. En el Cluster 0 puede verse un aumento estable y constante, mientras que en los demás se nota una tendencia fluctuante, aunque generalmente en aumento.</p>
-<section id="chla-por-cluster" class="level1">
-<h1>CHLa por CLuster</h1>
-<p>Los Cluster 0 y 2 muestran una tendencia en disminución a lo largo de los años, mientras que los Cluster 1 y 3 muestran una tendencia en incremento. Sin embargo, la tendencia a lo largo de los meses indica que hay una constante disminución de CHLa alrededor del día 17 de cada mes. Esto coíncide con el incremento de temperatura en la tendencia de esos mismos días del mes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/prophet/cluster_TSM_trend_anual.png" class="img-fluid figure-img"></p>
+<figcaption>Tendencias Anuales de Temperatura por Cluster</figcaption>
+</figure>
+</div>
+<p>Anualmente, vemos el patrón de las estaciones mencionado anteriormente, pero no se ve ningún otro patrón relevante. Debido a que los cambios entre eventos de Niño, Niña o Neutro suelen variar y a veces tardar más de un año, este tipo de comportamiento no se aprecia en un analisis anual.</p>
+</section>
+<section id="modelos-de-chla-por-cluster" class="level2">
+<h2 class="anchored" data-anchor-id="modelos-de-chla-por-cluster">Modelos de CHLa por Cluster</h2>
+<p>De la misma manera, se hizo un modelo por Cluster ara las mediciones de CHLa.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/prophet/cluster_chla.png" class="img-fluid figure-img"></p>
+<figcaption>Modelos de Prophet de CHLa por Cluster</figcaption>
+</figure>
+</div>
+<p>De manera similar a los modelos de TSM, parece no haber patrón además de el de las estaciones del año. No obstante, son notables los valores atípicos cada año cuando hay un incremento en la medición de CHLa. Esto no se nota en los periodos de CHLa baja. A continuación vemos el análisis de las tendencias generales y anuales.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/prophet/cluster_CHLa_trend_general.png" class="img-fluid figure-img"></p>
+<figcaption>Modelos de Prophet de CHLa por Cluster</figcaption>
+</figure>
+</div>
+<p>Los Cluster 0 y 2 muestran una tendencia en disminución a lo largo de los años, mientras que los Cluster 1 y 3 muestran una tendencia en incremento.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/prophet/cluster_CHLa_trend_anual.png" class="img-fluid figure-img"></p>
+<figcaption>Modelos de Prophet de CHLa por Cluster</figcaption>
+</figure>
+</div>
+<p>Anualmente, vemos que en los meses de julio y agosto hay niveles considerablemente bajos de CHLa. Coincide con los meses de alta temperatura, dando evidencia a favor de la relación inversamente proporcional entre la temperatura y los niveles de CHLa.</p>
+<p>Se puede ver también que los valores de altos niveles de CHLa son algo fluctuantes. Coincide con las primeras gráficas que vimos donde se expone el modelo completo. Parece que, en los periodos de altos niveles de CHLa, hay muchos valores atípicos. Esto puede indicarnos que, aunque las bajas temperaturas son necesarias para los altos niveles de CHLa, no son el único factor a considerar. Es decir, altas temperaturas parecen predecir un valor bajo de CHLa, pero las bajas temperaturas no son suficientes para predecir el nivel de CHLa a esperar.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
