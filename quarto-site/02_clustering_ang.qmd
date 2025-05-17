@@ -91,13 +91,13 @@ Las variables fueron estandarizadas y se aplicó el algoritmo **KMeans con k = 4
 
 Se utilizó el **método del codo** para determinar el valor óptimo de `k`, observando el punto de inflexión en la gráfica de inercia.
 
-![Método del codo para determinar número óptimo de clusters](fig1_codo.png)
+![Método del codo para determinar número óptimo de clusters](img/cluster/fig1_codo.png)
 
 ## Resultados del agrupamiento
 
 El algoritmo KMeans agrupó las estaciones en 4 clusters geográficamente coherentes. El siguiente mapa muestra la ubicación de las estaciones coloreadas por cluster asignado:
 
-![Mapa con distribución espacial de clusters](fig2_mapa_clusters.png)
+![Mapa con distribución espacial de clusters](img/cluster/fig2_mapa_clusters.png)
 
 ## Caracterización de los clusters
 
@@ -119,11 +119,11 @@ Se analizó cómo se comportan TSM y Chl a en cada cluster dependiendo de la fas
 
 ### TSM por ENSO y Cluster
 
-![Boxplot de TSM por ENSO y Cluster](fig3_boxplot_tsm_enso.png)
+![Boxplot de TSM por ENSO y Cluster](img/cluster/fig3_boxplot_tsm_enso.png)
 
 ### Clorofila a por ENSO y Cluster
 
-![Boxplot de Chl a por ENSO y Cluster](fig4_boxplot_chla_enso.png)
+![Boxplot de Chl a por ENSO y Cluster](img/cluster/fig4_boxplot_chla_enso.png)
 
 ## Estacionalidad mensual por cluster
 
@@ -131,11 +131,11 @@ Se calcularon promedios mensuales por cluster para TSM y Clorofila a:
 
 ### Estacionalidad de TSM
 
-![Estacionalidad de TSM por mes y cluster](fig5_tsm_mensual_cluster.png)
+![Estacionalidad de TSM por mes y cluster](img/cluster/fig5_tsm_mensual_cluster.png)
 
 ### Estacionalidad de Chl a
 
-![Estacionalidad de Clorofila a por mes y cluster](fig6_chla_mensual_cluster.png)
+![Estacionalidad de Clorofila a por mes y cluster](img/cluster/fig6_chla_mensual_cluster.png)
 
 ## Tendencias interanuales por cluster
 
@@ -143,11 +143,11 @@ Se calcularon promedios anuales de TSM y Chla por cluster para observar tendenci
 
 ### TSM promedio por año
 
-![Tendencia de TSM por año y cluster](fig7_tsm_interanual_cluster.png)
+![Tendencia de TSM por año y cluster](img/cluster/fig7_tsm_interanual_cluster.png)
 
 ### Chl a promedio por año
 
-![Tendencia de Chl a por año y cluster](fig8_chla_interanual_cluster.png)
+![Tendencia de Chl a por año y cluster](img/cluster/fig8_chla_interanual_cluster.png)
 
 ## Contribución a los objetivos del proyecto
 
@@ -178,7 +178,7 @@ Posteriormente, se estandarizaron las variables y se aplicó el algoritmo **KMea
 
 Se analizaron las frecuencias de asignación por cluster a lo largo del periodo. El siguiente gráfico muestra el número de estaciones clasificadas en cada cluster por año:
 
-![Distribución de clusters por año](fig9_clusters_anio.png)
+![Distribución de clusters por año](img/cluster/fig9_clusters_anio.png)
 
 Se observa una dinámica compleja en la que algunos clusters aumentan su frecuencia en años específicos, lo que podría reflejar condiciones ambientales dominantes.
 
@@ -186,7 +186,7 @@ Se observa una dinámica compleja en la que algunos clusters aumentan su frecuen
 
 Se construyó un **heatmap** que permite visualizar, por estación, cómo ha cambiado su clasificación de cluster entre años:
 
-![Heatmap de evolución por estación](fig10_evolucion_estaciones.png)
+![Heatmap de evolución por estación](img/cluster/fig10_evolucion_estaciones.png)
 
 Este gráfico permite detectar estaciones con **alta estabilidad interanual** (pocos cambios de cluster) y otras con **alta inestabilidad**, es decir, estaciones cuyas condiciones oceanográficas cambian sustancialmente entre años.
 
@@ -194,7 +194,7 @@ Este gráfico permite detectar estaciones con **alta estabilidad interanual** (p
 
 Se calculó el número de veces que una estación cambió de cluster entre años consecutivos:
 
-![Mapa de inestabilidad anual](fig11_mapa_inestabilidad_anual.png)
+![Mapa de inestabilidad anual](img/cluster/fig11_mapa_inestabilidad_anual.png)
 
 * Estaciones en rojo: alta inestabilidad (más de 10 cambios).
 * Estaciones en verde: mayor estabilidad interanual.
@@ -221,7 +221,7 @@ Esta tabla revela que:
 
 Se clasificaron los años como Niño, Neutro o Niña según el promedio anual de ONI. Se graficó el conteo de estaciones por cluster para cada tipo de evento:
 
-![Distribución de clusters por fase ENSO](fig12_clusters_fase_enso.png)
+![Distribución de clusters por fase ENSO](img/cluster/fig12_clusters_fase_enso.png)
 
 Aunque no hay una relación estricta, se observa que:
 
@@ -243,7 +243,7 @@ Aunque no hay una relación estricta, se observa que:
 
 Se estimó la cantidad de años consecutivos que una estación permaneció en el mismo cluster:
 
-![Duración promedio por estación](fig13_duracion_promedio.png)
+![Duración promedio por estación](img/cluster/fig13_duracion_promedio.png)
 
 Las estaciones con mayor duración (más de 5 años en el mismo cluster) presentan condiciones relativamente estables en el tiempo.
 
@@ -289,7 +289,7 @@ Se identificaron cuatro perfiles dominantes:
 
 La siguiente gráfica muestra cómo se distribuyen los clusters en cada una de las estaciones del año:
 
-![Distribución de clusters por estación del año](fig14_clusters_estaciones_ano.png)
+![Distribución de clusters por estación del año](img/cluster/fig14_clusters_estaciones_ano.png)
 
 Se observa que:
 
@@ -300,7 +300,7 @@ Se observa que:
 
 El siguiente gráfico muestra cómo han cambiado los clusters estacionales a lo largo del tiempo:
 
-![Evolución de clusters estacionales por año](fig15_clusters_estacionales_tiempo.png)
+![Evolución de clusters estacionales por año](img/cluster/fig15_clusters_estacionales_tiempo.png)
 
 Esta vista permite analizar la frecuencia de cada condición ambiental por estación del año a lo largo del periodo.
 
@@ -308,7 +308,7 @@ Esta vista permite analizar la frecuencia de cada condición ambiental por estac
 
 En el siguiente heatmap se muestra cómo ha cambiado el cluster asignado en cada `(estación, año, estación del año)`:
 
-![Heatmap estacional por estación](fig16_heatmap_estacional.png)
+![Heatmap estacional por estación](img/cluster/fig16_heatmap_estacional.png)
 
 Este análisis revela que estaciones del norte (Est 1° a Est 5°) presentan menor variabilidad, mientras que las estaciones del centro y sur tienen mayor dinamismo.
 
@@ -316,7 +316,7 @@ Este análisis revela que estaciones del norte (Est 1° a Est 5°) presentan men
 
 Se calculó el número total de **cambios de cluster entre estaciones del año** para cada estación geográfica:
 
-![Mapa de inestabilidad estacional](fig17_mapa_estacional.png)
+![Mapa de inestabilidad estacional](img/cluster/fig17_mapa_estacional.png)
 
 * Estaciones en rojo: más de 60 cambios estacionales.
 * Estaciones en verde: menor inestabilidad intra-anual.
@@ -374,7 +374,7 @@ Las variables fueron estandarizadas. Posteriormente, se aplicó **KMeans** con `
 
 El siguiente gráfico presenta la variación de los clusters mes a mes para cada estación geográfica:
 
-![Heatmap mensual](fig18_heatmap_mensual.png)
+![Heatmap mensual](img/cluster/fig18_heatmap_mensual.png)
 
 Este análisis revela alta dinámica, especialmente en las estaciones del centro y sur del Golfo de California.
 
@@ -382,7 +382,7 @@ Este análisis revela alta dinámica, especialmente en las estaciones del centro
 
 Se visualizó cómo se distribuyen los clusters a lo largo de los 12 meses del año:
 
-![Distribución mensual por cluster](fig19_distribucion_mes.png)
+![Distribución mensual por cluster](img/cluster/fig19_distribucion_mes.png)
 
 * El **cluster 0** predomina en verano.
 * El **cluster 1** es más frecuente durante los meses invernales.
@@ -391,7 +391,7 @@ Se visualizó cómo se distribuyen los clusters a lo largo de los 12 meses del a
 
 Se agruparon los datos por año para evaluar la evolución de las condiciones ambientales promedio:
 
-![Evolución anual de clusters mensuales](fig20_clusters_anuales_mensuales.png)
+![Evolución anual de clusters mensuales](img/cluster/fig20_clusters_anuales_mensuales.png)
 
 El gráfico permite detectar eventos abruptos o cambios multianuales, como transiciones post-ENSO.
 
@@ -412,7 +412,7 @@ Se contabilizaron los cambios de cluster entre meses consecutivos para cada esta
 
 Visualmente, se presenta en el siguiente mapa:
 
-![Mapa de inestabilidad mensual](fig21_mapa_inestabilidad_mensual.png)
+![Mapa de inestabilidad mensual](img/cluster/fig21_mapa_inestabilidad_mensual.png)
 
 * Rojo: estaciones con mayor inestabilidad.
 * Verde: estaciones con patrones más estables mes a mes.

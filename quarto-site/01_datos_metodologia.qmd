@@ -1,0 +1,80 @@
+# Datos y Metodología
+
+## Área de estudio
+
+La zona costera occidental del Golfo de California es una región altamente dinámica y productiva, con influencia de procesos oceanográficos complejos como mareas, surgencias, vientos y radiación solar. Es un mar marginal semicerrado de \~240,000 km², con una longitud promedio de 1,400 km y un ancho de 150–200 km. Esta zona presenta una de las mayores biodiversidades marinas del planeta, lo que la convierte en una región clave para entender la variabilidad ambiental.
+
+## Periodo de estudio
+
+* **TSM (Temperatura Superficial del Mar):** 1981–2018
+* **Chl a (Clorofila a):** 1997–2018
+
+## Fuentes de datos
+
+| Variable    | Descripción                                            |
+| ----------- | ------------------------------------------------------ |
+| TSM         | Temperatura superficial del mar (mensual por estación) |
+| Chl a       | Concentración de clorofila a (mensual por estación)    |
+| Coordenadas | Ubicación geográfica de estaciones de monitoreo        |
+| ONI         | Índice Niño Oceánico (ENSO) a nivel trimestral de NOAA |
+
+## Preparación e Integración de Datos para Análisis Espacio-Temporal
+
+### 1. Descripción de los Datos Originales
+
+Se trabajó con cuatro fuentes principales de datos:
+
+* **TSM**: Datos mensuales por estación (1981–2018).
+* **Chl a**: Datos mensuales por estación (1997–2018).
+* **Coordenadas de estaciones**: Ubicación geográfica de 17 estaciones en la zona costera occidental del Golfo de California.
+* **Índice ONI**: Serie trimestral de anomalías de temperatura para eventos ENSO (Niño, Niña, Neutro).
+
+### 2. Transformación y Enriquecimiento de los Datos
+
+#### 2.1 Reestructuración Longitudinal
+
+Se transformaron los datasets de TSM y Chl a a formato largo para permitir análisis multivariados. Se agregaron variables auxiliares: año, mes, estación climática y categoría ENSO.
+
+#### 2.2 Unión de Variables
+
+Se unificaron TSM y Chl a por estación y fecha, y se incorporaron coordenadas geográficas para análisis geoespaciales.
+
+#### 2.3 Expansión del Índice ENSO
+
+El índice ONI trimestral fue expandido a mensual. Se clasificó cada valor mensual de ONI como Niño (≥0.5), Niña (≤-0.5) o Neutro.
+
+#### 2.4 Dataset Consolidado
+
+Se consolidaron todas las variables en un único dataframe (`data_final_common`) con la siguiente estructura:
+
+* Temporales: Año, mes, estación del año
+* Físicas: TSM, Chl a
+* Espaciales: Latitud, longitud, estación
+* ENSO: ONI mensual y clasificación
+
+Ejemplo:
+
+```plaintext
+| FECHA      | AÑO  | MES     | ESTACIÓN | TSM   | Chl a | ONI | ENSO_CLASE |
+|------------|------|---------|----------|-------|-------|-----|-------------|
+| 2018-10-01 | 2018 | Octubre | Est 1°   | 29.91 | 0.15  | 0.5 | Niño        |
+```
+
+### 3. Justificación Metodológica
+
+* Permite analizar variabilidad espacio-temporal.
+* Incorpora ENSO como factor explicativo.
+* Establece la base para clustering y análisis espectral.
+
+### 4. Complemento de Análisis Exploratorio
+
+Se realizó análisis inicial de frecuencia, tendencias, periodogramas globales y por estación para identificar ciclos dominantes (anuales, semestrales, multianuales) en TSM y Chl a. Esto sirvió para guiar la selección de técnicas de agrupamiento y validación temporal.
+
+### 5. Técnicas de Análisis Aplicadas
+
+* **Clustering KMeans**: aplicado en 4 escalas: regional fijo, dinámico interanual, estacional y mensual.
+* **Análisis espectral**: periodograma para detección de ciclos dominantes.
+* **PCA**: para evaluación de patrones multivariados por fase ENSO.
+* **Pruebas estadísticas (ANOVA, Kruskal-Wallis)**: para evaluar diferencias por fase ENSO en grupos temporales y espaciales.
+
+Esta metodología permite cubrir los tres objetivos específicos del estudio, integrando el análisis espacio-temporal de las variables TSM y Chl a con la influencia del fenómeno ENSO de forma sólida y replicable.

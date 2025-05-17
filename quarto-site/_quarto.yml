@@ -12,15 +12,15 @@ website:
         file: index.qmd
       - text: "Datos"
         file: 01_datos_metodologia.qmd
-      - text: "Clustering"
-        file: 02_clustering_ang.qmd
       - text: "Frecuencias Dominantes"
         file: 03_frecuencia_chuy.qmd
-      - text: "Gradiente Inverso"
+      - text: "Análisis Local"
         file: 04_gradiente_fede.qmd
+      - text: "Clustering"
+        file: 02_clustering_ang.qmd
       - text: "Modelo Prophet"
         file: 05_prophet_manuel.qmd
-      - text: "PCA"
+      - text: "ENSO y Variabilidad"
         file: 06_pca_elfer.qmd
       - text: "Conclusiones"
         file: 07_conclusiones.qmd
@@ -32,7 +32,7 @@ execute:
 
 format:
   html:
-    theme: cosmo
+    theme: sandstone
     toc: true
 
 

@@ -1,16 +1,24 @@
----
-title: "Inicio"
-format: html
----
 
-# Consultoría Estadística Aplicada a Oceanografía
+<h1 style="text-align: center;">Análisis Estadístico del Golfo de California</h1>
 
-Bienvenidos al sitio del proyecto **Análisis de la variabilidad ambiental y dinámica oceanográfica del Golfo de California**. Aquí compartimos resultados de nuestra consultoría estadística, con enfoque en datos satelitales de **Temperatura Superficial del Mar (TSM)** y **Clorofila a (Chl a)**.
+![](img/portada.png)
 
-**Justificación**  
-El monitoreo a largo plazo del océano es clave para entender y predecir cambios ecosistémicos. Analizar la zona costera occidental del Golfo de California permite detectar tendencias vinculadas a procesos oceanográficos y climáticos como El Niño y La Niña.
+## Justificación
 
-**Hipótesis**  
-La variabilidad observada en esta región está influenciada por la dinámica del Pacífico y su ubicación geográfica, generando patrones espacio-temporales complejos a distintas escalas.
+Las observaciones de largo plazo en ambientes marinos permiten entender y predecir cambios en los ecosistemas. Este tipo de análisis es crucial para implementar estrategias de manejo sostenible. En particular, la zona costera occidental del Golfo de California presenta una alta productividad biológica y es sensible a variaciones ambientales, como las generadas por El Niño y La Niña.
 
-[Explora la metodología →](about.qmd)
+Comprender la dinámica de variables como la Temperatura Superficial del Mar (TSM) y la Clorofila a (Chl a) nos ayuda a identificar patrones que influyen en los recursos marinos y su variabilidad espacio-temporal.
+
+## Hipótesis Científica
+
+La variabilidad de las condiciones ambientales en la zona costera occidental del Golfo de California está influenciada por la dinámica del Océano Pacífico (corrientes, vientos, climatología) y su ubicación geográfica, lo que da lugar a procesos espacio-temporales de alta (estacionales, anuales) y baja frecuencia (ENSO).
+
+## Objetivo General
+
+Analizar la variabilidad ambiental y la dinámica oceanográfica espacio-temporal del Golfo de California, a través del estudio de la TSM y la Chl a con datos satelitales y la influencia del ENSO.
+
+## Objetivos Específicos
+
+- Determinar la variabilidad de la TSM (1981–2018) y de la Chl a (1997–2018), así como sus principales frecuencias de variación.
+- Establecer una regionalización objetiva del área mediante el análisis de estas variables oceanográficas.
+- Analizar los efectos interanuales, intra-anuales y estacionales del ENSO sobre la TSM y la Chl a.

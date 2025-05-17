@@ -1,12 +1,13 @@
 ---
-title: "Equipo"
-format: html
+title: TSM por Cluster
+jupyter: python3
 ---
 
-# Desarrolladores
 
-- **Barraza Angel** | [LinkedIn](https://mx.linkedin.com/in/angelbarrazareal)
-- **Cirett Federico** | [LinkedIn](https://www.linkedin.com/in/federico-cirett-torres-11908628b/)
-- **Cota Manuel** | [LinkedIn](https://www.linkedin.com/in/maancosa/)
-- **Martinez Fernando** | [LinkedIn](www.linkedin.com/in/lf-mm)
-- **Solis Jesus** | [LinkedIn](https://www.linkedin.com/in/jesolis14/)
+Parece ser que, a lo largo de los años, la temperatura ha tendido a aumentar. En el Cluster 0 puede verse un aumento estable y constante, mientras que en los demás se nota una tendencia fluctuante, aunque generalmente en aumento.
+
+
+# CHLa por CLuster
+
+Los Cluster 0 y 2 muestran una tendencia en disminución a lo largo de los años, mientras que los Cluster 1 y 3 muestran una tendencia en incremento. Sin embargo, la tendencia a lo largo de los meses indica que hay una constante disminución de CHLa alrededor del día 17 de cada mes. Esto coíncide con el incremento de temperatura en la tendencia de esos mismos días del mes.
+
