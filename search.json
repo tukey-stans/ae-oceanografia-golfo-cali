@@ -7,177 +7,191 @@
     "text": "Consultoría Estadística Aplicada a Oceanografía\nBienvenidos al sitio del proyecto Análisis de la variabilidad ambiental y dinámica oceanográfica del Golfo de California. Aquí compartimos resultados de nuestra consultoría estadística, con enfoque en datos satelitales de Temperatura Superficial del Mar (TSM) y Clorofila a (Chl a).\nJustificación\nEl monitoreo a largo plazo del océano es clave para entender y predecir cambios ecosistémicos. Analizar la zona costera occidental del Golfo de California permite detectar tendencias vinculadas a procesos oceanográficos y climáticos como El Niño y La Niña.\nHipótesis\nLa variabilidad observada en esta región está influenciada por la dinámica del Pacífico y su ubicación geográfica, generando patrones espacio-temporales complejos a distintas escalas.\nExplora la metodología →"
   },
   {
+    "objectID": "06_pca_elfer.html",
+    "href": "06_pca_elfer.html",
+    "title": "Analisis Estadistico de Oceanografia del Golfo de California",
+    "section": "",
+    "text": "Utilizando todas las muestras validas para ****TSM**** y ******Chl a** a**** a lo largo del periodo completo (1981-2018), y generando histogramas de frecuencia y densidad, uno para cada fase ****ENSO**** (Neutro, Niña y Niño), es posible destacar los siguientes puntos:\n\nLa distribución de la TSM muestra una forma bimodal, con un pico alrededor de los 18–20 grados y otro en los 30 °C. Podria deberse a los cambios entre estaciones frías y cálidas, con alguna aportacion de las fases ENSO.\nEn eventos Niño las TSM tienden a valores más altos, mientras que en eventos Niña se observan ligeros desplazamientos hacia valores más bajos.\nPara la ****Chl a** a, la distribución tiene sesgo hacia la derecha, con alta frecuencia en valores bajos. Los eventos Niña presentan niveles de Chl a a** un poco mayores en comparación con eventos Neutro y Niño. Esto podria significar una mayor presencia en temperaturas frías.\nA pesar de existir diferencias visuales en la distribución, la separación entre curvas no es muy grande, lo que podria sugerir que ENSO influye más no tiene un efecto directo o contundente en la variabilidad de TSM y ****Chl a** a**.\n\n\n\n\nHistogramas\n\n\nEs entonces que podriamos inferir que las fases ENSO sí inducen desplazamientos en las distribuciones de TSM y ****Chl a** a**, aunque los efectos varían en magnitud y dirección, dependiendo de la variable analizada.\n\n\n\nAntes de analizar el efecto de las fases ENSO en ****TSM**** y ******Chl a** a**** respecto a distintos intervalos de tiempo, se considero podria resultar interesante visualizar los periodos que abarca cada una de las fases a lo largo de los años incluidos en los datos. Para ello se representaron barras con resolución de mes a mes, donde podemos visualizar aproximadamente cuando comenzó una nueva fase y su duración.\n\n\n\nalt text\n\n\nEs notorio como se han tenido multiples periodos para cada una de las fases ENSO, predominando los periodos neutros.\nLos periodos de fase Neutra suelen alcanzar mayores duraciones, de aproximadamente 2 años, solo competido por un periodo de fase Niña entre 1998 y 2001, el resto para Niña y Niño suelen estar por debajo del anio y medio de duración.\n\n\n\nDe acorde a los objetivos específicos del proyecto, se optó por agrupar los datos por distintos criterios temporales y espaciales.\nLos grupos fueron:\n\nInteranual (Temporal - Comparativa entre años)\nIntraanual (Temporal - Comparativa por meses del anio)\nEstacional (Temporal - Comparativa por las 4 estaciones climatologicas del anio)\nPor Estacion de Medicion - (Espacial - Comparativas por las 17 estaciones de medicion ubicadas en el Golfo de California)\n\nA continuacion se muestra una figura que contiene dos graficos de paleta para cada grupo. Cada gráfico contiene la información tanto de la TSM como de ****Chl a** a**, sin embargo la diferencia reside en que el gráfico ubicado en la parte superior muestra la desviacion respecto a la Media de los valores propios de cada variable, mientras que el gráfico de la parte inferior muestra la desviacion respecto a la Media de la Varianza para cada variable.\n\n\n\nalt text\n\n\nObservaciones por cada grupo:\n\nInteranual:\n\nSe ven desviaciones negativas de la TSM en años con eventos Niña (1989 o 1999), haciendos sentido baja de temperatura usual de esta fase.\nDurante eventos Niño (1997 o 2015), las desviaciones de TSM son en su mayoria positivas, indicando un incremento de temperatura significativo.\nLa Chl a tiene puntos de mayor variabilidad, pero disminuye en eventos Niño.\n\nIntraanual:\n\nLos meses de verano (jul-sept) muestran desviaciones positivas más notorias en la TSM, concordando con el ciclo estacional y ademas podría estar acentuado en algunas instancias por eventos Niño.\nLa ****Chl a** a** muestra desviaciones negativas durante la segunda mitad del año, lo que podría relacionarse al incremento en la TSM.\nLa TSM responde en mayor medida al ciclo estacional, ****Chl a** a** muestra un comportamiento menos lineal o proporcional.\n\nEstacional:\n\nVerano muestra las mayoria de las desviaciones positivas de la TSM.\nPrimavera e invierno muestran desviaciones negativas en ****Chl a** a** (menos calor y luz?)\nEl otoño es interesante puesto que mientras la TSM se mantiene estable, la ****Chl a** a** tiene mayor dispersión. Esto podria indicar la presencia de factores que no estamos contemplando.\n\nPor Estacion de Medicion:\n\nLa desviación de la TSM tiene diferencias entre estaciones, aunque reducidas. La distribucion parece ser más amplia en estaciones cercanas al norte.\nLas estaciones de medicion al norte del Golfo muestran mayor variabilidad en ****Chl a** a** (geografia ?).\nEsto sugiere que la variabilidad entre estaciones de medicion para la ****Chl a** a** es más marcada que para la TSM.\n\n\n\n\n\nSabemos que la distribucion de los datos varia al categorizar por fase ENSO, y tambien se identificaron algunos patrones de cambio con los graficos de paleta.\nUn proximo paso logico es analizar el cambio en la distribucion de los datos agrupados nuevamente por fase ENSO, pero a traves de los grupos espacio-temporales que estamos trabajando.\n\n\n\nalt text\n\n\nEn este conjunto de graficos de caja podemos observar que:\n\nLa ****Chl a** a** presenta una gran cantidad de valores extremos y outliers, especialmente durante eventos Neutro. Esto podria significar que hay otros factores que sobresalen cuando no hay eventos Niño o Niña.\nLa comparación por mes refuerza el efecto del ciclo anual sobre el aumento en la media de la TSM, con valores consistentemente mayores en verano y otoño, mientras que ****Chl a** a** parece tener un efecto de reducir la variabilidad en ese mismo periodo.\nAl verlo por estaciones de medicion observamos que tanto la media de la TSM como de la ****Chl a** a** varian dependiendo la estacion, pero responden a las fases ENSO de forma variada y sin un efecto dramatico.\n\n\n\n\nEn pasos previos, se profundizo un poco y se logro una mejor idea del comportamiento de las variables de la TSM y los niveles de Chla versus fases ENSO. Ahora bien, resulta interesante dar otro vistazo macro, agrupando el total de las muestras de ambas variables por grupo espacio-temporaln y por fase ENSO en graficos de caja.\n\n\n\nalt text\n\n\nAqui se puede observar como:\n\nLos gráficos de caja permiten confirmar que el efecto de las fases ENSO es más notorio en TSM, con eventos Niña mostrando valores consistentemente más bajos.\nLa ****Chl a** a** no presenta diferencias tan marcadas entre fases ENSO en la mayoría de agrupaciones.\nLa única excepción estadísticamente relevante es el caso de la TSM por estación de medición, donde se obtuvo un p-valor de 0.0488 (ANOVA), sugiriendo diferencias significativas entre fases.\n\nComo se menciona en el ultimo punto, ademas de los graficos, se realizaron analisis de varianza: ANOVA (parametrico) y Kruskal-Wallis (no parametrico). Los resultados se encuentran ubicados debajo del titulo de cada gráfico.\nEs claro inspeccionando visualmente y en los p-valores resultantes de los analisis, que en la mayoria de los escenarios no existe una varianza notoria entre las medias de cada agrupación por fase ENSO. La excepcion es el caso de la TSM al agrupar los datos por estacion de medicion, y por fase ENSO.\nAhi se observa como los eventos Niña si aparentan una media más baja que el resto. Y los p-valores son muy cercanos al 0.05, de manera que hemos de ir nuevamente de lo general a lo particular, y validar los supuestos del ANOVA, de manera que determinemos la validez de lo observado.\n\n\n\n\n\nShapiro-Wilk: W = 0.955, p = 0.0512\nEl valor de p = 0.0512 indica que no se puede rechazar la hipótesis nula de normalidad de los residuales al 95 % de confianza, aunque se encuentra justo en el límite. Esto sugiere que la distribución es aproximadamente normal, pero se debe complementar con visualizaciones.\nEl Q-Q plot muestra que los residuales se alinean bien con la línea de referencia, reforzando la validez del supuesto de normalidad.\n\n\n\nalt text\n\n\n\n\n\nLevene: W = 0.295, p = 0.7460\nEl valor p = 0.7460 en la prueba de Levene indica que no hay evidencia suficiente para afirmar que las varianzas son distintas entre grupos, por lo tanto se asume homocedasticidad.\nEl gráfico de residuos vs. valores ajustados no evidencia patrón alguno ni heterocedasticidad, lo que respalda la validez del modelo ANOVA.\n\n\n\nalt text\n\n\nEn conjunto, los supuestos del ANOVA se cumplen de manera razonable, generando mayor confianza al resultado encontrado en la TSM por estación de medicion versus fase ENSO.\n\n\n\n\nEl análisis PCA para cada una de las agrupaciones espacio-temporales que hemos estado manejando revela que las dos primeras componentes explican entre 90–95 % de la varianza en la mayoría de los casos. Esto podria representar una alta capacidad de resumir la variabilidad.\nAunque no se observa una separación clara entre fases ENSO, si es posible apreciar una agrupación parcial de eventos Niño y eventos Niña hacia valores positivos y negativos del PC2, respectivamente.\n\n\n\nalt text\n\n\nEsto podria sugerir que el ENSO tiene un impacto multivariado, pero que dicho impacto puede estar enmascarado por factores verse favorecida con variables adicionales (geograficas, climaticas, etc.).\n\n\n\nSe optó por realizar una prueba adicional con el caso estadisticamente significativo de TSM en Estaciones de Mediciones con fases ENSO. Se obtuvieron los siguientes resultados:\n\n\n\nalt text\n\n\nPodemos ver que a pesar de la eliminacion de estaciones, este caso sigue resaltando, pues ahora inclusive se redujeron más los p-valores para los analisis de varianza ANOVA y Kruskall-Wallis.\nEsto sugiere que el efecto de las fases ENSO puede ser distinto en distintas zonas del Golfo de California, en este caso el evento Niña mostrando mayor influencia en las estaciones de medicion del norte."
+  },
+  {
+    "objectID": "06_pca_elfer.html#analisis-del-efecto-de-las-fases-enso-en-tsm-y-chl-a-a",
+    "href": "06_pca_elfer.html#analisis-del-efecto-de-las-fases-enso-en-tsm-y-chl-a-a",
+    "title": "Analisis Estadistico de Oceanografia del Golfo de California",
+    "section": "",
+    "text": "Utilizando todas las muestras validas para ****TSM**** y ******Chl a** a**** a lo largo del periodo completo (1981-2018), y generando histogramas de frecuencia y densidad, uno para cada fase ****ENSO**** (Neutro, Niña y Niño), es posible destacar los siguientes puntos:\n\nLa distribución de la TSM muestra una forma bimodal, con un pico alrededor de los 18–20 grados y otro en los 30 °C. Podria deberse a los cambios entre estaciones frías y cálidas, con alguna aportacion de las fases ENSO.\nEn eventos Niño las TSM tienden a valores más altos, mientras que en eventos Niña se observan ligeros desplazamientos hacia valores más bajos.\nPara la ****Chl a** a, la distribución tiene sesgo hacia la derecha, con alta frecuencia en valores bajos. Los eventos Niña presentan niveles de Chl a a** un poco mayores en comparación con eventos Neutro y Niño. Esto podria significar una mayor presencia en temperaturas frías.\nA pesar de existir diferencias visuales en la distribución, la separación entre curvas no es muy grande, lo que podria sugerir que ENSO influye más no tiene un efecto directo o contundente en la variabilidad de TSM y ****Chl a** a**.\n\n\n\n\nHistogramas\n\n\nEs entonces que podriamos inferir que las fases ENSO sí inducen desplazamientos en las distribuciones de TSM y ****Chl a** a**, aunque los efectos varían en magnitud y dirección, dependiendo de la variable analizada.\n\n\n\nAntes de analizar el efecto de las fases ENSO en ****TSM**** y ******Chl a** a**** respecto a distintos intervalos de tiempo, se considero podria resultar interesante visualizar los periodos que abarca cada una de las fases a lo largo de los años incluidos en los datos. Para ello se representaron barras con resolución de mes a mes, donde podemos visualizar aproximadamente cuando comenzó una nueva fase y su duración.\n\n\n\nalt text\n\n\nEs notorio como se han tenido multiples periodos para cada una de las fases ENSO, predominando los periodos neutros.\nLos periodos de fase Neutra suelen alcanzar mayores duraciones, de aproximadamente 2 años, solo competido por un periodo de fase Niña entre 1998 y 2001, el resto para Niña y Niño suelen estar por debajo del anio y medio de duración.\n\n\n\nDe acorde a los objetivos específicos del proyecto, se optó por agrupar los datos por distintos criterios temporales y espaciales.\nLos grupos fueron:\n\nInteranual (Temporal - Comparativa entre años)\nIntraanual (Temporal - Comparativa por meses del anio)\nEstacional (Temporal - Comparativa por las 4 estaciones climatologicas del anio)\nPor Estacion de Medicion - (Espacial - Comparativas por las 17 estaciones de medicion ubicadas en el Golfo de California)\n\nA continuacion se muestra una figura que contiene dos graficos de paleta para cada grupo. Cada gráfico contiene la información tanto de la TSM como de ****Chl a** a**, sin embargo la diferencia reside en que el gráfico ubicado en la parte superior muestra la desviacion respecto a la Media de los valores propios de cada variable, mientras que el gráfico de la parte inferior muestra la desviacion respecto a la Media de la Varianza para cada variable.\n\n\n\nalt text\n\n\nObservaciones por cada grupo:\n\nInteranual:\n\nSe ven desviaciones negativas de la TSM en años con eventos Niña (1989 o 1999), haciendos sentido baja de temperatura usual de esta fase.\nDurante eventos Niño (1997 o 2015), las desviaciones de TSM son en su mayoria positivas, indicando un incremento de temperatura significativo.\nLa Chl a tiene puntos de mayor variabilidad, pero disminuye en eventos Niño.\n\nIntraanual:\n\nLos meses de verano (jul-sept) muestran desviaciones positivas más notorias en la TSM, concordando con el ciclo estacional y ademas podría estar acentuado en algunas instancias por eventos Niño.\nLa ****Chl a** a** muestra desviaciones negativas durante la segunda mitad del año, lo que podría relacionarse al incremento en la TSM.\nLa TSM responde en mayor medida al ciclo estacional, ****Chl a** a** muestra un comportamiento menos lineal o proporcional.\n\nEstacional:\n\nVerano muestra las mayoria de las desviaciones positivas de la TSM.\nPrimavera e invierno muestran desviaciones negativas en ****Chl a** a** (menos calor y luz?)\nEl otoño es interesante puesto que mientras la TSM se mantiene estable, la ****Chl a** a** tiene mayor dispersión. Esto podria indicar la presencia de factores que no estamos contemplando.\n\nPor Estacion de Medicion:\n\nLa desviación de la TSM tiene diferencias entre estaciones, aunque reducidas. La distribucion parece ser más amplia en estaciones cercanas al norte.\nLas estaciones de medicion al norte del Golfo muestran mayor variabilidad en ****Chl a** a** (geografia ?).\nEsto sugiere que la variabilidad entre estaciones de medicion para la ****Chl a** a** es más marcada que para la TSM.\n\n\n\n\n\nSabemos que la distribucion de los datos varia al categorizar por fase ENSO, y tambien se identificaron algunos patrones de cambio con los graficos de paleta.\nUn proximo paso logico es analizar el cambio en la distribucion de los datos agrupados nuevamente por fase ENSO, pero a traves de los grupos espacio-temporales que estamos trabajando.\n\n\n\nalt text\n\n\nEn este conjunto de graficos de caja podemos observar que:\n\nLa ****Chl a** a** presenta una gran cantidad de valores extremos y outliers, especialmente durante eventos Neutro. Esto podria significar que hay otros factores que sobresalen cuando no hay eventos Niño o Niña.\nLa comparación por mes refuerza el efecto del ciclo anual sobre el aumento en la media de la TSM, con valores consistentemente mayores en verano y otoño, mientras que ****Chl a** a** parece tener un efecto de reducir la variabilidad en ese mismo periodo.\nAl verlo por estaciones de medicion observamos que tanto la media de la TSM como de la ****Chl a** a** varian dependiendo la estacion, pero responden a las fases ENSO de forma variada y sin un efecto dramatico.\n\n\n\n\nEn pasos previos, se profundizo un poco y se logro una mejor idea del comportamiento de las variables de la TSM y los niveles de Chla versus fases ENSO. Ahora bien, resulta interesante dar otro vistazo macro, agrupando el total de las muestras de ambas variables por grupo espacio-temporaln y por fase ENSO en graficos de caja.\n\n\n\nalt text\n\n\nAqui se puede observar como:\n\nLos gráficos de caja permiten confirmar que el efecto de las fases ENSO es más notorio en TSM, con eventos Niña mostrando valores consistentemente más bajos.\nLa ****Chl a** a** no presenta diferencias tan marcadas entre fases ENSO en la mayoría de agrupaciones.\nLa única excepción estadísticamente relevante es el caso de la TSM por estación de medición, donde se obtuvo un p-valor de 0.0488 (ANOVA), sugiriendo diferencias significativas entre fases.\n\nComo se menciona en el ultimo punto, ademas de los graficos, se realizaron analisis de varianza: ANOVA (parametrico) y Kruskal-Wallis (no parametrico). Los resultados se encuentran ubicados debajo del titulo de cada gráfico.\nEs claro inspeccionando visualmente y en los p-valores resultantes de los analisis, que en la mayoria de los escenarios no existe una varianza notoria entre las medias de cada agrupación por fase ENSO. La excepcion es el caso de la TSM al agrupar los datos por estacion de medicion, y por fase ENSO.\nAhi se observa como los eventos Niña si aparentan una media más baja que el resto. Y los p-valores son muy cercanos al 0.05, de manera que hemos de ir nuevamente de lo general a lo particular, y validar los supuestos del ANOVA, de manera que determinemos la validez de lo observado.\n\n\n\n\n\nShapiro-Wilk: W = 0.955, p = 0.0512\nEl valor de p = 0.0512 indica que no se puede rechazar la hipótesis nula de normalidad de los residuales al 95 % de confianza, aunque se encuentra justo en el límite. Esto sugiere que la distribución es aproximadamente normal, pero se debe complementar con visualizaciones.\nEl Q-Q plot muestra que los residuales se alinean bien con la línea de referencia, reforzando la validez del supuesto de normalidad.\n\n\n\nalt text\n\n\n\n\n\nLevene: W = 0.295, p = 0.7460\nEl valor p = 0.7460 en la prueba de Levene indica que no hay evidencia suficiente para afirmar que las varianzas son distintas entre grupos, por lo tanto se asume homocedasticidad.\nEl gráfico de residuos vs. valores ajustados no evidencia patrón alguno ni heterocedasticidad, lo que respalda la validez del modelo ANOVA.\n\n\n\nalt text\n\n\nEn conjunto, los supuestos del ANOVA se cumplen de manera razonable, generando mayor confianza al resultado encontrado en la TSM por estación de medicion versus fase ENSO.\n\n\n\n\nEl análisis PCA para cada una de las agrupaciones espacio-temporales que hemos estado manejando revela que las dos primeras componentes explican entre 90–95 % de la varianza en la mayoría de los casos. Esto podria representar una alta capacidad de resumir la variabilidad.\nAunque no se observa una separación clara entre fases ENSO, si es posible apreciar una agrupación parcial de eventos Niño y eventos Niña hacia valores positivos y negativos del PC2, respectivamente.\n\n\n\nalt text\n\n\nEsto podria sugerir que el ENSO tiene un impacto multivariado, pero que dicho impacto puede estar enmascarado por factores verse favorecida con variables adicionales (geograficas, climaticas, etc.).\n\n\n\nSe optó por realizar una prueba adicional con el caso estadisticamente significativo de TSM en Estaciones de Mediciones con fases ENSO. Se obtuvieron los siguientes resultados:\n\n\n\nalt text\n\n\nPodemos ver que a pesar de la eliminacion de estaciones, este caso sigue resaltando, pues ahora inclusive se redujeron más los p-valores para los analisis de varianza ANOVA y Kruskall-Wallis.\nEsto sugiere que el efecto de las fases ENSO puede ser distinto en distintas zonas del Golfo de California, en este caso el evento Niña mostrando mayor influencia en las estaciones de medicion del norte."
+  },
+  {
     "objectID": "02_clustering_ang.html",
     "href": "02_clustering_ang.html",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "",
-    "text": "title: “Análisis de Clustering Espacio-Temporal” format: html —"
+    "text": "Se trabajó con cuatro fuentes principales de datos:\n\nTemperatura Superficial del Mar (TSM): Datos mensuales por estación de monitoreo para el periodo 1981–2018.\nClorofila a (Chl a): Datos mensuales por estación para el periodo 1997–2018.\nCoordenadas de estaciones: Posiciones geográficas (latitud y longitud) de 17 estaciones distribuidas en la zona costera occidental del Golfo de California.\nÍndice ONI (Oceanic Niño Index): Serie temporal trimestral estandarizada de NOAA para identificar eventos ENSO (Niño, Niña, Neutro).\n\n\n\n\n\nRestructuración Longitudinal: Se transformaron TSM y Chl a de formato ancho a largo.\nUnificación de variables: Se fusionaron TSM, Chl a, coordenadas y ENSO mensual clasificado.\nVariables Derivadas: Mes, año, estación del año y ENSO_CLASE según ONI (Niño: ≥0.5, Niña: ≤-0.5).\n\n\n\n\nEl dataframe final data_final_common contiene:\n| FECHA      | AÑO  | MES     | ESTACION | TSM     | Chla   | lon    | lat  | MES_NUM | ONI | ENSO_CLASE |\n|------------|------|---------|----------|---------|--------|--------|------|----------|-----|-------------|\n| 2018-10-01 | 2018 | Octubre | Est 1°    | 29.91   | 0.15   | -109.3 | 23.8 | 10       | 0.5 | Niño        |\n| 2018-10-01 | 2018 | Octubre | Est 2°    | 29.77   | 0.17   | -109.7 | 24.2 | 10       | 0.5 | Niño        |\nEste dataset es la base para los cuatro enfoques de clustering presentados a continuación."
   },
   {
     "objectID": "02_clustering_ang.html#descripción-de-los-datos-originales",
     "href": "02_clustering_ang.html#descripción-de-los-datos-originales",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
-    "section": "1. Descripción de los Datos Originales",
-    "text": "1. Descripción de los Datos Originales\nSe trabajó con cuatro fuentes principales de datos:\n\nTemperatura Superficial del Mar (TSM): Datos mensuales por estación de monitoreo para el periodo 1981–2018.\nClorofila a (Chl a): Datos mensuales por estación para el periodo 1997–2018.\nCoordenadas de estaciones: Posiciones geográficas (latitud y longitud) de 17 estaciones distribuidas en la zona costera occidental del Golfo de California.\nÍndice ONI (Oceanic Niño Index): Serie temporal trimestral estandarizada de NOAA para identificar eventos ENSO (Niño, Niña, Neutro)."
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "",
+    "text": "Se trabajó con cuatro fuentes principales de datos:\n\nTemperatura Superficial del Mar (TSM): Datos mensuales por estación de monitoreo para el periodo 1981–2018.\nClorofila a (Chl a): Datos mensuales por estación para el periodo 1997–2018.\nCoordenadas de estaciones: Posiciones geográficas (latitud y longitud) de 17 estaciones distribuidas en la zona costera occidental del Golfo de California.\nÍndice ONI (Oceanic Niño Index): Serie temporal trimestral estandarizada de NOAA para identificar eventos ENSO (Niño, Niña, Neutro)."
   },
   {
     "objectID": "02_clustering_ang.html#transformación-y-enriquecimiento-de-los-datos",
     "href": "02_clustering_ang.html#transformación-y-enriquecimiento-de-los-datos",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
-    "section": "2. Transformación y Enriquecimiento de los Datos",
-    "text": "2. Transformación y Enriquecimiento de los Datos\n\nRestructuración Longitudinal: Se transformaron TSM y Chl a de formato ancho a largo.\nUnificación de variables: Se fusionaron TSM, Chl a, coordenadas y ENSO mensual clasificado.\nVariables Derivadas: Mes, año, estación del año y ENSO_CLASE según ONI (Niño: ≥0.5, Niña: ≤-0.5)."
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "",
+    "text": "Restructuración Longitudinal: Se transformaron TSM y Chl a de formato ancho a largo.\nUnificación de variables: Se fusionaron TSM, Chl a, coordenadas y ENSO mensual clasificado.\nVariables Derivadas: Mes, año, estación del año y ENSO_CLASE según ONI (Niño: ≥0.5, Niña: ≤-0.5)."
   },
   {
     "objectID": "02_clustering_ang.html#consolidación-final-del-dataset",
     "href": "02_clustering_ang.html#consolidación-final-del-dataset",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
-    "section": "3. Consolidación Final del Dataset",
-    "text": "3. Consolidación Final del Dataset\nEl dataframe final data_final_common contiene:\n| FECHA      | AÑO  | MES     | ESTACION | TSM     | Chla   | lon    | lat  | MES_NUM | ONI | ENSO_CLASE |\n|------------|------|---------|----------|---------|--------|--------|------|----------|-----|-------------|\n| 2018-10-01 | 2018 | Octubre | Est 1°    | 29.91   | 0.15   | -109.3 | 23.8 | 10       | 0.5 | Niño        |\n| 2018-10-01 | 2018 | Octubre | Est 2°    | 29.77   | 0.17   | -109.7 | 24.2 | 10       | 0.5 | Niño        |\nEste dataset es la base para los cuatro enfoques de clustering presentados a continuación."
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "",
+    "text": "El dataframe final data_final_common contiene:\n| FECHA      | AÑO  | MES     | ESTACION | TSM     | Chla   | lon    | lat  | MES_NUM | ONI | ENSO_CLASE |\n|------------|------|---------|----------|---------|--------|--------|------|----------|-----|-------------|\n| 2018-10-01 | 2018 | Octubre | Est 1°    | 29.91   | 0.15   | -109.3 | 23.8 | 10       | 0.5 | Niño        |\n| 2018-10-01 | 2018 | Octubre | Est 2°    | 29.77   | 0.17   | -109.7 | 24.2 | 10       | 0.5 | Niño        |\nEste dataset es la base para los cuatro enfoques de clustering presentados a continuación."
   },
   {
     "objectID": "02_clustering_ang.html#objetivo",
     "href": "02_clustering_ang.html#objetivo",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Objetivo",
     "text": "Objetivo\nProponer una regionalización objetiva basada en estadísticas agregadas por estación: TSM, Chl a y ONI."
   },
   {
     "objectID": "02_clustering_ang.html#metodología",
     "href": "02_clustering_ang.html#metodología",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Metodología",
     "text": "Metodología\nSe agregaron variables por estación:\n\nTSM_mean, TSM_std, Chla_mean, Chla_std\nONI_mean\n\nEstas variables se escalaron y se aplicó KMeans (k=4)."
   },
   {
     "objectID": "02_clustering_ang.html#resumen-de-clusters",
     "href": "02_clustering_ang.html#resumen-de-clusters",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Resumen de Clusters",
     "text": "Resumen de Clusters\n| Cluster | TSM | Chl a | Descripción                   |\n|---------|-----|--------|-------------------------------|\n| 0       | 23  | 2.36   | Frío y altamente productivo   |\n| 1       | 24.8| 0.9    | Térmicamente medio, oligotrófico|\n| 2       | 23.5| 1.6    | Intermedio                     |\n| 3       | 25.9| 0.69   | Más cálido, menos productivo  |"
   },
   {
     "objectID": "02_clustering_ang.html#visualizaciones",
     "href": "02_clustering_ang.html#visualizaciones",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Visualizaciones",
     "text": "Visualizaciones\n\nMapa de agrupamiento fijo por ubicación\nBoxplots de TSM y Chl a por cluster\nRelación TSM-Chl a bajo ENSO"
   },
   {
     "objectID": "02_clustering_ang.html#contribución-a-objetivos",
     "href": "02_clustering_ang.html#contribución-a-objetivos",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Contribución a Objetivos",
     "text": "Contribución a Objetivos\n\n✅ Variabilidad espacial (Obj. 1)\n✅ Regionalización ambiental (Obj. 2)\n✅ Efectos agregados ENSO (Obj. 3)"
   },
   {
     "objectID": "02_clustering_ang.html#objetivo-1",
     "href": "02_clustering_ang.html#objetivo-1",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Objetivo",
     "text": "Objetivo\nEvaluar cambios interanuales de condiciones ambientales por estación."
   },
   {
     "objectID": "02_clustering_ang.html#variables-utilizadas",
     "href": "02_clustering_ang.html#variables-utilizadas",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Variables Utilizadas",
     "text": "Variables Utilizadas\n\nTSM y Chl a (media, desviación)\nONI_mean\nCoordenadas (para mapeo)\n\nSe usó KMeans (k=4) sobre valores estandarizados."
   },
   {
     "objectID": "02_clustering_ang.html#resumen-de-clusters-1",
     "href": "02_clustering_ang.html#resumen-de-clusters-1",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Resumen de Clusters",
     "text": "Resumen de Clusters\n| Cluster | TSM | Chl a | ONI   | Interpretación             |\n|---------|-----|--------|--------|-----------------------------|\n| 0       | 23.2| 2.36   | -0.06 | Moderado-productivo         |\n| 1       | 24.8| 0.9    | -0.64 | Cálido (La Niña)            |\n| 2       | 23.5| 1.6    | -0.07 | Estable-intermedio          |\n| 3       | 25.9| 0.69   | +0.20 | Cálido (El Niño leve)        |"
   },
   {
     "objectID": "02_clustering_ang.html#resultados",
     "href": "02_clustering_ang.html#resultados",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Resultados",
     "text": "Resultados\n\nMapa de calor de evolución de clusters\nDistribución por ENSO\nMatriz de transiciones"
   },
   {
     "objectID": "02_clustering_ang.html#estabilidad-de-estaciones",
     "href": "02_clustering_ang.html#estabilidad-de-estaciones",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Estabilidad de Estaciones",
     "text": "Estabilidad de Estaciones\n\nEstaciones con &gt;10 cambios = alta inestabilidad\nVisualizadas en mapa codificado por color (rojo = inestable)"
   },
   {
     "objectID": "02_clustering_ang.html#contribución-a-objetivos-1",
     "href": "02_clustering_ang.html#contribución-a-objetivos-1",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Contribución a Objetivos",
     "text": "Contribución a Objetivos\n\n✅ Frecuencias interanuales (Obj. 1)\n✅ Regionalización variable en el tiempo (Obj. 2)\n✅ Análisis de ENSO por año y estación (Obj. 3)"
   },
   {
     "objectID": "02_clustering_ang.html#objetivo-2",
     "href": "02_clustering_ang.html#objetivo-2",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Objetivo",
     "text": "Objetivo\nAnalizar patrones ambientales por primavera, verano, otoño e invierno para cada estación."
   },
   {
     "objectID": "02_clustering_ang.html#variables",
     "href": "02_clustering_ang.html#variables",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Variables",
     "text": "Variables\n\nTSM y Chl a: medias y desviaciones por estación del año\nONI_mean por combinación\nSe usó KMeans (k=4) sobre datos normalizados"
   },
   {
     "objectID": "02_clustering_ang.html#clusters-estacionales",
     "href": "02_clustering_ang.html#clusters-estacionales",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Clusters Estacionales",
     "text": "Clusters Estacionales\n| Cluster | TSM | Chl a | ONI  | Característica                 |\n|---------|-----|--------|------|--------------------------------|\n| 0       | 24  | 2.41   | -0.30 | Intermedio y productivo         |\n| 1       | 28.4| 0.66   | -0.03 | Verano térmico, baja clorofila  |\n| 2       | 20.7| 1.51   | +0.73 | Frío con influencia de Niño     |\n| 3       | 20.2| 1.37   | -0.73 | Frío asociado a La Niña        |"
   },
   {
     "objectID": "02_clustering_ang.html#resultados-1",
     "href": "02_clustering_ang.html#resultados-1",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Resultados",
     "text": "Resultados\n\nHeatmap espacio-temporal (estación x año x estación del año)\nDistribución por estación del año\nMapa de inestabilidad por estación fija\nMatriz de transiciones intra-anuales"
   },
   {
     "objectID": "02_clustering_ang.html#contribución-a-objetivos-2",
     "href": "02_clustering_ang.html#contribución-a-objetivos-2",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Contribución a Objetivos",
     "text": "Contribución a Objetivos\n\n✅ Identificación de patrones intra-anuales (Obj. 1)\n✅ Regionalización sensible a la estacionalidad (Obj. 2)\n✅ Asociación a eventos ENSO estacionales (Obj. 3)"
   },
   {
     "objectID": "02_clustering_ang.html#objetivo-3",
     "href": "02_clustering_ang.html#objetivo-3",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Objetivo",
     "text": "Objetivo\nDetectar variabilidad de alta frecuencia a nivel mensual."
   },
   {
     "objectID": "02_clustering_ang.html#variables-y-método",
     "href": "02_clustering_ang.html#variables-y-método",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Variables y Método",
     "text": "Variables y Método\n\nTSM_mean, Chla_mean, ONI_mean por estación-año-mes\nKMeans (k=4) con escalado previo"
   },
   {
     "objectID": "02_clustering_ang.html#clusters-mensuales",
     "href": "02_clustering_ang.html#clusters-mensuales",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Clusters Mensuales",
     "text": "Clusters Mensuales\n| Cluster | TSM | Chl a | ONI  | Interpretación                    |\n|---------|-----|--------|------|----------------------------------|\n| 0       | 28.9| 0.64   | -0.15| Verano, cálido y oligotrófico    |\n| 1       | 20.9| 3.65   | -0.10| Invierno, frío y productivo       |\n| 2       | 20.2| 1.39   | -0.84| Asociado a La Niña                |\n| 3       | 22.4| 1.26   | +1.11| Asociado a El Niño                |"
   },
   {
     "objectID": "02_clustering_ang.html#resultados-2",
     "href": "02_clustering_ang.html#resultados-2",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Resultados",
     "text": "Resultados\n\nHeatmap mensual detallado\nDistribución por mes del año\nEvolución anual agregada\nMapa de inestabilidad mensual\nMatriz de transiciones mensuales"
   },
   {
     "objectID": "02_clustering_ang.html#contribución-a-objetivos-3",
     "href": "02_clustering_ang.html#contribución-a-objetivos-3",
-    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Contribución a Objetivos",
     "text": "Contribución a Objetivos\n\n✅ Variabilidad mensual de alta resolución (Obj. 1)\n✅ Regionalización hiper-temporal (Obj. 2)\n✅ Detección de transiciones vinculadas a ENSO (Obj. 3)\n\n\nEste análisis multi-escala ofrece una perspectiva comprensiva de la variabilidad oceánica en el Golfo de California, desde escalas anuales hasta mensuales, integrando información física, biológica y climática."
   },
