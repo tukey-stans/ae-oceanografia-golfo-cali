@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://tukey-stans.github.io/ae-oceanografia-golfo-cali/team.html</loc>
-    <lastmod>2025-05-16T07:09:11.146Z</lastmod>
-  </url>
-  <url>
     <loc>https://tukey-stans.github.io/ae-oceanografia-golfo-cali/index.html</loc>
     <lastmod>2025-05-16T07:09:11.146Z</lastmod>
   </url>
   <url>
-    <loc>https://tukey-stans.github.io/ae-oceanografia-golfo-cali/about.html</loc>
+    <loc>https://tukey-stans.github.io/ae-oceanografia-golfo-cali/06_pca_elfer.html</loc>
+    <lastmod>2025-05-17T06:33:39.943Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tukey-stans.github.io/ae-oceanografia-golfo-cali/04_gradiente_fede.html</loc>
+    <lastmod>2025-05-17T06:35:16.776Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tukey-stans.github.io/ae-oceanografia-golfo-cali/02_clustering_ang.html</loc>
+    <lastmod>2025-05-17T06:44:50.911Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tukey-stans.github.io/ae-oceanografia-golfo-cali/01_datos_metodologia.html</loc>
+    <lastmod>2025-05-17T06:34:11.191Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tukey-stans.github.io/ae-oceanografia-golfo-cali/03_frecuencia_chuy.html</loc>
     <lastmod>2025-05-16T07:09:11.113Z</lastmod>
   </url>
   <url>
-    <loc>https://tukey-stans.github.io/ae-oceanografia-golfo-cali/data.html</loc>
-    <lastmod>2025-05-16T07:09:11.113Z</lastmod>
+    <loc>https://tukey-stans.github.io/ae-oceanografia-golfo-cali/05_prophet_manuel.html</loc>
+    <lastmod>2025-05-16T07:09:11.146Z</lastmod>
   </url>
   <url>
-    <loc>https://tukey-stans.github.io/ae-oceanografia-golfo-cali/resultados.html</loc>
-    <lastmod>2025-05-17T01:22:43.028Z</lastmod>
+    <loc>https://tukey-stans.github.io/ae-oceanografia-golfo-cali/07_conclusiones.html</loc>
+    <lastmod>2025-05-17T06:34:00.304Z</lastmod>
   </url>
 </urlset>

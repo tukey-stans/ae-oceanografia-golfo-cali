@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "team.html",
-    "href": "team.html",
-    "title": "Equipo",
-    "section": "",
-    "text": "Desarrolladores\n\nBarraza Angel | LinkedIn\nCirett Federico | LinkedIn\nCota Manuel | LinkedIn\nMartinez Fernando | LinkedIn\nSolis Jesus | LinkedIn"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Inicio",
@@ -14,94 +7,192 @@
     "text": "Consultoría Estadística Aplicada a Oceanografía\nBienvenidos al sitio del proyecto Análisis de la variabilidad ambiental y dinámica oceanográfica del Golfo de California. Aquí compartimos resultados de nuestra consultoría estadística, con enfoque en datos satelitales de Temperatura Superficial del Mar (TSM) y Clorofila a (Chl a).\nJustificación\nEl monitoreo a largo plazo del océano es clave para entender y predecir cambios ecosistémicos. Analizar la zona costera occidental del Golfo de California permite detectar tendencias vinculadas a procesos oceanográficos y climáticos como El Niño y La Niña.\nHipótesis\nLa variabilidad observada en esta región está influenciada por la dinámica del Pacífico y su ubicación geográfica, generando patrones espacio-temporales complejos a distintas escalas.\nExplora la metodología →"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
+    "objectID": "02_clustering_ang.html",
+    "href": "02_clustering_ang.html",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "",
+    "text": "title: “Análisis de Clustering Espacio-Temporal” format: html —"
+  },
+  {
+    "objectID": "02_clustering_ang.html#descripción-de-los-datos-originales",
+    "href": "02_clustering_ang.html#descripción-de-los-datos-originales",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "1. Descripción de los Datos Originales",
+    "text": "1. Descripción de los Datos Originales\nSe trabajó con cuatro fuentes principales de datos:\n\nTemperatura Superficial del Mar (TSM): Datos mensuales por estación de monitoreo para el periodo 1981–2018.\nClorofila a (Chl a): Datos mensuales por estación para el periodo 1997–2018.\nCoordenadas de estaciones: Posiciones geográficas (latitud y longitud) de 17 estaciones distribuidas en la zona costera occidental del Golfo de California.\nÍndice ONI (Oceanic Niño Index): Serie temporal trimestral estandarizada de NOAA para identificar eventos ENSO (Niño, Niña, Neutro)."
+  },
+  {
+    "objectID": "02_clustering_ang.html#transformación-y-enriquecimiento-de-los-datos",
+    "href": "02_clustering_ang.html#transformación-y-enriquecimiento-de-los-datos",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "2. Transformación y Enriquecimiento de los Datos",
+    "text": "2. Transformación y Enriquecimiento de los Datos\n\nRestructuración Longitudinal: Se transformaron TSM y Chl a de formato ancho a largo.\nUnificación de variables: Se fusionaron TSM, Chl a, coordenadas y ENSO mensual clasificado.\nVariables Derivadas: Mes, año, estación del año y ENSO_CLASE según ONI (Niño: ≥0.5, Niña: ≤-0.5)."
+  },
+  {
+    "objectID": "02_clustering_ang.html#consolidación-final-del-dataset",
+    "href": "02_clustering_ang.html#consolidación-final-del-dataset",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "3. Consolidación Final del Dataset",
+    "text": "3. Consolidación Final del Dataset\nEl dataframe final data_final_common contiene:\n| FECHA      | AÑO  | MES     | ESTACION | TSM     | Chla   | lon    | lat  | MES_NUM | ONI | ENSO_CLASE |\n|------------|------|---------|----------|---------|--------|--------|------|----------|-----|-------------|\n| 2018-10-01 | 2018 | Octubre | Est 1°    | 29.91   | 0.15   | -109.3 | 23.8 | 10       | 0.5 | Niño        |\n| 2018-10-01 | 2018 | Octubre | Est 2°    | 29.77   | 0.17   | -109.7 | 24.2 | 10       | 0.5 | Niño        |\nEste dataset es la base para los cuatro enfoques de clustering presentados a continuación."
+  },
+  {
+    "objectID": "02_clustering_ang.html#objetivo",
+    "href": "02_clustering_ang.html#objetivo",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Objetivo",
+    "text": "Objetivo\nProponer una regionalización objetiva basada en estadísticas agregadas por estación: TSM, Chl a y ONI."
+  },
+  {
+    "objectID": "02_clustering_ang.html#metodología",
+    "href": "02_clustering_ang.html#metodología",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Metodología",
+    "text": "Metodología\nSe agregaron variables por estación:\n\nTSM_mean, TSM_std, Chla_mean, Chla_std\nONI_mean\n\nEstas variables se escalaron y se aplicó KMeans (k=4)."
+  },
+  {
+    "objectID": "02_clustering_ang.html#resumen-de-clusters",
+    "href": "02_clustering_ang.html#resumen-de-clusters",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Resumen de Clusters",
+    "text": "Resumen de Clusters\n| Cluster | TSM | Chl a | Descripción                   |\n|---------|-----|--------|-------------------------------|\n| 0       | 23  | 2.36   | Frío y altamente productivo   |\n| 1       | 24.8| 0.9    | Térmicamente medio, oligotrófico|\n| 2       | 23.5| 1.6    | Intermedio                     |\n| 3       | 25.9| 0.69   | Más cálido, menos productivo  |"
+  },
+  {
+    "objectID": "02_clustering_ang.html#visualizaciones",
+    "href": "02_clustering_ang.html#visualizaciones",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Visualizaciones",
+    "text": "Visualizaciones\n\nMapa de agrupamiento fijo por ubicación\nBoxplots de TSM y Chl a por cluster\nRelación TSM-Chl a bajo ENSO"
+  },
+  {
+    "objectID": "02_clustering_ang.html#contribución-a-objetivos",
+    "href": "02_clustering_ang.html#contribución-a-objetivos",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Contribución a Objetivos",
+    "text": "Contribución a Objetivos\n\n✅ Variabilidad espacial (Obj. 1)\n✅ Regionalización ambiental (Obj. 2)\n✅ Efectos agregados ENSO (Obj. 3)"
+  },
+  {
+    "objectID": "02_clustering_ang.html#objetivo-1",
+    "href": "02_clustering_ang.html#objetivo-1",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Objetivo",
+    "text": "Objetivo\nEvaluar cambios interanuales de condiciones ambientales por estación."
+  },
+  {
+    "objectID": "02_clustering_ang.html#variables-utilizadas",
+    "href": "02_clustering_ang.html#variables-utilizadas",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Variables Utilizadas",
+    "text": "Variables Utilizadas\n\nTSM y Chl a (media, desviación)\nONI_mean\nCoordenadas (para mapeo)\n\nSe usó KMeans (k=4) sobre valores estandarizados."
+  },
+  {
+    "objectID": "02_clustering_ang.html#resumen-de-clusters-1",
+    "href": "02_clustering_ang.html#resumen-de-clusters-1",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Resumen de Clusters",
+    "text": "Resumen de Clusters\n| Cluster | TSM | Chl a | ONI   | Interpretación             |\n|---------|-----|--------|--------|-----------------------------|\n| 0       | 23.2| 2.36   | -0.06 | Moderado-productivo         |\n| 1       | 24.8| 0.9    | -0.64 | Cálido (La Niña)            |\n| 2       | 23.5| 1.6    | -0.07 | Estable-intermedio          |\n| 3       | 25.9| 0.69   | +0.20 | Cálido (El Niño leve)        |"
+  },
+  {
+    "objectID": "02_clustering_ang.html#resultados",
+    "href": "02_clustering_ang.html#resultados",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Resultados",
+    "text": "Resultados\n\nMapa de calor de evolución de clusters\nDistribución por ENSO\nMatriz de transiciones"
+  },
+  {
+    "objectID": "02_clustering_ang.html#estabilidad-de-estaciones",
+    "href": "02_clustering_ang.html#estabilidad-de-estaciones",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Estabilidad de Estaciones",
+    "text": "Estabilidad de Estaciones\n\nEstaciones con &gt;10 cambios = alta inestabilidad\nVisualizadas en mapa codificado por color (rojo = inestable)"
+  },
+  {
+    "objectID": "02_clustering_ang.html#contribución-a-objetivos-1",
+    "href": "02_clustering_ang.html#contribución-a-objetivos-1",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Contribución a Objetivos",
+    "text": "Contribución a Objetivos\n\n✅ Frecuencias interanuales (Obj. 1)\n✅ Regionalización variable en el tiempo (Obj. 2)\n✅ Análisis de ENSO por año y estación (Obj. 3)"
+  },
+  {
+    "objectID": "02_clustering_ang.html#objetivo-2",
+    "href": "02_clustering_ang.html#objetivo-2",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Objetivo",
+    "text": "Objetivo\nAnalizar patrones ambientales por primavera, verano, otoño e invierno para cada estación."
+  },
+  {
+    "objectID": "02_clustering_ang.html#variables",
+    "href": "02_clustering_ang.html#variables",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Variables",
+    "text": "Variables\n\nTSM y Chl a: medias y desviaciones por estación del año\nONI_mean por combinación\nSe usó KMeans (k=4) sobre datos normalizados"
+  },
+  {
+    "objectID": "02_clustering_ang.html#clusters-estacionales",
+    "href": "02_clustering_ang.html#clusters-estacionales",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Clusters Estacionales",
+    "text": "Clusters Estacionales\n| Cluster | TSM | Chl a | ONI  | Característica                 |\n|---------|-----|--------|------|--------------------------------|\n| 0       | 24  | 2.41   | -0.30 | Intermedio y productivo         |\n| 1       | 28.4| 0.66   | -0.03 | Verano térmico, baja clorofila  |\n| 2       | 20.7| 1.51   | +0.73 | Frío con influencia de Niño     |\n| 3       | 20.2| 1.37   | -0.73 | Frío asociado a La Niña        |"
+  },
+  {
+    "objectID": "02_clustering_ang.html#resultados-1",
+    "href": "02_clustering_ang.html#resultados-1",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Resultados",
+    "text": "Resultados\n\nHeatmap espacio-temporal (estación x año x estación del año)\nDistribución por estación del año\nMapa de inestabilidad por estación fija\nMatriz de transiciones intra-anuales"
+  },
+  {
+    "objectID": "02_clustering_ang.html#contribución-a-objetivos-2",
+    "href": "02_clustering_ang.html#contribución-a-objetivos-2",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Contribución a Objetivos",
+    "text": "Contribución a Objetivos\n\n✅ Identificación de patrones intra-anuales (Obj. 1)\n✅ Regionalización sensible a la estacionalidad (Obj. 2)\n✅ Asociación a eventos ENSO estacionales (Obj. 3)"
+  },
+  {
+    "objectID": "02_clustering_ang.html#objetivo-3",
+    "href": "02_clustering_ang.html#objetivo-3",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Objetivo",
+    "text": "Objetivo\nDetectar variabilidad de alta frecuencia a nivel mensual."
+  },
+  {
+    "objectID": "02_clustering_ang.html#variables-y-método",
+    "href": "02_clustering_ang.html#variables-y-método",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Variables y Método",
+    "text": "Variables y Método\n\nTSM_mean, Chla_mean, ONI_mean por estación-año-mes\nKMeans (k=4) con escalado previo"
+  },
+  {
+    "objectID": "02_clustering_ang.html#clusters-mensuales",
+    "href": "02_clustering_ang.html#clusters-mensuales",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Clusters Mensuales",
+    "text": "Clusters Mensuales\n| Cluster | TSM | Chl a | ONI  | Interpretación                    |\n|---------|-----|--------|------|----------------------------------|\n| 0       | 28.9| 0.64   | -0.15| Verano, cálido y oligotrófico    |\n| 1       | 20.9| 3.65   | -0.10| Invierno, frío y productivo       |\n| 2       | 20.2| 1.39   | -0.84| Asociado a La Niña                |\n| 3       | 22.4| 1.26   | +1.11| Asociado a El Niño                |"
+  },
+  {
+    "objectID": "02_clustering_ang.html#resultados-2",
+    "href": "02_clustering_ang.html#resultados-2",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Resultados",
+    "text": "Resultados\n\nHeatmap mensual detallado\nDistribución por mes del año\nEvolución anual agregada\nMapa de inestabilidad mensual\nMatriz de transiciones mensuales"
+  },
+  {
+    "objectID": "02_clustering_ang.html#contribución-a-objetivos-3",
+    "href": "02_clustering_ang.html#contribución-a-objetivos-3",
+    "title": "Preparación e Integración de Datos para Análisis Espacio-Temporal",
+    "section": "Contribución a Objetivos",
+    "text": "Contribución a Objetivos\n\n✅ Variabilidad mensual de alta resolución (Obj. 1)\n✅ Regionalización hiper-temporal (Obj. 2)\n✅ Detección de transiciones vinculadas a ENSO (Obj. 3)\n\n\nEste análisis multi-escala ofrece una perspectiva comprensiva de la variabilidad oceánica en el Golfo de California, desde escalas anuales hasta mensuales, integrando información física, biológica y climática."
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html",
+    "href": "03_frecuencia_chuy.html",
     "title": "Metodología",
     "section": "",
     "text": "Metodología de la Consultoría"
   },
   {
-    "objectID": "data.html",
-    "href": "data.html",
-    "title": "Datos",
+    "objectID": "05_prophet_manuel.html",
+    "href": "05_prophet_manuel.html",
+    "title": "Equipo",
     "section": "",
-    "text": "Temperatura Superficial del Mar (TSM): 1981–2018\nClorofila a (Chl a): 1997–2018\nÍndice ENSO (ONI)\n\n\n\n\n\nNOAA ONI: Enlace oficial\nDatasets satelitales preprocesados por el equipo (detalles en análisis)."
-  },
-  {
-    "objectID": "data.html#variables-analizadas",
-    "href": "data.html#variables-analizadas",
-    "title": "Datos",
-    "section": "",
-    "text": "Temperatura Superficial del Mar (TSM): 1981–2018\nClorofila a (Chl a): 1997–2018\nÍndice ENSO (ONI)"
-  },
-  {
-    "objectID": "data.html#fuentes",
-    "href": "data.html#fuentes",
-    "title": "Datos",
-    "section": "",
-    "text": "NOAA ONI: Enlace oficial\nDatasets satelitales preprocesados por el equipo (detalles en análisis)."
-  },
-  {
-    "objectID": "resultados.html",
-    "href": "resultados.html",
-    "title": "Análisis de Clustering Espacio-Temporal en el Golfo de California",
-    "section": "",
-    "text": "Este estudio forma parte del proyecto:\n“Análisis de la variabilidad ambiental y dinámica oceanográfica espacio-temporal de la zona costera occidental del Golfo de California”.\nSe enfoca específicamente en el cumplimiento de los siguientes objetivos específicos mediante técnicas de clustering y análisis multivariado:\n\nDeterminar la variabilidad de la Temperatura Superficial del Mar (TSM) y de Clorofila a (Chl a) y sus principales frecuencias de variación.\nEstablecer una regionalización funcional del Golfo basada en TSM y Chl a.\nAnalizar el impacto interanual, estacional e intranual del fenómeno ENSO (El Niño–La Niña) en dichas variables."
-  },
-  {
-    "objectID": "resultados.html#objetivo-del-análisis",
-    "href": "resultados.html#objetivo-del-análisis",
-    "title": "Análisis de Clustering Espacio-Temporal en el Golfo de California",
-    "section": "",
-    "text": "Este estudio forma parte del proyecto:\n“Análisis de la variabilidad ambiental y dinámica oceanográfica espacio-temporal de la zona costera occidental del Golfo de California”.\nSe enfoca específicamente en el cumplimiento de los siguientes objetivos específicos mediante técnicas de clustering y análisis multivariado:\n\nDeterminar la variabilidad de la Temperatura Superficial del Mar (TSM) y de Clorofila a (Chl a) y sus principales frecuencias de variación.\nEstablecer una regionalización funcional del Golfo basada en TSM y Chl a.\nAnalizar el impacto interanual, estacional e intranual del fenómeno ENSO (El Niño–La Niña) en dichas variables."
-  },
-  {
-    "objectID": "resultados.html#preparación-e-integración-de-datos",
-    "href": "resultados.html#preparación-e-integración-de-datos",
-    "title": "Análisis de Clustering Espacio-Temporal en el Golfo de California",
-    "section": "2 1. Preparación e Integración de Datos",
-    "text": "2 1. Preparación e Integración de Datos\n\n2.1 1.1 Datos Utilizados\nSe trabajó con cuatro fuentes principales:\n\nTSM mensual (1981–2018)\n\nChl a mensual (1997–2018)\n\nCoordenadas de estaciones (latitud, longitud)\n\nÍndice ONI (trimestral, convertido a mensual)\n\n\n\n2.2 1.2 Transformaciones Aplicadas\n\nEstandarización a formato largo (por estación, mes, año).\nCategorización de eventos ENSO a nivel mensual.\nUnión espacial (lat/lon) y temporal de TSM, Chl a y ONI.\nGeneración de variables auxiliares: estación del año, número de mes, clasificación ENSO (ENSO_CLASE).\n\nEl dataset final (data_final) contiene observaciones mensuales por estación, con variables ambientales y climáticas listas para análisis multivariado y clustering."
-  },
-  {
-    "objectID": "resultados.html#clustering-por-estación-global-fijo",
-    "href": "resultados.html#clustering-por-estación-global-fijo",
-    "title": "Análisis de Clustering Espacio-Temporal en el Golfo de California",
-    "section": "3 2. Clustering por Estación (Global Fijo)",
-    "text": "3 2. Clustering por Estación (Global Fijo)\n\n3.1 Objetivos Atendidos\n\nVariabilidad ambiental (Obj. 1)\nRegionalización funcional (Obj. 2)\nRelación con ENSO (Obj. 3)\n\n\n\n3.2 Resultados Relevantes\n\nAnálisis de estacionalidad muestra patrones consistentes con el ciclo solar.\nTSM con máximos en verano e invierno mínimo; Chl a muestra el patrón opuesto.\nTendencia a la baja en Chl a y al alza en TSM.\nKMeans (K=4) agrupó estaciones en cuatro zonas oceanográficas:\n\n\n\n\nCluster\nTSM\nChla\nDescripción\n\n\n\n\n0\n23.0 °C\n2.0\nNorte productivo\n\n\n1\n25.0 °C\n0.8\nCentro cálido\n\n\n2\n23.5 °C\n1.4\nFranja intermedia\n\n\n3\n26.0 °C\n0.5\nSur cálido oligotrófico\n\n\n\n\n\n3.3 Interpretación\n\nEl gradiente norte-sur es claro: más frío y productivo al norte.\nLa disminución en Chl a sugiere posibles efectos de calentamiento o estratificación."
-  },
-  {
-    "objectID": "resultados.html#clustering-dinámico-anual-interanual",
-    "href": "resultados.html#clustering-dinámico-anual-interanual",
-    "title": "Análisis de Clustering Espacio-Temporal en el Golfo de California",
-    "section": "4 3. Clustering Dinámico Anual (Interanual)",
-    "text": "4 3. Clustering Dinámico Anual (Interanual)\n\n4.1 Objetivos Atendidos\n\nVariabilidad interanual (Obj. 1)\nRegionalización espacio-temporal (Obj. 2)\nImpacto de ENSO (Obj. 3)\n\n\n\n4.2 Resultados Relevantes\n\n\n\nCluster\nTSM\nChla\nONI\nDescripción\n\n\n\n\n0\n23.2 °C\n2.37\n-0.06\nFrío y productivo\n\n\n1\n24.8 °C\n0.90\n-0.65\nLa Niña\n\n\n2\n23.5 °C\n1.57\n-0.07\nNeutro\n\n\n3\n25.9 °C\n0.69\n+0.20\nEl Niño\n\n\n\n\nBoxplots evidencian progresión fría-productiva → cálido-oligotrófico.\nAños dominados por El Niño muestran condiciones del Cluster 3.\n\n\n\n4.3 Estabilidad por Estación\n\nEstaciones como Est. 9° cambiaron de cluster más de 14 veces.\nEst. 11° y Est. 14° mostraron alta estabilidad."
-  },
-  {
-    "objectID": "resultados.html#clustering-mensual-por-estación-y-mes-espacio-temporal-fino",
-    "href": "resultados.html#clustering-mensual-por-estación-y-mes-espacio-temporal-fino",
-    "title": "Análisis de Clustering Espacio-Temporal en el Golfo de California",
-    "section": "5 4. Clustering Mensual por Estación y Mes (Espacio-Temporal Fino)",
-    "text": "5 4. Clustering Mensual por Estación y Mes (Espacio-Temporal Fino)\n\n5.1 Objetivos Atendidos\n\nVariabilidad mensual detallada (Obj. 1)\nRegionalización espacio-temporal dinámica (Obj. 2)\nEstacionalidad y transición por ENSO (Obj. 3)\n\n\n\n5.2 Resultados Relevantes\n\n\n\nCluster\nTSM\nChla\nONI\nDescripción\n\n\n\n\n0\n28.9 °C\n0.64\n-0.15\nVerano extremo\n\n\n1\n20.9 °C\n3.65\n-0.10\nInvierno productivo\n\n\n2\n20.2 °C\n1.39\n-0.83\nFrío – La Niña\n\n\n3\n22.4 °C\n1.26\n+1.10\nPrimavera – Niño\n\n\n\n\nEl cluster veraniego (C0) domina entre julio-septiembre.\nEl cluster invernal (C1) en enero-marzo.\nEl cluster Niño (C3) en primavera.\n\n\n\n5.3 Inestabilidad por Estación\n\nEstaciones como Est. 12°, Est. 13° y Est. 16° cambiaron más de 80 veces.\nEl sur del golfo fue más estable (menos cambios mensuales)."
-  },
-  {
-    "objectID": "resultados.html#matriz-de-transición-mensual",
-    "href": "resultados.html#matriz-de-transición-mensual",
-    "title": "Análisis de Clustering Espacio-Temporal en el Golfo de California",
-    "section": "6 5. Matriz de Transición Mensual",
-    "text": "6 5. Matriz de Transición Mensual\n\n\n\nDe / A\nC0\nC1\nC2\nC3\n\n\n\n\nC0\n1533\n43\n176\n115\n\n\nC1\n58\n134\n85\n58\n\n\nC2\n182\n97\n714\n12\n\n\nC3\n119\n65\n16\n486\n\n\n\n\nClusters más estables: C0 (verano) y C2 (La Niña).\nTransiciones comunes: C2 → C0 y C3 → C0."
-  },
-  {
-    "objectID": "resultados.html#conclusiones-generales",
-    "href": "resultados.html#conclusiones-generales",
-    "title": "Análisis de Clustering Espacio-Temporal en el Golfo de California",
-    "section": "7 Conclusiones Generales",
-    "text": "7 Conclusiones Generales\n\nEl clustering fijo permitió regionalizar el Golfo con base en promedios históricos.\nLos análisis dinámicos (anual y mensual) capturaron variaciones inducidas por ENSO y cambios intra-anuales.\nLa estacionalidad, el ENSO y la ubicación geográfica explican gran parte de la dinámica ambiental observada.\nEste enfoque es valioso para monitoreo ambiental, estudios de productividad marina y gestión pesquera basada en condiciones oceanográficas de alta resolución."
-  },
-  {
-    "objectID": "resultados.html#próximos-pasos-recomendados",
-    "href": "resultados.html#próximos-pasos-recomendados",
-    "title": "Análisis de Clustering Espacio-Temporal en el Golfo de California",
-    "section": "8 Próximos Pasos Recomendados",
-    "text": "8 Próximos Pasos Recomendados\n\nAplicar clustering jerárquico a perfiles temporales para evaluar persistencias temporales.\nEstudiar correlaciones entre Chl a y TSM para detectar relaciones causa-efecto.\nImplementar modelos predictivos de clase de cluster en función de ONI y mes."
+    "text": "Desarrolladores\n\nBarraza Angel | LinkedIn\nCirett Federico | LinkedIn\nCota Manuel | LinkedIn\nMartinez Fernando | LinkedIn\nSolis Jesus | LinkedIn"
   }
 ]

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Inicio – Analisis Estadistico de Oceanografia del Golfo de California</title>
+<title>clustering_ang – Analisis Estadistico de Oceanografia del Golfo de California</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
@@ -97,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Datos y Metodología</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./02_clustering_ang.html"> 
+    <a class="nav-link active" href="./02_clustering_ang.html" aria-current="page"> 
 <span class="menu-text">Clustering</span></a>
   </li>  
   <li class="nav-item">
@@ -136,42 +136,264 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#consultoría-estadística-aplicada-a-oceanografía" id="toc-consultoría-estadística-aplicada-a-oceanografía" class="nav-link active" data-scroll-target="#consultoría-estadística-aplicada-a-oceanografía">Consultoría Estadística Aplicada a Oceanografía</a></li>
+  <li><a href="#preparación-e-integración-de-datos-para-análisis-espacio-temporal" id="toc-preparación-e-integración-de-datos-para-análisis-espacio-temporal" class="nav-link active" data-scroll-target="#preparación-e-integración-de-datos-para-análisis-espacio-temporal">Preparación e Integración de Datos para Análisis Espacio-Temporal</a>
+  <ul class="collapse">
+  <li><a href="#descripción-de-los-datos-originales" id="toc-descripción-de-los-datos-originales" class="nav-link" data-scroll-target="#descripción-de-los-datos-originales">1. Descripción de los Datos Originales</a></li>
+  <li><a href="#transformación-y-enriquecimiento-de-los-datos" id="toc-transformación-y-enriquecimiento-de-los-datos" class="nav-link" data-scroll-target="#transformación-y-enriquecimiento-de-los-datos">2. Transformación y Enriquecimiento de los Datos</a></li>
+  <li><a href="#consolidación-final-del-dataset" id="toc-consolidación-final-del-dataset" class="nav-link" data-scroll-target="#consolidación-final-del-dataset">3. Consolidación Final del Dataset</a></li>
+  </ul></li>
+  <li><a href="#parte-1.-clustering-regional-fijo-por-estación" id="toc-parte-1.-clustering-regional-fijo-por-estación" class="nav-link" data-scroll-target="#parte-1.-clustering-regional-fijo-por-estación">Parte 1. Clustering Regional Fijo por Estación</a>
+  <ul class="collapse">
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo">Objetivo</a></li>
+  <li><a href="#metodología" id="toc-metodología" class="nav-link" data-scroll-target="#metodología">Metodología</a></li>
+  <li><a href="#resumen-de-clusters" id="toc-resumen-de-clusters" class="nav-link" data-scroll-target="#resumen-de-clusters">Resumen de Clusters</a></li>
+  <li><a href="#visualizaciones" id="toc-visualizaciones" class="nav-link" data-scroll-target="#visualizaciones">Visualizaciones</a></li>
+  <li><a href="#contribución-a-objetivos" id="toc-contribución-a-objetivos" class="nav-link" data-scroll-target="#contribución-a-objetivos">Contribución a Objetivos</a></li>
+  </ul></li>
+  <li><a href="#parte-2.-clustering-dinámico-interanual-estación-año" id="toc-parte-2.-clustering-dinámico-interanual-estación-año" class="nav-link" data-scroll-target="#parte-2.-clustering-dinámico-interanual-estación-año">Parte 2. Clustering Dinámico Interanual (Estación × Año)</a>
+  <ul class="collapse">
+  <li><a href="#objetivo-1" id="toc-objetivo-1" class="nav-link" data-scroll-target="#objetivo-1">Objetivo</a></li>
+  <li><a href="#variables-utilizadas" id="toc-variables-utilizadas" class="nav-link" data-scroll-target="#variables-utilizadas">Variables Utilizadas</a></li>
+  <li><a href="#resumen-de-clusters-1" id="toc-resumen-de-clusters-1" class="nav-link" data-scroll-target="#resumen-de-clusters-1">Resumen de Clusters</a></li>
+  <li><a href="#resultados" id="toc-resultados" class="nav-link" data-scroll-target="#resultados">Resultados</a></li>
+  <li><a href="#estabilidad-de-estaciones" id="toc-estabilidad-de-estaciones" class="nav-link" data-scroll-target="#estabilidad-de-estaciones">Estabilidad de Estaciones</a></li>
+  <li><a href="#contribución-a-objetivos-1" id="toc-contribución-a-objetivos-1" class="nav-link" data-scroll-target="#contribución-a-objetivos-1">Contribución a Objetivos</a></li>
+  </ul></li>
+  <li><a href="#parte-3.-clustering-dinámico-estacional-estación-año-estación-del-año" id="toc-parte-3.-clustering-dinámico-estacional-estación-año-estación-del-año" class="nav-link" data-scroll-target="#parte-3.-clustering-dinámico-estacional-estación-año-estación-del-año">Parte 3. Clustering Dinámico Estacional (Estación × Año × Estación del Año)</a>
+  <ul class="collapse">
+  <li><a href="#objetivo-2" id="toc-objetivo-2" class="nav-link" data-scroll-target="#objetivo-2">Objetivo</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
+  <li><a href="#clusters-estacionales" id="toc-clusters-estacionales" class="nav-link" data-scroll-target="#clusters-estacionales">Clusters Estacionales</a></li>
+  <li><a href="#resultados-1" id="toc-resultados-1" class="nav-link" data-scroll-target="#resultados-1">Resultados</a></li>
+  <li><a href="#contribución-a-objetivos-2" id="toc-contribución-a-objetivos-2" class="nav-link" data-scroll-target="#contribución-a-objetivos-2">Contribución a Objetivos</a></li>
+  </ul></li>
+  <li><a href="#parte-4.-clustering-dinámico-mensual-estación-año-mes" id="toc-parte-4.-clustering-dinámico-mensual-estación-año-mes" class="nav-link" data-scroll-target="#parte-4.-clustering-dinámico-mensual-estación-año-mes">Parte 4. Clustering Dinámico Mensual (Estación × Año × Mes)</a>
+  <ul class="collapse">
+  <li><a href="#objetivo-3" id="toc-objetivo-3" class="nav-link" data-scroll-target="#objetivo-3">Objetivo</a></li>
+  <li><a href="#variables-y-método" id="toc-variables-y-método" class="nav-link" data-scroll-target="#variables-y-método">Variables y Método</a></li>
+  <li><a href="#clusters-mensuales" id="toc-clusters-mensuales" class="nav-link" data-scroll-target="#clusters-mensuales">Clusters Mensuales</a></li>
+  <li><a href="#resultados-2" id="toc-resultados-2" class="nav-link" data-scroll-target="#resultados-2">Resultados</a></li>
+  <li><a href="#contribución-a-objetivos-3" id="toc-contribución-a-objetivos-3" class="nav-link" data-scroll-target="#contribución-a-objetivos-3">Contribución a Objetivos</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Inicio</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
+<hr>
+<p>title: “Análisis de Clustering Espacio-Temporal” format: html —</p>
+<section id="preparación-e-integración-de-datos-para-análisis-espacio-temporal" class="level1">
+<h1>Preparación e Integración de Datos para Análisis Espacio-Temporal</h1>
+<section id="descripción-de-los-datos-originales" class="level2">
+<h2 class="anchored" data-anchor-id="descripción-de-los-datos-originales">1. Descripción de los Datos Originales</h2>
+<p>Se trabajó con cuatro fuentes principales de datos:</p>
+<ul>
+<li><strong>Temperatura Superficial del Mar (TSM)</strong>: Datos mensuales por estación de monitoreo para el periodo 1981–2018.</li>
+<li><strong>Clorofila a (Chl a)</strong>: Datos mensuales por estación para el periodo 1997–2018.</li>
+<li><strong>Coordenadas de estaciones</strong>: Posiciones geográficas (latitud y longitud) de 17 estaciones distribuidas en la zona costera occidental del Golfo de California.</li>
+<li><strong>Índice ONI (Oceanic Niño Index)</strong>: Serie temporal trimestral estandarizada de NOAA para identificar eventos ENSO (Niño, Niña, Neutro).</li>
+</ul>
+</section>
+<section id="transformación-y-enriquecimiento-de-los-datos" class="level2">
+<h2 class="anchored" data-anchor-id="transformación-y-enriquecimiento-de-los-datos">2. Transformación y Enriquecimiento de los Datos</h2>
+<ul>
+<li><strong>Restructuración Longitudinal</strong>: Se transformaron TSM y Chl a de formato ancho a largo.</li>
+<li><strong>Unificación de variables</strong>: Se fusionaron TSM, Chl a, coordenadas y ENSO mensual clasificado.</li>
+<li><strong>Variables Derivadas</strong>: Mes, año, estación del año y ENSO_CLASE según ONI (Niño: ≥0.5, Niña: ≤-0.5).</li>
+</ul>
+</section>
+<section id="consolidación-final-del-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="consolidación-final-del-dataset">3. Consolidación Final del Dataset</h2>
+<p>El dataframe final <code>data_final_common</code> contiene:</p>
+<pre class="plaintext"><code>| FECHA      | AÑO  | MES     | ESTACION | TSM     | Chla   | lon    | lat  | MES_NUM | ONI | ENSO_CLASE |
+|------------|------|---------|----------|---------|--------|--------|------|----------|-----|-------------|
+| 2018-10-01 | 2018 | Octubre | Est 1°    | 29.91   | 0.15   | -109.3 | 23.8 | 10       | 0.5 | Niño        |
+| 2018-10-01 | 2018 | Octubre | Est 2°    | 29.77   | 0.17   | -109.7 | 24.2 | 10       | 0.5 | Niño        |</code></pre>
+<p>Este dataset es la base para los cuatro enfoques de clustering presentados a continuación.</p>
+<hr>
+</section>
+</section>
+<section id="parte-1.-clustering-regional-fijo-por-estación" class="level1">
+<h1>Parte 1. Clustering Regional Fijo por Estación</h1>
+<section id="objetivo" class="level2">
+<h2 class="anchored" data-anchor-id="objetivo">Objetivo</h2>
+<p>Proponer una regionalización objetiva basada en estadísticas agregadas por estación: TSM, Chl a y ONI.</p>
+</section>
+<section id="metodología" class="level2">
+<h2 class="anchored" data-anchor-id="metodología">Metodología</h2>
+<p>Se agregaron variables por estación:</p>
+<ul>
+<li>TSM_mean, TSM_std, Chla_mean, Chla_std</li>
+<li>ONI_mean</li>
+</ul>
+<p>Estas variables se escalaron y se aplicó <strong>KMeans (k=4)</strong>.</p>
+</section>
+<section id="resumen-de-clusters" class="level2">
+<h2 class="anchored" data-anchor-id="resumen-de-clusters">Resumen de Clusters</h2>
+<pre class="plaintext"><code>| Cluster | TSM | Chl a | Descripción                   |
+|---------|-----|--------|-------------------------------|
+| 0       | 23  | 2.36   | Frío y altamente productivo   |
+| 1       | 24.8| 0.9    | Térmicamente medio, oligotrófico|
+| 2       | 23.5| 1.6    | Intermedio                     |
+| 3       | 25.9| 0.69   | Más cálido, menos productivo  |</code></pre>
+</section>
+<section id="visualizaciones" class="level2">
+<h2 class="anchored" data-anchor-id="visualizaciones">Visualizaciones</h2>
+<ul>
+<li>Mapa de agrupamiento fijo por ubicación</li>
+<li>Boxplots de TSM y Chl a por cluster</li>
+<li>Relación TSM-Chl a bajo ENSO</li>
+</ul>
+</section>
+<section id="contribución-a-objetivos" class="level2">
+<h2 class="anchored" data-anchor-id="contribución-a-objetivos">Contribución a Objetivos</h2>
+<ul>
+<li>✅ Variabilidad espacial (Obj. 1)</li>
+<li>✅ Regionalización ambiental (Obj. 2)</li>
+<li>✅ Efectos agregados ENSO (Obj. 3)</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="parte-2.-clustering-dinámico-interanual-estación-año" class="level1">
+<h1>Parte 2. Clustering Dinámico Interanual (Estación × Año)</h1>
+<section id="objetivo-1" class="level2">
+<h2 class="anchored" data-anchor-id="objetivo-1">Objetivo</h2>
+<p>Evaluar cambios interanuales de condiciones ambientales por estación.</p>
+</section>
+<section id="variables-utilizadas" class="level2">
+<h2 class="anchored" data-anchor-id="variables-utilizadas">Variables Utilizadas</h2>
+<ul>
+<li>TSM y Chl a (media, desviación)</li>
+<li>ONI_mean</li>
+<li>Coordenadas (para mapeo)</li>
+</ul>
+<p>Se usó <strong>KMeans (k=4)</strong> sobre valores estandarizados.</p>
+</section>
+<section id="resumen-de-clusters-1" class="level2">
+<h2 class="anchored" data-anchor-id="resumen-de-clusters-1">Resumen de Clusters</h2>
+<pre class="plaintext"><code>| Cluster | TSM | Chl a | ONI   | Interpretación             |
+|---------|-----|--------|--------|-----------------------------|
+| 0       | 23.2| 2.36   | -0.06 | Moderado-productivo         |
+| 1       | 24.8| 0.9    | -0.64 | Cálido (La Niña)            |
+| 2       | 23.5| 1.6    | -0.07 | Estable-intermedio          |
+| 3       | 25.9| 0.69   | +0.20 | Cálido (El Niño leve)        |</code></pre>
+</section>
+<section id="resultados" class="level2">
+<h2 class="anchored" data-anchor-id="resultados">Resultados</h2>
+<ul>
+<li>Mapa de calor de evolución de clusters</li>
+<li>Distribución por ENSO</li>
+<li>Matriz de transiciones</li>
+</ul>
+</section>
+<section id="estabilidad-de-estaciones" class="level2">
+<h2 class="anchored" data-anchor-id="estabilidad-de-estaciones">Estabilidad de Estaciones</h2>
+<ul>
+<li>Estaciones con &gt;10 cambios = alta inestabilidad</li>
+<li>Visualizadas en mapa codificado por color (rojo = inestable)</li>
+</ul>
+</section>
+<section id="contribución-a-objetivos-1" class="level2">
+<h2 class="anchored" data-anchor-id="contribución-a-objetivos-1">Contribución a Objetivos</h2>
+<ul>
+<li>✅ Frecuencias interanuales (Obj. 1)</li>
+<li>✅ Regionalización variable en el tiempo (Obj. 2)</li>
+<li>✅ Análisis de ENSO por año y estación (Obj. 3)</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="parte-3.-clustering-dinámico-estacional-estación-año-estación-del-año" class="level1">
+<h1>Parte 3. Clustering Dinámico Estacional (Estación × Año × Estación del Año)</h1>
+<section id="objetivo-2" class="level2">
+<h2 class="anchored" data-anchor-id="objetivo-2">Objetivo</h2>
+<p>Analizar patrones ambientales por <strong>primavera, verano, otoño e invierno</strong> para cada estación.</p>
+</section>
+<section id="variables" class="level2">
+<h2 class="anchored" data-anchor-id="variables">Variables</h2>
+<ul>
+<li>TSM y Chl a: medias y desviaciones por estación del año</li>
+<li>ONI_mean por combinación</li>
+<li>Se usó <strong>KMeans (k=4)</strong> sobre datos normalizados</li>
+</ul>
+</section>
+<section id="clusters-estacionales" class="level2">
+<h2 class="anchored" data-anchor-id="clusters-estacionales">Clusters Estacionales</h2>
+<pre class="plaintext"><code>| Cluster | TSM | Chl a | ONI  | Característica                 |
+|---------|-----|--------|------|--------------------------------|
+| 0       | 24  | 2.41   | -0.30 | Intermedio y productivo         |
+| 1       | 28.4| 0.66   | -0.03 | Verano térmico, baja clorofila  |
+| 2       | 20.7| 1.51   | +0.73 | Frío con influencia de Niño     |
+| 3       | 20.2| 1.37   | -0.73 | Frío asociado a La Niña        |</code></pre>
+</section>
+<section id="resultados-1" class="level2">
+<h2 class="anchored" data-anchor-id="resultados-1">Resultados</h2>
+<ul>
+<li>Heatmap espacio-temporal (estación x año x estación del año)</li>
+<li>Distribución por estación del año</li>
+<li>Mapa de inestabilidad por estación fija</li>
+<li>Matriz de transiciones intra-anuales</li>
+</ul>
+</section>
+<section id="contribución-a-objetivos-2" class="level2">
+<h2 class="anchored" data-anchor-id="contribución-a-objetivos-2">Contribución a Objetivos</h2>
+<ul>
+<li>✅ Identificación de patrones intra-anuales (Obj. 1)</li>
+<li>✅ Regionalización sensible a la estacionalidad (Obj. 2)</li>
+<li>✅ Asociación a eventos ENSO estacionales (Obj. 3)</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="parte-4.-clustering-dinámico-mensual-estación-año-mes" class="level1">
+<h1>Parte 4. Clustering Dinámico Mensual (Estación × Año × Mes)</h1>
+<section id="objetivo-3" class="level2">
+<h2 class="anchored" data-anchor-id="objetivo-3">Objetivo</h2>
+<p>Detectar variabilidad de <strong>alta frecuencia</strong> a nivel mensual.</p>
+</section>
+<section id="variables-y-método" class="level2">
+<h2 class="anchored" data-anchor-id="variables-y-método">Variables y Método</h2>
+<ul>
+<li>TSM_mean, Chla_mean, ONI_mean por estación-año-mes</li>
+<li><strong>KMeans (k=4)</strong> con escalado previo</li>
+</ul>
+</section>
+<section id="clusters-mensuales" class="level2">
+<h2 class="anchored" data-anchor-id="clusters-mensuales">Clusters Mensuales</h2>
+<pre class="plaintext"><code>| Cluster | TSM | Chl a | ONI  | Interpretación                    |
+|---------|-----|--------|------|----------------------------------|
+| 0       | 28.9| 0.64   | -0.15| Verano, cálido y oligotrófico    |
+| 1       | 20.9| 3.65   | -0.10| Invierno, frío y productivo       |
+| 2       | 20.2| 1.39   | -0.84| Asociado a La Niña                |
+| 3       | 22.4| 1.26   | +1.11| Asociado a El Niño                |</code></pre>
+</section>
+<section id="resultados-2" class="level2">
+<h2 class="anchored" data-anchor-id="resultados-2">Resultados</h2>
+<ul>
+<li>Heatmap mensual detallado</li>
+<li>Distribución por mes del año</li>
+<li>Evolución anual agregada</li>
+<li>Mapa de inestabilidad mensual</li>
+<li>Matriz de transiciones mensuales</li>
+</ul>
+</section>
+<section id="contribución-a-objetivos-3" class="level2">
+<h2 class="anchored" data-anchor-id="contribución-a-objetivos-3">Contribución a Objetivos</h2>
+<ul>
+<li>✅ Variabilidad mensual de alta resolución (Obj. 1)</li>
+<li>✅ Regionalización hiper-temporal (Obj. 2)</li>
+<li>✅ Detección de transiciones vinculadas a ENSO (Obj. 3)</li>
+</ul>
+<hr>
+<p>Este análisis multi-escala ofrece una perspectiva comprensiva de la variabilidad oceánica en el Golfo de California, desde escalas anuales hasta mensuales, integrando información física, biológica y climática.</p>
 
 
-</header>
-
-
-<section id="consultoría-estadística-aplicada-a-oceanografía" class="level1">
-<h1>Consultoría Estadística Aplicada a Oceanografía</h1>
-<p>Bienvenidos al sitio del proyecto <strong>Análisis de la variabilidad ambiental y dinámica oceanográfica del Golfo de California</strong>. Aquí compartimos resultados de nuestra consultoría estadística, con enfoque en datos satelitales de <strong>Temperatura Superficial del Mar (TSM)</strong> y <strong>Clorofila a (Chl a)</strong>.</p>
-<p><strong>Justificación</strong><br>
-El monitoreo a largo plazo del océano es clave para entender y predecir cambios ecosistémicos. Analizar la zona costera occidental del Golfo de California permite detectar tendencias vinculadas a procesos oceanográficos y climáticos como El Niño y La Niña.</p>
-<p><strong>Hipótesis</strong><br>
-La variabilidad observada en esta región está influenciada por la dinámica del Pacífico y su ubicación geográfica, generando patrones espacio-temporales complejos a distintas escalas.</p>
-<p><a href="about.qmd">Explora la metodología →</a></p>
-
-
+</section>
 </section>
 
 </main> <!-- /main -->
