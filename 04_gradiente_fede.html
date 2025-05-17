@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Fede – Analisis Estadistico de Oceanografia del Golfo de California</title>
+<title>gradiente_fede – Análisis Estadístico del Golfo de California</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./img/logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -39,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b3aed8deb8408878d0e4e165d993d59e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e83117e711fad372bcb8c8022997a9a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,8 +79,11 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/logo.png" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Analisis Estadistico de Oceanografia del Golfo de California</span>
+    <span class="navbar-title">Análisis Estadístico del Golfo de California</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -94,11 +98,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./01_datos_metodologia.html"> 
-<span class="menu-text">Datos y Metodología</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./02_clustering_ang.html"> 
-<span class="menu-text">Clustering</span></a>
+<span class="menu-text">Datos</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./03_frecuencia_chuy.html"> 
@@ -106,7 +106,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./04_gradiente_fede.html" aria-current="page"> 
-<span class="menu-text">Gradiente Inverso</span></a>
+<span class="menu-text">Análisis Local</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./02_clustering_ang.html"> 
+<span class="menu-text">Clustering</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./05_prophet_manuel.html"> 
@@ -114,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./06_pca_elfer.html"> 
-<span class="menu-text">PCA y Análisis Exploratorio</span></a>
+<span class="menu-text">ENSO y Variabilidad</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./07_conclusiones.html"> 
@@ -128,36 +132,103 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#variabilidad-local-y-comportamientos-atípicos-en-estaciones-costeras" id="toc-variabilidad-local-y-comportamientos-atípicos-en-estaciones-costeras" class="nav-link active" data-scroll-target="#variabilidad-local-y-comportamientos-atípicos-en-estaciones-costeras">Variabilidad Local y Comportamientos Atípicos en Estaciones Costeras</a>
+  <ul class="collapse">
+  <li><a href="#variación-en-las-estaciones-11-15-posible-influencia-insular" id="toc-variación-en-las-estaciones-11-15-posible-influencia-insular" class="nav-link" data-scroll-target="#variación-en-las-estaciones-11-15-posible-influencia-insular">Variación en las Estaciones 11-15: Posible Influencia Insular</a>
+  <ul class="collapse">
+  <li><a href="#posibles-causas" id="toc-posibles-causas" class="nav-link" data-scroll-target="#posibles-causas">Posibles causas:</a></li>
+  </ul></li>
+  <li><a href="#frecuencias-de-mayor-temperatura-y-clorofila-estaciones-11-15" id="toc-frecuencias-de-mayor-temperatura-y-clorofila-estaciones-11-15" class="nav-link" data-scroll-target="#frecuencias-de-mayor-temperatura-y-clorofila-estaciones-11-15">Frecuencias de Mayor Temperatura y Clorofila: Estaciones 11-15</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Fede</h1>
+
+
+
+<section id="variabilidad-local-y-comportamientos-atípicos-en-estaciones-costeras" class="level1">
+<h1>Variabilidad Local y Comportamientos Atípicos en Estaciones Costeras</h1>
+<hr>
+<section id="variación-en-las-estaciones-11-15-posible-influencia-insular" class="level2">
+<h2 class="anchored" data-anchor-id="variación-en-las-estaciones-11-15-posible-influencia-insular">Variación en las Estaciones 11-15: Posible Influencia Insular</h2>
+<p>Durante el análisis de las estaciones 11 a 15, se ha identificado una <strong>variación atípica</strong> en comparación con el resto del transecto costero. Estas estaciones presentan comportamientos distintos, posiblemente debido a su <strong>proximidad a islas</strong> o formaciones insulares cercanas. Las formaciones que se encuentran cerca a estas estaciones son la Isla San Lorenzo y la Isla Ángel de la Guarda.</p>
+<section id="posibles-causas" class="level3">
+<h3 class="anchored" data-anchor-id="posibles-causas">Posibles causas:</h3>
+<ul>
+<li><strong>Efecto sombra</strong> de las islas, alterando la dinámica local de circulación.</li>
+<li><strong>Aporte de nutrientes</strong> desde las islas o zonas intermareales, lo que puede aumentar la productividad biológica.</li>
+</ul>
+<p>Estas influencias pueden provocar tanto <strong>anomalías térmicas</strong>, como se reflejan en las gráficas:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plots/tsm_1.png" class="img-fluid figure-img"></p>
+<figcaption>Temperaturas 2009-2010</figcaption>
+</figure>
 </div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plots/tsm_1.png" class="img-fluid figure-img"></p>
+<figcaption>Temperaturas 2011-2012</figcaption>
+</figure>
+</div>
+<p>como <strong>incrementos localizados de clorofila</strong>, reflejando un ecosistema parcialmente desconectado del patrón general de la costa abierta.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plots/chla_1.png" class="img-fluid figure-img"></p>
+<figcaption>Clorofila 2009-2010</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plots/chla_2.png" class="img-fluid figure-img"></p>
+<figcaption>Clorofila 2011-2012</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="frecuencias-de-mayor-temperatura-y-clorofila-estaciones-11-15" class="level2">
+<h2 class="anchored" data-anchor-id="frecuencias-de-mayor-temperatura-y-clorofila-estaciones-11-15">Frecuencias de Mayor Temperatura y Clorofila: Estaciones 11-15</h2>
+<ul>
+<li>Las <strong>estaciones 11 a 15</strong> muestran una mayor frecuencia de eventos con <strong>altas concentraciones de clorofila</strong> por año y por temporada.
+<ul>
+<li>Esto sugiere una zona de <strong>alta productividad primaria</strong>, posiblemente sostenida por procesos locales como afloramiento, retención costera o subsidios insulares.</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plots/freq_chla.png" class="img-fluid figure-img"></p>
+<figcaption>Frecuencias Concentración de Clorófila</figcaption>
+</figure>
+</div>
+<ul>
+<li>Por el contrario, en estas mismas estaciones se observa una <strong>frecuencia menor de temperaturas superficiales elevadas</strong>.
+<ul>
+<li>Este patrón es consistente con zonas donde el afloramiento de aguas profundas frías es frecuente, lo cual también explicaría la alta clorofila observada.</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/plots/freq_tsm.png" class="img-fluid figure-img"></p>
+<figcaption>Frecuencias Temperatura</figcaption>
+</figure>
+</div>
+<p>Este <strong>gradiente inverso</strong> (↓ TSM / ↑ Chl-a) refuerza la hipótesis de una <strong>dinámica oceanográfica particular</strong> en este sector del transecto, probablemente influenciada por factores físicos y topográficos locales.</p>
+<hr>
 
 
-
-<div class="quarto-title-meta column-page">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -232,7 +303,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/tukey-stans\.github\.io\/ae-oceanografia-golfo-cali\/");
+        var filterRegex = new RegExp("https:\/\/github\.com\/tukey-stans\/ae-oceanografia-golfo-cali");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

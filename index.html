@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Inicio – Analisis Estadistico de Oceanografia del Golfo de California</title>
+<title>Análisis Estadístico del Golfo de California</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./img/logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -39,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b3aed8deb8408878d0e4e165d993d59e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e83117e711fad372bcb8c8022997a9a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,8 +79,11 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/logo.png" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Analisis Estadistico de Oceanografia del Golfo de California</span>
+    <span class="navbar-title">Análisis Estadístico del Golfo de California</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -94,11 +98,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./01_datos_metodologia.html"> 
-<span class="menu-text">Datos y Metodología</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./02_clustering_ang.html"> 
-<span class="menu-text">Clustering</span></a>
+<span class="menu-text">Datos</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./03_frecuencia_chuy.html"> 
@@ -106,7 +106,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./04_gradiente_fede.html"> 
-<span class="menu-text">Gradiente Inverso</span></a>
+<span class="menu-text">Análisis Local</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./02_clustering_ang.html"> 
+<span class="menu-text">Clustering</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./05_prophet_manuel.html"> 
@@ -114,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./06_pca_elfer.html"> 
-<span class="menu-text">PCA y Análisis Exploratorio</span></a>
+<span class="menu-text">ENSO y Variabilidad</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./07_conclusiones.html"> 
@@ -136,40 +140,43 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#consultoría-estadística-aplicada-a-oceanografía" id="toc-consultoría-estadística-aplicada-a-oceanografía" class="nav-link active" data-scroll-target="#consultoría-estadística-aplicada-a-oceanografía">Consultoría Estadística Aplicada a Oceanografía</a></li>
+  <li><a href="#justificación" id="toc-justificación" class="nav-link active" data-scroll-target="#justificación">Justificación</a></li>
+  <li><a href="#hipótesis-científica" id="toc-hipótesis-científica" class="nav-link" data-scroll-target="#hipótesis-científica">Hipótesis Científica</a></li>
+  <li><a href="#objetivo-general" id="toc-objetivo-general" class="nav-link" data-scroll-target="#objetivo-general">Objetivo General</a></li>
+  <li><a href="#objetivos-específicos" id="toc-objetivos-específicos" class="nav-link" data-scroll-target="#objetivos-específicos">Objetivos Específicos</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Inicio</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="consultoría-estadística-aplicada-a-oceanografía" class="level1">
-<h1>Consultoría Estadística Aplicada a Oceanografía</h1>
-<p>Bienvenidos al sitio del proyecto <strong>Análisis de la variabilidad ambiental y dinámica oceanográfica del Golfo de California</strong>. Aquí compartimos resultados de nuestra consultoría estadística, con enfoque en datos satelitales de <strong>Temperatura Superficial del Mar (TSM)</strong> y <strong>Clorofila a (Chl a)</strong>.</p>
-<p><strong>Justificación</strong><br>
-El monitoreo a largo plazo del océano es clave para entender y predecir cambios ecosistémicos. Analizar la zona costera occidental del Golfo de California permite detectar tendencias vinculadas a procesos oceanográficos y climáticos como El Niño y La Niña.</p>
-<p><strong>Hipótesis</strong><br>
-La variabilidad observada en esta región está influenciada por la dinámica del Pacífico y su ubicación geográfica, generando patrones espacio-temporales complejos a distintas escalas.</p>
-<p><a href="about.qmd">Explora la metodología →</a></p>
+<h1 style="text-align: center;">
+Análisis Estadístico del Golfo de California
+</h1>
+<p><img src="img/portada.png" class="img-fluid"></p>
+<section id="justificación" class="level2">
+<h2 class="anchored" data-anchor-id="justificación">Justificación</h2>
+<p>Las observaciones de largo plazo en ambientes marinos permiten entender y predecir cambios en los ecosistemas. Este tipo de análisis es crucial para implementar estrategias de manejo sostenible. En particular, la zona costera occidental del Golfo de California presenta una alta productividad biológica y es sensible a variaciones ambientales, como las generadas por El Niño y La Niña.</p>
+<p>Comprender la dinámica de variables como la Temperatura Superficial del Mar (TSM) y la Clorofila a (Chl a) nos ayuda a identificar patrones que influyen en los recursos marinos y su variabilidad espacio-temporal.</p>
+</section>
+<section id="hipótesis-científica" class="level2">
+<h2 class="anchored" data-anchor-id="hipótesis-científica">Hipótesis Científica</h2>
+<p>La variabilidad de las condiciones ambientales en la zona costera occidental del Golfo de California está influenciada por la dinámica del Océano Pacífico (corrientes, vientos, climatología) y su ubicación geográfica, lo que da lugar a procesos espacio-temporales de alta (estacionales, anuales) y baja frecuencia (ENSO).</p>
+</section>
+<section id="objetivo-general" class="level2">
+<h2 class="anchored" data-anchor-id="objetivo-general">Objetivo General</h2>
+<p>Analizar la variabilidad ambiental y la dinámica oceanográfica espacio-temporal del Golfo de California, a través del estudio de la TSM y la Chl a con datos satelitales y la influencia del ENSO.</p>
+</section>
+<section id="objetivos-específicos" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos-específicos">Objetivos Específicos</h2>
+<ul>
+<li>Determinar la variabilidad de la TSM (1981–2018) y de la Chl a (1997–2018), así como sus principales frecuencias de variación.</li>
+<li>Establecer una regionalización objetiva del área mediante el análisis de estas variables oceanográficas.</li>
+<li>Analizar los efectos interanuales, intra-anuales y estacionales del ENSO sobre la TSM y la Chl a.</li>
+</ul>
 
 
 </section>
@@ -247,7 +254,7 @@ La variabilidad observada en esta región está influenciada por la dinámica de
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/tukey-stans\.github\.io\/ae-oceanografia-golfo-cali\/");
+        var filterRegex = new RegExp("https:\/\/github\.com\/tukey-stans\/ae-oceanografia-golfo-cali");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

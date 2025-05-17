@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>pca_elfer – Analisis Estadistico de Oceanografia del Golfo de California</title>
+<title>pca_elfer – Análisis Estadístico del Golfo de California</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./img/logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -39,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b3aed8deb8408878d0e4e165d993d59e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e83117e711fad372bcb8c8022997a9a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,8 +79,11 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/logo.png" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Analisis Estadistico de Oceanografia del Golfo de California</span>
+    <span class="navbar-title">Análisis Estadístico del Golfo de California</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -94,11 +98,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./01_datos_metodologia.html"> 
-<span class="menu-text">Datos y Metodología</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./02_clustering_ang.html"> 
-<span class="menu-text">Clustering</span></a>
+<span class="menu-text">Datos</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./03_frecuencia_chuy.html"> 
@@ -106,7 +106,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./04_gradiente_fede.html"> 
-<span class="menu-text">Gradiente Inverso</span></a>
+<span class="menu-text">Análisis Local</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./02_clustering_ang.html"> 
+<span class="menu-text">Clustering</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./05_prophet_manuel.html"> 
@@ -114,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./06_pca_elfer.html" aria-current="page"> 
-<span class="menu-text">PCA y Análisis Exploratorio</span></a>
+<span class="menu-text">ENSO y Variabilidad</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./07_conclusiones.html"> 
@@ -136,11 +140,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#analisis-del-efecto-de-las-fases-enso-en-tsm-y-chl-a-a" id="toc-analisis-del-efecto-de-las-fases-enso-en-tsm-y-chl-a-a" class="nav-link active" data-scroll-target="#analisis-del-efecto-de-las-fases-enso-en-tsm-y-chl-a-a">Analisis del Efecto de las Fases <strong>ENSO</strong> en <strong>TSM</strong> y ****Chl a** a**</a>
+  <li><a href="#analisis-del-efecto-de-las-fases-enso-en-tsm-y-chl-a" id="toc-analisis-del-efecto-de-las-fases-enso-en-tsm-y-chl-a" class="nav-link active" data-scroll-target="#analisis-del-efecto-de-las-fases-enso-en-tsm-y-chl-a">Analisis del Efecto de las Fases <strong>ENSO</strong> en <strong>TSM</strong> y <strong>Chl a</strong></a>
   <ul class="collapse">
   <li><a href="#distribucion-de-las-muestras-segun-fase-enso" id="toc-distribucion-de-las-muestras-segun-fase-enso" class="nav-link" data-scroll-target="#distribucion-de-las-muestras-segun-fase-enso">Distribucion de las muestras segun Fase <strong>ENSO</strong></a></li>
   <li><a href="#fases-enso-a-lo-largo-del-tiempo-en-el-golfo-de-california" id="toc-fases-enso-a-lo-largo-del-tiempo-en-el-golfo-de-california" class="nav-link" data-scroll-target="#fases-enso-a-lo-largo-del-tiempo-en-el-golfo-de-california">Fases <strong>ENSO</strong> a lo largo del tiempo en el Golfo de California</a></li>
-  <li><a href="#desviacion-para-tsm-y-chl-a-a-respecto-a-la-media-y-varianza-media-por-agrupamientos-temporales-y-espaciales" id="toc-desviacion-para-tsm-y-chl-a-a-respecto-a-la-media-y-varianza-media-por-agrupamientos-temporales-y-espaciales" class="nav-link" data-scroll-target="#desviacion-para-tsm-y-chl-a-a-respecto-a-la-media-y-varianza-media-por-agrupamientos-temporales-y-espaciales">Desviacion para <strong>TSM</strong> y ****Chl a** a** respecto a la Media y Varianza Media por agrupamientos temporales y espaciales</a></li>
+  <li><a href="#desviacion-para-tsm-y-chl-a-respecto-a-la-media-y-varianza-media-por-agrupamientos-temporales-y-espaciales" id="toc-desviacion-para-tsm-y-chl-a-respecto-a-la-media-y-varianza-media-por-agrupamientos-temporales-y-espaciales" class="nav-link" data-scroll-target="#desviacion-para-tsm-y-chl-a-respecto-a-la-media-y-varianza-media-por-agrupamientos-temporales-y-espaciales">Desviacion para <strong>TSM</strong> y <strong>Chl a</strong> respecto a la Media y Varianza Media por agrupamientos temporales y espaciales</a></li>
   <li><a href="#variacion-en-distribucion-en-relacion-a-tiempo-y-estaciones" id="toc-variacion-en-distribucion-en-relacion-a-tiempo-y-estaciones" class="nav-link" data-scroll-target="#variacion-en-distribucion-en-relacion-a-tiempo-y-estaciones">Variacion en distribucion en relacion a tiempo y estaciones</a></li>
   <li><a href="#distribucion-de-las-muestras-segun-fase-enso-1" id="toc-distribucion-de-las-muestras-segun-fase-enso-1" class="nav-link" data-scroll-target="#distribucion-de-las-muestras-segun-fase-enso-1">Distribucion de las muestras segun Fase <strong>ENSO</strong></a></li>
   <li><a href="#pruebas---validacion-de-supuestos-para-anova" id="toc-pruebas---validacion-de-supuestos-para-anova" class="nav-link" data-scroll-target="#pruebas---validacion-de-supuestos-para-anova">Pruebas - Validacion de Supuestos para <strong>ANOVA</strong></a></li>
@@ -156,39 +160,39 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="analisis-del-efecto-de-las-fases-enso-en-tsm-y-chl-a-a" class="level2">
-<h2 class="anchored" data-anchor-id="analisis-del-efecto-de-las-fases-enso-en-tsm-y-chl-a-a">Analisis del Efecto de las Fases <strong>ENSO</strong> en <strong>TSM</strong> y ****Chl a** a**</h2>
+<section id="analisis-del-efecto-de-las-fases-enso-en-tsm-y-chl-a" class="level2">
+<h2 class="anchored" data-anchor-id="analisis-del-efecto-de-las-fases-enso-en-tsm-y-chl-a">Analisis del Efecto de las Fases <strong>ENSO</strong> en <strong>TSM</strong> y <strong>Chl a</strong></h2>
 <section id="distribucion-de-las-muestras-segun-fase-enso" class="level3">
 <h3 class="anchored" data-anchor-id="distribucion-de-las-muestras-segun-fase-enso">Distribucion de las muestras segun Fase <strong>ENSO</strong></h3>
-<p>Utilizando todas las muestras validas para ****TSM**** y ******Chl a** a**** a lo largo del periodo completo (<strong>1981-2018</strong>), y generando histogramas de frecuencia y densidad, uno para cada fase ****ENSO**** (Neutro, Niña y Niño), es posible destacar los siguientes puntos:</p>
+<p>Utilizando todas las muestras validas para <strong>TSM</strong> y <strong>Chl a</strong> a a lo largo del periodo completo (<strong>1981-2018</strong>), y generando histogramas de frecuencia y densidad, uno para cada fase <strong>ENSO</strong> (Neutro, Niña y Niño), es posible destacar los siguientes puntos:</p>
 <ul>
 <li>La distribución de la <strong>TSM</strong> muestra una forma bimodal, con un pico alrededor de los 18–20 grados y otro en los 30 °C. Podria deberse a los cambios entre estaciones frías y cálidas, con alguna aportacion de las fases <strong>ENSO</strong>.</li>
 <li>En eventos Niño las <strong>TSM</strong> tienden a valores más altos, mientras que en eventos Niña se observan ligeros desplazamientos hacia valores más bajos.</li>
-<li>Para la ****Chl a** a<strong>, la distribución tiene sesgo hacia la derecha, con alta frecuencia en valores bajos. Los eventos Niña presentan niveles de Chl a</strong> a** un poco mayores en comparación con eventos Neutro y Niño. Esto podria significar una mayor presencia en temperaturas frías.</li>
-<li>A pesar de existir diferencias visuales en la distribución, la separación entre curvas no es muy grande, lo que podria sugerir que <strong>ENSO</strong> influye más no tiene un efecto directo o contundente en la variabilidad de <strong>TSM</strong> y ****Chl a** a**.</li>
+<li>Para la <strong>Chl a</strong>, la distribución tiene sesgo hacia la derecha, con alta frecuencia en valores bajos. Los eventos Niña presentan niveles de <strong>Chl a</strong> un poco mayores en comparación con eventos Neutro y Niño. Esto podria significar una mayor presencia en temperaturas frías.</li>
+<li>A pesar de existir diferencias visuales en la distribución, la separación entre curvas no es muy grande, lo que podria sugerir que <strong>ENSO</strong> influye más no tiene un efecto directo o contundente en la variabilidad de <strong>TSM</strong> y <strong>Chl a</strong>.</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig0.png" class="img-fluid figure-img"></p>
-<figcaption>Histogramas</figcaption>
+<p><img src="img/lfmm/fig0.png" class="img-fluid figure-img"></p>
+<figcaption>hist</figcaption>
 </figure>
 </div>
-<p>Es entonces que podriamos inferir que las fases <strong>ENSO</strong> sí inducen desplazamientos en las distribuciones de <strong>TSM</strong> y ****Chl a** a**, aunque los efectos varían en magnitud y dirección, dependiendo de la variable analizada.</p>
+<p>Es entonces que podriamos inferir que las fases <strong>ENSO</strong> sí inducen desplazamientos en las distribuciones de <strong>TSM</strong> y <strong>Chl a</strong>, aunque los efectos varían en magnitud y dirección, dependiendo de la variable analizada.</p>
 </section>
 <section id="fases-enso-a-lo-largo-del-tiempo-en-el-golfo-de-california" class="level3">
 <h3 class="anchored" data-anchor-id="fases-enso-a-lo-largo-del-tiempo-en-el-golfo-de-california">Fases <strong>ENSO</strong> a lo largo del tiempo en el Golfo de California</h3>
-<p>Antes de analizar el efecto de las fases <strong>ENSO</strong> en ****TSM**** y ******Chl a** a**** respecto a distintos intervalos de tiempo, se considero podria resultar interesante visualizar los periodos que abarca cada una de las fases a lo largo de los años incluidos en los datos. Para ello se representaron barras con resolución de mes a mes, donde podemos visualizar aproximadamente cuando comenzó una nueva fase y su duración.</p>
+<p>Antes de analizar el efecto de las fases <strong>ENSO</strong> en <strong>TSM</strong> y <strong>Chl a</strong> respecto a distintos intervalos de tiempo, se considero podria resultar interesante visualizar los periodos que abarca cada una de las fases a lo largo de los años incluidos en los datos. Para ello se representaron barras con resolución de mes a mes, donde podemos visualizar aproximadamente cuando comenzó una nueva fase y su duración.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig1.png" class="img-fluid figure-img"></p>
-<figcaption>alt text</figcaption>
+<p><img src="img/lfmm/fig1.png" class="img-fluid figure-img"></p>
+<figcaption>lollipop</figcaption>
 </figure>
 </div>
 <p>Es notorio como se han tenido multiples periodos para cada una de las fases <strong>ENSO</strong>, predominando los periodos neutros.</p>
 <p>Los periodos de fase Neutra suelen alcanzar mayores duraciones, de aproximadamente 2 años, solo competido por un periodo de fase Niña entre 1998 y 2001, el resto para Niña y Niño suelen estar por debajo del anio y medio de duración.</p>
 </section>
-<section id="desviacion-para-tsm-y-chl-a-a-respecto-a-la-media-y-varianza-media-por-agrupamientos-temporales-y-espaciales" class="level3">
-<h3 class="anchored" data-anchor-id="desviacion-para-tsm-y-chl-a-a-respecto-a-la-media-y-varianza-media-por-agrupamientos-temporales-y-espaciales">Desviacion para <strong>TSM</strong> y ****Chl a** a** respecto a la Media y Varianza Media por agrupamientos temporales y espaciales</h3>
+<section id="desviacion-para-tsm-y-chl-a-respecto-a-la-media-y-varianza-media-por-agrupamientos-temporales-y-espaciales" class="level3">
+<h3 class="anchored" data-anchor-id="desviacion-para-tsm-y-chl-a-respecto-a-la-media-y-varianza-media-por-agrupamientos-temporales-y-espaciales">Desviacion para <strong>TSM</strong> y <strong>Chl a</strong> respecto a la Media y Varianza Media por agrupamientos temporales y espaciales</h3>
 <p>De acorde a los objetivos específicos del proyecto, se optó por agrupar los datos por distintos criterios temporales y espaciales.</p>
 <p>Los grupos fueron:</p>
 <ul>
@@ -197,11 +201,11 @@ ul.task-list li input[type="checkbox"] {
 <li>Estacional (Temporal - Comparativa por las 4 estaciones climatologicas del anio)</li>
 <li>Por Estacion de Medicion - (Espacial - Comparativas por las 17 estaciones de medicion ubicadas en el Golfo de California)</li>
 </ul>
-<p>A continuacion se muestra una figura que contiene dos graficos de paleta para cada grupo. Cada gráfico contiene la información tanto de la <strong>TSM</strong> como de ****Chl a** a**, sin embargo la diferencia reside en que el gráfico ubicado en la parte superior muestra la desviacion respecto a la Media de los valores propios de cada variable, mientras que el gráfico de la parte inferior muestra la desviacion respecto a la Media de la Varianza para cada variable.</p>
+<p>A continuacion se muestra una figura que contiene dos graficos de paleta para cada grupo. Cada gráfico contiene la información tanto de la <strong>TSM</strong> como de <strong>Chl a</strong>, sin embargo la diferencia reside en que el gráfico ubicado en la parte superior muestra la desviacion respecto a la Media de los valores propios de cada variable, mientras que el gráfico de la parte inferior muestra la desviacion respecto a la Media de la Varianza para cada variable.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig2.png" class="img-fluid figure-img"></p>
-<figcaption>alt text</figcaption>
+<p><img src="img/lfmm/fig2.png" class="img-fluid figure-img"></p>
+<figcaption>boxplots1</figcaption>
 </figure>
 </div>
 <p>Observaciones por cada grupo:</p>
@@ -215,20 +219,20 @@ ul.task-list li input[type="checkbox"] {
 <li>Intraanual:
 <ul>
 <li>Los meses de verano (jul-sept) muestran desviaciones positivas más notorias en la <strong>TSM</strong>, concordando con el ciclo estacional y ademas podría estar acentuado en algunas instancias por eventos Niño.</li>
-<li>La ****Chl a** a** muestra desviaciones negativas durante la segunda mitad del año, lo que podría relacionarse al incremento en la <strong>TSM</strong>.</li>
-<li>La <strong>TSM</strong> responde en mayor medida al ciclo estacional, ****Chl a** a** muestra un comportamiento menos lineal o proporcional.</li>
+<li>La <strong>Chl a</strong> muestra desviaciones negativas durante la segunda mitad del año, lo que podría relacionarse al incremento en la <strong>TSM</strong>.</li>
+<li>La <strong>TSM</strong> responde en mayor medida al ciclo estacional, <strong>Chl a</strong> muestra un comportamiento menos lineal o proporcional.</li>
 </ul></li>
 <li>Estacional:
 <ul>
 <li>Verano muestra las mayoria de las desviaciones positivas de la <strong>TSM</strong>.</li>
-<li>Primavera e invierno muestran desviaciones negativas en ****Chl a** a** (menos calor y luz?)</li>
-<li>El otoño es interesante puesto que mientras la <strong>TSM</strong> se mantiene estable, la ****Chl a** a** tiene mayor dispersión. Esto podria indicar la presencia de factores que no estamos contemplando.</li>
+<li>Primavera e invierno muestran desviaciones negativas en <strong>Chl a</strong> (menos calor y luz?)</li>
+<li>El otoño es interesante puesto que mientras la <strong>TSM</strong> se mantiene estable, la <strong>Chl a</strong> tiene mayor dispersión. Esto podria indicar la presencia de factores que no estamos contemplando.</li>
 </ul></li>
 <li>Por Estacion de Medicion:
 <ul>
 <li>La desviación de la <strong>TSM</strong> tiene diferencias entre estaciones, aunque reducidas. La distribucion parece ser más amplia en estaciones cercanas al norte.</li>
-<li>Las estaciones de medicion al norte del Golfo muestran mayor variabilidad en ****Chl a** a** (geografia ?).</li>
-<li>Esto sugiere que la variabilidad entre estaciones de medicion para la ****Chl a** a** es más marcada que para la <strong>TSM</strong>.</li>
+<li>Las estaciones de medicion al norte del Golfo muestran mayor variabilidad en <strong>Chl a</strong> (geografia ?).</li>
+<li>Esto sugiere que la variabilidad entre estaciones de medicion para la <strong>Chl a</strong> es más marcada que para la <strong>TSM</strong>.</li>
 </ul></li>
 </ul>
 </section>
@@ -238,30 +242,30 @@ ul.task-list li input[type="checkbox"] {
 <p>Un proximo paso logico es analizar el cambio en la distribucion de los datos agrupados nuevamente por fase <strong>ENSO</strong>, pero a traves de los grupos espacio-temporales que estamos trabajando.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig3.png" class="img-fluid figure-img"></p>
-<figcaption>alt text</figcaption>
+<p><img src="img/lfmm/fig3.png" class="img-fluid figure-img"></p>
+<figcaption>boxplots2</figcaption>
 </figure>
 </div>
 <p>En este conjunto de graficos de caja podemos observar que:</p>
 <ul>
-<li>La ****Chl a** a** presenta una gran cantidad de valores extremos y outliers, especialmente durante eventos Neutro. Esto podria significar que hay otros factores que sobresalen cuando no hay eventos Niño o Niña.</li>
-<li>La comparación por mes refuerza el efecto del ciclo anual sobre el aumento en la <strong>media</strong> de la <strong>TSM</strong>, con valores consistentemente mayores en verano y otoño, mientras que ****Chl a** a** parece tener un efecto de reducir la variabilidad en ese mismo periodo.</li>
-<li>Al verlo por estaciones de medicion observamos que tanto la <strong>media</strong> de la <strong>TSM</strong> como de la ****Chl a** a** varian dependiendo la estacion, pero responden a las fases <strong>ENSO</strong> de forma variada y sin un efecto dramatico.</li>
+<li>La <strong>Chl a</strong> presenta una gran cantidad de valores extremos y outliers, especialmente durante eventos Neutro. Esto podria significar que hay otros factores que sobresalen cuando no hay eventos Niño o Niña.</li>
+<li>La comparación por mes refuerza el efecto del ciclo anual sobre el aumento en la <strong>media</strong> de la <strong>TSM</strong>, con valores consistentemente mayores en verano y otoño, mientras que <strong>Chl a</strong> parece tener un efecto de reducir la variabilidad en ese mismo periodo.</li>
+<li>Al verlo por estaciones de medicion observamos que tanto la <strong>media</strong> de la <strong>TSM</strong> como de la <strong>Chl a</strong> varian dependiendo la estacion, pero responden a las fases <strong>ENSO</strong> de forma variada y sin un efecto dramatico.</li>
 </ul>
 </section>
 <section id="distribucion-de-las-muestras-segun-fase-enso-1" class="level3">
 <h3 class="anchored" data-anchor-id="distribucion-de-las-muestras-segun-fase-enso-1">Distribucion de las muestras segun Fase <strong>ENSO</strong></h3>
-<p>En pasos previos, se profundizo un poco y se logro una mejor idea del comportamiento de las variables de la <strong>TSM</strong> y los niveles de Chla versus fases <strong>ENSO</strong>. Ahora bien, resulta interesante dar otro vistazo macro, agrupando el total de las muestras de ambas variables por grupo espacio-temporaln y por fase <strong>ENSO</strong> en graficos de caja.</p>
+<p>En pasos previos, se profundizo un poco y se logro una mejor idea del comportamiento de las variables de la <strong>TSM</strong> y los niveles de Chla versus fases <strong>ENSO</strong>. Ahora bien, resulta interesante dar otro vistazo macro, agrupando el total de las muestras de ambas variables por grupo espacio-temporal y por fase <strong>ENSO</strong> en graficos de caja.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig4.png" class="img-fluid figure-img"></p>
-<figcaption>alt text</figcaption>
+<p><img src="img/lfmm/fig4.png" class="img-fluid figure-img"></p>
+<figcaption>boxplots3</figcaption>
 </figure>
 </div>
 <p>Aqui se puede observar como:</p>
 <ul>
 <li>Los gráficos de caja permiten confirmar que el efecto de las fases <strong>ENSO</strong> es más notorio en <strong>TSM</strong>, con eventos Niña mostrando valores consistentemente más bajos.</li>
-<li>La ****Chl a** a** no presenta diferencias tan marcadas entre fases <strong>ENSO</strong> en la mayoría de agrupaciones.</li>
+<li>La <strong>Chl a</strong> no presenta diferencias tan marcadas entre fases <strong>ENSO</strong> en la mayoría de agrupaciones.</li>
 <li>La única excepción estadísticamente relevante es el caso de la <strong>TSM</strong> por estación de medición, donde se obtuvo un p-valor de 0.0488 (<strong>ANOVA</strong>), sugiriendo diferencias significativas entre fases.</li>
 </ul>
 <p>Como se menciona en el ultimo punto, ademas de los graficos, se realizaron analisis de <strong>varianza</strong>: <strong>ANOVA</strong> (parametrico) y <strong>Kruskal-Wallis</strong> (no parametrico). Los resultados se encuentran ubicados debajo del titulo de cada gráfico.</p>
@@ -277,8 +281,8 @@ ul.task-list li input[type="checkbox"] {
 <p>El Q-Q plot muestra que los residuales se alinean bien con la línea de referencia, reforzando la validez del supuesto de normalidad.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig6.png" class="img-fluid figure-img"></p>
-<figcaption>alt text</figcaption>
+<p><img src="img/lfmm/fig6.png" class="img-fluid figure-img"></p>
+<figcaption>qqplot</figcaption>
 </figure>
 </div>
 </section>
@@ -289,8 +293,8 @@ ul.task-list li input[type="checkbox"] {
 <p>El gráfico de <strong>residuos</strong> vs.&nbsp;valores ajustados no evidencia patrón alguno ni heterocedasticidad, lo que respalda la validez del modelo <strong>ANOVA</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig7.png" class="img-fluid figure-img"></p>
-<figcaption>alt text</figcaption>
+<p><img src="img/lfmm/fig7.png" class="img-fluid figure-img"></p>
+<figcaption>levplot</figcaption>
 </figure>
 </div>
 <p>En conjunto, los supuestos del <strong>ANOVA</strong> se cumplen de manera razonable, generando mayor confianza al resultado encontrado en la <strong>TSM</strong> por estación de medicion versus fase <strong>ENSO</strong>.</p>
@@ -302,8 +306,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Aunque no se observa una separación clara entre fases <strong>ENSO</strong>, si es posible apreciar una agrupación parcial de eventos Niño y eventos Niña hacia valores positivos y negativos del PC2, respectivamente.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig5.png" class="img-fluid figure-img"></p>
-<figcaption>alt text</figcaption>
+<p><img src="img/lfmm/fig5.png" class="img-fluid figure-img"></p>
+<figcaption>pca</figcaption>
 </figure>
 </div>
 <p>Esto podria sugerir que el <strong>ENSO</strong> tiene un <strong>impacto</strong> multivariado, pero que dicho <strong>impacto</strong> puede estar enmascarado por factores verse favorecida con variables adicionales (geograficas, climaticas, etc.).</p>
@@ -313,8 +317,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Se optó por realizar una prueba adicional con el caso estadisticamente significativo de <strong>TSM</strong> en Estaciones de Mediciones con fases <strong>ENSO</strong>. Se obtuvieron los siguientes resultados:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig8.png" class="img-fluid figure-img"></p>
-<figcaption>alt text</figcaption>
+<p><img src="img/lfmm/fig8.png" class="img-fluid figure-img"></p>
+<figcaption>noestrep</figcaption>
 </figure>
 </div>
 <p>Podemos ver que a pesar de la eliminacion de estaciones, este caso sigue resaltando, pues ahora inclusive se redujeron más los <strong>p-valores</strong> para los analisis de <strong>varianza</strong> <strong>ANOVA</strong> y Kruskall-Wallis.</p>
@@ -397,7 +401,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/tukey-stans\.github\.io\/ae-oceanografia-golfo-cali\/");
+        var filterRegex = new RegExp("https:\/\/github\.com\/tukey-stans\/ae-oceanografia-golfo-cali");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

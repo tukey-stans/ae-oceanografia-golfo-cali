@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>clustering_ang – Analisis Estadistico de Oceanografia del Golfo de California</title>
+<title>clustering_ang – Análisis Estadístico del Golfo de California</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./img/logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -39,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b3aed8deb8408878d0e4e165d993d59e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e83117e711fad372bcb8c8022997a9a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,8 +79,11 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/logo.png" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Analisis Estadistico de Oceanografia del Golfo de California</span>
+    <span class="navbar-title">Análisis Estadístico del Golfo de California</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -94,11 +98,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./01_datos_metodologia.html"> 
-<span class="menu-text">Datos y Metodología</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./02_clustering_ang.html" aria-current="page"> 
-<span class="menu-text">Clustering</span></a>
+<span class="menu-text">Datos</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./03_frecuencia_chuy.html"> 
@@ -106,7 +106,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./04_gradiente_fede.html"> 
-<span class="menu-text">Gradiente Inverso</span></a>
+<span class="menu-text">Análisis Local</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./02_clustering_ang.html" aria-current="page"> 
+<span class="menu-text">Clustering</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./05_prophet_manuel.html"> 
@@ -114,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./06_pca_elfer.html"> 
-<span class="menu-text">PCA y Análisis Exploratorio</span></a>
+<span class="menu-text">ENSO y Variabilidad</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./07_conclusiones.html"> 
@@ -314,7 +318,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Se utilizó el <strong>método del codo</strong> para determinar el valor óptimo de <code>k</code>, observando el punto de inflexión en la gráfica de inercia.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig1_codo.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig1_codo.png" class="img-fluid figure-img"></p>
 <figcaption>Método del codo para determinar número óptimo de clusters</figcaption>
 </figure>
 </div>
@@ -324,7 +328,7 @@ ul.task-list li input[type="checkbox"] {
 <p>El algoritmo KMeans agrupó las estaciones en 4 clusters geográficamente coherentes. El siguiente mapa muestra la ubicación de las estaciones coloreadas por cluster asignado:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig2_mapa_clusters.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig2_mapa_clusters.png" class="img-fluid figure-img"></p>
 <figcaption>Mapa con distribución espacial de clusters</figcaption>
 </figure>
 </div>
@@ -349,7 +353,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="tsm-por-enso-y-cluster">TSM por ENSO y Cluster</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig3_boxplot_tsm_enso.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig3_boxplot_tsm_enso.png" class="img-fluid figure-img"></p>
 <figcaption>Boxplot de TSM por ENSO y Cluster</figcaption>
 </figure>
 </div>
@@ -358,7 +362,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="clorofila-a-por-enso-y-cluster">Clorofila a por ENSO y Cluster</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig4_boxplot_chla_enso.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig4_boxplot_chla_enso.png" class="img-fluid figure-img"></p>
 <figcaption>Boxplot de Chl a por ENSO y Cluster</figcaption>
 </figure>
 </div>
@@ -371,7 +375,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="estacionalidad-de-tsm">Estacionalidad de TSM</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig5_tsm_mensual_cluster.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig5_tsm_mensual_cluster.png" class="img-fluid figure-img"></p>
 <figcaption>Estacionalidad de TSM por mes y cluster</figcaption>
 </figure>
 </div>
@@ -380,7 +384,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="estacionalidad-de-chl-a">Estacionalidad de Chl a</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig6_chla_mensual_cluster.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig6_chla_mensual_cluster.png" class="img-fluid figure-img"></p>
 <figcaption>Estacionalidad de Clorofila a por mes y cluster</figcaption>
 </figure>
 </div>
@@ -393,7 +397,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="tsm-promedio-por-año">TSM promedio por año</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig7_tsm_interanual_cluster.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig7_tsm_interanual_cluster.png" class="img-fluid figure-img"></p>
 <figcaption>Tendencia de TSM por año y cluster</figcaption>
 </figure>
 </div>
@@ -402,7 +406,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="chl-a-promedio-por-año">Chl a promedio por año</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig8_chla_interanual_cluster.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig8_chla_interanual_cluster.png" class="img-fluid figure-img"></p>
 <figcaption>Tendencia de Chl a por año y cluster</figcaption>
 </figure>
 </div>
@@ -436,7 +440,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Se analizaron las frecuencias de asignación por cluster a lo largo del periodo. El siguiente gráfico muestra el número de estaciones clasificadas en cada cluster por año:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig9_clusters_anio.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig9_clusters_anio.png" class="img-fluid figure-img"></p>
 <figcaption>Distribución de clusters por año</figcaption>
 </figure>
 </div>
@@ -447,7 +451,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Se construyó un <strong>heatmap</strong> que permite visualizar, por estación, cómo ha cambiado su clasificación de cluster entre años:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig10_evolucion_estaciones.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig10_evolucion_estaciones.png" class="img-fluid figure-img"></p>
 <figcaption>Heatmap de evolución por estación</figcaption>
 </figure>
 </div>
@@ -458,7 +462,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Se calculó el número de veces que una estación cambió de cluster entre años consecutivos:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig11_mapa_inestabilidad_anual.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig11_mapa_inestabilidad_anual.png" class="img-fluid figure-img"></p>
 <figcaption>Mapa de inestabilidad anual</figcaption>
 </figure>
 </div>
@@ -487,7 +491,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Se clasificaron los años como Niño, Neutro o Niña según el promedio anual de ONI. Se graficó el conteo de estaciones por cluster para cada tipo de evento:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig12_clusters_fase_enso.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig12_clusters_fase_enso.png" class="img-fluid figure-img"></p>
 <figcaption>Distribución de clusters por fase ENSO</figcaption>
 </figure>
 </div>
@@ -511,7 +515,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Se estimó la cantidad de años consecutivos que una estación permaneció en el mismo cluster:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig13_duracion_promedio.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig13_duracion_promedio.png" class="img-fluid figure-img"></p>
 <figcaption>Duración promedio por estación</figcaption>
 </figure>
 </div>
@@ -555,7 +559,7 @@ ul.task-list li input[type="checkbox"] {
 <p>La siguiente gráfica muestra cómo se distribuyen los clusters en cada una de las estaciones del año:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig14_clusters_estaciones_ano.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig14_clusters_estaciones_ano.png" class="img-fluid figure-img"></p>
 <figcaption>Distribución de clusters por estación del año</figcaption>
 </figure>
 </div>
@@ -570,7 +574,7 @@ ul.task-list li input[type="checkbox"] {
 <p>El siguiente gráfico muestra cómo han cambiado los clusters estacionales a lo largo del tiempo:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig15_clusters_estacionales_tiempo.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig15_clusters_estacionales_tiempo.png" class="img-fluid figure-img"></p>
 <figcaption>Evolución de clusters estacionales por año</figcaption>
 </figure>
 </div>
@@ -581,7 +585,7 @@ ul.task-list li input[type="checkbox"] {
 <p>En el siguiente heatmap se muestra cómo ha cambiado el cluster asignado en cada <code>(estación, año, estación del año)</code>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig16_heatmap_estacional.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig16_heatmap_estacional.png" class="img-fluid figure-img"></p>
 <figcaption>Heatmap estacional por estación</figcaption>
 </figure>
 </div>
@@ -592,7 +596,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Se calculó el número total de <strong>cambios de cluster entre estaciones del año</strong> para cada estación geográfica:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig17_mapa_estacional.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig17_mapa_estacional.png" class="img-fluid figure-img"></p>
 <figcaption>Mapa de inestabilidad estacional</figcaption>
 </figure>
 </div>
@@ -648,7 +652,7 @@ ul.task-list li input[type="checkbox"] {
 <p>El siguiente gráfico presenta la variación de los clusters mes a mes para cada estación geográfica:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig18_heatmap_mensual.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig18_heatmap_mensual.png" class="img-fluid figure-img"></p>
 <figcaption>Heatmap mensual</figcaption>
 </figure>
 </div>
@@ -659,7 +663,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Se visualizó cómo se distribuyen los clusters a lo largo de los 12 meses del año:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig19_distribucion_mes.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig19_distribucion_mes.png" class="img-fluid figure-img"></p>
 <figcaption>Distribución mensual por cluster</figcaption>
 </figure>
 </div>
@@ -673,7 +677,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Se agruparon los datos por año para evaluar la evolución de las condiciones ambientales promedio:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig20_clusters_anuales_mensuales.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig20_clusters_anuales_mensuales.png" class="img-fluid figure-img"></p>
 <figcaption>Evolución anual de clusters mensuales</figcaption>
 </figure>
 </div>
@@ -693,7 +697,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Visualmente, se presenta en el siguiente mapa:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig21_mapa_inestabilidad_mensual.png" class="img-fluid figure-img"></p>
+<p><img src="img/cluster/fig21_mapa_inestabilidad_mensual.png" class="img-fluid figure-img"></p>
 <figcaption>Mapa de inestabilidad mensual</figcaption>
 </figure>
 </div>
@@ -798,7 +802,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/tukey-stans\.github\.io\/ae-oceanografia-golfo-cali\/");
+        var filterRegex = new RegExp("https:\/\/github\.com\/tukey-stans\/ae-oceanografia-golfo-cali");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

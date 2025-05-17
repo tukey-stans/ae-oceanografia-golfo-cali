@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Equipo – Analisis Estadistico de Oceanografia del Golfo de California</title>
+<title>TSM por Cluster – Análisis Estadístico del Golfo de California</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./img/logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -39,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b3aed8deb8408878d0e4e165d993d59e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e83117e711fad372bcb8c8022997a9a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,8 +79,11 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/logo.png" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Analisis Estadistico de Oceanografia del Golfo de California</span>
+    <span class="navbar-title">Análisis Estadístico del Golfo de California</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -94,11 +98,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./01_datos_metodologia.html"> 
-<span class="menu-text">Datos y Metodología</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./02_clustering_ang.html"> 
-<span class="menu-text">Clustering</span></a>
+<span class="menu-text">Datos</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./03_frecuencia_chuy.html"> 
@@ -106,7 +106,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./04_gradiente_fede.html"> 
-<span class="menu-text">Gradiente Inverso</span></a>
+<span class="menu-text">Análisis Local</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./02_clustering_ang.html"> 
+<span class="menu-text">Clustering</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./05_prophet_manuel.html" aria-current="page"> 
@@ -114,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./06_pca_elfer.html"> 
-<span class="menu-text">PCA y Análisis Exploratorio</span></a>
+<span class="menu-text">ENSO y Variabilidad</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./07_conclusiones.html"> 
@@ -136,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#desarrolladores" id="toc-desarrolladores" class="nav-link active" data-scroll-target="#desarrolladores">Desarrolladores</a></li>
+  <li><a href="#chla-por-cluster" id="toc-chla-por-cluster" class="nav-link active" data-scroll-target="#chla-por-cluster">CHLa por CLuster</a></li>
   </ul>
 </nav>
     </div>
@@ -145,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Equipo</h1>
+<h1 class="title">TSM por Cluster</h1>
 </div>
 
 
@@ -162,15 +166,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="desarrolladores" class="level1">
-<h1>Desarrolladores</h1>
-<ul>
-<li><strong>Barraza Angel</strong> | <a href="https://mx.linkedin.com/in/angelbarrazareal">LinkedIn</a></li>
-<li><strong>Cirett Federico</strong> | <a href="https://www.linkedin.com/in/federico-cirett-torres-11908628b/">LinkedIn</a></li>
-<li><strong>Cota Manuel</strong> | <a href="https://www.linkedin.com/in/maancosa/">LinkedIn</a></li>
-<li><strong>Martinez Fernando</strong> | <a href="www.linkedin.com/in/lf-mm">LinkedIn</a></li>
-<li><strong>Solis Jesus</strong> | <a href="https://www.linkedin.com/in/jesolis14/">LinkedIn</a></li>
-</ul>
+<p>Parece ser que, a lo largo de los años, la temperatura ha tendido a aumentar. En el Cluster 0 puede verse un aumento estable y constante, mientras que en los demás se nota una tendencia fluctuante, aunque generalmente en aumento.</p>
+<section id="chla-por-cluster" class="level1">
+<h1>CHLa por CLuster</h1>
+<p>Los Cluster 0 y 2 muestran una tendencia en disminución a lo largo de los años, mientras que los Cluster 1 y 3 muestran una tendencia en incremento. Sin embargo, la tendencia a lo largo de los meses indica que hay una constante disminución de CHLa alrededor del día 17 de cada mes. Esto coíncide con el incremento de temperatura en la tendencia de esos mismos días del mes.</p>
 
 
 </section>
@@ -248,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/tukey-stans\.github\.io\/ae-oceanografia-golfo-cali\/");
+        var filterRegex = new RegExp("https:\/\/github\.com\/tukey-stans\/ae-oceanografia-golfo-cali");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

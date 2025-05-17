@@ -1,1 +1,1 @@
-Sitemap: https://tukey-stans.github.io/ae-oceanografia-golfo-cali/sitemap.xml
+Sitemap: https://github.com/tukey-stans/ae-oceanografia-golfo-cali/sitemap.xml
