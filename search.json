@@ -21,186 +21,431 @@
     "text": "Utilizando todas las muestras validas para ****TSM**** y ******Chl a** a**** a lo largo del periodo completo (1981-2018), y generando histogramas de frecuencia y densidad, uno para cada fase ****ENSO**** (Neutro, Niña y Niño), es posible destacar los siguientes puntos:\n\nLa distribución de la TSM muestra una forma bimodal, con un pico alrededor de los 18–20 grados y otro en los 30 °C. Podria deberse a los cambios entre estaciones frías y cálidas, con alguna aportacion de las fases ENSO.\nEn eventos Niño las TSM tienden a valores más altos, mientras que en eventos Niña se observan ligeros desplazamientos hacia valores más bajos.\nPara la ****Chl a** a, la distribución tiene sesgo hacia la derecha, con alta frecuencia en valores bajos. Los eventos Niña presentan niveles de Chl a a** un poco mayores en comparación con eventos Neutro y Niño. Esto podria significar una mayor presencia en temperaturas frías.\nA pesar de existir diferencias visuales en la distribución, la separación entre curvas no es muy grande, lo que podria sugerir que ENSO influye más no tiene un efecto directo o contundente en la variabilidad de TSM y ****Chl a** a**.\n\n\n\n\nHistogramas\n\n\nEs entonces que podriamos inferir que las fases ENSO sí inducen desplazamientos en las distribuciones de TSM y ****Chl a** a**, aunque los efectos varían en magnitud y dirección, dependiendo de la variable analizada.\n\n\n\nAntes de analizar el efecto de las fases ENSO en ****TSM**** y ******Chl a** a**** respecto a distintos intervalos de tiempo, se considero podria resultar interesante visualizar los periodos que abarca cada una de las fases a lo largo de los años incluidos en los datos. Para ello se representaron barras con resolución de mes a mes, donde podemos visualizar aproximadamente cuando comenzó una nueva fase y su duración.\n\n\n\nalt text\n\n\nEs notorio como se han tenido multiples periodos para cada una de las fases ENSO, predominando los periodos neutros.\nLos periodos de fase Neutra suelen alcanzar mayores duraciones, de aproximadamente 2 años, solo competido por un periodo de fase Niña entre 1998 y 2001, el resto para Niña y Niño suelen estar por debajo del anio y medio de duración.\n\n\n\nDe acorde a los objetivos específicos del proyecto, se optó por agrupar los datos por distintos criterios temporales y espaciales.\nLos grupos fueron:\n\nInteranual (Temporal - Comparativa entre años)\nIntraanual (Temporal - Comparativa por meses del anio)\nEstacional (Temporal - Comparativa por las 4 estaciones climatologicas del anio)\nPor Estacion de Medicion - (Espacial - Comparativas por las 17 estaciones de medicion ubicadas en el Golfo de California)\n\nA continuacion se muestra una figura que contiene dos graficos de paleta para cada grupo. Cada gráfico contiene la información tanto de la TSM como de ****Chl a** a**, sin embargo la diferencia reside en que el gráfico ubicado en la parte superior muestra la desviacion respecto a la Media de los valores propios de cada variable, mientras que el gráfico de la parte inferior muestra la desviacion respecto a la Media de la Varianza para cada variable.\n\n\n\nalt text\n\n\nObservaciones por cada grupo:\n\nInteranual:\n\nSe ven desviaciones negativas de la TSM en años con eventos Niña (1989 o 1999), haciendos sentido baja de temperatura usual de esta fase.\nDurante eventos Niño (1997 o 2015), las desviaciones de TSM son en su mayoria positivas, indicando un incremento de temperatura significativo.\nLa Chl a tiene puntos de mayor variabilidad, pero disminuye en eventos Niño.\n\nIntraanual:\n\nLos meses de verano (jul-sept) muestran desviaciones positivas más notorias en la TSM, concordando con el ciclo estacional y ademas podría estar acentuado en algunas instancias por eventos Niño.\nLa ****Chl a** a** muestra desviaciones negativas durante la segunda mitad del año, lo que podría relacionarse al incremento en la TSM.\nLa TSM responde en mayor medida al ciclo estacional, ****Chl a** a** muestra un comportamiento menos lineal o proporcional.\n\nEstacional:\n\nVerano muestra las mayoria de las desviaciones positivas de la TSM.\nPrimavera e invierno muestran desviaciones negativas en ****Chl a** a** (menos calor y luz?)\nEl otoño es interesante puesto que mientras la TSM se mantiene estable, la ****Chl a** a** tiene mayor dispersión. Esto podria indicar la presencia de factores que no estamos contemplando.\n\nPor Estacion de Medicion:\n\nLa desviación de la TSM tiene diferencias entre estaciones, aunque reducidas. La distribucion parece ser más amplia en estaciones cercanas al norte.\nLas estaciones de medicion al norte del Golfo muestran mayor variabilidad en ****Chl a** a** (geografia ?).\nEsto sugiere que la variabilidad entre estaciones de medicion para la ****Chl a** a** es más marcada que para la TSM.\n\n\n\n\n\nSabemos que la distribucion de los datos varia al categorizar por fase ENSO, y tambien se identificaron algunos patrones de cambio con los graficos de paleta.\nUn proximo paso logico es analizar el cambio en la distribucion de los datos agrupados nuevamente por fase ENSO, pero a traves de los grupos espacio-temporales que estamos trabajando.\n\n\n\nalt text\n\n\nEn este conjunto de graficos de caja podemos observar que:\n\nLa ****Chl a** a** presenta una gran cantidad de valores extremos y outliers, especialmente durante eventos Neutro. Esto podria significar que hay otros factores que sobresalen cuando no hay eventos Niño o Niña.\nLa comparación por mes refuerza el efecto del ciclo anual sobre el aumento en la media de la TSM, con valores consistentemente mayores en verano y otoño, mientras que ****Chl a** a** parece tener un efecto de reducir la variabilidad en ese mismo periodo.\nAl verlo por estaciones de medicion observamos que tanto la media de la TSM como de la ****Chl a** a** varian dependiendo la estacion, pero responden a las fases ENSO de forma variada y sin un efecto dramatico.\n\n\n\n\nEn pasos previos, se profundizo un poco y se logro una mejor idea del comportamiento de las variables de la TSM y los niveles de Chla versus fases ENSO. Ahora bien, resulta interesante dar otro vistazo macro, agrupando el total de las muestras de ambas variables por grupo espacio-temporaln y por fase ENSO en graficos de caja.\n\n\n\nalt text\n\n\nAqui se puede observar como:\n\nLos gráficos de caja permiten confirmar que el efecto de las fases ENSO es más notorio en TSM, con eventos Niña mostrando valores consistentemente más bajos.\nLa ****Chl a** a** no presenta diferencias tan marcadas entre fases ENSO en la mayoría de agrupaciones.\nLa única excepción estadísticamente relevante es el caso de la TSM por estación de medición, donde se obtuvo un p-valor de 0.0488 (ANOVA), sugiriendo diferencias significativas entre fases.\n\nComo se menciona en el ultimo punto, ademas de los graficos, se realizaron analisis de varianza: ANOVA (parametrico) y Kruskal-Wallis (no parametrico). Los resultados se encuentran ubicados debajo del titulo de cada gráfico.\nEs claro inspeccionando visualmente y en los p-valores resultantes de los analisis, que en la mayoria de los escenarios no existe una varianza notoria entre las medias de cada agrupación por fase ENSO. La excepcion es el caso de la TSM al agrupar los datos por estacion de medicion, y por fase ENSO.\nAhi se observa como los eventos Niña si aparentan una media más baja que el resto. Y los p-valores son muy cercanos al 0.05, de manera que hemos de ir nuevamente de lo general a lo particular, y validar los supuestos del ANOVA, de manera que determinemos la validez de lo observado.\n\n\n\n\n\nShapiro-Wilk: W = 0.955, p = 0.0512\nEl valor de p = 0.0512 indica que no se puede rechazar la hipótesis nula de normalidad de los residuales al 95 % de confianza, aunque se encuentra justo en el límite. Esto sugiere que la distribución es aproximadamente normal, pero se debe complementar con visualizaciones.\nEl Q-Q plot muestra que los residuales se alinean bien con la línea de referencia, reforzando la validez del supuesto de normalidad.\n\n\n\nalt text\n\n\n\n\n\nLevene: W = 0.295, p = 0.7460\nEl valor p = 0.7460 en la prueba de Levene indica que no hay evidencia suficiente para afirmar que las varianzas son distintas entre grupos, por lo tanto se asume homocedasticidad.\nEl gráfico de residuos vs. valores ajustados no evidencia patrón alguno ni heterocedasticidad, lo que respalda la validez del modelo ANOVA.\n\n\n\nalt text\n\n\nEn conjunto, los supuestos del ANOVA se cumplen de manera razonable, generando mayor confianza al resultado encontrado en la TSM por estación de medicion versus fase ENSO.\n\n\n\n\nEl análisis PCA para cada una de las agrupaciones espacio-temporales que hemos estado manejando revela que las dos primeras componentes explican entre 90–95 % de la varianza en la mayoría de los casos. Esto podria representar una alta capacidad de resumir la variabilidad.\nAunque no se observa una separación clara entre fases ENSO, si es posible apreciar una agrupación parcial de eventos Niño y eventos Niña hacia valores positivos y negativos del PC2, respectivamente.\n\n\n\nalt text\n\n\nEsto podria sugerir que el ENSO tiene un impacto multivariado, pero que dicho impacto puede estar enmascarado por factores verse favorecida con variables adicionales (geograficas, climaticas, etc.).\n\n\n\nSe optó por realizar una prueba adicional con el caso estadisticamente significativo de TSM en Estaciones de Mediciones con fases ENSO. Se obtuvieron los siguientes resultados:\n\n\n\nalt text\n\n\nPodemos ver que a pesar de la eliminacion de estaciones, este caso sigue resaltando, pues ahora inclusive se redujeron más los p-valores para los analisis de varianza ANOVA y Kruskall-Wallis.\nEsto sugiere que el efecto de las fases ENSO puede ser distinto en distintas zonas del Golfo de California, en este caso el evento Niña mostrando mayor influencia en las estaciones de medicion del norte."
   },
   {
-    "objectID": "02_clustering_ang.html",
-    "href": "02_clustering_ang.html",
-    "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "",
-    "text": "Se trabajó con cuatro fuentes principales de datos:\n\nTemperatura Superficial del Mar (TSM): Datos mensuales por estación de monitoreo para el periodo 1981–2018.\nClorofila a (Chl a): Datos mensuales por estación para el periodo 1997–2018.\nCoordenadas de estaciones: Posiciones geográficas (latitud y longitud) de 17 estaciones distribuidas en la zona costera occidental del Golfo de California.\nÍndice ONI (Oceanic Niño Index): Serie temporal trimestral estandarizada de NOAA para identificar eventos ENSO (Niño, Niña, Neutro).\n\n\n\n\n\nRestructuración Longitudinal: Se transformaron TSM y Chl a de formato ancho a largo.\nUnificación de variables: Se fusionaron TSM, Chl a, coordenadas y ENSO mensual clasificado.\nVariables Derivadas: Mes, año, estación del año y ENSO_CLASE según ONI (Niño: ≥0.5, Niña: ≤-0.5).\n\n\n\n\nEl dataframe final data_final_common contiene:\n| FECHA      | AÑO  | MES     | ESTACION | TSM     | Chla   | lon    | lat  | MES_NUM | ONI | ENSO_CLASE |\n|------------|------|---------|----------|---------|--------|--------|------|----------|-----|-------------|\n| 2018-10-01 | 2018 | Octubre | Est 1°    | 29.91   | 0.15   | -109.3 | 23.8 | 10       | 0.5 | Niño        |\n| 2018-10-01 | 2018 | Octubre | Est 2°    | 29.77   | 0.17   | -109.7 | 24.2 | 10       | 0.5 | Niño        |\nEste dataset es la base para los cuatro enfoques de clustering presentados a continuación."
-  },
-  {
     "objectID": "02_clustering_ang.html#descripción-de-los-datos-originales",
     "href": "02_clustering_ang.html#descripción-de-los-datos-originales",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "",
-    "text": "Se trabajó con cuatro fuentes principales de datos:\n\nTemperatura Superficial del Mar (TSM): Datos mensuales por estación de monitoreo para el periodo 1981–2018.\nClorofila a (Chl a): Datos mensuales por estación para el periodo 1997–2018.\nCoordenadas de estaciones: Posiciones geográficas (latitud y longitud) de 17 estaciones distribuidas en la zona costera occidental del Golfo de California.\nÍndice ONI (Oceanic Niño Index): Serie temporal trimestral estandarizada de NOAA para identificar eventos ENSO (Niño, Niña, Neutro)."
+    "section": "1. Descripción de los Datos Originales",
+    "text": "1. Descripción de los Datos Originales\nSe trabajó con cuatro fuentes principales de datos:\n\nTemperatura Superficial del Mar (TSM): Datos mensuales por estación de monitoreo para el periodo 1981–2018.\nClorofila a (Chl a): Datos mensuales por estación para el periodo 1997–2018.\nCoordenadas de estaciones: Posiciones geográficas (latitud y longitud) de 17 estaciones distribuidas en la zona costera occidental del Golfo de California.\nÍndice ONI (Oceanic Niño Index): Serie temporal trimestral estandarizada de NOAA para identificar eventos ENSO (Niño, Niña, Neutro)."
   },
   {
     "objectID": "02_clustering_ang.html#transformación-y-enriquecimiento-de-los-datos",
     "href": "02_clustering_ang.html#transformación-y-enriquecimiento-de-los-datos",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "",
-    "text": "Restructuración Longitudinal: Se transformaron TSM y Chl a de formato ancho a largo.\nUnificación de variables: Se fusionaron TSM, Chl a, coordenadas y ENSO mensual clasificado.\nVariables Derivadas: Mes, año, estación del año y ENSO_CLASE según ONI (Niño: ≥0.5, Niña: ≤-0.5)."
+    "section": "2. Transformación y Enriquecimiento de los Datos",
+    "text": "2. Transformación y Enriquecimiento de los Datos\n\n2.1 Estructura Longitudinal de TSM y Chl a\nPara facilitar análisis multivariados y temporales, los datasets de TSM y Chl a se reestructuraron de formato ancho a formato largo. En esta estructura, cada fila representa una única observación por estación, mes y año. Se incluyeron variables auxiliares como:\n\nAño y mes de medición\nEstación del año (Primavera, Verano, Otoño, Invierno)\nClasificación de evento interanual (Niño, Niña o Neutro, original del dataset)\n\n\n\n2.2 Unión de Variables Oceanográficas\nSe realizó una unión por claves comunes entre TSM y Chl a, consolidando las observaciones por estación y fecha en un único dataframe (data_long).\n\n\n2.3 Asociación Geoespacial\nMediante un mapeo explícito de nombres, se incorporaron las coordenadas geográficas (latitud y longitud) a cada estación, asegurando la disponibilidad de variables espaciales para posteriores análisis geoespaciales y de clustering.\n\n\n2.4 Enriquecimiento con ENSO a Nivel Mensual\nEl índice ONI original se encontraba a nivel trimestral. Para convertirlo a un formato mensual, se definió una estrategia de expansión: cada trimestre se descompuso en los meses correspondientes, asignando el mismo valor de ONI.\nPosteriormente, se clasificó cada valor mensual de ONI como:\n\nNiño: ONI ≥ 0.5\nNiña: ONI ≤ -0.5\nNeutro: -0.5 &lt; ONI &lt; 0.5\n\nEsta clasificación fue incorporada como variable ENSO_CLASE."
   },
   {
     "objectID": "02_clustering_ang.html#consolidación-final-del-dataset",
     "href": "02_clustering_ang.html#consolidación-final-del-dataset",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "",
-    "text": "El dataframe final data_final_common contiene:\n| FECHA      | AÑO  | MES     | ESTACION | TSM     | Chla   | lon    | lat  | MES_NUM | ONI | ENSO_CLASE |\n|------------|------|---------|----------|---------|--------|--------|------|----------|-----|-------------|\n| 2018-10-01 | 2018 | Octubre | Est 1°    | 29.91   | 0.15   | -109.3 | 23.8 | 10       | 0.5 | Niño        |\n| 2018-10-01 | 2018 | Octubre | Est 2°    | 29.77   | 0.17   | -109.7 | 24.2 | 10       | 0.5 | Niño        |\nEste dataset es la base para los cuatro enfoques de clustering presentados a continuación."
+    "section": "3. Consolidación Final del Dataset",
+    "text": "3. Consolidación Final del Dataset\nEl dataframe final (data_final_common) resultó de unir la información enriquecida de TSM, Chl a, coordenadas y ENSO. Este dataset cuenta con la siguiente estructura para cada observación mensual por estación:\n\nVariables temporales: Año, mes (nombre y número), estación del año\nVariables físicas: TSM, Chl a\nVariables espaciales: Latitud, longitud, estación de medición\nInformación ENSO: Valor ONI y su clasificación (Niño, Niña, Neutro)\n\nEjemplo de observaciones:\n| FECHA      | AÑO  | MES     | ESTACIÓN DEL AÑO | estacion | TSM     | Chla   | lon    | lat  | MES_NUM | ONI | ENSO_CLASE |\n|------------|------|---------|------------------|----------|---------|--------|--------|------|---------|-----|-------------|\n| 2018-10-01 | 2018 | Octubre | Otoño            | Est 1°   | 29.91   | 0.15   | -109.3 | 23.8 | 10      | 0.5 | Niño        |\n| 2018-10-01 | 2018 | Octubre | Otoño            | Est 2°   | 29.77   | 0.17   | -109.7 | 24.2 | 10      | 0.5 | Niño        |"
+  },
+  {
+    "objectID": "02_clustering_ang.html#justificación-metodológica",
+    "href": "02_clustering_ang.html#justificación-metodológica",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "4. Justificación Metodológica",
+    "text": "4. Justificación Metodológica\nEsta etapa fue esencial para cumplir los tres objetivos específicos del proyecto, ya que:\n\nPermite analizar la variabilidad temporal y espacial de TSM y Chl a, con integración completa de ENSO como variable explicativa.\nHabilita análisis de clustering geoespacial y temporal para regionalizar dinámicamente el Golfo de California.\nEstablece una base robusta para explorar relaciones entre ENSO y cambios en la productividad marina."
   },
   {
     "objectID": "02_clustering_ang.html#objetivo",
     "href": "02_clustering_ang.html#objetivo",
     "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Objetivo",
-    "text": "Objetivo\nProponer una regionalización objetiva basada en estadísticas agregadas por estación: TSM, Chl a y ONI."
+    "text": "Objetivo\nProponer una regionalización objetiva de la zona costera del Golfo de California con base en patrones oceanográficos medios. Para ello se usaron estadísticas agregadas por estación: TSM, Chl a y ONI."
   },
   {
-    "objectID": "02_clustering_ang.html#metodología",
-    "href": "02_clustering_ang.html#metodología",
+    "objectID": "02_clustering_ang.html#preparación-de-los-datos",
+    "href": "02_clustering_ang.html#preparación-de-los-datos",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Metodología",
-    "text": "Metodología\nSe agregaron variables por estación:\n\nTSM_mean, TSM_std, Chla_mean, Chla_std\nONI_mean\n\nEstas variables se escalaron y se aplicó KMeans (k=4)."
+    "section": "Preparación de los datos",
+    "text": "Preparación de los datos\nSe calcularon estadísticas por estación:\n\nTSM: media, desviación estándar, mínimo y máximo\nChl a: media, desviación estándar, mínimo y máximo\nONI: promedio por estación\nCoordenadas fijas de cada estación\n\nLas variables fueron estandarizadas y se aplicó el algoritmo KMeans con k = 4 clusters."
   },
   {
-    "objectID": "02_clustering_ang.html#resumen-de-clusters",
-    "href": "02_clustering_ang.html#resumen-de-clusters",
+    "objectID": "02_clustering_ang.html#elección-del-número-de-clusters",
+    "href": "02_clustering_ang.html#elección-del-número-de-clusters",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Resumen de Clusters",
-    "text": "Resumen de Clusters\n| Cluster | TSM | Chl a | Descripción                   |\n|---------|-----|--------|-------------------------------|\n| 0       | 23  | 2.36   | Frío y altamente productivo   |\n| 1       | 24.8| 0.9    | Térmicamente medio, oligotrófico|\n| 2       | 23.5| 1.6    | Intermedio                     |\n| 3       | 25.9| 0.69   | Más cálido, menos productivo  |"
+    "section": "Elección del número de clusters",
+    "text": "Elección del número de clusters\nSe utilizó el método del codo para determinar el valor óptimo de k, observando el punto de inflexión en la gráfica de inercia.\n\n\n\nMétodo del codo para determinar número óptimo de clusters"
   },
   {
-    "objectID": "02_clustering_ang.html#visualizaciones",
-    "href": "02_clustering_ang.html#visualizaciones",
+    "objectID": "02_clustering_ang.html#resultados-del-agrupamiento",
+    "href": "02_clustering_ang.html#resultados-del-agrupamiento",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Visualizaciones",
-    "text": "Visualizaciones\n\nMapa de agrupamiento fijo por ubicación\nBoxplots de TSM y Chl a por cluster\nRelación TSM-Chl a bajo ENSO"
+    "section": "Resultados del agrupamiento",
+    "text": "Resultados del agrupamiento\nEl algoritmo KMeans agrupó las estaciones en 4 clusters geográficamente coherentes. El siguiente mapa muestra la ubicación de las estaciones coloreadas por cluster asignado:\n\n\n\nMapa con distribución espacial de clusters"
   },
   {
-    "objectID": "02_clustering_ang.html#contribución-a-objetivos",
-    "href": "02_clustering_ang.html#contribución-a-objetivos",
+    "objectID": "02_clustering_ang.html#caracterización-de-los-clusters",
+    "href": "02_clustering_ang.html#caracterización-de-los-clusters",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Contribución a Objetivos",
-    "text": "Contribución a Objetivos\n\n✅ Variabilidad espacial (Obj. 1)\n✅ Regionalización ambiental (Obj. 2)\n✅ Efectos agregados ENSO (Obj. 3)"
+    "section": "Caracterización de los clusters",
+    "text": "Caracterización de los clusters\n| Cluster | TSM_media | Chl a_media | Descripción general                           |\n|---------|-----------|-------------|-----------------------------------------------|\n| 0       | 22.99°C   | 2.01 mg/m³  | Frío y altamente productivo (norte)           |\n| 1       | 25.02°C   | 0.84 mg/m³  | Cálido y oligotrófico (centro-sur)            |\n| 2       | 23.55°C   | 1.38 mg/m³  | Intermedio en temperatura y productividad     |\n| 3       | 25.98°C   | 0.48 mg/m³  | Muy cálido, baja productividad (extremo sur)  |"
+  },
+  {
+    "objectID": "02_clustering_ang.html#variación-por-fase-enso",
+    "href": "02_clustering_ang.html#variación-por-fase-enso",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "Variación por fase ENSO",
+    "text": "Variación por fase ENSO\nSe analizó cómo se comportan TSM y Chl a en cada cluster dependiendo de la fase del ENSO:\n\nEn eventos Niño, TSM aumenta en todos los clusters.\nLa Chl a presenta mayor variabilidad durante fases Niña y Niño.\n\n\nTSM por ENSO y Cluster\n\n\n\nBoxplot de TSM por ENSO y Cluster\n\n\n\n\nClorofila a por ENSO y Cluster\n\n\n\nBoxplot de Chl a por ENSO y Cluster"
+  },
+  {
+    "objectID": "02_clustering_ang.html#estacionalidad-mensual-por-cluster",
+    "href": "02_clustering_ang.html#estacionalidad-mensual-por-cluster",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "Estacionalidad mensual por cluster",
+    "text": "Estacionalidad mensual por cluster\nSe calcularon promedios mensuales por cluster para TSM y Clorofila a:\n\nEstacionalidad de TSM\n\n\n\nEstacionalidad de TSM por mes y cluster\n\n\n\n\nEstacionalidad de Chl a\n\n\n\nEstacionalidad de Clorofila a por mes y cluster"
+  },
+  {
+    "objectID": "02_clustering_ang.html#tendencias-interanuales-por-cluster",
+    "href": "02_clustering_ang.html#tendencias-interanuales-por-cluster",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "Tendencias interanuales por cluster",
+    "text": "Tendencias interanuales por cluster\nSe calcularon promedios anuales de TSM y Chla por cluster para observar tendencias de largo plazo.\n\nTSM promedio por año\n\n\n\nTendencia de TSM por año y cluster\n\n\n\n\nChl a promedio por año\n\n\n\nTendencia de Chl a por año y cluster"
+  },
+  {
+    "objectID": "02_clustering_ang.html#contribución-a-los-objetivos-del-proyecto",
+    "href": "02_clustering_ang.html#contribución-a-los-objetivos-del-proyecto",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "Contribución a los objetivos del proyecto",
+    "text": "Contribución a los objetivos del proyecto\n✅ Objetivo 1: Identifica valores característicos y su estacionalidad. ✅ Objetivo 2: Define una regionalización espacial objetiva. ✅ Objetivo 3: Muestra el impacto del ENSO en TSM y Clh a según región."
   },
   {
     "objectID": "02_clustering_ang.html#objetivo-1",
     "href": "02_clustering_ang.html#objetivo-1",
     "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Objetivo",
-    "text": "Objetivo\nEvaluar cambios interanuales de condiciones ambientales por estación."
+    "text": "Objetivo\nCapturar variaciones ambientales anuales a nivel de estación mediante agrupamiento dinámico. Esto permite identificar patrones recurrentes o transiciones de comportamiento oceanográfico de un año a otro en cada sitio de monitoreo."
   },
   {
-    "objectID": "02_clustering_ang.html#variables-utilizadas",
-    "href": "02_clustering_ang.html#variables-utilizadas",
+    "objectID": "02_clustering_ang.html#preparación-de-los-datos-1",
+    "href": "02_clustering_ang.html#preparación-de-los-datos-1",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Variables Utilizadas",
-    "text": "Variables Utilizadas\n\nTSM y Chl a (media, desviación)\nONI_mean\nCoordenadas (para mapeo)\n\nSe usó KMeans (k=4) sobre valores estandarizados."
+    "section": "Preparación de los datos",
+    "text": "Preparación de los datos\nSe calcularon estadísticas anuales para cada estación, con las siguientes variables:\n\nTSM: media y desviación estándar anual\nChl a: media y desviación estándar anual\nONI: promedio anual\nCoordenadas geográficas (latitud y longitud, constantes por estación)\n\nPosteriormente, se estandarizaron las variables y se aplicó el algoritmo KMeans con k = 4 clusters."
   },
   {
-    "objectID": "02_clustering_ang.html#resumen-de-clusters-1",
-    "href": "02_clustering_ang.html#resumen-de-clusters-1",
+    "objectID": "02_clustering_ang.html#distribución-y-evolución-temporal-de-los-clusters",
+    "href": "02_clustering_ang.html#distribución-y-evolución-temporal-de-los-clusters",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Resumen de Clusters",
-    "text": "Resumen de Clusters\n| Cluster | TSM | Chl a | ONI   | Interpretación             |\n|---------|-----|--------|--------|-----------------------------|\n| 0       | 23.2| 2.36   | -0.06 | Moderado-productivo         |\n| 1       | 24.8| 0.9    | -0.64 | Cálido (La Niña)            |\n| 2       | 23.5| 1.6    | -0.07 | Estable-intermedio          |\n| 3       | 25.9| 0.69   | +0.20 | Cálido (El Niño leve)        |"
+    "section": "Distribución y evolución temporal de los clusters",
+    "text": "Distribución y evolución temporal de los clusters\nSe analizaron las frecuencias de asignación por cluster a lo largo del periodo. El siguiente gráfico muestra el número de estaciones clasificadas en cada cluster por año:\n\n\n\nDistribución de clusters por año\n\n\nSe observa una dinámica compleja en la que algunos clusters aumentan su frecuencia en años específicos, lo que podría reflejar condiciones ambientales dominantes."
   },
   {
-    "objectID": "02_clustering_ang.html#resultados",
-    "href": "02_clustering_ang.html#resultados",
+    "objectID": "02_clustering_ang.html#evolución-de-los-clusters-por-estación",
+    "href": "02_clustering_ang.html#evolución-de-los-clusters-por-estación",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Resultados",
-    "text": "Resultados\n\nMapa de calor de evolución de clusters\nDistribución por ENSO\nMatriz de transiciones"
+    "section": "Evolución de los clusters por estación",
+    "text": "Evolución de los clusters por estación\nSe construyó un heatmap que permite visualizar, por estación, cómo ha cambiado su clasificación de cluster entre años:\n\n\n\nHeatmap de evolución por estación\n\n\nEste gráfico permite detectar estaciones con alta estabilidad interanual (pocos cambios de cluster) y otras con alta inestabilidad, es decir, estaciones cuyas condiciones oceanográficas cambian sustancialmente entre años."
   },
   {
-    "objectID": "02_clustering_ang.html#estabilidad-de-estaciones",
-    "href": "02_clustering_ang.html#estabilidad-de-estaciones",
+    "objectID": "02_clustering_ang.html#mapa-de-inestabilidad-anual",
+    "href": "02_clustering_ang.html#mapa-de-inestabilidad-anual",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Estabilidad de Estaciones",
-    "text": "Estabilidad de Estaciones\n\nEstaciones con &gt;10 cambios = alta inestabilidad\nVisualizadas en mapa codificado por color (rojo = inestable)"
+    "section": "Mapa de inestabilidad anual",
+    "text": "Mapa de inestabilidad anual\nSe calculó el número de veces que una estación cambió de cluster entre años consecutivos:\n\n\n\nMapa de inestabilidad anual\n\n\n\nEstaciones en rojo: alta inestabilidad (más de 10 cambios).\nEstaciones en verde: mayor estabilidad interanual."
   },
   {
-    "objectID": "02_clustering_ang.html#contribución-a-objetivos-1",
-    "href": "02_clustering_ang.html#contribución-a-objetivos-1",
+    "objectID": "02_clustering_ang.html#matriz-de-transición-interanual",
+    "href": "02_clustering_ang.html#matriz-de-transición-interanual",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Contribución a Objetivos",
-    "text": "Contribución a Objetivos\n\n✅ Frecuencias interanuales (Obj. 1)\n✅ Regionalización variable en el tiempo (Obj. 2)\n✅ Análisis de ENSO por año y estación (Obj. 3)"
+    "section": "Matriz de transición interanual",
+    "text": "Matriz de transición interanual\nLa siguiente tabla muestra la frecuencia con la que los registros de un cluster cambiaron a otro cluster de un año al siguiente (por estación):\n| Cluster Actual → Siguiente | 0   | 1   | 2   | 3   |\n|----------------------------|-----|-----|-----|-----|\n| 0                          | 18  | 0   | 16  | 1   |\n| 1                          | 2   | 38  | 8   | 26  |\n| 2                          | 17  | 11  | 88  | 3   |\n| 3                          | 0   | 29  | 5   | 78  |\nEsta tabla revela que:\n\nEl Cluster 2 muestra la mayor estabilidad (88 repeticiones sobre sí mismo).\nEl Cluster 1 es el más volátil, con frecuentes transiciones hacia el Cluster 3."
+  },
+  {
+    "objectID": "02_clustering_ang.html#relación-con-eventos-enso",
+    "href": "02_clustering_ang.html#relación-con-eventos-enso",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "Relación con eventos ENSO",
+    "text": "Relación con eventos ENSO\nSe clasificaron los años como Niño, Neutro o Niña según el promedio anual de ONI. Se graficó el conteo de estaciones por cluster para cada tipo de evento:\n\n\n\nDistribución de clusters por fase ENSO\n\n\nAunque no hay una relación estricta, se observa que:\n\nEl Cluster 1 predomina en años Niña.\nEl Cluster 3 es más común en años Niño."
+  },
+  {
+    "objectID": "02_clustering_ang.html#caracterización-de-los-clusters-dinámicos",
+    "href": "02_clustering_ang.html#caracterización-de-los-clusters-dinámicos",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "Caracterización de los clusters dinámicos",
+    "text": "Caracterización de los clusters dinámicos\n| Cluster | TSM (°C) | Chl a (mg/m³) | ONI   | Descripción general                        |\n|--------:|----------|----------------|--------|---------------------------------------------|\n| 0       | 23.20    | 2.37           | -0.06 | Productivo, ligeramente frío                |\n| 1       | 24.84    | 0.90           | -0.65 | Cálido y oligotrófico, asociado a Niña     |\n| 2       | 23.51    | 1.58           | -0.07 | Intermedio en todos los indicadores         |\n| 3       | 25.94    | 0.70           | +0.20 | Cálido, baja productividad, probable Niño  |"
+  },
+  {
+    "objectID": "02_clustering_ang.html#duración-promedio-en-un-mismo-cluster",
+    "href": "02_clustering_ang.html#duración-promedio-en-un-mismo-cluster",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "Duración promedio en un mismo cluster",
+    "text": "Duración promedio en un mismo cluster\nSe estimó la cantidad de años consecutivos que una estación permaneció en el mismo cluster:\n\n\n\nDuración promedio por estación\n\n\nLas estaciones con mayor duración (más de 5 años en el mismo cluster) presentan condiciones relativamente estables en el tiempo."
+  },
+  {
+    "objectID": "02_clustering_ang.html#contribución-a-los-objetivos-del-proyecto-1",
+    "href": "02_clustering_ang.html#contribución-a-los-objetivos-del-proyecto-1",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "Contribución a los objetivos del proyecto",
+    "text": "Contribución a los objetivos del proyecto\n✅ Objetivo 1: Caracteriza frecuencias interanuales en TSM y Chl a. ✅ Objetivo 2: Proporciona una regionalización dinámica por año. ✅ Objetivo 3: Evalúa la influencia interanual del ENSO en patrones oceanográficos."
   },
   {
     "objectID": "02_clustering_ang.html#objetivo-2",
     "href": "02_clustering_ang.html#objetivo-2",
     "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Objetivo",
-    "text": "Objetivo\nAnalizar patrones ambientales por primavera, verano, otoño e invierno para cada estación."
+    "text": "Objetivo\nExplorar la variabilidad espacio-temporal en una escala intra-anual, es decir, entre las cuatro estaciones climáticas del año (Primavera, Verano, Otoño e Invierno). Cada observación representa una combinación de estación geográfica, año y estación del año."
   },
   {
-    "objectID": "02_clustering_ang.html#variables",
-    "href": "02_clustering_ang.html#variables",
+    "objectID": "02_clustering_ang.html#preparación-de-los-datos-2",
+    "href": "02_clustering_ang.html#preparación-de-los-datos-2",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Variables",
-    "text": "Variables\n\nTSM y Chl a: medias y desviaciones por estación del año\nONI_mean por combinación\nSe usó KMeans (k=4) sobre datos normalizados"
+    "section": "Preparación de los datos",
+    "text": "Preparación de los datos\nPara cada combinación (estación, año, estación del año), se calcularon las siguientes variables:\n\nTSM: media y desviación estándar estacional\nChl a: media y desviación estándar estacional\nONI: valor promedio del trimestre correspondiente\nLatitud y longitud de la estación\n\nLas variables fueron estandarizadas y se aplicó un modelo K-Means con k = 4 clusters."
   },
   {
-    "objectID": "02_clustering_ang.html#clusters-estacionales",
-    "href": "02_clustering_ang.html#clusters-estacionales",
+    "objectID": "02_clustering_ang.html#caracterización-de-clusters-estacionales",
+    "href": "02_clustering_ang.html#caracterización-de-clusters-estacionales",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Clusters Estacionales",
-    "text": "Clusters Estacionales\n| Cluster | TSM | Chl a | ONI  | Característica                 |\n|---------|-----|--------|------|--------------------------------|\n| 0       | 24  | 2.41   | -0.30 | Intermedio y productivo         |\n| 1       | 28.4| 0.66   | -0.03 | Verano térmico, baja clorofila  |\n| 2       | 20.7| 1.51   | +0.73 | Frío con influencia de Niño     |\n| 3       | 20.2| 1.37   | -0.73 | Frío asociado a La Niña        |"
+    "section": "Caracterización de clusters estacionales",
+    "text": "Caracterización de clusters estacionales\nSe identificaron cuatro perfiles dominantes:\n| Cluster | TSM (°C) | Chl a (mg/m³) | ONI   | Descripción general                                  |\n|--------:|----------|----------------|--------|-------------------------------------------------------|\n| 0       | 24.01    | 2.41           | -0.30 | Cálido, con alta productividad y ligera influencia Niña |\n| 1       | 28.42    | 0.66           | -0.04 | Muy cálido, baja productividad, posiblemente verano    |\n| 2       | 20.66    | 1.51           | +0.73 | Frío y productivo, probable invierno bajo Niño         |\n| 3       | 20.20    | 1.37           | -0.73 | Frío con baja productividad, asociado a Niña fuerte    |"
   },
   {
-    "objectID": "02_clustering_ang.html#resultados-1",
-    "href": "02_clustering_ang.html#resultados-1",
+    "objectID": "02_clustering_ang.html#distribución-por-estación-del-año",
+    "href": "02_clustering_ang.html#distribución-por-estación-del-año",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Resultados",
-    "text": "Resultados\n\nHeatmap espacio-temporal (estación x año x estación del año)\nDistribución por estación del año\nMapa de inestabilidad por estación fija\nMatriz de transiciones intra-anuales"
+    "section": "Distribución por estación del año",
+    "text": "Distribución por estación del año\nLa siguiente gráfica muestra cómo se distribuyen los clusters en cada una de las estaciones del año:\n\n\n\nDistribución de clusters por estación del año\n\n\nSe observa que:\n\nEl cluster 1 domina en verano y otoño.\nInvierno muestra mayor participación de clusters fríos y productivos (2 y 3)."
   },
   {
-    "objectID": "02_clustering_ang.html#contribución-a-objetivos-2",
-    "href": "02_clustering_ang.html#contribución-a-objetivos-2",
+    "objectID": "02_clustering_ang.html#evolución-estacional-interanual",
+    "href": "02_clustering_ang.html#evolución-estacional-interanual",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Contribución a Objetivos",
-    "text": "Contribución a Objetivos\n\n✅ Identificación de patrones intra-anuales (Obj. 1)\n✅ Regionalización sensible a la estacionalidad (Obj. 2)\n✅ Asociación a eventos ENSO estacionales (Obj. 3)"
+    "section": "Evolución estacional interanual",
+    "text": "Evolución estacional interanual\nEl siguiente gráfico muestra cómo han cambiado los clusters estacionales a lo largo del tiempo:\n\n\n\nEvolución de clusters estacionales por año\n\n\nEsta vista permite analizar la frecuencia de cada condición ambiental por estación del año a lo largo del periodo."
+  },
+  {
+    "objectID": "02_clustering_ang.html#variabilidad-espacio-temporal",
+    "href": "02_clustering_ang.html#variabilidad-espacio-temporal",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "Variabilidad espacio-temporal",
+    "text": "Variabilidad espacio-temporal\nEn el siguiente heatmap se muestra cómo ha cambiado el cluster asignado en cada (estación, año, estación del año):\n\n\n\nHeatmap estacional por estación\n\n\nEste análisis revela que estaciones del norte (Est 1° a Est 5°) presentan menor variabilidad, mientras que las estaciones del centro y sur tienen mayor dinamismo."
+  },
+  {
+    "objectID": "02_clustering_ang.html#mapa-de-inestabilidad-estacional",
+    "href": "02_clustering_ang.html#mapa-de-inestabilidad-estacional",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "Mapa de inestabilidad estacional",
+    "text": "Mapa de inestabilidad estacional\nSe calculó el número total de cambios de cluster entre estaciones del año para cada estación geográfica:\n\n\n\nMapa de inestabilidad estacional\n\n\n\nEstaciones en rojo: más de 60 cambios estacionales.\nEstaciones en verde: menor inestabilidad intra-anual."
+  },
+  {
+    "objectID": "02_clustering_ang.html#matriz-de-transición-entre-estaciones-del-año",
+    "href": "02_clustering_ang.html#matriz-de-transición-entre-estaciones-del-año",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "Matriz de transición entre estaciones del año",
+    "text": "Matriz de transición entre estaciones del año\n| Cluster Actual → Siguiente | 0   | 1   | 2   | 3   |\n|----------------------------|-----|-----|-----|-----|\n| 0                          | 48  | 74  | 23  | 29  |\n| 1                          | 48  | 122 | 55  | 102 |\n| 2                          | 44  | 181 | 6   | 6   |\n| 3                          | 55  | 269 | 5   | 4   |\nSe observa que la mayoría de las transiciones tienden hacia el Cluster 1, lo cual sugiere que muchas estaciones pasan a un estado más cálido con baja productividad. El Cluster 2 tiene muy baja retención."
+  },
+  {
+    "objectID": "02_clustering_ang.html#contribución-a-los-objetivos-del-proyecto-2",
+    "href": "02_clustering_ang.html#contribución-a-los-objetivos-del-proyecto-2",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "Contribución a los objetivos del proyecto",
+    "text": "Contribución a los objetivos del proyecto\n✅ Objetivo 1: Describe variabilidad intra-anual de TSM y Chl a. ✅ Objetivo 2: Permite una regionalización sensible a la estacionalidad. ✅ Objetivo 3: Evalúa el efecto estacional del ENSO con base en la clasificación ONI."
   },
   {
     "objectID": "02_clustering_ang.html#objetivo-3",
     "href": "02_clustering_ang.html#objetivo-3",
     "title": "Análisis de Clustering Espacio-Temporal",
     "section": "Objetivo",
-    "text": "Objetivo\nDetectar variabilidad de alta frecuencia a nivel mensual."
+    "text": "Objetivo\nEste análisis busca identificar patrones espacio-temporales de alta frecuencia, permitiendo estudiar la variabilidad mensual en cada estación. Esto ofrece un enfoque más detallado que captura transiciones rápidas y posibles impactos de eventos climáticos de corta duración como episodios ENSO."
   },
   {
-    "objectID": "02_clustering_ang.html#variables-y-método",
-    "href": "02_clustering_ang.html#variables-y-método",
+    "objectID": "02_clustering_ang.html#preparación-de-los-datos-3",
+    "href": "02_clustering_ang.html#preparación-de-los-datos-3",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Variables y Método",
-    "text": "Variables y Método\n\nTSM_mean, Chla_mean, ONI_mean por estación-año-mes\nKMeans (k=4) con escalado previo"
+    "section": "Preparación de los datos",
+    "text": "Preparación de los datos\nPara cada combinación (estación, año, mes) se calcularon:\n\nTSM promedio mensual\nChl a promedio mensual\nONI promedio mensual (expansión del índice trimestral)\nCoordenadas de la estación\n\nLas variables fueron estandarizadas. Posteriormente, se aplicó KMeans con k = 4."
   },
   {
-    "objectID": "02_clustering_ang.html#clusters-mensuales",
-    "href": "02_clustering_ang.html#clusters-mensuales",
+    "objectID": "02_clustering_ang.html#caracterización-de-clusters-mensuales",
+    "href": "02_clustering_ang.html#caracterización-de-clusters-mensuales",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Clusters Mensuales",
-    "text": "Clusters Mensuales\n| Cluster | TSM | Chl a | ONI  | Interpretación                    |\n|---------|-----|--------|------|----------------------------------|\n| 0       | 28.9| 0.64   | -0.15| Verano, cálido y oligotrófico    |\n| 1       | 20.9| 3.65   | -0.10| Invierno, frío y productivo       |\n| 2       | 20.2| 1.39   | -0.84| Asociado a La Niña                |\n| 3       | 22.4| 1.26   | +1.11| Asociado a El Niño                |"
+    "section": "Caracterización de clusters mensuales",
+    "text": "Caracterización de clusters mensuales\n| Cluster | TSM (°C) | Chl a (mg/m³) | ONI   | Descripción general                              |\n|--------:|----------|----------------|--------|--------------------------------------------------|\n| 0       | 28.91    | 0.64           | -0.15 | Muy cálido, baja productividad                   |\n| 1       | 20.91    | 3.65           | -0.10 | Frío y altamente productivo                      |\n| 2       | 20.24    | 1.39           | -0.84 | Frío con productividad media, asociado a Niña    |\n| 3       | 22.41    | 1.26           | +1.11 | Moderadamente cálido, posible influencia de Niño |"
   },
   {
-    "objectID": "02_clustering_ang.html#resultados-2",
-    "href": "02_clustering_ang.html#resultados-2",
+    "objectID": "02_clustering_ang.html#heatmap-mensual-de-variabilidad-espacio-temporal",
+    "href": "02_clustering_ang.html#heatmap-mensual-de-variabilidad-espacio-temporal",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Resultados",
-    "text": "Resultados\n\nHeatmap mensual detallado\nDistribución por mes del año\nEvolución anual agregada\nMapa de inestabilidad mensual\nMatriz de transiciones mensuales"
+    "section": "Heatmap mensual de variabilidad espacio-temporal",
+    "text": "Heatmap mensual de variabilidad espacio-temporal\nEl siguiente gráfico presenta la variación de los clusters mes a mes para cada estación geográfica:\n\n\n\nHeatmap mensual\n\n\nEste análisis revela alta dinámica, especialmente en las estaciones del centro y sur del Golfo de California."
   },
   {
-    "objectID": "02_clustering_ang.html#contribución-a-objetivos-3",
-    "href": "02_clustering_ang.html#contribución-a-objetivos-3",
+    "objectID": "02_clustering_ang.html#distribución-mensual-de-clusters",
+    "href": "02_clustering_ang.html#distribución-mensual-de-clusters",
     "title": "Análisis de Clustering Espacio-Temporal",
-    "section": "Contribución a Objetivos",
-    "text": "Contribución a Objetivos\n\n✅ Variabilidad mensual de alta resolución (Obj. 1)\n✅ Regionalización hiper-temporal (Obj. 2)\n✅ Detección de transiciones vinculadas a ENSO (Obj. 3)\n\n\nEste análisis multi-escala ofrece una perspectiva comprensiva de la variabilidad oceánica en el Golfo de California, desde escalas anuales hasta mensuales, integrando información física, biológica y climática."
+    "section": "Distribución mensual de clusters",
+    "text": "Distribución mensual de clusters\nSe visualizó cómo se distribuyen los clusters a lo largo de los 12 meses del año:\n\n\n\nDistribución mensual por cluster\n\n\n\nEl cluster 0 predomina en verano.\nEl cluster 1 es más frecuente durante los meses invernales."
+  },
+  {
+    "objectID": "02_clustering_ang.html#evolución-interanual-mensual-agregada",
+    "href": "02_clustering_ang.html#evolución-interanual-mensual-agregada",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "Evolución interanual mensual agregada",
+    "text": "Evolución interanual mensual agregada\nSe agruparon los datos por año para evaluar la evolución de las condiciones ambientales promedio:\n\n\n\nEvolución anual de clusters mensuales\n\n\nEl gráfico permite detectar eventos abruptos o cambios multianuales, como transiciones post-ENSO."
+  },
+  {
+    "objectID": "02_clustering_ang.html#estabilidad-mensual-por-estación",
+    "href": "02_clustering_ang.html#estabilidad-mensual-por-estación",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "Estabilidad mensual por estación",
+    "text": "Estabilidad mensual por estación\nSe contabilizaron los cambios de cluster entre meses consecutivos para cada estación:\n| Estación | Cambios Mensuales Totales |\n|----------|----------------------------|\n| Est 12°  | 89                         |\n| Est 13°  | 77                         |\n| Est 16°  | 77                         |\n| Est 17°  | 77                         |\n| ...      | ...                        |\n| Est 1°   | 36                         |\nVisualmente, se presenta en el siguiente mapa:\n\n\n\nMapa de inestabilidad mensual\n\n\n\nRojo: estaciones con mayor inestabilidad.\nVerde: estaciones con patrones más estables mes a mes."
+  },
+  {
+    "objectID": "02_clustering_ang.html#matriz-de-transición-mensual",
+    "href": "02_clustering_ang.html#matriz-de-transición-mensual",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "Matriz de transición mensual",
+    "text": "Matriz de transición mensual\n| Cluster Actual → Siguiente | 0    | 1   | 2   | 3   |\n|----------------------------|------|-----|-----|-----|\n| 0                          | 1533 | 43  | 176 | 115 |\n| 1                          | 58   | 134 | 85  | 58  |\n| 2                          | 182  | 97  | 714 | 12  |\n| 3                          | 119  | 65  | 16  | 486 |\nEste resultado muestra que:\n\nEl cluster 0 tiene la mayor retención mensual (persistencia cálida).\nEl cluster 1 presenta mayor movilidad entre estados."
+  },
+  {
+    "objectID": "02_clustering_ang.html#contribución-a-los-objetivos-del-proyecto-3",
+    "href": "02_clustering_ang.html#contribución-a-los-objetivos-del-proyecto-3",
+    "title": "Análisis de Clustering Espacio-Temporal",
+    "section": "Contribución a los objetivos del proyecto",
+    "text": "Contribución a los objetivos del proyecto\n✅ Objetivo 1: Se caracteriza la variabilidad mensual detallada de TSM y Chl a. ✅ Objetivo 2: Se genera una regionalización de alta resolución espacio-temporal. ✅ Objetivo 3: Se detectan transiciones asociadas con eventos Niño y Niña en escala mensual."
   },
   {
     "objectID": "03_frecuencia_chuy.html",
     "href": "03_frecuencia_chuy.html",
-    "title": "Metodología",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
     "section": "",
-    "text": "Metodología de la Consultoría"
+    "text": "Con el objetivo de identificar los ciclos que explican la mayor parte de la variabilidad en las variables TSM (Temperatura Superficial del Mar) y Chl a (Clorofila a), utilizaremos el periodograma como herramienta principal de análisis espectral.\n\n\n\nCálculo global de frecuencias dominantes\nSe aplicará el periodograma sobre las series temporales completas de TSM y Chl a, integrando los datos de todas las estaciones.\nEsto nos permitirá detectar frecuencias comunes de oscilación, como ciclos anuales, semestrales u otros patrones relevantes que afectan a toda la región.\nAnálisis por estación individual\nPosteriormente, se realizará un análisis estación por estación, permitiendo observar si existen diferencias locales en los ciclos dominantes.\nEste paso es clave para entender si ciertas regiones del Golfo de California presentan patrones únicos o asincronías respecto al comportamiento promedio.\n\n\n\n\n\nDetectar frecuencias dominantes (por ejemplo, 12, 6 o 3 meses) que expliquen la mayor parte de la variabilidad en las series.\n\nIdentificar diferencias entre estaciones para futuras etapas de regionalización climática.\n\n\n\n\n\nComenzamos visualizando el comportamiento temporal de las variables TSM (Temperatura Superficial del Mar) y Chl a (Concentración de Clorofila a) a lo largo del periodo de estudio.\n\n\nGraficamos las series temporales de ambas variables para observar cómo evolucionan con el tiempo. Esto nos permite:\n\nDetectar posibles tendencias o estacionalidades.\nIdentificar anomalías o valores extremos.\nEvaluar visualmente la cobertura y continuidad de los datos.\n\n\n\n\nUsamos datos agregados por mes (o por año) combinando todas las estaciones, para tener una vista general del comportamiento regional. En esta etapa:\n\nPara TSM, consideramos el periodo de enero de 1981 a diciembre de 2018.\nPara Chl a, usamos datos desde enero de 1997 hasta diciembre de 2018.\n\n\n\n\npng\n\n\n\n\n\npng\n\n\n\n\n\n\nAhora pasamos al análisis espectral. Lo que hacemos en esta etapa es calcular el periodograma utilizando los datos combinados de todas las estaciones.\n\n\nQueremos identificar las frecuencias dominantes en las series de TSM y Chl a, es decir, los ciclos que explican la mayor parte de su variabilidad temporal.\n\n\n\nAplicamos el periodograma sobre las series temporales agregadas de TSM y Chl a, para obtener una visión general de los ciclos presentes en toda la región de estudio. Este análisis nos permitirá detectar patrones recurrentes como:\n\nCiclos anuales (12 meses)\nCiclos semestrales (6 meses)\nOtros periodos relevantes\n\nUna vez identificadas las frecuencias principales a nivel regional, más adelante repetiremos este análisis por estación individual para comparar los comportamientos locales.\n\n\n\npng\n\n\n\n\n\n\nA continuación, mostramos las frecuencias dominantes encontradas mediante el análisis espectral con periodograma para las series combinadas de todas las estaciones.\nEstas frecuencias representan los ciclos que explican la mayor parte de la variabilidad en las variables TSM (Temperatura Superficial del Mar) y Chla (Concentración de Clorofila).\nLos resultados que se presentan a continuación corresponden a las componentes más significativas de cada serie temporal, ordenadas por su potencia espectral. Esto nos permitirá enfocar el análisis posterior en los periodos más relevantes.\nFreq = 0.0049 ciclos/mes → periodo ≃ 204.9 meses (17.1 años); potencia = 125733\nFreq = 0.0588 ciclos/mes → periodo ≃ 17.0 meses (1.4 años); potencia = 7030\nFreq = 0.0050 ciclos/mes → periodo ≃ 199.5 meses (16.6 años); potencia = 5840\nFreq = 0.0047 ciclos/mes → periodo ≃ 210.6 meses (17.6 años); potencia = 2588\nFreq = 0.0539 ciclos/mes → periodo ≃ 18.5 meses (1.5 años); potencia = 2495\n\n\n\n\n\n\nFreq = 0.0588 ciclos/mes → periodo ≃ 17.0 meses (1.4 años); potencia = 732\nFreq = 0.0049 ciclos/mes → periodo ≃ 205.6 meses (17.1 años); potencia = 499\nFreq = 0.2353 ciclos/mes → periodo ≃ 4.2 meses (0.4 años); potencia = 211\nFreq = 0.1765 ciclos/mes → periodo ≃ 5.7 meses (0.5 años); potencia = 163\nFreq = 0.0686 ciclos/mes → periodo ≃ 14.6 meses (1.2 años); potencia = 115"
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#análisis-de-frecuencias-dominantes-mediante-periodograma",
+    "href": "03_frecuencia_chuy.html#análisis-de-frecuencias-dominantes-mediante-periodograma",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "",
+    "text": "Con el objetivo de identificar los ciclos que explican la mayor parte de la variabilidad en las variables TSM (Temperatura Superficial del Mar) y Chl a (Clorofila a), utilizaremos el periodograma como herramienta principal de análisis espectral.\n\n\n\nCálculo global de frecuencias dominantes\nSe aplicará el periodograma sobre las series temporales completas de TSM y Chl a, integrando los datos de todas las estaciones.\nEsto nos permitirá detectar frecuencias comunes de oscilación, como ciclos anuales, semestrales u otros patrones relevantes que afectan a toda la región.\nAnálisis por estación individual\nPosteriormente, se realizará un análisis estación por estación, permitiendo observar si existen diferencias locales en los ciclos dominantes.\nEste paso es clave para entender si ciertas regiones del Golfo de California presentan patrones únicos o asincronías respecto al comportamiento promedio.\n\n\n\n\n\nDetectar frecuencias dominantes (por ejemplo, 12, 6 o 3 meses) que expliquen la mayor parte de la variabilidad en las series.\n\nIdentificar diferencias entre estaciones para futuras etapas de regionalización climática."
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#exploración-temporal-de-tsm-y-chl-a",
+    "href": "03_frecuencia_chuy.html#exploración-temporal-de-tsm-y-chl-a",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "",
+    "text": "Comenzamos visualizando el comportamiento temporal de las variables TSM (Temperatura Superficial del Mar) y Chl a (Concentración de Clorofila a) a lo largo del periodo de estudio.\n\n\nGraficamos las series temporales de ambas variables para observar cómo evolucionan con el tiempo. Esto nos permite:\n\nDetectar posibles tendencias o estacionalidades.\nIdentificar anomalías o valores extremos.\nEvaluar visualmente la cobertura y continuidad de los datos.\n\n\n\n\nUsamos datos agregados por mes (o por año) combinando todas las estaciones, para tener una vista general del comportamiento regional. En esta etapa:\n\nPara TSM, consideramos el periodo de enero de 1981 a diciembre de 2018.\nPara Chl a, usamos datos desde enero de 1997 hasta diciembre de 2018.\n\n\n\n\npng\n\n\n\n\n\npng"
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#cálculo-del-periodograma-para-todas-las-estaciones",
+    "href": "03_frecuencia_chuy.html#cálculo-del-periodograma-para-todas-las-estaciones",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "",
+    "text": "Ahora pasamos al análisis espectral. Lo que hacemos en esta etapa es calcular el periodograma utilizando los datos combinados de todas las estaciones.\n\n\nQueremos identificar las frecuencias dominantes en las series de TSM y Chl a, es decir, los ciclos que explican la mayor parte de su variabilidad temporal.\n\n\n\nAplicamos el periodograma sobre las series temporales agregadas de TSM y Chl a, para obtener una visión general de los ciclos presentes en toda la región de estudio. Este análisis nos permitirá detectar patrones recurrentes como:\n\nCiclos anuales (12 meses)\nCiclos semestrales (6 meses)\nOtros periodos relevantes\n\nUna vez identificadas las frecuencias principales a nivel regional, más adelante repetiremos este análisis por estación individual para comparar los comportamientos locales.\n\n\n\npng"
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#frecuencias-dominantes-identificadas",
+    "href": "03_frecuencia_chuy.html#frecuencias-dominantes-identificadas",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "",
+    "text": "A continuación, mostramos las frecuencias dominantes encontradas mediante el análisis espectral con periodograma para las series combinadas de todas las estaciones.\nEstas frecuencias representan los ciclos que explican la mayor parte de la variabilidad en las variables TSM (Temperatura Superficial del Mar) y Chla (Concentración de Clorofila).\nLos resultados que se presentan a continuación corresponden a las componentes más significativas de cada serie temporal, ordenadas por su potencia espectral. Esto nos permitirá enfocar el análisis posterior en los periodos más relevantes.\nFreq = 0.0049 ciclos/mes → periodo ≃ 204.9 meses (17.1 años); potencia = 125733\nFreq = 0.0588 ciclos/mes → periodo ≃ 17.0 meses (1.4 años); potencia = 7030\nFreq = 0.0050 ciclos/mes → periodo ≃ 199.5 meses (16.6 años); potencia = 5840\nFreq = 0.0047 ciclos/mes → periodo ≃ 210.6 meses (17.6 años); potencia = 2588\nFreq = 0.0539 ciclos/mes → periodo ≃ 18.5 meses (1.5 años); potencia = 2495\n\n\n\n\n\n\nFreq = 0.0588 ciclos/mes → periodo ≃ 17.0 meses (1.4 años); potencia = 732\nFreq = 0.0049 ciclos/mes → periodo ≃ 205.6 meses (17.1 años); potencia = 499\nFreq = 0.2353 ciclos/mes → periodo ≃ 4.2 meses (0.4 años); potencia = 211\nFreq = 0.1765 ciclos/mes → periodo ≃ 5.7 meses (0.5 años); potencia = 163\nFreq = 0.0686 ciclos/mes → periodo ≃ 14.6 meses (1.2 años); potencia = 115"
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#detalle-de-los-términos",
+    "href": "03_frecuencia_chuy.html#detalle-de-los-términos",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "Detalle de los términos",
+    "text": "Detalle de los términos\n\nFrecuencia (ciclos/mes)\nNúmero de ciclos completos que ocurren en un mes. Por ejemplo, 0.0833 ciclos/mes equivale a un ciclo cada 12 meses.\nPotencia\nMide cuánta varianza de la señal está concentrada en esa frecuencia. Picos de potencia alta indican oscilaciones muy relevantes.\nPeriodo\nInverso de la frecuencia:\n\\(\\text{periodo (meses)} = \\frac{1}{\\text{frecuencia (ciclos/mes)}}\\)\n\nY en años:\n\\(\\text{periodo (años)} = \\frac{\\text{periodo (meses)}}{12}.\\)"
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#conclusiones-clave",
+    "href": "03_frecuencia_chuy.html#conclusiones-clave",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "Conclusiones clave",
+    "text": "Conclusiones clave\n\nCiclos multianuales (≈16–18 años)\nReúnen la mayor parte de la potencia en TSM y Chl a → reflejan la tendencia de fondo o variaciones decenales.\nOscilación ENSO (≈15–18 meses)\nAparece con alta potencia en ambas series → es el componente interanual dominante vinculado al fenómeno El Niño–Oscilación del Sur.\nSubciclos estacionales en Clorofila a (4–6 meses)\nIndican pulsos biológicos y de mezcla en la columna de agua, propios de dinámicas costeras más rápidas.\n\nCon esta tabla y explicaciones tienes un mapeo claro de cuáles y cada cuánto se repiten las variaciones más importantes en tu zona de estudio."
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#análisis-espectral-por-estación",
+    "href": "03_frecuencia_chuy.html#análisis-espectral-por-estación",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "Análisis Espectral por Estación",
+    "text": "Análisis Espectral por Estación\nDespués de identificar las frecuencias dominantes a nivel regional, ahora nos enfocamos en calcular el periodograma de forma individual para cada estación.\n\nObjetivo\nEl propósito de este análisis es detectar diferencias locales en los patrones de variación. Aunque ya conocemos las frecuencias que dominan a nivel general, es posible que algunas estaciones presenten:\n\nFrecuencias adicionales o distintas\nIntensidades diferentes en los ciclos\nComportamientos asincrónicos respecto al promedio regional\n\n\n\nQué hacemos\nAplicamos el periodograma sobre la serie temporal de cada estación, tanto para TSM como para Chl a. Esto nos permitirá comparar el comportamiento espectral entre estaciones y evaluar si existen zonas con dinámicas propias, lo cual será útil para la posterior regionalización.\n\n\n\npng\n\n\n\n\n\n\n\n\n\n\nestacion\n\n\nfreq_tsm\n\n\n\n\n\n\n0\n\n\nest_1\n\n\n0.08296\n\n\n\n\n5\n\n\nest_2\n\n\n0.08296\n\n\n\n\n10\n\n\nest_3\n\n\n0.08296\n\n\n\n\n15\n\n\nest_4\n\n\n0.08296\n\n\n\n\n20\n\n\nest_5\n\n\n0.08296\n\n\n\n\n25\n\n\nest_6\n\n\n0.08296\n\n\n\n\n30\n\n\nest_7\n\n\n0.08296\n\n\n\n\n35\n\n\nest_8\n\n\n0.08296\n\n\n\n\n40\n\n\nest_9\n\n\n0.08296\n\n\n\n\n45\n\n\nest_10\n\n\n0.08296\n\n\n\n\n50\n\n\nest_11\n\n\n0.08296\n\n\n\n\n55\n\n\nest_12\n\n\n0.08296\n\n\n\n\n60\n\n\nest_13\n\n\n0.08296\n\n\n\n\n65\n\n\nest_14\n\n\n0.08296\n\n\n\n\n70\n\n\nest_15\n\n\n0.08296\n\n\n\n\n75\n\n\nest_16\n\n\n0.08296\n\n\n\n\n80\n\n\nest_17\n\n\n0.08296"
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#frecuencia-dominante-en-tsm-estaciones-1-a-17",
+    "href": "03_frecuencia_chuy.html#frecuencia-dominante-en-tsm-estaciones-1-a-17",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "Frecuencia Dominante en TSM — Estaciones 1 a 17",
+    "text": "Frecuencia Dominante en TSM — Estaciones 1 a 17\nAl analizar los periodogramas de la Temperatura Superficial del Mar (TSM) para las 17 estaciones del Golfo de California, se observó un patrón notable: todas las estaciones comparten la misma frecuencia dominante.\n\nFrecuencia dominante común\n\nFrecuencia: 0.08296 ciclos/mes\n\nPeríodo equivalente:\n\\(\\frac{1}{0.08296} \\approx 12.05 \\text{ meses} \\approx 1 \\text{ año}\\)\n\n\n\nInterpretación\n\nEsta frecuencia indica un ciclo anual perfectamente definido en todas las estaciones.\nEl hecho de que sea exactamente la misma en las 17 ubicaciones sugiere una respuesta homogénea al ciclo estacional, probablemente impulsada por factores climáticos como la radiación solar, temperatura atmosférica y dinámica oceánica.\nLa consistencia de esta frecuencia refuerza la idea de que la TSM en el Golfo de California está fuertemente condicionada por la estacionalidad climática.\n\n\n\nConclusión\nEste resultado estadístico demuestra que, independientemente de la ubicación geográfica dentro del golfo, la TSM sigue un patrón predominantemente anual, lo cual es fundamental para la modelación de procesos físicos, biológicos y climáticos en la región.\n\n\n\n\n\n\n\n\nestacion\n\n\nfreq_tsm\n\n\n\n\n\n\n1\n\n\nest_1\n\n\n0.085202\n\n\n\n\n6\n\n\nest_2\n\n\n0.085202\n\n\n\n\n11\n\n\nest_3\n\n\n0.085202\n\n\n\n\n16\n\n\nest_4\n\n\n0.085202\n\n\n\n\n21\n\n\nest_5\n\n\n0.085202\n\n\n\n\n26\n\n\nest_6\n\n\n0.085202\n\n\n\n\n31\n\n\nest_7\n\n\n0.085202\n\n\n\n\n36\n\n\nest_8\n\n\n0.085202\n\n\n\n\n41\n\n\nest_9\n\n\n0.085202\n\n\n\n\n46\n\n\nest_10\n\n\n0.085202\n\n\n\n\n51\n\n\nest_11\n\n\n0.085202\n\n\n\n\n56\n\n\nest_12\n\n\n0.085202\n\n\n\n\n61\n\n\nest_13\n\n\n0.085202\n\n\n\n\n66\n\n\nest_14\n\n\n0.085202\n\n\n\n\n71\n\n\nest_15\n\n\n0.085202\n\n\n\n\n76\n\n\nest_16\n\n\n0.085202\n\n\n\n\n81\n\n\nest_17\n\n\n0.085202"
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#segunda-frecuencia-dominante-en-tsm-estaciones-1-a-17",
+    "href": "03_frecuencia_chuy.html#segunda-frecuencia-dominante-en-tsm-estaciones-1-a-17",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "Segunda Frecuencia Dominante en TSM — Estaciones 1 a 17",
+    "text": "Segunda Frecuencia Dominante en TSM — Estaciones 1 a 17\nAdemás de la frecuencia dominante anual (≈ 0.0830 ciclos/mes), el análisis espectral revela que todas las estaciones comparten una segunda frecuencia significativa común:\n\nFrecuencia secundaria común\n\nFrecuencia: 0.085202 ciclos/mes\n\nPeríodo equivalente:\n\\(\\frac{1}{0.085202} \\approx 11.74 \\text{ meses}\\)\n\n\n\nInterpretación\n\nEsta frecuencia está muy cerca del valor anual, pero con una ligera variación respecto a la frecuencia principal (≈ 0.0830).\nSu presencia en todas las estaciones sugiere que el ciclo anual no es perfectamente armónico, sino que puede estar modulado o distorsionado por efectos locales como:\n\nvariaciones interanuales,\nfases del ENSO,\no procesos oceanográficos regionales.\n\nTambién es posible que esta frecuencia represente un armónico secundario del ciclo anual, capturado debido a pequeñas fluctuaciones o no linealidades en la serie temporal.\n\n\n\nConclusión\nLa existencia de una segunda frecuencia cercana al ciclo anual en todas las estaciones refuerza la idea de que la TSM está influida principalmente por patrones estacionales, aunque no de forma perfectamente sinusoidal. Este hallazgo apunta hacia una estructura periódica compleja, pero coherente a lo largo de toda la región del Golfo de California.\n\n\n\n\n\n\n\n\nestacion\n\n\nfreq_tsm\n\n\n\n\n\n\n2\n\n\nest_1\n\n\n0.080717\n\n\n\n\n7\n\n\nest_2\n\n\n0.080717\n\n\n\n\n12\n\n\nest_3\n\n\n0.080717\n\n\n\n\n17\n\n\nest_4\n\n\n0.087444\n\n\n\n\n22\n\n\nest_5\n\n\n0.080717\n\n\n\n\n27\n\n\nest_6\n\n\n0.087444\n\n\n\n\n32\n\n\nest_7\n\n\n0.080717\n\n\n\n\n37\n\n\nest_8\n\n\n0.080717\n\n\n\n\n42\n\n\nest_9\n\n\n0.080717\n\n\n\n\n47\n\n\nest_10\n\n\n0.080717\n\n\n\n\n52\n\n\nest_11\n\n\n0.080717\n\n\n\n\n57\n\n\nest_12\n\n\n0.087444\n\n\n\n\n62\n\n\nest_13\n\n\n0.080717\n\n\n\n\n67\n\n\nest_14\n\n\n0.078475\n\n\n\n\n72\n\n\nest_15\n\n\n0.080717\n\n\n\n\n77\n\n\nest_16\n\n\n0.080717\n\n\n\n\n82\n\n\nest_17\n\n\n0.080717"
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#tercera-frecuencia-dominante-en-tsm-estaciones-1-a-17",
+    "href": "03_frecuencia_chuy.html#tercera-frecuencia-dominante-en-tsm-estaciones-1-a-17",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "Tercera Frecuencia Dominante en TSM — Estaciones 1 a 17",
+    "text": "Tercera Frecuencia Dominante en TSM — Estaciones 1 a 17\nA partir del análisis espectral de TSM, la tercera frecuencia dominante muestra mayor variabilidad entre estaciones, a diferencia de las dos primeras que eran completamente consistentes.\n\nDistribución de la tercera frecuencia\n\n\n\n\n\n\n\n\nFrecuencia (ciclos/mes)\nEstaciones donde aparece\nPeríodo aproximado\n\n\n\n\n0.080717\nest_1, est_2, est_3, est_5, est_7, est_8, est_9, est_10, est_11, est_13, est_15, est_16, est_17\n≈ 12.39 meses\n\n\n0.087444\nest_4, est_6, est_12\n≈ 11.44 meses\n\n\n0.078475\nest_14\n≈ 12.74 meses\n\n\n\n\n\nInterpretación\n\nAunque las frecuencias siguen siendo cercanas al ciclo anual, ya no son idénticas en todas las estaciones.\nEsto indica que existen pequeñas diferencias en la estructura de la señal anual, posiblemente causadas por:\n\nefectos geográficos locales (latitud, profundidad),\ncondiciones atmosféricas particulares,\no características propias de la dinámica marina en ciertas estaciones.\n\nEn todos los casos, el período asociado sigue rondando los 12 meses, por lo que el carácter estacional continúa siendo dominante, pero con matices específicos por ubicación.\n\n\n\nConclusión\nEl análisis de la tercera frecuencia dominante en TSM revela una transición hacia una mayor heterogeneidad espacial. Esto puede ser importante para modelos más detallados que busquen capturar variaciones locales en la respuesta térmica del océano en el Golfo de California.\n\n\n\n\n\n\n\n\nestacion\n\n\nfreq_tsm\n\n\n\n\n\n\n3\n\n\nest_1\n\n\n0.165919\n\n\n\n\n8\n\n\nest_2\n\n\n0.087444\n\n\n\n\n13\n\n\nest_3\n\n\n0.165919\n\n\n\n\n18\n\n\nest_4\n\n\n0.165919\n\n\n\n\n23\n\n\nest_5\n\n\n0.165919\n\n\n\n\n28\n\n\nest_6\n\n\n0.080717\n\n\n\n\n33\n\n\nest_7\n\n\n0.165919\n\n\n\n\n38\n\n\nest_8\n\n\n0.165919\n\n\n\n\n43\n\n\nest_9\n\n\n0.087444\n\n\n\n\n48\n\n\nest_10\n\n\n0.087444\n\n\n\n\n53\n\n\nest_11\n\n\n0.087444\n\n\n\n\n58\n\n\nest_12\n\n\n0.080717\n\n\n\n\n63\n\n\nest_13\n\n\n0.087444\n\n\n\n\n68\n\n\nest_14\n\n\n0.080717\n\n\n\n\n73\n\n\nest_15\n\n\n0.087444\n\n\n\n\n78\n\n\nest_16\n\n\n0.087444\n\n\n\n\n83\n\n\nest_17\n\n\n0.087444"
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#cuarta-frecuencia-dominante-en-tsm-estaciones-1-a-17",
+    "href": "03_frecuencia_chuy.html#cuarta-frecuencia-dominante-en-tsm-estaciones-1-a-17",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "Cuarta Frecuencia Dominante en TSM — Estaciones 1 a 17",
+    "text": "Cuarta Frecuencia Dominante en TSM — Estaciones 1 a 17\nA medida que descendemos en el orden de importancia de las frecuencias (rank 4), se observa una mayor diversidad entre estaciones, aunque siguen apareciendo algunos patrones recurrentes.\n\nDistribución de la cuarta frecuencia\n\n\n\n\n\n\n\n\nFrecuencia (ciclos/mes)\nEstaciones donde aparece\nPeríodo aproximado\n\n\n\n\n0.165919\nest_1, est_3, est_4, est_5, est_7, est_8\n≈ 6.03 meses\n\n\n0.087444\nest_2, est_9, est_10, est_11, est_13, est_15, est_16, est_17\n≈ 11.44 meses\n\n\n0.080717\nest_6, est_12, est_14\n≈ 12.39 meses\n\n\n\n\n\nInterpretación\n\nLa frecuencia 0.165919 ciclos/mes aparece en 6 estaciones y corresponde aproximadamente a un ciclo semestral, lo cual podría reflejar:\n\nfenómenos intraanuales como variaciones de productividad biológica,\nalternancia de masas de agua,\no efectos climáticos regionales con una periodicidad de 6 meses.\n\nLa frecuencia 0.087444 ciclos/mes, aunque cercana al ciclo anual, persiste como una señal secundaria en varias estaciones, indicando posibles modulaciones del ciclo anual.\nLa frecuencia 0.080717 ciclos/mes, también cercana al año, aparece en otras estaciones como una alternativa dominante secundaria.\n\n\n\nConclusión\nLa cuarta frecuencia dominante revela patrones más variables y localizados, pero sigue mostrando coherencia con escalas temporales anuales y semestrales. El ciclo semestral comienza a emerger con más claridad en algunas estaciones, lo que podría ser relevante para estudios de productividad primaria, surgencias, o influencia de vientos estacionales en el Golfo de California.\n\n\n\n\n\n\n\n\nestacion\n\n\nfreq_tsm\n\n\n\n\n\n\n4\n\n\nest_1\n\n\n0.087444\n\n\n\n\n9\n\n\nest_2\n\n\n0.165919\n\n\n\n\n14\n\n\nest_3\n\n\n0.087444\n\n\n\n\n19\n\n\nest_4\n\n\n0.080717\n\n\n\n\n24\n\n\nest_5\n\n\n0.087444\n\n\n\n\n29\n\n\nest_6\n\n\n0.089686\n\n\n\n\n34\n\n\nest_7\n\n\n0.087444\n\n\n\n\n39\n\n\nest_8\n\n\n0.078475\n\n\n\n\n44\n\n\nest_9\n\n\n0.165919\n\n\n\n\n49\n\n\nest_10\n\n\n0.165919\n\n\n\n\n54\n\n\nest_11\n\n\n0.165919\n\n\n\n\n59\n\n\nest_12\n\n\n0.165919\n\n\n\n\n64\n\n\nest_13\n\n\n0.029148\n\n\n\n\n69\n\n\nest_14\n\n\n0.087444\n\n\n\n\n74\n\n\nest_15\n\n\n0.165919\n\n\n\n\n79\n\n\nest_16\n\n\n0.078475\n\n\n\n\n84\n\n\nest_17\n\n\n0.165919"
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#quinta-frecuencia-dominante-en-tsm-estaciones-1-a-17",
+    "href": "03_frecuencia_chuy.html#quinta-frecuencia-dominante-en-tsm-estaciones-1-a-17",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "Quinta Frecuencia Dominante en TSM — Estaciones 1 a 17",
+    "text": "Quinta Frecuencia Dominante en TSM — Estaciones 1 a 17\nEn el análisis de la quinta frecuencia más significativa de la Temperatura Superficial del Mar (TSM), observamos una mayor dispersión en los valores de frecuencia. Sin embargo, algunas frecuencias se repiten en varias estaciones, manteniéndose patrones semestrales y anuales relevantes.\n\nDistribución de la quinta frecuencia\n\n\n\n\n\n\n\n\nFrecuencia (ciclos/mes)\nEstaciones donde aparece\nPeríodo aproximado\n\n\n\n\n0.087444\nest_1, est_3, est_5, est_7, est_14\n≈ 11.44 meses\n\n\n0.165919\nest_2, est_9, est_10, est_11, est_12, est_15, est_17\n≈ 6.03 meses\n\n\n0.080717\nest_4\n≈ 12.39 meses\n\n\n0.089686\nest_6\n≈ 11.15 meses\n\n\n0.078475\nest_8, est_16\n≈ 12.75 meses\n\n\n0.029148\nest_13\n≈ 34.29 meses (~2.9 años)\n\n\n\n\n\nInterpretación\n\nLa frecuencia 0.165919 ciclos/mes (semestre) es nuevamente la más común, lo que refuerza su importancia como componente cíclico secundario en muchas estaciones.\nLa frecuencia 0.087444 ciclos/mes, que ya había aparecido antes, vuelve a manifestarse como armónico cercano al ciclo anual, presente en 5 estaciones.\nAparecen nuevas frecuencias como 0.029148 ciclos/mes (≈2.9 años) en la estación 13, lo que puede indicar la presencia de ciclos multianuales poco frecuentes pero potencialmente significativos, posiblemente ligados a fenómenos como ENSO.\nLa diversidad creciente de frecuencias sugiere que las señales menos potentes (rango bajo del periodograma) pueden capturar patrones más complejos o ruido local.\n\n\n\nConclusión\nEl análisis de la quinta frecuencia dominante evidencia un balance entre ciclos estacionales persistentes (anuales y semestrales) y la aparición de ciclos específicos por estación, algunos de ellos de mayor escala temporal. Esto refuerza la necesidad de enfoques localizados o multiescalares en la modelación de la TSM en el Golfo de California."
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#periodograma-por-estación-clorofila-a-chla",
+    "href": "03_frecuencia_chuy.html#periodograma-por-estación-clorofila-a-chla",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "Periodograma por Estación: Clorofila a (Chla)",
+    "text": "Periodograma por Estación: Clorofila a (Chla)\nAhora iniciamos el análisis espectral individual por estación para la variable Clorofila a (Chla).\n\nObjetivo\nIdentificar las frecuencias dominantes en cada estación de forma separada, con el fin de:\n\nDetectar diferencias locales en los ciclos de variación de la productividad oceánica.\nComparar el comportamiento espectral entre estaciones y con el análisis global.\nEvaluar la posible existencia de patrones únicos en ciertas zonas de la región costera occidental del Golfo de California.\n\nEste análisis complementa el enfoque regional y sienta las bases para una futura agrupación o regionalización en función de las dinámicas espectrales observadas.\n\n\n\n\n\n\n\n\nestacion\n\n\nfreq_chla\n\n\n\n\n\n\n0\n\n\nest_1\n\n\n0.082677\n\n\n\n\n5\n\n\nest_2\n\n\n0.082677\n\n\n\n\n10\n\n\nest_3\n\n\n0.082677\n\n\n\n\n15\n\n\nest_4\n\n\n0.082677\n\n\n\n\n20\n\n\nest_5\n\n\n0.082677\n\n\n\n\n25\n\n\nest_6\n\n\n0.082677\n\n\n\n\n30\n\n\nest_7\n\n\n0.082677\n\n\n\n\n35\n\n\nest_8\n\n\n0.082677\n\n\n\n\n40\n\n\nest_9\n\n\n0.082677\n\n\n\n\n45\n\n\nest_10\n\n\n0.082677\n\n\n\n\n50\n\n\nest_11\n\n\n0.165354\n\n\n\n\n55\n\n\nest_12\n\n\n0.165354\n\n\n\n\n60\n\n\nest_13\n\n\n0.165354\n\n\n\n\n65\n\n\nest_14\n\n\n0.165354\n\n\n\n\n70\n\n\nest_15\n\n\n0.082677\n\n\n\n\n75\n\n\nest_16\n\n\n0.082677\n\n\n\n\n80\n\n\nest_17\n\n\n0.082677"
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#frecuencia-dominante-en-clorofila-estaciones-1-a-17",
+    "href": "03_frecuencia_chuy.html#frecuencia-dominante-en-clorofila-estaciones-1-a-17",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "Frecuencia Dominante en Clorofila — Estaciones 1 a 17",
+    "text": "Frecuencia Dominante en Clorofila — Estaciones 1 a 17\nEl análisis espectral mediante periodograma para la serie de Clorofila a revela dos frecuencias dominantes distintas entre las estaciones, lo que indica la presencia de dos patrones cíclicos predominantes según la ubicación geográfica.\n\nDistribución de la frecuencia dominante (rank 1)\n\n\n\n\n\n\n\n\nFrecuencia (ciclos/mes)\nEstaciones donde aparece\nPeríodo aproximado\n\n\n\n\n0.082677\nest_1, est_2, est_3, est_4, est_5, est_6, est_7, est_8, est_9, est_10, est_15, est_16, est_17\n≈ 12.09 meses\n\n\n0.165354\nest_11, est_12, est_13, est_14\n≈ 6.05 meses\n\n\n\n\n\nInterpretación\n\nLa frecuencia 0.082677 ciclos/mes es la dominante en 13 de las 17 estaciones, indicando un ciclo de aproximadamente 12 meses, característico de una estacionalidad anual fuerte.\nLa frecuencia 0.165354 ciclos/mes, dominante en 4 estaciones, corresponde a un ciclo de 6 meses, lo cual sugiere un patrón semestral en esas regiones específicas.\nEsta división sugiere que, a diferencia de la TSM (donde todas las estaciones compartían un ciclo anual dominante), la clorofila presenta una mayor variabilidad espacial en su comportamiento periódico.\n\n\n\nConclusión\nEl ciclo anual sigue siendo el más común en la dinámica de la clorofila en el Golfo de California, pero la presencia de estaciones donde domina un ciclo semestral indica posibles diferencias en dinámica biológica o en la disponibilidad de nutrientes. Esto podría deberse a condiciones locales como surgencias, mezclas verticales o influencias de vientos estacionales en ciertas zonas del golfo.\n\n\n\n\n\n\n\n\nestacion\n\n\nfreq_chla\n\n\n\n\n\n\n1\n\n\nest_1\n\n\n0.165354\n\n\n\n\n6\n\n\nest_2\n\n\n0.086614\n\n\n\n\n11\n\n\nest_3\n\n\n0.165354\n\n\n\n\n16\n\n\nest_4\n\n\n0.165354\n\n\n\n\n21\n\n\nest_5\n\n\n0.086614\n\n\n\n\n26\n\n\nest_6\n\n\n0.086614\n\n\n\n\n31\n\n\nest_7\n\n\n0.086614\n\n\n\n\n36\n\n\nest_8\n\n\n0.086614\n\n\n\n\n41\n\n\nest_9\n\n\n0.086614\n\n\n\n\n46\n\n\nest_10\n\n\n0.165354\n\n\n\n\n51\n\n\nest_11\n\n\n0.082677\n\n\n\n\n56\n\n\nest_12\n\n\n0.169291\n\n\n\n\n61\n\n\nest_13\n\n\n0.082677\n\n\n\n\n66\n\n\nest_14\n\n\n0.082677\n\n\n\n\n71\n\n\nest_15\n\n\n0.165354\n\n\n\n\n76\n\n\nest_16\n\n\n0.086614\n\n\n\n\n81\n\n\nest_17\n\n\n0.165354"
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#segunda-frecuencia-dominante-en-clorofila-estaciones-1-a-17",
+    "href": "03_frecuencia_chuy.html#segunda-frecuencia-dominante-en-clorofila-estaciones-1-a-17",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "Segunda Frecuencia Dominante en Clorofila — Estaciones 1 a 17",
+    "text": "Segunda Frecuencia Dominante en Clorofila — Estaciones 1 a 17\nLa segunda frecuencia más importante del espectro de Clorofila a muestra un mayor grado de variabilidad entre estaciones respecto a la frecuencia dominante, aunque ciertos valores se repiten en múltiples ubicaciones.\n\nDistribución de la segunda frecuencia (rank 2)\n\n\n\n\n\n\n\n\nFrecuencia (ciclos/mes)\nEstaciones donde aparece\nPeríodo aproximado\n\n\n\n\n0.165354\nest_1, est_3, est_4, est_10, est_15, est_17\n≈ 6.05 meses\n\n\n0.086614\nest_2, est_5, est_6, est_7, est_8, est_9, est_16\n≈ 11.55 meses\n\n\n0.082677\nest_11, est_13, est_14\n≈ 12.09 meses\n\n\n0.169291\nest_12\n≈ 5.91 meses\n\n\n\n\n\nInterpretación\n\nLa frecuencia 0.165354 ciclos/mes (≈ 6 meses) continúa siendo relevante en varias estaciones, mostrando persistencia de un patrón semestral.\nLas frecuencias 0.086614 y 0.082677 son cercanas al ciclo anual, lo que indica una modulación secundaria del ciclo estacional.\nLa aparición de 0.169291 en est_12 podría deberse a una variante local del patrón semestral o una mezcla de señales.\n\n\n\nConclusión\nMientras que la frecuencia dominante en Clorofila se agrupaba principalmente en dos valores (anual o semestral), la segunda frecuencia muestra un conjunto más rico de variaciones, lo cual sugiere que: - Las estaciones pueden estar influenciadas por múltiples procesos periódicos superpuestos, - y que existe heterogeneidad espacial en la forma en que la estacionalidad impacta la biomasa fitoplanctónica.\nEste tipo de análisis es útil para detectar diferencias entre regiones del golfo y puede orientar investigaciones sobre procesos ecológicos específicos que afectan la productividad primaria.\n\n\n\n\n\n\n\n\nestacion\n\n\nfreq_chla\n\n\n\n\n\n\n2\n\n\nest_1\n\n\n0.086614\n\n\n\n\n7\n\n\nest_2\n\n\n0.165354\n\n\n\n\n12\n\n\nest_3\n\n\n0.086614\n\n\n\n\n17\n\n\nest_4\n\n\n0.086614\n\n\n\n\n22\n\n\nest_5\n\n\n0.165354\n\n\n\n\n27\n\n\nest_6\n\n\n0.070866\n\n\n\n\n32\n\n\nest_7\n\n\n0.251969\n\n\n\n\n37\n\n\nest_8\n\n\n0.003937\n\n\n\n\n42\n\n\nest_9\n\n\n0.003937\n\n\n\n\n47\n\n\nest_10\n\n\n0.086614\n\n\n\n\n52\n\n\nest_11\n\n\n0.169291\n\n\n\n\n57\n\n\nest_12\n\n\n0.082677\n\n\n\n\n62\n\n\nest_13\n\n\n0.169291\n\n\n\n\n67\n\n\nest_14\n\n\n0.169291\n\n\n\n\n72\n\n\nest_15\n\n\n0.086614\n\n\n\n\n77\n\n\nest_16\n\n\n0.003937\n\n\n\n\n82\n\n\nest_17\n\n\n0.086614"
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#tercera-frecuencia-dominante-en-clorofila-estaciones-1-a-17",
+    "href": "03_frecuencia_chuy.html#tercera-frecuencia-dominante-en-clorofila-estaciones-1-a-17",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "Tercera Frecuencia Dominante en Clorofila — Estaciones 1 a 17",
+    "text": "Tercera Frecuencia Dominante en Clorofila — Estaciones 1 a 17\nLa tercera frecuencia más relevante en el espectro de Clorofila muestra una amplia diversidad entre estaciones, incluyendo tanto componentes estacionales como señales de muy baja frecuencia.\n\nDistribución de la tercera frecuencia (rank 3)\n\n\n\n\n\n\n\n\nFrecuencia (ciclos/mes)\nEstaciones donde aparece\nPeríodo aproximado\n\n\n\n\n0.086614\nest_1, est_3, est_4, est_10, est_15, est_17\n≈ 11.55 meses\n\n\n0.165354\nest_2, est_5\n≈ 6.05 meses\n\n\n0.070866\nest_6\n≈ 14.11 meses\n\n\n0.251969\nest_7\n≈ 3.97 meses\n\n\n0.003937\nest_8, est_9, est_16\n≈ 254 meses (~21 años)\n\n\n0.169291\nest_11, est_13, est_14\n≈ 5.91 meses\n\n\n0.082677\nest_12\n≈ 12.09 meses\n\n\n\n\n\nInterpretación\n\nLas frecuencias 0.086614 y 0.082677 cercanas al ciclo anual siguen presentes en múltiples estaciones, manteniendo la influencia de la estacionalidad.\nLa frecuencia 0.165354 (≈6 meses) también persiste como componente cíclico clave.\nLa aparición de frecuencias muy bajas como 0.003937 ciclos/mes (~21 años de periodo) sugiere la presencia de tendencias de largo plazo o componentes ruidosos mal diferenciados, que podrían corresponder a efectos de aliasing o cambios de régimen.\nLa frecuencia 0.251969 (≈4 meses) en est_7 podría reflejar fenómenos cíclicos intraestacionales, como eventos recurrentes de productividad o perturbaciones locales.\n\n\n\nConclusión\nEl análisis de la tercera frecuencia dominante en Clorofila evidencia una señal más compleja y heterogénea en comparación con TSM: - Aunque las señales anuales y semestrales se mantienen, aparecen componentes de frecuencia baja y alta que sugieren fenómenos más transitorios o de más largo plazo. - Esto resalta la mayor variabilidad en los procesos biológicos que regulan la clorofila, en contraste con los más estables procesos físicos que dominan la temperatura del mar.\nEste nivel de análisis es crucial para comprender la diversidad de factores que afectan la dinámica del fitoplancton en distintas zonas del Golfo de California.\n\n\n\n\n\n\n\n\nestacion\n\n\nfreq_chla\n\n\n\n\n\n\n3\n\n\nest_1\n\n\n0.015748\n\n\n\n\n8\n\n\nest_2\n\n\n0.169291\n\n\n\n\n13\n\n\nest_3\n\n\n0.015748\n\n\n\n\n18\n\n\nest_4\n\n\n0.074803\n\n\n\n\n23\n\n\nest_5\n\n\n0.019685\n\n\n\n\n28\n\n\nest_6\n\n\n0.173228\n\n\n\n\n33\n\n\nest_7\n\n\n0.003937\n\n\n\n\n38\n\n\nest_8\n\n\n0.251969\n\n\n\n\n43\n\n\nest_9\n\n\n0.070866\n\n\n\n\n48\n\n\nest_10\n\n\n0.027559\n\n\n\n\n53\n\n\nest_11\n\n\n0.019685\n\n\n\n\n58\n\n\nest_12\n\n\n0.019685\n\n\n\n\n63\n\n\nest_13\n\n\n0.086614\n\n\n\n\n68\n\n\nest_14\n\n\n0.161417\n\n\n\n\n73\n\n\nest_15\n\n\n0.169291\n\n\n\n\n78\n\n\nest_16\n\n\n0.169291\n\n\n\n\n83\n\n\nest_17\n\n\n0.169291"
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#cuarta-frecuencia-dominante-en-clorofila-estaciones-1-a-17",
+    "href": "03_frecuencia_chuy.html#cuarta-frecuencia-dominante-en-clorofila-estaciones-1-a-17",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "Cuarta Frecuencia Dominante en Clorofila — Estaciones 1 a 17",
+    "text": "Cuarta Frecuencia Dominante en Clorofila — Estaciones 1 a 17\nLa cuarta frecuencia más significativa en la serie temporal de Clorofila a muestra una dispersión considerable entre estaciones. Esta variabilidad refleja la influencia de múltiples escalas temporales en la dinámica del fitoplancton.\n\nDistribución de la cuarta frecuencia (rank 4)\n\n\n\n\n\n\n\n\nFrecuencia (ciclos/mes)\nEstaciones donde aparece\nPeríodo aproximado\n\n\n\n\n0.169291\nest_2, est_15, est_16, est_17\n≈ 5.91 meses\n\n\n0.015748\nest_1, est_3\n≈ 63.5 meses (~5.3 años)\n\n\n0.019685\nest_5, est_11, est_12\n≈ 50.8 meses (~4.2 años)\n\n\n0.074803\nest_4\n≈ 13.4 meses\n\n\n0.173228\nest_6\n≈ 5.77 meses\n\n\n0.003937\nest_7\n≈ 254 meses (~21 años)\n\n\n0.251969\nest_8\n≈ 3.97 meses\n\n\n0.070866\nest_9\n≈ 14.1 meses\n\n\n0.027559\nest_10\n≈ 36.3 meses (~3 años)\n\n\n0.086614\nest_13\n≈ 11.55 meses\n\n\n0.161417\nest_14\n≈ 6.2 meses\n\n\n\n\n\nInterpretación\n\nLas frecuencias 0.169291 y 0.173228 (≈6 meses) siguen destacando como un patrón recurrente en varias estaciones, apuntando a un ciclo semestral persistente.\nAparecen varias frecuencias de muy baja magnitud como 0.015748, 0.019685, 0.003937, y 0.027559, las cuales representan ciclos multianuales:\n\nEstas pueden estar relacionadas con tendencias a largo plazo, cambios de régimen climático, o incluso ruido estructural.\n\nPor otro lado, algunas estaciones presentan ciclos cortos como 0.251969 (≈4 meses), indicando posibles fluctuaciones rápidas en la concentración de clorofila.\n\n\n\nConclusión\nEl rango de frecuencias observado en la cuarta posición evidencia que la variabilidad de la clorofila es influenciada por procesos de corto, mediano y largo plazo. A diferencia de la TSM, donde los patrones eran altamente consistentes entre estaciones, la clorofila presenta una señal más fragmentada y diversa. Esto refuerza la naturaleza más dinámica y localmente modulada de los procesos biológicos frente a los procesos físicos.\nEste nivel de detalle es útil para estudios que buscan identificar drivers locales de productividad biológica en el Golfo de California.\n\n\n\n\n\n\n\n\nestacion\n\n\nfreq_chla\n\n\n\n\n\n\n4\n\n\nest_1\n\n\n0.169291\n\n\n\n\n9\n\n\nest_2\n\n\n0.015748\n\n\n\n\n14\n\n\nest_3\n\n\n0.074803\n\n\n\n\n19\n\n\nest_4\n\n\n0.003937\n\n\n\n\n24\n\n\nest_5\n\n\n0.090551\n\n\n\n\n29\n\n\nest_6\n\n\n0.090551\n\n\n\n\n34\n\n\nest_7\n\n\n0.090551\n\n\n\n\n39\n\n\nest_8\n\n\n0.303150\n\n\n\n\n44\n\n\nest_9\n\n\n0.251969\n\n\n\n\n49\n\n\nest_10\n\n\n0.019685\n\n\n\n\n54\n\n\nest_11\n\n\n0.161417\n\n\n\n\n59\n\n\nest_12\n\n\n0.157480\n\n\n\n\n64\n\n\nest_13\n\n\n0.157480\n\n\n\n\n69\n\n\nest_14\n\n\n0.070866\n\n\n\n\n74\n\n\nest_15\n\n\n0.059055\n\n\n\n\n79\n\n\nest_16\n\n\n0.165354\n\n\n\n\n84\n\n\nest_17\n\n\n0.003937"
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#quinta-frecuencia-dominante-en-clorofila-estaciones-1-a-17",
+    "href": "03_frecuencia_chuy.html#quinta-frecuencia-dominante-en-clorofila-estaciones-1-a-17",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "Quinta Frecuencia Dominante en Clorofila — Estaciones 1 a 17",
+    "text": "Quinta Frecuencia Dominante en Clorofila — Estaciones 1 a 17\nLa quinta frecuencia dominante en las series temporales de Clorofila a revela la mayor dispersión de valores, lo cual sugiere que, más allá de los patrones estacionales, existen múltiples escalas temporales activas, muchas de ellas específicas por estación.\n\nDistribución de la quinta frecuencia (rank 5)\n\n\n\n\n\n\n\n\nFrecuencia (ciclos/mes)\nEstaciones donde aparece\nPeríodo aproximado\n\n\n\n\n0.169291\nest_1\n≈ 5.91 meses\n\n\n0.015748\nest_2\n≈ 63.5 meses (~5.3 años)\n\n\n0.074803\nest_3\n≈ 13.4 meses\n\n\n0.003937\nest_4, est_17\n≈ 254 meses (~21 años)\n\n\n0.090551\nest_5, est_6, est_7\n≈ 11.05 meses\n\n\n0.303150\nest_8\n≈ 3.3 meses\n\n\n0.251969\nest_9\n≈ 4.0 meses\n\n\n0.019685\nest_10\n≈ 50.8 meses (~4.2 años)\n\n\n0.161417\nest_11\n≈ 6.2 meses\n\n\n0.157480\nest_12, est_13\n≈ 6.35 meses\n\n\n0.070866\nest_14\n≈ 14.1 meses\n\n\n0.059055\nest_15\n≈ 16.9 meses\n\n\n0.165354\nest_16\n≈ 6.05 meses\n\n\n\n\n\nInterpretación\n\nLas frecuencias 0.157–0.169 ciclos/mes (≈6 meses) siguen presentes como un patrón intermedio común, incluso en el rango de menor potencia relativa.\nSe detectan frecuencias de muy baja magnitud (0.003937, 0.015748, 0.019685), que pueden indicar:\n\nTendencias de largo plazo,\nRuido estructurado,\nO bien fenómenos multianuales como El Niño–La Niña (ENSO).\n\nLas frecuencias 0.251969 y 0.303150 sugieren la existencia de variabilidad intraestacional en ciertas estaciones (≈3–4 meses), tal vez relacionada con eventos de surgencia o pulsos productivos breves.\nAlgunas frecuencias como 0.090551 (~11 meses) y 0.074803 (~13.4 meses) se acercan al ciclo anual, pero ligeramente desplazadas, indicando posible modulación o asincronía respecto a la estacionalidad estricta.\n\n\n\nConclusión\nEsta última capa del análisis espectral muestra una señal sumamente rica y compleja en la serie de Clorofila a. A diferencia de la TSM, donde las cinco principales frecuencias fueron altamente consistentes y estacionales, en la clorofila encontramos un mosaico de patrones que van desde lo subestacional hasta lo multianual, reforzando su sensibilidad a procesos locales, climáticos y biogeoquímicos.\nEstos resultados resaltan la necesidad de un enfoque multiescalar y espacialmente explícito para modelar la productividad biológica en el Golfo de California."
+  },
+  {
+    "objectID": "03_frecuencia_chuy.html#conclusiones-del-análisis-de-frecuencias-dominantes",
+    "href": "03_frecuencia_chuy.html#conclusiones-del-análisis-de-frecuencias-dominantes",
+    "title": "Análisis de Frecuencias Dominantes y Análisis Espectral por Estación",
+    "section": "Conclusiones del Análisis de Frecuencias Dominantes",
+    "text": "Conclusiones del Análisis de Frecuencias Dominantes\n\n1. Patrones regionales consistentes\nA nivel global (todas las estaciones combinadas), tanto TSM como Chla presentan frecuencias dominantes bien definidas:\n\nEn TSM, se destacan frecuencias cercanas a 0.005 ciclos/mes (~200 meses) y 0.0588 ciclos/mes (~17 meses), lo que indica la presencia de ciclos interanuales como los asociados al ENSO, además de componentes anuales o semestrales.\nEn Chla, la frecuencia más fuerte también es 0.0588 ciclos/mes, que corresponde a un ciclo anual, seguida de frecuencias más bajas (~0.0048), que reflejan variabilidad de largo plazo o efectos interanuales.\n\n\n\n2. Ciclos anuales dominantes en la mayoría de estaciones\nEn el análisis por estación, la mayoría comparten una frecuencia dominante cercana a 0.08296–0.0852 ciclos/mes, tanto en TSM como en Chla.\n\nEstas frecuencias equivalen a un ciclo de 12 meses, lo que confirma una estacionalidad anual marcada en toda la región de estudio.\n\n\n\n3. Variabilidad localizada y presencia de ciclos secundarios\nAunque el ciclo anual es predominante, algunas estaciones muestran frecuencias adicionales:\n\nEn TSM, aparecen frecuencias como 0.1659, asociadas a ciclos semestrales o armónicos superiores.\nEn Chla, se observa mayor diversidad espectral, con frecuencias como 0.2519, 0.3031, y algunas muy bajas (0.0039), que pueden reflejar dinámicas locales más complejas, como afloramientos o eventos de corta duración.\n\n\n\n4. Mayor diversidad espectral en Chl a\nLa Chla presenta mayor variabilidad entre estaciones respecto a TSM. Esto es esperable, ya que la productividad biológica está más influenciada por factores locales como disponibilidad de nutrientes, luz, y circulación superficial.\n\n\n5. Fundamento para la regionalización\nLas diferencias espectrales encontradas entre estaciones constituyen una base sólida para aplicar técnicas de agrupamiento regional (PCA + clustering). Esto permitirá identificar zonas con comportamiento oceanográfico similar y avanzar en una regionalización climática del noroeste de México."
   },
   {
     "objectID": "05_prophet_manuel.html",

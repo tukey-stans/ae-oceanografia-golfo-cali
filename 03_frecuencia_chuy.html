@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Metodología – Analisis Estadistico de Oceanografia del Golfo de California</title>
+<title>frecuencia_chuy – Analisis Estadistico de Oceanografia del Golfo de California</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -136,36 +165,3101 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#metodología-de-la-consultoría" id="toc-metodología-de-la-consultoría" class="nav-link active" data-scroll-target="#metodología-de-la-consultoría">Metodología de la Consultoría</a></li>
+  <li><a href="#análisis-de-frecuencias-dominantes-y-análisis-espectral-por-estación" id="toc-análisis-de-frecuencias-dominantes-y-análisis-espectral-por-estación" class="nav-link active" data-scroll-target="#análisis-de-frecuencias-dominantes-y-análisis-espectral-por-estación">Análisis de Frecuencias Dominantes y Análisis Espectral por Estación</a>
+  <ul class="collapse">
+  <li><a href="#análisis-de-frecuencias-dominantes-mediante-periodograma" id="toc-análisis-de-frecuencias-dominantes-mediante-periodograma" class="nav-link" data-scroll-target="#análisis-de-frecuencias-dominantes-mediante-periodograma">Análisis de Frecuencias Dominantes mediante Periodograma</a>
+  <ul class="collapse">
+  <li><a href="#etapas-del-análisis" id="toc-etapas-del-análisis" class="nav-link" data-scroll-target="#etapas-del-análisis">Etapas del análisis</a></li>
+  <li><a href="#objetivo-final" id="toc-objetivo-final" class="nav-link" data-scroll-target="#objetivo-final">Objetivo final</a></li>
+  </ul></li>
+  <li><a href="#exploración-temporal-de-tsm-y-chl-a" id="toc-exploración-temporal-de-tsm-y-chl-a" class="nav-link" data-scroll-target="#exploración-temporal-de-tsm-y-chl-a">Exploración Temporal de TSM y Chl a</a>
+  <ul class="collapse">
+  <li><a href="#qué-hacemos" id="toc-qué-hacemos" class="nav-link" data-scroll-target="#qué-hacemos">Qué hacemos</a></li>
+  <li><a href="#cómo-lo-hacemos" id="toc-cómo-lo-hacemos" class="nav-link" data-scroll-target="#cómo-lo-hacemos">Cómo lo hacemos</a></li>
+  </ul></li>
+  <li><a href="#cálculo-del-periodograma-para-todas-las-estaciones" id="toc-cálculo-del-periodograma-para-todas-las-estaciones" class="nav-link" data-scroll-target="#cálculo-del-periodograma-para-todas-las-estaciones">Cálculo del Periodograma para Todas las Estaciones</a>
+  <ul class="collapse">
+  <li><a href="#qué-buscamos" id="toc-qué-buscamos" class="nav-link" data-scroll-target="#qué-buscamos">Qué buscamos</a></li>
+  <li><a href="#cómo-lo-hacemos-1" id="toc-cómo-lo-hacemos-1" class="nav-link" data-scroll-target="#cómo-lo-hacemos-1">Cómo lo hacemos</a></li>
+  </ul></li>
+  <li><a href="#frecuencias-dominantes-identificadas" id="toc-frecuencias-dominantes-identificadas" class="nav-link" data-scroll-target="#frecuencias-dominantes-identificadas">Frecuencias Dominantes Identificadas</a></li>
+  </ul></li>
+  <li><a href="#interpretación-de-las-frecuencias-dominantes" id="toc-interpretación-de-las-frecuencias-dominantes" class="nav-link" data-scroll-target="#interpretación-de-las-frecuencias-dominantes">Interpretación de las Frecuencias Dominantes</a>
+  <ul class="collapse">
+  <li><a href="#detalle-de-los-términos" id="toc-detalle-de-los-términos" class="nav-link" data-scroll-target="#detalle-de-los-términos">Detalle de los términos</a></li>
+  <li><a href="#conclusiones-clave" id="toc-conclusiones-clave" class="nav-link" data-scroll-target="#conclusiones-clave">Conclusiones clave</a></li>
+  <li><a href="#análisis-espectral-por-estación" id="toc-análisis-espectral-por-estación" class="nav-link" data-scroll-target="#análisis-espectral-por-estación">Análisis Espectral por Estación</a>
+  <ul class="collapse">
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo">Objetivo</a></li>
+  <li><a href="#qué-hacemos-1" id="toc-qué-hacemos-1" class="nav-link" data-scroll-target="#qué-hacemos-1">Qué hacemos</a></li>
+  </ul></li>
+  <li><a href="#frecuencia-dominante-en-tsm-estaciones-1-a-17" id="toc-frecuencia-dominante-en-tsm-estaciones-1-a-17" class="nav-link" data-scroll-target="#frecuencia-dominante-en-tsm-estaciones-1-a-17">Frecuencia Dominante en TSM — Estaciones 1 a 17</a>
+  <ul class="collapse">
+  <li><a href="#frecuencia-dominante-común" id="toc-frecuencia-dominante-común" class="nav-link" data-scroll-target="#frecuencia-dominante-común">Frecuencia dominante común</a></li>
+  <li><a href="#interpretación" id="toc-interpretación" class="nav-link" data-scroll-target="#interpretación">Interpretación</a></li>
+  <li><a href="#conclusión" id="toc-conclusión" class="nav-link" data-scroll-target="#conclusión">Conclusión</a></li>
+  </ul></li>
+  <li><a href="#segunda-frecuencia-dominante-en-tsm-estaciones-1-a-17" id="toc-segunda-frecuencia-dominante-en-tsm-estaciones-1-a-17" class="nav-link" data-scroll-target="#segunda-frecuencia-dominante-en-tsm-estaciones-1-a-17">Segunda Frecuencia Dominante en TSM — Estaciones 1 a 17</a>
+  <ul class="collapse">
+  <li><a href="#frecuencia-secundaria-común" id="toc-frecuencia-secundaria-común" class="nav-link" data-scroll-target="#frecuencia-secundaria-común">Frecuencia secundaria común</a></li>
+  <li><a href="#interpretación-1" id="toc-interpretación-1" class="nav-link" data-scroll-target="#interpretación-1">Interpretación</a></li>
+  <li><a href="#conclusión-1" id="toc-conclusión-1" class="nav-link" data-scroll-target="#conclusión-1">Conclusión</a></li>
+  </ul></li>
+  <li><a href="#tercera-frecuencia-dominante-en-tsm-estaciones-1-a-17" id="toc-tercera-frecuencia-dominante-en-tsm-estaciones-1-a-17" class="nav-link" data-scroll-target="#tercera-frecuencia-dominante-en-tsm-estaciones-1-a-17">Tercera Frecuencia Dominante en TSM — Estaciones 1 a 17</a>
+  <ul class="collapse">
+  <li><a href="#distribución-de-la-tercera-frecuencia" id="toc-distribución-de-la-tercera-frecuencia" class="nav-link" data-scroll-target="#distribución-de-la-tercera-frecuencia">Distribución de la tercera frecuencia</a></li>
+  <li><a href="#interpretación-2" id="toc-interpretación-2" class="nav-link" data-scroll-target="#interpretación-2">Interpretación</a></li>
+  <li><a href="#conclusión-2" id="toc-conclusión-2" class="nav-link" data-scroll-target="#conclusión-2">Conclusión</a></li>
+  </ul></li>
+  <li><a href="#cuarta-frecuencia-dominante-en-tsm-estaciones-1-a-17" id="toc-cuarta-frecuencia-dominante-en-tsm-estaciones-1-a-17" class="nav-link" data-scroll-target="#cuarta-frecuencia-dominante-en-tsm-estaciones-1-a-17">Cuarta Frecuencia Dominante en TSM — Estaciones 1 a 17</a>
+  <ul class="collapse">
+  <li><a href="#distribución-de-la-cuarta-frecuencia" id="toc-distribución-de-la-cuarta-frecuencia" class="nav-link" data-scroll-target="#distribución-de-la-cuarta-frecuencia">Distribución de la cuarta frecuencia</a></li>
+  <li><a href="#interpretación-3" id="toc-interpretación-3" class="nav-link" data-scroll-target="#interpretación-3">Interpretación</a></li>
+  <li><a href="#conclusión-3" id="toc-conclusión-3" class="nav-link" data-scroll-target="#conclusión-3">Conclusión</a></li>
+  </ul></li>
+  <li><a href="#quinta-frecuencia-dominante-en-tsm-estaciones-1-a-17" id="toc-quinta-frecuencia-dominante-en-tsm-estaciones-1-a-17" class="nav-link" data-scroll-target="#quinta-frecuencia-dominante-en-tsm-estaciones-1-a-17">Quinta Frecuencia Dominante en TSM — Estaciones 1 a 17</a>
+  <ul class="collapse">
+  <li><a href="#distribución-de-la-quinta-frecuencia" id="toc-distribución-de-la-quinta-frecuencia" class="nav-link" data-scroll-target="#distribución-de-la-quinta-frecuencia">Distribución de la quinta frecuencia</a></li>
+  <li><a href="#interpretación-4" id="toc-interpretación-4" class="nav-link" data-scroll-target="#interpretación-4">Interpretación</a></li>
+  <li><a href="#conclusión-4" id="toc-conclusión-4" class="nav-link" data-scroll-target="#conclusión-4">Conclusión</a></li>
+  </ul></li>
+  <li><a href="#periodograma-por-estación-clorofila-a-chla" id="toc-periodograma-por-estación-clorofila-a-chla" class="nav-link" data-scroll-target="#periodograma-por-estación-clorofila-a-chla">Periodograma por Estación: Clorofila a (Chla)</a>
+  <ul class="collapse">
+  <li><a href="#objetivo-1" id="toc-objetivo-1" class="nav-link" data-scroll-target="#objetivo-1">Objetivo</a></li>
+  </ul></li>
+  <li><a href="#frecuencia-dominante-en-clorofila-estaciones-1-a-17" id="toc-frecuencia-dominante-en-clorofila-estaciones-1-a-17" class="nav-link" data-scroll-target="#frecuencia-dominante-en-clorofila-estaciones-1-a-17">Frecuencia Dominante en Clorofila — Estaciones 1 a 17</a>
+  <ul class="collapse">
+  <li><a href="#distribución-de-la-frecuencia-dominante-rank-1" id="toc-distribución-de-la-frecuencia-dominante-rank-1" class="nav-link" data-scroll-target="#distribución-de-la-frecuencia-dominante-rank-1">Distribución de la frecuencia dominante (rank 1)</a></li>
+  <li><a href="#interpretación-5" id="toc-interpretación-5" class="nav-link" data-scroll-target="#interpretación-5">Interpretación</a></li>
+  <li><a href="#conclusión-5" id="toc-conclusión-5" class="nav-link" data-scroll-target="#conclusión-5">Conclusión</a></li>
+  </ul></li>
+  <li><a href="#segunda-frecuencia-dominante-en-clorofila-estaciones-1-a-17" id="toc-segunda-frecuencia-dominante-en-clorofila-estaciones-1-a-17" class="nav-link" data-scroll-target="#segunda-frecuencia-dominante-en-clorofila-estaciones-1-a-17">Segunda Frecuencia Dominante en Clorofila — Estaciones 1 a 17</a>
+  <ul class="collapse">
+  <li><a href="#distribución-de-la-segunda-frecuencia-rank-2" id="toc-distribución-de-la-segunda-frecuencia-rank-2" class="nav-link" data-scroll-target="#distribución-de-la-segunda-frecuencia-rank-2">Distribución de la segunda frecuencia (rank 2)</a></li>
+  <li><a href="#interpretación-6" id="toc-interpretación-6" class="nav-link" data-scroll-target="#interpretación-6">Interpretación</a></li>
+  <li><a href="#conclusión-6" id="toc-conclusión-6" class="nav-link" data-scroll-target="#conclusión-6">Conclusión</a></li>
+  </ul></li>
+  <li><a href="#tercera-frecuencia-dominante-en-clorofila-estaciones-1-a-17" id="toc-tercera-frecuencia-dominante-en-clorofila-estaciones-1-a-17" class="nav-link" data-scroll-target="#tercera-frecuencia-dominante-en-clorofila-estaciones-1-a-17">Tercera Frecuencia Dominante en Clorofila — Estaciones 1 a 17</a>
+  <ul class="collapse">
+  <li><a href="#distribución-de-la-tercera-frecuencia-rank-3" id="toc-distribución-de-la-tercera-frecuencia-rank-3" class="nav-link" data-scroll-target="#distribución-de-la-tercera-frecuencia-rank-3">Distribución de la tercera frecuencia (rank 3)</a></li>
+  <li><a href="#interpretación-7" id="toc-interpretación-7" class="nav-link" data-scroll-target="#interpretación-7">Interpretación</a></li>
+  <li><a href="#conclusión-7" id="toc-conclusión-7" class="nav-link" data-scroll-target="#conclusión-7">Conclusión</a></li>
+  </ul></li>
+  <li><a href="#cuarta-frecuencia-dominante-en-clorofila-estaciones-1-a-17" id="toc-cuarta-frecuencia-dominante-en-clorofila-estaciones-1-a-17" class="nav-link" data-scroll-target="#cuarta-frecuencia-dominante-en-clorofila-estaciones-1-a-17">Cuarta Frecuencia Dominante en Clorofila — Estaciones 1 a 17</a>
+  <ul class="collapse">
+  <li><a href="#distribución-de-la-cuarta-frecuencia-rank-4" id="toc-distribución-de-la-cuarta-frecuencia-rank-4" class="nav-link" data-scroll-target="#distribución-de-la-cuarta-frecuencia-rank-4">Distribución de la cuarta frecuencia (rank 4)</a></li>
+  <li><a href="#interpretación-8" id="toc-interpretación-8" class="nav-link" data-scroll-target="#interpretación-8">Interpretación</a></li>
+  <li><a href="#conclusión-8" id="toc-conclusión-8" class="nav-link" data-scroll-target="#conclusión-8">Conclusión</a></li>
+  </ul></li>
+  <li><a href="#quinta-frecuencia-dominante-en-clorofila-estaciones-1-a-17" id="toc-quinta-frecuencia-dominante-en-clorofila-estaciones-1-a-17" class="nav-link" data-scroll-target="#quinta-frecuencia-dominante-en-clorofila-estaciones-1-a-17">Quinta Frecuencia Dominante en Clorofila — Estaciones 1 a 17</a>
+  <ul class="collapse">
+  <li><a href="#distribución-de-la-quinta-frecuencia-rank-5" id="toc-distribución-de-la-quinta-frecuencia-rank-5" class="nav-link" data-scroll-target="#distribución-de-la-quinta-frecuencia-rank-5">Distribución de la quinta frecuencia (rank 5)</a></li>
+  <li><a href="#interpretación-9" id="toc-interpretación-9" class="nav-link" data-scroll-target="#interpretación-9">Interpretación</a></li>
+  <li><a href="#conclusión-9" id="toc-conclusión-9" class="nav-link" data-scroll-target="#conclusión-9">Conclusión</a></li>
+  </ul></li>
+  <li><a href="#conclusiones-del-análisis-de-frecuencias-dominantes" id="toc-conclusiones-del-análisis-de-frecuencias-dominantes" class="nav-link" data-scroll-target="#conclusiones-del-análisis-de-frecuencias-dominantes">Conclusiones del Análisis de Frecuencias Dominantes</a>
+  <ul class="collapse">
+  <li><a href="#patrones-regionales-consistentes" id="toc-patrones-regionales-consistentes" class="nav-link" data-scroll-target="#patrones-regionales-consistentes">1. Patrones regionales consistentes</a></li>
+  <li><a href="#ciclos-anuales-dominantes-en-la-mayoría-de-estaciones" id="toc-ciclos-anuales-dominantes-en-la-mayoría-de-estaciones" class="nav-link" data-scroll-target="#ciclos-anuales-dominantes-en-la-mayoría-de-estaciones">2. Ciclos anuales dominantes en la mayoría de estaciones</a></li>
+  <li><a href="#variabilidad-localizada-y-presencia-de-ciclos-secundarios" id="toc-variabilidad-localizada-y-presencia-de-ciclos-secundarios" class="nav-link" data-scroll-target="#variabilidad-localizada-y-presencia-de-ciclos-secundarios">3. Variabilidad localizada y presencia de ciclos secundarios</a></li>
+  <li><a href="#mayor-diversidad-espectral-en-chl-a" id="toc-mayor-diversidad-espectral-en-chl-a" class="nav-link" data-scroll-target="#mayor-diversidad-espectral-en-chl-a">4. Mayor diversidad espectral en Chl a</a></li>
+  <li><a href="#fundamento-para-la-regionalización" id="toc-fundamento-para-la-regionalización" class="nav-link" data-scroll-target="#fundamento-para-la-regionalización">5. Fundamento para la regionalización</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Metodología</h1>
+
+
+
+<section id="análisis-de-frecuencias-dominantes-y-análisis-espectral-por-estación" class="level1">
+<h1>Análisis de Frecuencias Dominantes y Análisis Espectral por Estación</h1>
+<section id="análisis-de-frecuencias-dominantes-mediante-periodograma" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-de-frecuencias-dominantes-mediante-periodograma">Análisis de Frecuencias Dominantes mediante Periodograma</h2>
+<p>Con el objetivo de identificar los ciclos que explican la mayor parte de la variabilidad en las variables TSM (Temperatura Superficial del Mar) y Chl a (Clorofila a), utilizaremos el periodograma como herramienta principal de análisis espectral.</p>
+<section id="etapas-del-análisis" class="level3">
+<h3 class="anchored" data-anchor-id="etapas-del-análisis">Etapas del análisis</h3>
+<ol type="1">
+<li><p><strong>Cálculo global de frecuencias dominantes</strong><br>
+Se aplicará el periodograma sobre las series temporales completas de TSM y Chl a, integrando los datos de todas las estaciones.<br>
+Esto nos permitirá detectar frecuencias comunes de oscilación, como ciclos anuales, semestrales u otros patrones relevantes que afectan a toda la región.</p></li>
+<li><p><strong>Análisis por estación individual</strong><br>
+Posteriormente, se realizará un análisis estación por estación, permitiendo observar si existen diferencias locales en los ciclos dominantes.<br>
+Este paso es clave para entender si ciertas regiones del Golfo de California presentan patrones únicos o asincronías respecto al comportamiento promedio.</p></li>
+</ol>
+</section>
+<section id="objetivo-final" class="level3">
+<h3 class="anchored" data-anchor-id="objetivo-final">Objetivo final</h3>
+<ul>
+<li>Detectar frecuencias dominantes (por ejemplo, 12, 6 o 3 meses) que expliquen la mayor parte de la variabilidad en las series.<br>
+</li>
+<li>Identificar diferencias entre estaciones para futuras etapas de regionalización climática.</li>
+</ul>
+</section>
+</section>
+<section id="exploración-temporal-de-tsm-y-chl-a" class="level2">
+<h2 class="anchored" data-anchor-id="exploración-temporal-de-tsm-y-chl-a">Exploración Temporal de TSM y Chl a</h2>
+<p>Comenzamos visualizando el comportamiento temporal de las variables TSM (Temperatura Superficial del Mar) y Chl a (Concentración de Clorofila a) a lo largo del periodo de estudio.</p>
+<section id="qué-hacemos" class="level3">
+<h3 class="anchored" data-anchor-id="qué-hacemos">Qué hacemos</h3>
+<p>Graficamos las series temporales de ambas variables para observar cómo evolucionan con el tiempo. Esto nos permite:</p>
+<ul>
+<li>Detectar posibles tendencias o estacionalidades.</li>
+<li>Identificar anomalías o valores extremos.</li>
+<li>Evaluar visualmente la cobertura y continuidad de los datos.</li>
+</ul>
+</section>
+<section id="cómo-lo-hacemos" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-lo-hacemos">Cómo lo hacemos</h3>
+<p>Usamos datos agregados por mes (o por año) combinando todas las estaciones, para tener una vista general del comportamiento regional. En esta etapa:</p>
+<ul>
+<li>Para <strong>TSM</strong>, consideramos el periodo de enero de 1981 a diciembre de 2018.</li>
+<li>Para <strong>Chl a</strong>, usamos datos desde enero de 1997 hasta diciembre de 2018.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="quarto-site/img/clusterso/otro_eda_files/otro_eda_12_0.png" class="img-fluid figure-img"></p>
+<figcaption>png</figcaption>
+</figure>
 </div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="quarto-site/img/clusterso/otro_eda_files/otro_eda_12_1.png" class="img-fluid figure-img"></p>
+<figcaption>png</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="cálculo-del-periodograma-para-todas-las-estaciones" class="level2">
+<h2 class="anchored" data-anchor-id="cálculo-del-periodograma-para-todas-las-estaciones">Cálculo del Periodograma para Todas las Estaciones</h2>
+<p>Ahora pasamos al análisis espectral. Lo que hacemos en esta etapa es calcular el <strong>periodograma</strong> utilizando los datos combinados de <strong>todas las estaciones</strong>.</p>
+<section id="qué-buscamos" class="level3">
+<h3 class="anchored" data-anchor-id="qué-buscamos">Qué buscamos</h3>
+<p>Queremos identificar las <strong>frecuencias dominantes</strong> en las series de TSM y Chl a, es decir, los ciclos que explican la mayor parte de su variabilidad temporal.</p>
+</section>
+<section id="cómo-lo-hacemos-1" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-lo-hacemos-1">Cómo lo hacemos</h3>
+<p>Aplicamos el periodograma sobre las series temporales agregadas de TSM y Chl a, para obtener una visión general de los ciclos presentes en toda la región de estudio. Este análisis nos permitirá detectar patrones recurrentes como:</p>
+<ul>
+<li>Ciclos <strong>anuales</strong> (12 meses)</li>
+<li>Ciclos <strong>semestrales</strong> (6 meses)</li>
+<li>Otros periodos relevantes</li>
+</ul>
+<p>Una vez identificadas las frecuencias principales a nivel regional, más adelante repetiremos este análisis <strong>por estación individual</strong> para comparar los comportamientos locales.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="quarto-site/img/clusterso/otro_eda_files/otro_eda_13_0.png" class="img-fluid figure-img"></p>
+<figcaption>png</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="frecuencias-dominantes-identificadas" class="level2">
+<h2 class="anchored" data-anchor-id="frecuencias-dominantes-identificadas">Frecuencias Dominantes Identificadas</h2>
+<p>A continuación, mostramos las <strong>frecuencias dominantes</strong> encontradas mediante el análisis espectral con periodograma para las series combinadas de todas las estaciones.</p>
+<p>Estas frecuencias representan los <strong>ciclos que explican la mayor parte de la variabilidad</strong> en las variables TSM (Temperatura Superficial del Mar) y Chla (Concentración de Clorofila).</p>
+<p>Los resultados que se presentan a continuación corresponden a las componentes más significativas de cada serie temporal, ordenadas por su potencia espectral. Esto nos permitirá enfocar el análisis posterior en los periodos más relevantes.</p>
+<pre><code>Freq = 0.0049 ciclos/mes → periodo ≃ 204.9 meses (17.1 años); potencia = 125733
+Freq = 0.0588 ciclos/mes → periodo ≃ 17.0 meses (1.4 años); potencia = 7030
+Freq = 0.0050 ciclos/mes → periodo ≃ 199.5 meses (16.6 años); potencia = 5840
+Freq = 0.0047 ciclos/mes → periodo ≃ 210.6 meses (17.6 años); potencia = 2588
+Freq = 0.0539 ciclos/mes → periodo ≃ 18.5 meses (1.5 años); potencia = 2495
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
+
+Freq = 0.0588 ciclos/mes → periodo ≃ 17.0 meses (1.4 años); potencia = 732
+Freq = 0.0049 ciclos/mes → periodo ≃ 205.6 meses (17.1 años); potencia = 499
+Freq = 0.2353 ciclos/mes → periodo ≃ 4.2 meses (0.4 años); potencia = 211
+Freq = 0.1765 ciclos/mes → periodo ≃ 5.7 meses (0.5 años); potencia = 163
+Freq = 0.0686 ciclos/mes → periodo ≃ 14.6 meses (1.2 años); potencia = 115</code></pre>
+</section>
+</section>
+<section id="interpretación-de-las-frecuencias-dominantes" class="level1">
+<h1>Interpretación de las Frecuencias Dominantes</h1>
+<p>Tras calcular el periodograma y extraer los cinco picos principales de cada serie, obtuvimos estas listas de pares <strong>(frecuencia, potencia)</strong>:</p>
+<ul>
+<li><strong>TSM (1981–2018)</strong></li>
+</ul>
+<p>[ (0.00487998, 125 733), (0.05882353, 7 029.9), (0.00501187, 5 839.9), (0.00474809, 2 588.5), (0.05394355, 2 494.5)]</p>
+<ul>
+<li><strong>Clorofila a (1997–2018)</strong></li>
+</ul>
+<p>[ (0.05882353, 732.07), (0.00486336, 498.69), (0.23529412, 211.22), (0.17647059, 162.74), (0.06855025, 114.84)]</p>
+<p>A continuación desglosamos cada componente:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 19%">
+<col style="width: 10%">
+<col style="width: 14%">
+<col style="width: 13%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Serie</th>
+<th>Frecuencia<br>(ciclos/mes)</th>
+<th>Potencia</th>
+<th>Periodo ≃<br>(meses)</th>
+<th>Periodo ≃<br>(años)</th>
+<th>Interpretación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>TSM</strong></td>
+<td>0.00488</td>
+<td>125 733</td>
+<td>1 / 0.00488 ≃ 205</td>
+<td>17.1</td>
+<td><strong>Tendencia multianual</strong> (calentamiento paulatino)</td>
+</tr>
+<tr class="even">
+<td><strong>TSM</strong></td>
+<td>0.00501</td>
+<td>5 840</td>
+<td>1 / 0.00501 ≃ 200</td>
+<td>16.7</td>
+<td>Refuerzo de la componente decadal</td>
+</tr>
+<tr class="odd">
+<td><strong>TSM</strong></td>
+<td>0.00475</td>
+<td>2 588</td>
+<td>1 / 0.00475 ≃ 211</td>
+<td>17.6</td>
+<td>Otra estimación de la oscilación de fondo (decadal)</td>
+</tr>
+<tr class="even">
+<td><strong>TSM</strong></td>
+<td>0.05882</td>
+<td>7 029.9</td>
+<td>1 / 0.05882 ≃ 17</td>
+<td>1.4</td>
+<td><strong>Ciclo ENSO / interanual</strong> (≈15–18 meses)</td>
+</tr>
+<tr class="odd">
+<td><strong>TSM</strong></td>
+<td>0.05394</td>
+<td>2 494.5</td>
+<td>1 / 0.05394 ≃ 18.5</td>
+<td>1.5</td>
+<td>Segundo pico ENSO–ligado (variación interanual)</td>
+</tr>
+<tr class="even">
+<td><strong>Chl a</strong></td>
+<td>0.05882</td>
+<td>732.07</td>
+<td>1 / 0.05882 ≃ 17</td>
+<td>1.4</td>
+<td><strong>Ciclo ENSO / interanual</strong> (≃17 meses)</td>
+</tr>
+<tr class="odd">
+<td><strong>Chl a</strong></td>
+<td>0.00486</td>
+<td>498.69</td>
+<td>1 / 0.00486 ≃ 206</td>
+<td>17.2</td>
+<td><strong>Tendencia decadal</strong> (ciclo multianual de fondo)</td>
+</tr>
+<tr class="even">
+<td><strong>Chl a</strong></td>
+<td>0.23529</td>
+<td>211.22</td>
+<td>1 / 0.23529 ≃ 4.25</td>
+<td>0.35</td>
+<td><strong>Subciclo estacional</strong> temprano (≈4 meses)</td>
+</tr>
+<tr class="odd">
+<td><strong>Chl a</strong></td>
+<td>0.17647</td>
+<td>162.74</td>
+<td>1 / 0.17647 ≃ 5.67</td>
+<td>0.47</td>
+<td><strong>Subciclo semestral</strong> (≈6 meses)</td>
+</tr>
+<tr class="even">
+<td><strong>Chl a</strong></td>
+<td>0.06855</td>
+<td>114.84</td>
+<td>1 / 0.06855 ≃ 14.6</td>
+<td>1.2</td>
+<td><strong>Ciclo anual</strong> o estacional (~12–15 meses)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<section id="detalle-de-los-términos" class="level2">
+<h2 class="anchored" data-anchor-id="detalle-de-los-términos">Detalle de los términos</h2>
+<ul>
+<li><p><strong>Frecuencia (ciclos/mes)</strong><br>
+Número de ciclos completos que ocurren en un mes. Por ejemplo, 0.0833 ciclos/mes equivale a un ciclo cada 12 meses.</p></li>
+<li><p><strong>Potencia</strong><br>
+Mide cuánta varianza de la señal está concentrada en esa frecuencia. Picos de potencia alta indican oscilaciones muy relevantes.</p></li>
+<li><p><strong>Periodo</strong><br>
+Inverso de la frecuencia:<br>
+<span class="math inline">\(\text{periodo (meses)} = \frac{1}{\text{frecuencia (ciclos/mes)}}\)</span></p></li>
+</ul>
+<p>Y en años:<br>
+<span class="math inline">\(\text{periodo (años)} = \frac{\text{periodo (meses)}}{12}.\)</span></p>
+<hr>
+</section>
+<section id="conclusiones-clave" class="level2">
+<h2 class="anchored" data-anchor-id="conclusiones-clave">Conclusiones clave</h2>
+<ol type="1">
+<li><p><strong>Ciclos multianuales (≈16–18 años)</strong><br>
+Reúnen la mayor parte de la potencia en TSM y Chl a → reflejan la <strong>tendencia de fondo</strong> o variaciones decenales.</p></li>
+<li><p><strong>Oscilación ENSO (≈15–18 meses)</strong><br>
+Aparece con alta potencia en ambas series → es el <strong>componente interanual</strong> dominante vinculado al fenómeno El Niño–Oscilación del Sur.</p></li>
+<li><p><strong>Subciclos estacionales en Clorofila a (4–6 meses)</strong><br>
+Indican pulsos biológicos y de mezcla en la columna de agua, propios de dinámicas costeras más rápidas.</p></li>
+</ol>
+<p>Con esta tabla y explicaciones tienes un mapeo claro de <strong>cuáles</strong> y <strong>cada cuánto</strong> se repiten las variaciones más importantes en tu zona de estudio.</p>
+</section>
+<section id="análisis-espectral-por-estación" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-espectral-por-estación">Análisis Espectral por Estación</h2>
+<p>Después de identificar las frecuencias dominantes a nivel regional, ahora nos enfocamos en calcular el <strong>periodograma de forma individual para cada estación</strong>.</p>
+<section id="objetivo" class="level3">
+<h3 class="anchored" data-anchor-id="objetivo">Objetivo</h3>
+<p>El propósito de este análisis es detectar <strong>diferencias locales</strong> en los patrones de variación. Aunque ya conocemos las frecuencias que dominan a nivel general, es posible que algunas estaciones presenten:</p>
+<ul>
+<li>Frecuencias adicionales o distintas</li>
+<li>Intensidades diferentes en los ciclos</li>
+<li>Comportamientos asincrónicos respecto al promedio regional</li>
+</ul>
+</section>
+<section id="qué-hacemos-1" class="level3">
+<h3 class="anchored" data-anchor-id="qué-hacemos-1">Qué hacemos</h3>
+<p>Aplicamos el periodograma sobre la serie temporal de cada estación, tanto para TSM como para Chl a. Esto nos permitirá comparar el comportamiento espectral entre estaciones y evaluar si existen zonas con dinámicas propias, lo cual será útil para la posterior <strong>regionalización</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="quarto-site/img/clusterso/otro_eda_files/otro_eda_22_0.png" class="img-fluid figure-img"></p>
+<figcaption>png</figcaption>
+</figure>
+</div>
+<div>
+
+<table class="dataframe table table-sm table-striped small">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+estacion
+</th>
+<th>
+freq_tsm
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+est_1
+</td>
+<td>
+0.08296
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+est_2
+</td>
+<td>
+0.08296
+</td>
+</tr>
+<tr>
+<th>
+10
+</th>
+<td>
+est_3
+</td>
+<td>
+0.08296
+</td>
+</tr>
+<tr>
+<th>
+15
+</th>
+<td>
+est_4
+</td>
+<td>
+0.08296
+</td>
+</tr>
+<tr>
+<th>
+20
+</th>
+<td>
+est_5
+</td>
+<td>
+0.08296
+</td>
+</tr>
+<tr>
+<th>
+25
+</th>
+<td>
+est_6
+</td>
+<td>
+0.08296
+</td>
+</tr>
+<tr>
+<th>
+30
+</th>
+<td>
+est_7
+</td>
+<td>
+0.08296
+</td>
+</tr>
+<tr>
+<th>
+35
+</th>
+<td>
+est_8
+</td>
+<td>
+0.08296
+</td>
+</tr>
+<tr>
+<th>
+40
+</th>
+<td>
+est_9
+</td>
+<td>
+0.08296
+</td>
+</tr>
+<tr>
+<th>
+45
+</th>
+<td>
+est_10
+</td>
+<td>
+0.08296
+</td>
+</tr>
+<tr>
+<th>
+50
+</th>
+<td>
+est_11
+</td>
+<td>
+0.08296
+</td>
+</tr>
+<tr>
+<th>
+55
+</th>
+<td>
+est_12
+</td>
+<td>
+0.08296
+</td>
+</tr>
+<tr>
+<th>
+60
+</th>
+<td>
+est_13
+</td>
+<td>
+0.08296
+</td>
+</tr>
+<tr>
+<th>
+65
+</th>
+<td>
+est_14
+</td>
+<td>
+0.08296
+</td>
+</tr>
+<tr>
+<th>
+70
+</th>
+<td>
+est_15
+</td>
+<td>
+0.08296
+</td>
+</tr>
+<tr>
+<th>
+75
+</th>
+<td>
+est_16
+</td>
+<td>
+0.08296
+</td>
+</tr>
+<tr>
+<th>
+80
+</th>
+<td>
+est_17
+</td>
+<td>
+0.08296
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="frecuencia-dominante-en-tsm-estaciones-1-a-17" class="level2">
+<h2 class="anchored" data-anchor-id="frecuencia-dominante-en-tsm-estaciones-1-a-17">Frecuencia Dominante en TSM — Estaciones 1 a 17</h2>
+<p>Al analizar los periodogramas de la Temperatura Superficial del Mar (TSM) para las 17 estaciones del Golfo de California, se observó un patrón notable: <strong>todas las estaciones comparten la misma frecuencia dominante</strong>.</p>
+<section id="frecuencia-dominante-común" class="level3">
+<h3 class="anchored" data-anchor-id="frecuencia-dominante-común">Frecuencia dominante común</h3>
+<ul>
+<li><p><strong>Frecuencia</strong>: 0.08296 ciclos/mes<br>
+</p></li>
+<li><p><strong>Período equivalente</strong>:</p>
+<p><span class="math inline">\(\frac{1}{0.08296} \approx 12.05 \text{ meses} \approx 1 \text{ año}\)</span></p></li>
+</ul>
+</section>
+<section id="interpretación" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación">Interpretación</h3>
+<ul>
+<li>Esta frecuencia indica un <strong>ciclo anual perfectamente definido</strong> en todas las estaciones.</li>
+<li>El hecho de que sea exactamente la misma en las 17 ubicaciones sugiere una <strong>respuesta homogénea al ciclo estacional</strong>, probablemente impulsada por factores climáticos como la radiación solar, temperatura atmosférica y dinámica oceánica.</li>
+<li>La consistencia de esta frecuencia refuerza la idea de que la TSM en el Golfo de California está fuertemente condicionada por la <strong>estacionalidad climática</strong>.</li>
+</ul>
+</section>
+<section id="conclusión" class="level3">
+<h3 class="anchored" data-anchor-id="conclusión">Conclusión</h3>
+<p>Este resultado estadístico demuestra que, independientemente de la ubicación geográfica dentro del golfo, la TSM sigue un patrón <strong>predominantemente anual</strong>, lo cual es fundamental para la modelación de procesos físicos, biológicos y climáticos en la región.</p>
+<div>
+
+<table class="dataframe table table-sm table-striped small">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+estacion
+</th>
+<th>
+freq_tsm
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+1
+</th>
+<td>
+est_1
+</td>
+<td>
+0.085202
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+est_2
+</td>
+<td>
+0.085202
+</td>
+</tr>
+<tr>
+<th>
+11
+</th>
+<td>
+est_3
+</td>
+<td>
+0.085202
+</td>
+</tr>
+<tr>
+<th>
+16
+</th>
+<td>
+est_4
+</td>
+<td>
+0.085202
+</td>
+</tr>
+<tr>
+<th>
+21
+</th>
+<td>
+est_5
+</td>
+<td>
+0.085202
+</td>
+</tr>
+<tr>
+<th>
+26
+</th>
+<td>
+est_6
+</td>
+<td>
+0.085202
+</td>
+</tr>
+<tr>
+<th>
+31
+</th>
+<td>
+est_7
+</td>
+<td>
+0.085202
+</td>
+</tr>
+<tr>
+<th>
+36
+</th>
+<td>
+est_8
+</td>
+<td>
+0.085202
+</td>
+</tr>
+<tr>
+<th>
+41
+</th>
+<td>
+est_9
+</td>
+<td>
+0.085202
+</td>
+</tr>
+<tr>
+<th>
+46
+</th>
+<td>
+est_10
+</td>
+<td>
+0.085202
+</td>
+</tr>
+<tr>
+<th>
+51
+</th>
+<td>
+est_11
+</td>
+<td>
+0.085202
+</td>
+</tr>
+<tr>
+<th>
+56
+</th>
+<td>
+est_12
+</td>
+<td>
+0.085202
+</td>
+</tr>
+<tr>
+<th>
+61
+</th>
+<td>
+est_13
+</td>
+<td>
+0.085202
+</td>
+</tr>
+<tr>
+<th>
+66
+</th>
+<td>
+est_14
+</td>
+<td>
+0.085202
+</td>
+</tr>
+<tr>
+<th>
+71
+</th>
+<td>
+est_15
+</td>
+<td>
+0.085202
+</td>
+</tr>
+<tr>
+<th>
+76
+</th>
+<td>
+est_16
+</td>
+<td>
+0.085202
+</td>
+</tr>
+<tr>
+<th>
+81
+</th>
+<td>
+est_17
+</td>
+<td>
+0.085202
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="segunda-frecuencia-dominante-en-tsm-estaciones-1-a-17" class="level2">
+<h2 class="anchored" data-anchor-id="segunda-frecuencia-dominante-en-tsm-estaciones-1-a-17">Segunda Frecuencia Dominante en TSM — Estaciones 1 a 17</h2>
+<p>Además de la frecuencia dominante anual (≈ 0.0830 ciclos/mes), el análisis espectral revela que <strong>todas las estaciones comparten una segunda frecuencia significativa común</strong>:</p>
+<section id="frecuencia-secundaria-común" class="level3">
+<h3 class="anchored" data-anchor-id="frecuencia-secundaria-común">Frecuencia secundaria común</h3>
+<ul>
+<li><strong>Frecuencia</strong>: 0.085202 ciclos/mes<br>
+</li>
+<li><strong>Período equivalente</strong>:<br>
+<span class="math inline">\(\frac{1}{0.085202} \approx 11.74 \text{ meses}\)</span></li>
+</ul>
+</section>
+<section id="interpretación-1" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-1">Interpretación</h3>
+<ul>
+<li>Esta frecuencia está muy cerca del valor anual, pero con una <strong>ligera variación</strong> respecto a la frecuencia principal (≈ 0.0830).</li>
+<li>Su presencia en todas las estaciones sugiere que el ciclo anual <strong>no es perfectamente armónico</strong>, sino que puede estar <strong>modulado o distorsionado</strong> por efectos locales como:
+<ul>
+<li>variaciones interanuales,</li>
+<li>fases del ENSO,</li>
+<li>o procesos oceanográficos regionales.</li>
+</ul></li>
+<li>También es posible que esta frecuencia represente un <strong>armónico secundario del ciclo anual</strong>, capturado debido a pequeñas fluctuaciones o no linealidades en la serie temporal.</li>
+</ul>
+</section>
+<section id="conclusión-1" class="level3">
+<h3 class="anchored" data-anchor-id="conclusión-1">Conclusión</h3>
+<p>La existencia de una <strong>segunda frecuencia cercana al ciclo anual</strong> en todas las estaciones refuerza la idea de que la TSM está influida principalmente por patrones estacionales, aunque no de forma perfectamente sinusoidal. Este hallazgo apunta hacia una <strong>estructura periódica compleja</strong>, pero coherente a lo largo de toda la región del Golfo de California.</p>
+<div>
+
+<table class="dataframe table table-sm table-striped small">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+estacion
+</th>
+<th>
+freq_tsm
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+2
+</th>
+<td>
+est_1
+</td>
+<td>
+0.080717
+</td>
+</tr>
+<tr>
+<th>
+7
+</th>
+<td>
+est_2
+</td>
+<td>
+0.080717
+</td>
+</tr>
+<tr>
+<th>
+12
+</th>
+<td>
+est_3
+</td>
+<td>
+0.080717
+</td>
+</tr>
+<tr>
+<th>
+17
+</th>
+<td>
+est_4
+</td>
+<td>
+0.087444
+</td>
+</tr>
+<tr>
+<th>
+22
+</th>
+<td>
+est_5
+</td>
+<td>
+0.080717
+</td>
+</tr>
+<tr>
+<th>
+27
+</th>
+<td>
+est_6
+</td>
+<td>
+0.087444
+</td>
+</tr>
+<tr>
+<th>
+32
+</th>
+<td>
+est_7
+</td>
+<td>
+0.080717
+</td>
+</tr>
+<tr>
+<th>
+37
+</th>
+<td>
+est_8
+</td>
+<td>
+0.080717
+</td>
+</tr>
+<tr>
+<th>
+42
+</th>
+<td>
+est_9
+</td>
+<td>
+0.080717
+</td>
+</tr>
+<tr>
+<th>
+47
+</th>
+<td>
+est_10
+</td>
+<td>
+0.080717
+</td>
+</tr>
+<tr>
+<th>
+52
+</th>
+<td>
+est_11
+</td>
+<td>
+0.080717
+</td>
+</tr>
+<tr>
+<th>
+57
+</th>
+<td>
+est_12
+</td>
+<td>
+0.087444
+</td>
+</tr>
+<tr>
+<th>
+62
+</th>
+<td>
+est_13
+</td>
+<td>
+0.080717
+</td>
+</tr>
+<tr>
+<th>
+67
+</th>
+<td>
+est_14
+</td>
+<td>
+0.078475
+</td>
+</tr>
+<tr>
+<th>
+72
+</th>
+<td>
+est_15
+</td>
+<td>
+0.080717
+</td>
+</tr>
+<tr>
+<th>
+77
+</th>
+<td>
+est_16
+</td>
+<td>
+0.080717
+</td>
+</tr>
+<tr>
+<th>
+82
+</th>
+<td>
+est_17
+</td>
+<td>
+0.080717
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="tercera-frecuencia-dominante-en-tsm-estaciones-1-a-17" class="level2">
+<h2 class="anchored" data-anchor-id="tercera-frecuencia-dominante-en-tsm-estaciones-1-a-17">Tercera Frecuencia Dominante en TSM — Estaciones 1 a 17</h2>
+<p>A partir del análisis espectral de TSM, la tercera frecuencia dominante muestra <strong>mayor variabilidad</strong> entre estaciones, a diferencia de las dos primeras que eran completamente consistentes.</p>
+<section id="distribución-de-la-tercera-frecuencia" class="level3">
+<h3 class="anchored" data-anchor-id="distribución-de-la-tercera-frecuencia">Distribución de la tercera frecuencia</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 36%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Frecuencia (ciclos/mes)</th>
+<th>Estaciones donde aparece</th>
+<th>Período aproximado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.080717</td>
+<td>est_1, est_2, est_3, est_5, est_7, est_8, est_9, est_10, est_11, est_13, est_15, est_16, est_17</td>
+<td>≈ 12.39 meses</td>
+</tr>
+<tr class="even">
+<td>0.087444</td>
+<td>est_4, est_6, est_12</td>
+<td>≈ 11.44 meses</td>
+</tr>
+<tr class="odd">
+<td>0.078475</td>
+<td>est_14</td>
+<td>≈ 12.74 meses</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interpretación-2" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-2">Interpretación</h3>
+<ul>
+<li>Aunque las frecuencias siguen siendo cercanas al <strong>ciclo anual</strong>, ya no son idénticas en todas las estaciones.</li>
+<li>Esto indica que existen <strong>pequeñas diferencias en la estructura de la señal anual</strong>, posiblemente causadas por:
+<ul>
+<li>efectos geográficos locales (latitud, profundidad),</li>
+<li>condiciones atmosféricas particulares,</li>
+<li>o características propias de la dinámica marina en ciertas estaciones.</li>
+</ul></li>
+<li>En todos los casos, el período asociado sigue rondando los <strong>12 meses</strong>, por lo que el carácter estacional continúa siendo dominante, pero con <strong>matices específicos por ubicación</strong>.</li>
+</ul>
+</section>
+<section id="conclusión-2" class="level3">
+<h3 class="anchored" data-anchor-id="conclusión-2">Conclusión</h3>
+<p>El análisis de la tercera frecuencia dominante en TSM revela una <strong>transición hacia una mayor heterogeneidad espacial</strong>. Esto puede ser importante para modelos más detallados que busquen capturar <strong>variaciones locales</strong> en la respuesta térmica del océano en el Golfo de California.</p>
+<div>
+
+<table class="dataframe table table-sm table-striped small">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+estacion
+</th>
+<th>
+freq_tsm
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+3
+</th>
+<td>
+est_1
+</td>
+<td>
+0.165919
+</td>
+</tr>
+<tr>
+<th>
+8
+</th>
+<td>
+est_2
+</td>
+<td>
+0.087444
+</td>
+</tr>
+<tr>
+<th>
+13
+</th>
+<td>
+est_3
+</td>
+<td>
+0.165919
+</td>
+</tr>
+<tr>
+<th>
+18
+</th>
+<td>
+est_4
+</td>
+<td>
+0.165919
+</td>
+</tr>
+<tr>
+<th>
+23
+</th>
+<td>
+est_5
+</td>
+<td>
+0.165919
+</td>
+</tr>
+<tr>
+<th>
+28
+</th>
+<td>
+est_6
+</td>
+<td>
+0.080717
+</td>
+</tr>
+<tr>
+<th>
+33
+</th>
+<td>
+est_7
+</td>
+<td>
+0.165919
+</td>
+</tr>
+<tr>
+<th>
+38
+</th>
+<td>
+est_8
+</td>
+<td>
+0.165919
+</td>
+</tr>
+<tr>
+<th>
+43
+</th>
+<td>
+est_9
+</td>
+<td>
+0.087444
+</td>
+</tr>
+<tr>
+<th>
+48
+</th>
+<td>
+est_10
+</td>
+<td>
+0.087444
+</td>
+</tr>
+<tr>
+<th>
+53
+</th>
+<td>
+est_11
+</td>
+<td>
+0.087444
+</td>
+</tr>
+<tr>
+<th>
+58
+</th>
+<td>
+est_12
+</td>
+<td>
+0.080717
+</td>
+</tr>
+<tr>
+<th>
+63
+</th>
+<td>
+est_13
+</td>
+<td>
+0.087444
+</td>
+</tr>
+<tr>
+<th>
+68
+</th>
+<td>
+est_14
+</td>
+<td>
+0.080717
+</td>
+</tr>
+<tr>
+<th>
+73
+</th>
+<td>
+est_15
+</td>
+<td>
+0.087444
+</td>
+</tr>
+<tr>
+<th>
+78
+</th>
+<td>
+est_16
+</td>
+<td>
+0.087444
+</td>
+</tr>
+<tr>
+<th>
+83
+</th>
+<td>
+est_17
+</td>
+<td>
+0.087444
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="cuarta-frecuencia-dominante-en-tsm-estaciones-1-a-17" class="level2">
+<h2 class="anchored" data-anchor-id="cuarta-frecuencia-dominante-en-tsm-estaciones-1-a-17">Cuarta Frecuencia Dominante en TSM — Estaciones 1 a 17</h2>
+<p>A medida que descendemos en el orden de importancia de las frecuencias (rank 4), se observa una mayor diversidad entre estaciones, aunque siguen apareciendo algunos patrones recurrentes.</p>
+<section id="distribución-de-la-cuarta-frecuencia" class="level3">
+<h3 class="anchored" data-anchor-id="distribución-de-la-cuarta-frecuencia">Distribución de la cuarta frecuencia</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 42%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Frecuencia (ciclos/mes)</th>
+<th>Estaciones donde aparece</th>
+<th>Período aproximado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.165919</td>
+<td>est_1, est_3, est_4, est_5, est_7, est_8</td>
+<td>≈ 6.03 meses</td>
+</tr>
+<tr class="even">
+<td>0.087444</td>
+<td>est_2, est_9, est_10, est_11, est_13, est_15, est_16, est_17</td>
+<td>≈ 11.44 meses</td>
+</tr>
+<tr class="odd">
+<td>0.080717</td>
+<td>est_6, est_12, est_14</td>
+<td>≈ 12.39 meses</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interpretación-3" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-3">Interpretación</h3>
+<ul>
+<li><p>La frecuencia <strong>0.165919 ciclos/mes</strong> aparece en 6 estaciones y corresponde aproximadamente a <strong>un ciclo semestral</strong>, lo cual podría reflejar:</p>
+<ul>
+<li>fenómenos intraanuales como <strong>variaciones de productividad biológica</strong>,</li>
+<li><strong>alternancia de masas de agua</strong>,</li>
+<li>o efectos climáticos regionales con una periodicidad de 6 meses.</li>
+</ul></li>
+<li><p>La frecuencia <strong>0.087444 ciclos/mes</strong>, aunque cercana al ciclo anual, persiste como una señal secundaria en varias estaciones, indicando posibles <strong>modulaciones del ciclo anual</strong>.</p></li>
+<li><p>La frecuencia <strong>0.080717 ciclos/mes</strong>, también cercana al año, aparece en otras estaciones como una alternativa dominante secundaria.</p></li>
+</ul>
+</section>
+<section id="conclusión-3" class="level3">
+<h3 class="anchored" data-anchor-id="conclusión-3">Conclusión</h3>
+<p>La cuarta frecuencia dominante revela patrones <strong>más variables y localizados</strong>, pero sigue mostrando coherencia con escalas temporales anuales y semestrales. El ciclo semestral comienza a emerger con más claridad en algunas estaciones, lo que podría ser relevante para estudios de productividad primaria, surgencias, o influencia de vientos estacionales en el Golfo de California.</p>
+<div>
+
+<table class="dataframe table table-sm table-striped small">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+estacion
+</th>
+<th>
+freq_tsm
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+4
+</th>
+<td>
+est_1
+</td>
+<td>
+0.087444
+</td>
+</tr>
+<tr>
+<th>
+9
+</th>
+<td>
+est_2
+</td>
+<td>
+0.165919
+</td>
+</tr>
+<tr>
+<th>
+14
+</th>
+<td>
+est_3
+</td>
+<td>
+0.087444
+</td>
+</tr>
+<tr>
+<th>
+19
+</th>
+<td>
+est_4
+</td>
+<td>
+0.080717
+</td>
+</tr>
+<tr>
+<th>
+24
+</th>
+<td>
+est_5
+</td>
+<td>
+0.087444
+</td>
+</tr>
+<tr>
+<th>
+29
+</th>
+<td>
+est_6
+</td>
+<td>
+0.089686
+</td>
+</tr>
+<tr>
+<th>
+34
+</th>
+<td>
+est_7
+</td>
+<td>
+0.087444
+</td>
+</tr>
+<tr>
+<th>
+39
+</th>
+<td>
+est_8
+</td>
+<td>
+0.078475
+</td>
+</tr>
+<tr>
+<th>
+44
+</th>
+<td>
+est_9
+</td>
+<td>
+0.165919
+</td>
+</tr>
+<tr>
+<th>
+49
+</th>
+<td>
+est_10
+</td>
+<td>
+0.165919
+</td>
+</tr>
+<tr>
+<th>
+54
+</th>
+<td>
+est_11
+</td>
+<td>
+0.165919
+</td>
+</tr>
+<tr>
+<th>
+59
+</th>
+<td>
+est_12
+</td>
+<td>
+0.165919
+</td>
+</tr>
+<tr>
+<th>
+64
+</th>
+<td>
+est_13
+</td>
+<td>
+0.029148
+</td>
+</tr>
+<tr>
+<th>
+69
+</th>
+<td>
+est_14
+</td>
+<td>
+0.087444
+</td>
+</tr>
+<tr>
+<th>
+74
+</th>
+<td>
+est_15
+</td>
+<td>
+0.165919
+</td>
+</tr>
+<tr>
+<th>
+79
+</th>
+<td>
+est_16
+</td>
+<td>
+0.078475
+</td>
+</tr>
+<tr>
+<th>
+84
+</th>
+<td>
+est_17
+</td>
+<td>
+0.165919
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="quinta-frecuencia-dominante-en-tsm-estaciones-1-a-17" class="level2">
+<h2 class="anchored" data-anchor-id="quinta-frecuencia-dominante-en-tsm-estaciones-1-a-17">Quinta Frecuencia Dominante en TSM — Estaciones 1 a 17</h2>
+<p>En el análisis de la quinta frecuencia más significativa de la Temperatura Superficial del Mar (TSM), observamos una mayor dispersión en los valores de frecuencia. Sin embargo, algunas frecuencias se repiten en varias estaciones, manteniéndose patrones semestrales y anuales relevantes.</p>
+<section id="distribución-de-la-quinta-frecuencia" class="level3">
+<h3 class="anchored" data-anchor-id="distribución-de-la-quinta-frecuencia">Distribución de la quinta frecuencia</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 42%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Frecuencia (ciclos/mes)</th>
+<th>Estaciones donde aparece</th>
+<th>Período aproximado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.087444</td>
+<td>est_1, est_3, est_5, est_7, est_14</td>
+<td>≈ 11.44 meses</td>
+</tr>
+<tr class="even">
+<td>0.165919</td>
+<td>est_2, est_9, est_10, est_11, est_12, est_15, est_17</td>
+<td>≈ 6.03 meses</td>
+</tr>
+<tr class="odd">
+<td>0.080717</td>
+<td>est_4</td>
+<td>≈ 12.39 meses</td>
+</tr>
+<tr class="even">
+<td>0.089686</td>
+<td>est_6</td>
+<td>≈ 11.15 meses</td>
+</tr>
+<tr class="odd">
+<td>0.078475</td>
+<td>est_8, est_16</td>
+<td>≈ 12.75 meses</td>
+</tr>
+<tr class="even">
+<td>0.029148</td>
+<td>est_13</td>
+<td>≈ 34.29 meses (~2.9 años)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interpretación-4" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-4">Interpretación</h3>
+<ul>
+<li>La frecuencia <strong>0.165919 ciclos/mes</strong> (semestre) es nuevamente la más común, lo que refuerza su importancia como <strong>componente cíclico secundario</strong> en muchas estaciones.</li>
+<li>La frecuencia <strong>0.087444 ciclos/mes</strong>, que ya había aparecido antes, vuelve a manifestarse como <strong>armónico cercano al ciclo anual</strong>, presente en 5 estaciones.</li>
+<li>Aparecen nuevas frecuencias como <strong>0.029148 ciclos/mes</strong> (≈2.9 años) en la estación 13, lo que puede indicar la presencia de <strong>ciclos multianuales</strong> poco frecuentes pero potencialmente significativos, posiblemente ligados a fenómenos como ENSO.</li>
+<li>La diversidad creciente de frecuencias sugiere que las <strong>señales menos potentes</strong> (rango bajo del periodograma) pueden capturar patrones más complejos o ruido local.</li>
+</ul>
+</section>
+<section id="conclusión-4" class="level3">
+<h3 class="anchored" data-anchor-id="conclusión-4">Conclusión</h3>
+<p>El análisis de la quinta frecuencia dominante evidencia un balance entre <strong>ciclos estacionales persistentes</strong> (anuales y semestrales) y la aparición de <strong>ciclos específicos por estación</strong>, algunos de ellos de mayor escala temporal. Esto refuerza la necesidad de enfoques localizados o multiescalares en la modelación de la TSM en el Golfo de California.</p>
+</section>
+</section>
+<section id="periodograma-por-estación-clorofila-a-chla" class="level2">
+<h2 class="anchored" data-anchor-id="periodograma-por-estación-clorofila-a-chla">Periodograma por Estación: Clorofila a (Chla)</h2>
+<p>Ahora iniciamos el análisis espectral individual por estación para la variable <strong>Clorofila a (Chla)</strong>.</p>
+<section id="objetivo-1" class="level3">
+<h3 class="anchored" data-anchor-id="objetivo-1">Objetivo</h3>
+<p>Identificar las <strong>frecuencias dominantes</strong> en cada estación de forma separada, con el fin de:</p>
+<ul>
+<li>Detectar diferencias locales en los ciclos de variación de la productividad oceánica.</li>
+<li>Comparar el comportamiento espectral entre estaciones y con el análisis global.</li>
+<li>Evaluar la posible existencia de patrones únicos en ciertas zonas de la región costera occidental del Golfo de California.</li>
+</ul>
+<p>Este análisis complementa el enfoque regional y sienta las bases para una futura <strong>agrupación o regionalización</strong> en función de las dinámicas espectrales observadas.</p>
+<div>
+
+<table class="dataframe table table-sm table-striped small">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+estacion
+</th>
+<th>
+freq_chla
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+est_1
+</td>
+<td>
+0.082677
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+est_2
+</td>
+<td>
+0.082677
+</td>
+</tr>
+<tr>
+<th>
+10
+</th>
+<td>
+est_3
+</td>
+<td>
+0.082677
+</td>
+</tr>
+<tr>
+<th>
+15
+</th>
+<td>
+est_4
+</td>
+<td>
+0.082677
+</td>
+</tr>
+<tr>
+<th>
+20
+</th>
+<td>
+est_5
+</td>
+<td>
+0.082677
+</td>
+</tr>
+<tr>
+<th>
+25
+</th>
+<td>
+est_6
+</td>
+<td>
+0.082677
+</td>
+</tr>
+<tr>
+<th>
+30
+</th>
+<td>
+est_7
+</td>
+<td>
+0.082677
+</td>
+</tr>
+<tr>
+<th>
+35
+</th>
+<td>
+est_8
+</td>
+<td>
+0.082677
+</td>
+</tr>
+<tr>
+<th>
+40
+</th>
+<td>
+est_9
+</td>
+<td>
+0.082677
+</td>
+</tr>
+<tr>
+<th>
+45
+</th>
+<td>
+est_10
+</td>
+<td>
+0.082677
+</td>
+</tr>
+<tr>
+<th>
+50
+</th>
+<td>
+est_11
+</td>
+<td>
+0.165354
+</td>
+</tr>
+<tr>
+<th>
+55
+</th>
+<td>
+est_12
+</td>
+<td>
+0.165354
+</td>
+</tr>
+<tr>
+<th>
+60
+</th>
+<td>
+est_13
+</td>
+<td>
+0.165354
+</td>
+</tr>
+<tr>
+<th>
+65
+</th>
+<td>
+est_14
+</td>
+<td>
+0.165354
+</td>
+</tr>
+<tr>
+<th>
+70
+</th>
+<td>
+est_15
+</td>
+<td>
+0.082677
+</td>
+</tr>
+<tr>
+<th>
+75
+</th>
+<td>
+est_16
+</td>
+<td>
+0.082677
+</td>
+</tr>
+<tr>
+<th>
+80
+</th>
+<td>
+est_17
+</td>
+<td>
+0.082677
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="frecuencia-dominante-en-clorofila-estaciones-1-a-17" class="level2">
+<h2 class="anchored" data-anchor-id="frecuencia-dominante-en-clorofila-estaciones-1-a-17">Frecuencia Dominante en Clorofila — Estaciones 1 a 17</h2>
+<p>El análisis espectral mediante periodograma para la serie de <strong>Clorofila a</strong> revela dos frecuencias dominantes distintas entre las estaciones, lo que indica la presencia de <strong>dos patrones cíclicos predominantes</strong> según la ubicación geográfica.</p>
+<section id="distribución-de-la-frecuencia-dominante-rank-1" class="level3">
+<h3 class="anchored" data-anchor-id="distribución-de-la-frecuencia-dominante-rank-1">Distribución de la frecuencia dominante (rank 1)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 50%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Frecuencia (ciclos/mes)</th>
+<th>Estaciones donde aparece</th>
+<th>Período aproximado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.082677</td>
+<td>est_1, est_2, est_3, est_4, est_5, est_6, est_7, est_8, est_9, est_10, est_15, est_16, est_17</td>
+<td>≈ 12.09 meses</td>
+</tr>
+<tr class="even">
+<td>0.165354</td>
+<td>est_11, est_12, est_13, est_14</td>
+<td>≈ 6.05 meses</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interpretación-5" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-5">Interpretación</h3>
+<ul>
+<li>La frecuencia <strong>0.082677 ciclos/mes</strong> es la dominante en 13 de las 17 estaciones, indicando un ciclo de aproximadamente <strong>12 meses</strong>, característico de una <strong>estacionalidad anual</strong> fuerte.</li>
+<li>La frecuencia <strong>0.165354 ciclos/mes</strong>, dominante en 4 estaciones, corresponde a un ciclo de <strong>6 meses</strong>, lo cual sugiere un patrón <strong>semestral</strong> en esas regiones específicas.</li>
+<li>Esta división sugiere que, a diferencia de la TSM (donde todas las estaciones compartían un ciclo anual dominante), la <strong>clorofila presenta una mayor variabilidad espacial en su comportamiento periódico</strong>.</li>
+</ul>
+</section>
+<section id="conclusión-5" class="level3">
+<h3 class="anchored" data-anchor-id="conclusión-5">Conclusión</h3>
+<p>El ciclo <strong>anual</strong> sigue siendo el más común en la dinámica de la clorofila en el Golfo de California, pero la presencia de estaciones donde domina un ciclo <strong>semestral</strong> indica posibles diferencias en <strong>dinámica biológica o en la disponibilidad de nutrientes</strong>. Esto podría deberse a condiciones locales como surgencias, mezclas verticales o influencias de vientos estacionales en ciertas zonas del golfo.</p>
+<div>
+
+<table class="dataframe table table-sm table-striped small">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+estacion
+</th>
+<th>
+freq_chla
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+1
+</th>
+<td>
+est_1
+</td>
+<td>
+0.165354
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+est_2
+</td>
+<td>
+0.086614
+</td>
+</tr>
+<tr>
+<th>
+11
+</th>
+<td>
+est_3
+</td>
+<td>
+0.165354
+</td>
+</tr>
+<tr>
+<th>
+16
+</th>
+<td>
+est_4
+</td>
+<td>
+0.165354
+</td>
+</tr>
+<tr>
+<th>
+21
+</th>
+<td>
+est_5
+</td>
+<td>
+0.086614
+</td>
+</tr>
+<tr>
+<th>
+26
+</th>
+<td>
+est_6
+</td>
+<td>
+0.086614
+</td>
+</tr>
+<tr>
+<th>
+31
+</th>
+<td>
+est_7
+</td>
+<td>
+0.086614
+</td>
+</tr>
+<tr>
+<th>
+36
+</th>
+<td>
+est_8
+</td>
+<td>
+0.086614
+</td>
+</tr>
+<tr>
+<th>
+41
+</th>
+<td>
+est_9
+</td>
+<td>
+0.086614
+</td>
+</tr>
+<tr>
+<th>
+46
+</th>
+<td>
+est_10
+</td>
+<td>
+0.165354
+</td>
+</tr>
+<tr>
+<th>
+51
+</th>
+<td>
+est_11
+</td>
+<td>
+0.082677
+</td>
+</tr>
+<tr>
+<th>
+56
+</th>
+<td>
+est_12
+</td>
+<td>
+0.169291
+</td>
+</tr>
+<tr>
+<th>
+61
+</th>
+<td>
+est_13
+</td>
+<td>
+0.082677
+</td>
+</tr>
+<tr>
+<th>
+66
+</th>
+<td>
+est_14
+</td>
+<td>
+0.082677
+</td>
+</tr>
+<tr>
+<th>
+71
+</th>
+<td>
+est_15
+</td>
+<td>
+0.165354
+</td>
+</tr>
+<tr>
+<th>
+76
+</th>
+<td>
+est_16
+</td>
+<td>
+0.086614
+</td>
+</tr>
+<tr>
+<th>
+81
+</th>
+<td>
+est_17
+</td>
+<td>
+0.165354
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="segunda-frecuencia-dominante-en-clorofila-estaciones-1-a-17" class="level2">
+<h2 class="anchored" data-anchor-id="segunda-frecuencia-dominante-en-clorofila-estaciones-1-a-17">Segunda Frecuencia Dominante en Clorofila — Estaciones 1 a 17</h2>
+<p>La segunda frecuencia más importante del espectro de Clorofila a muestra un <strong>mayor grado de variabilidad</strong> entre estaciones respecto a la frecuencia dominante, aunque ciertos valores se repiten en múltiples ubicaciones.</p>
+<section id="distribución-de-la-segunda-frecuencia-rank-2" class="level3">
+<h3 class="anchored" data-anchor-id="distribución-de-la-segunda-frecuencia-rank-2">Distribución de la segunda frecuencia (rank 2)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 55%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Frecuencia (ciclos/mes)</th>
+<th>Estaciones donde aparece</th>
+<th>Período aproximado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.165354</td>
+<td>est_1, est_3, est_4, est_10, est_15, est_17</td>
+<td>≈ 6.05 meses</td>
+</tr>
+<tr class="even">
+<td>0.086614</td>
+<td>est_2, est_5, est_6, est_7, est_8, est_9, est_16</td>
+<td>≈ 11.55 meses</td>
+</tr>
+<tr class="odd">
+<td>0.082677</td>
+<td>est_11, est_13, est_14</td>
+<td>≈ 12.09 meses</td>
+</tr>
+<tr class="even">
+<td>0.169291</td>
+<td>est_12</td>
+<td>≈ 5.91 meses</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interpretación-6" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-6">Interpretación</h3>
+<ul>
+<li>La frecuencia <strong>0.165354 ciclos/mes</strong> (≈ 6 meses) continúa siendo relevante en varias estaciones, mostrando persistencia de un patrón semestral.</li>
+<li>Las frecuencias <strong>0.086614</strong> y <strong>0.082677</strong> son cercanas al ciclo anual, lo que indica una <strong>modulación secundaria del ciclo estacional</strong>.</li>
+<li>La aparición de <strong>0.169291</strong> en est_12 podría deberse a una variante local del patrón semestral o una mezcla de señales.</li>
+</ul>
+</section>
+<section id="conclusión-6" class="level3">
+<h3 class="anchored" data-anchor-id="conclusión-6">Conclusión</h3>
+<p>Mientras que la frecuencia dominante en Clorofila se agrupaba principalmente en dos valores (anual o semestral), la segunda frecuencia muestra un <strong>conjunto más rico de variaciones</strong>, lo cual sugiere que: - Las estaciones pueden estar influenciadas por <strong>múltiples procesos periódicos superpuestos</strong>, - y que existe <strong>heterogeneidad espacial</strong> en la forma en que la estacionalidad impacta la biomasa fitoplanctónica.</p>
+<p>Este tipo de análisis es útil para detectar diferencias entre regiones del golfo y puede orientar investigaciones sobre procesos ecológicos específicos que afectan la productividad primaria.</p>
+<div>
+
+<table class="dataframe table table-sm table-striped small">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+estacion
+</th>
+<th>
+freq_chla
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+2
+</th>
+<td>
+est_1
+</td>
+<td>
+0.086614
+</td>
+</tr>
+<tr>
+<th>
+7
+</th>
+<td>
+est_2
+</td>
+<td>
+0.165354
+</td>
+</tr>
+<tr>
+<th>
+12
+</th>
+<td>
+est_3
+</td>
+<td>
+0.086614
+</td>
+</tr>
+<tr>
+<th>
+17
+</th>
+<td>
+est_4
+</td>
+<td>
+0.086614
+</td>
+</tr>
+<tr>
+<th>
+22
+</th>
+<td>
+est_5
+</td>
+<td>
+0.165354
+</td>
+</tr>
+<tr>
+<th>
+27
+</th>
+<td>
+est_6
+</td>
+<td>
+0.070866
+</td>
+</tr>
+<tr>
+<th>
+32
+</th>
+<td>
+est_7
+</td>
+<td>
+0.251969
+</td>
+</tr>
+<tr>
+<th>
+37
+</th>
+<td>
+est_8
+</td>
+<td>
+0.003937
+</td>
+</tr>
+<tr>
+<th>
+42
+</th>
+<td>
+est_9
+</td>
+<td>
+0.003937
+</td>
+</tr>
+<tr>
+<th>
+47
+</th>
+<td>
+est_10
+</td>
+<td>
+0.086614
+</td>
+</tr>
+<tr>
+<th>
+52
+</th>
+<td>
+est_11
+</td>
+<td>
+0.169291
+</td>
+</tr>
+<tr>
+<th>
+57
+</th>
+<td>
+est_12
+</td>
+<td>
+0.082677
+</td>
+</tr>
+<tr>
+<th>
+62
+</th>
+<td>
+est_13
+</td>
+<td>
+0.169291
+</td>
+</tr>
+<tr>
+<th>
+67
+</th>
+<td>
+est_14
+</td>
+<td>
+0.169291
+</td>
+</tr>
+<tr>
+<th>
+72
+</th>
+<td>
+est_15
+</td>
+<td>
+0.086614
+</td>
+</tr>
+<tr>
+<th>
+77
+</th>
+<td>
+est_16
+</td>
+<td>
+0.003937
+</td>
+</tr>
+<tr>
+<th>
+82
+</th>
+<td>
+est_17
+</td>
+<td>
+0.086614
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="tercera-frecuencia-dominante-en-clorofila-estaciones-1-a-17" class="level2">
+<h2 class="anchored" data-anchor-id="tercera-frecuencia-dominante-en-clorofila-estaciones-1-a-17">Tercera Frecuencia Dominante en Clorofila — Estaciones 1 a 17</h2>
+<p>La tercera frecuencia más relevante en el espectro de Clorofila muestra una <strong>amplia diversidad</strong> entre estaciones, incluyendo tanto componentes estacionales como señales de muy baja frecuencia.</p>
+<section id="distribución-de-la-tercera-frecuencia-rank-3" class="level3">
+<h3 class="anchored" data-anchor-id="distribución-de-la-tercera-frecuencia-rank-3">Distribución de la tercera frecuencia (rank 3)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 49%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Frecuencia (ciclos/mes)</th>
+<th>Estaciones donde aparece</th>
+<th>Período aproximado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.086614</td>
+<td>est_1, est_3, est_4, est_10, est_15, est_17</td>
+<td>≈ 11.55 meses</td>
+</tr>
+<tr class="even">
+<td>0.165354</td>
+<td>est_2, est_5</td>
+<td>≈ 6.05 meses</td>
+</tr>
+<tr class="odd">
+<td>0.070866</td>
+<td>est_6</td>
+<td>≈ 14.11 meses</td>
+</tr>
+<tr class="even">
+<td>0.251969</td>
+<td>est_7</td>
+<td>≈ 3.97 meses</td>
+</tr>
+<tr class="odd">
+<td>0.003937</td>
+<td>est_8, est_9, est_16</td>
+<td>≈ 254 meses (~21 años)</td>
+</tr>
+<tr class="even">
+<td>0.169291</td>
+<td>est_11, est_13, est_14</td>
+<td>≈ 5.91 meses</td>
+</tr>
+<tr class="odd">
+<td>0.082677</td>
+<td>est_12</td>
+<td>≈ 12.09 meses</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interpretación-7" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-7">Interpretación</h3>
+<ul>
+<li>Las frecuencias <strong>0.086614 y 0.082677</strong> cercanas al ciclo anual siguen presentes en múltiples estaciones, manteniendo la <strong>influencia de la estacionalidad</strong>.</li>
+<li>La frecuencia <strong>0.165354</strong> (≈6 meses) también persiste como componente cíclico clave.</li>
+<li>La aparición de <strong>frecuencias muy bajas</strong> como <strong>0.003937 ciclos/mes</strong> (~21 años de periodo) sugiere la presencia de <strong>tendencias de largo plazo o componentes ruidosos</strong> mal diferenciados, que podrían corresponder a efectos de aliasing o cambios de régimen.</li>
+<li>La frecuencia <strong>0.251969</strong> (≈4 meses) en est_7 podría reflejar fenómenos cíclicos <strong>intraestacionales</strong>, como eventos recurrentes de productividad o perturbaciones locales.</li>
+</ul>
+</section>
+<section id="conclusión-7" class="level3">
+<h3 class="anchored" data-anchor-id="conclusión-7">Conclusión</h3>
+<p>El análisis de la tercera frecuencia dominante en Clorofila evidencia una señal más compleja y heterogénea en comparación con TSM: - Aunque las señales anuales y semestrales se mantienen, aparecen <strong>componentes de frecuencia baja y alta</strong> que sugieren fenómenos más transitorios o de más largo plazo. - Esto resalta la <strong>mayor variabilidad en los procesos biológicos</strong> que regulan la clorofila, en contraste con los más estables procesos físicos que dominan la temperatura del mar.</p>
+<p>Este nivel de análisis es crucial para comprender la diversidad de factores que afectan la dinámica del fitoplancton en distintas zonas del Golfo de California.</p>
+<div>
+
+<table class="dataframe table table-sm table-striped small">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+estacion
+</th>
+<th>
+freq_chla
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+3
+</th>
+<td>
+est_1
+</td>
+<td>
+0.015748
+</td>
+</tr>
+<tr>
+<th>
+8
+</th>
+<td>
+est_2
+</td>
+<td>
+0.169291
+</td>
+</tr>
+<tr>
+<th>
+13
+</th>
+<td>
+est_3
+</td>
+<td>
+0.015748
+</td>
+</tr>
+<tr>
+<th>
+18
+</th>
+<td>
+est_4
+</td>
+<td>
+0.074803
+</td>
+</tr>
+<tr>
+<th>
+23
+</th>
+<td>
+est_5
+</td>
+<td>
+0.019685
+</td>
+</tr>
+<tr>
+<th>
+28
+</th>
+<td>
+est_6
+</td>
+<td>
+0.173228
+</td>
+</tr>
+<tr>
+<th>
+33
+</th>
+<td>
+est_7
+</td>
+<td>
+0.003937
+</td>
+</tr>
+<tr>
+<th>
+38
+</th>
+<td>
+est_8
+</td>
+<td>
+0.251969
+</td>
+</tr>
+<tr>
+<th>
+43
+</th>
+<td>
+est_9
+</td>
+<td>
+0.070866
+</td>
+</tr>
+<tr>
+<th>
+48
+</th>
+<td>
+est_10
+</td>
+<td>
+0.027559
+</td>
+</tr>
+<tr>
+<th>
+53
+</th>
+<td>
+est_11
+</td>
+<td>
+0.019685
+</td>
+</tr>
+<tr>
+<th>
+58
+</th>
+<td>
+est_12
+</td>
+<td>
+0.019685
+</td>
+</tr>
+<tr>
+<th>
+63
+</th>
+<td>
+est_13
+</td>
+<td>
+0.086614
+</td>
+</tr>
+<tr>
+<th>
+68
+</th>
+<td>
+est_14
+</td>
+<td>
+0.161417
+</td>
+</tr>
+<tr>
+<th>
+73
+</th>
+<td>
+est_15
+</td>
+<td>
+0.169291
+</td>
+</tr>
+<tr>
+<th>
+78
+</th>
+<td>
+est_16
+</td>
+<td>
+0.169291
+</td>
+</tr>
+<tr>
+<th>
+83
+</th>
+<td>
+est_17
+</td>
+<td>
+0.169291
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="cuarta-frecuencia-dominante-en-clorofila-estaciones-1-a-17" class="level2">
+<h2 class="anchored" data-anchor-id="cuarta-frecuencia-dominante-en-clorofila-estaciones-1-a-17">Cuarta Frecuencia Dominante en Clorofila — Estaciones 1 a 17</h2>
+<p>La cuarta frecuencia más significativa en la serie temporal de Clorofila a muestra una <strong>dispersión considerable</strong> entre estaciones. Esta variabilidad refleja la influencia de múltiples escalas temporales en la dinámica del fitoplancton.</p>
+<section id="distribución-de-la-cuarta-frecuencia-rank-4" class="level3">
+<h3 class="anchored" data-anchor-id="distribución-de-la-cuarta-frecuencia-rank-4">Distribución de la cuarta frecuencia (rank 4)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 44%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Frecuencia (ciclos/mes)</th>
+<th>Estaciones donde aparece</th>
+<th>Período aproximado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.169291</td>
+<td>est_2, est_15, est_16, est_17</td>
+<td>≈ 5.91 meses</td>
+</tr>
+<tr class="even">
+<td>0.015748</td>
+<td>est_1, est_3</td>
+<td>≈ 63.5 meses (~5.3 años)</td>
+</tr>
+<tr class="odd">
+<td>0.019685</td>
+<td>est_5, est_11, est_12</td>
+<td>≈ 50.8 meses (~4.2 años)</td>
+</tr>
+<tr class="even">
+<td>0.074803</td>
+<td>est_4</td>
+<td>≈ 13.4 meses</td>
+</tr>
+<tr class="odd">
+<td>0.173228</td>
+<td>est_6</td>
+<td>≈ 5.77 meses</td>
+</tr>
+<tr class="even">
+<td>0.003937</td>
+<td>est_7</td>
+<td>≈ 254 meses (~21 años)</td>
+</tr>
+<tr class="odd">
+<td>0.251969</td>
+<td>est_8</td>
+<td>≈ 3.97 meses</td>
+</tr>
+<tr class="even">
+<td>0.070866</td>
+<td>est_9</td>
+<td>≈ 14.1 meses</td>
+</tr>
+<tr class="odd">
+<td>0.027559</td>
+<td>est_10</td>
+<td>≈ 36.3 meses (~3 años)</td>
+</tr>
+<tr class="even">
+<td>0.086614</td>
+<td>est_13</td>
+<td>≈ 11.55 meses</td>
+</tr>
+<tr class="odd">
+<td>0.161417</td>
+<td>est_14</td>
+<td>≈ 6.2 meses</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interpretación-8" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-8">Interpretación</h3>
+<ul>
+<li>Las frecuencias <strong>0.169291</strong> y <strong>0.173228</strong> (≈6 meses) siguen destacando como un patrón recurrente en varias estaciones, apuntando a un <strong>ciclo semestral persistente</strong>.</li>
+<li>Aparecen varias <strong>frecuencias de muy baja magnitud</strong> como <strong>0.015748</strong>, <strong>0.019685</strong>, <strong>0.003937</strong>, y <strong>0.027559</strong>, las cuales representan <strong>ciclos multianuales</strong>:
+<ul>
+<li>Estas pueden estar relacionadas con <strong>tendencias a largo plazo</strong>, cambios de régimen climático, o incluso <strong>ruido estructural</strong>.</li>
+</ul></li>
+<li>Por otro lado, algunas estaciones presentan <strong>ciclos cortos</strong> como <strong>0.251969</strong> (≈4 meses), indicando posibles <strong>fluctuaciones rápidas</strong> en la concentración de clorofila.</li>
+</ul>
+</section>
+<section id="conclusión-8" class="level3">
+<h3 class="anchored" data-anchor-id="conclusión-8">Conclusión</h3>
+<p>El rango de frecuencias observado en la cuarta posición evidencia que la variabilidad de la clorofila es influenciada por procesos de <strong>corto, mediano y largo plazo</strong>. A diferencia de la TSM, donde los patrones eran altamente consistentes entre estaciones, la clorofila presenta una señal <strong>más fragmentada y diversa</strong>. Esto refuerza la naturaleza más dinámica y localmente modulada de los procesos biológicos frente a los procesos físicos.</p>
+<p>Este nivel de detalle es útil para estudios que buscan <strong>identificar drivers locales</strong> de productividad biológica en el Golfo de California.</p>
+<div>
+
+<table class="dataframe table table-sm table-striped small">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+estacion
+</th>
+<th>
+freq_chla
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+4
+</th>
+<td>
+est_1
+</td>
+<td>
+0.169291
+</td>
+</tr>
+<tr>
+<th>
+9
+</th>
+<td>
+est_2
+</td>
+<td>
+0.015748
+</td>
+</tr>
+<tr>
+<th>
+14
+</th>
+<td>
+est_3
+</td>
+<td>
+0.074803
+</td>
+</tr>
+<tr>
+<th>
+19
+</th>
+<td>
+est_4
+</td>
+<td>
+0.003937
+</td>
+</tr>
+<tr>
+<th>
+24
+</th>
+<td>
+est_5
+</td>
+<td>
+0.090551
+</td>
+</tr>
+<tr>
+<th>
+29
+</th>
+<td>
+est_6
+</td>
+<td>
+0.090551
+</td>
+</tr>
+<tr>
+<th>
+34
+</th>
+<td>
+est_7
+</td>
+<td>
+0.090551
+</td>
+</tr>
+<tr>
+<th>
+39
+</th>
+<td>
+est_8
+</td>
+<td>
+0.303150
+</td>
+</tr>
+<tr>
+<th>
+44
+</th>
+<td>
+est_9
+</td>
+<td>
+0.251969
+</td>
+</tr>
+<tr>
+<th>
+49
+</th>
+<td>
+est_10
+</td>
+<td>
+0.019685
+</td>
+</tr>
+<tr>
+<th>
+54
+</th>
+<td>
+est_11
+</td>
+<td>
+0.161417
+</td>
+</tr>
+<tr>
+<th>
+59
+</th>
+<td>
+est_12
+</td>
+<td>
+0.157480
+</td>
+</tr>
+<tr>
+<th>
+64
+</th>
+<td>
+est_13
+</td>
+<td>
+0.157480
+</td>
+</tr>
+<tr>
+<th>
+69
+</th>
+<td>
+est_14
+</td>
+<td>
+0.070866
+</td>
+</tr>
+<tr>
+<th>
+74
+</th>
+<td>
+est_15
+</td>
+<td>
+0.059055
+</td>
+</tr>
+<tr>
+<th>
+79
+</th>
+<td>
+est_16
+</td>
+<td>
+0.165354
+</td>
+</tr>
+<tr>
+<th>
+84
+</th>
+<td>
+est_17
+</td>
+<td>
+0.003937
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="quinta-frecuencia-dominante-en-clorofila-estaciones-1-a-17" class="level2">
+<h2 class="anchored" data-anchor-id="quinta-frecuencia-dominante-en-clorofila-estaciones-1-a-17">Quinta Frecuencia Dominante en Clorofila — Estaciones 1 a 17</h2>
+<p>La quinta frecuencia dominante en las series temporales de Clorofila a revela la mayor dispersión de valores, lo cual sugiere que, más allá de los patrones estacionales, existen <strong>múltiples escalas temporales activas</strong>, muchas de ellas específicas por estación.</p>
+<section id="distribución-de-la-quinta-frecuencia-rank-5" class="level3">
+<h3 class="anchored" data-anchor-id="distribución-de-la-quinta-frecuencia-rank-5">Distribución de la quinta frecuencia (rank 5)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 44%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Frecuencia (ciclos/mes)</th>
+<th>Estaciones donde aparece</th>
+<th>Período aproximado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.169291</td>
+<td>est_1</td>
+<td>≈ 5.91 meses</td>
+</tr>
+<tr class="even">
+<td>0.015748</td>
+<td>est_2</td>
+<td>≈ 63.5 meses (~5.3 años)</td>
+</tr>
+<tr class="odd">
+<td>0.074803</td>
+<td>est_3</td>
+<td>≈ 13.4 meses</td>
+</tr>
+<tr class="even">
+<td>0.003937</td>
+<td>est_4, est_17</td>
+<td>≈ 254 meses (~21 años)</td>
+</tr>
+<tr class="odd">
+<td>0.090551</td>
+<td>est_5, est_6, est_7</td>
+<td>≈ 11.05 meses</td>
+</tr>
+<tr class="even">
+<td>0.303150</td>
+<td>est_8</td>
+<td>≈ 3.3 meses</td>
+</tr>
+<tr class="odd">
+<td>0.251969</td>
+<td>est_9</td>
+<td>≈ 4.0 meses</td>
+</tr>
+<tr class="even">
+<td>0.019685</td>
+<td>est_10</td>
+<td>≈ 50.8 meses (~4.2 años)</td>
+</tr>
+<tr class="odd">
+<td>0.161417</td>
+<td>est_11</td>
+<td>≈ 6.2 meses</td>
+</tr>
+<tr class="even">
+<td>0.157480</td>
+<td>est_12, est_13</td>
+<td>≈ 6.35 meses</td>
+</tr>
+<tr class="odd">
+<td>0.070866</td>
+<td>est_14</td>
+<td>≈ 14.1 meses</td>
+</tr>
+<tr class="even">
+<td>0.059055</td>
+<td>est_15</td>
+<td>≈ 16.9 meses</td>
+</tr>
+<tr class="odd">
+<td>0.165354</td>
+<td>est_16</td>
+<td>≈ 6.05 meses</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interpretación-9" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-9">Interpretación</h3>
+<ul>
+<li>Las frecuencias <strong>0.157–0.169 ciclos/mes</strong> (≈6 meses) siguen presentes como un patrón intermedio común, incluso en el rango de menor potencia relativa.</li>
+<li>Se detectan <strong>frecuencias de muy baja magnitud</strong> (0.003937, 0.015748, 0.019685), que pueden indicar:
+<ul>
+<li><strong>Tendencias de largo plazo</strong>,</li>
+<li>Ruido estructurado,</li>
+<li>O bien fenómenos multianuales como El Niño–La Niña (ENSO).</li>
+</ul></li>
+<li>Las frecuencias <strong>0.251969 y 0.303150</strong> sugieren la existencia de <strong>variabilidad intraestacional</strong> en ciertas estaciones (≈3–4 meses), tal vez relacionada con eventos de surgencia o pulsos productivos breves.</li>
+<li>Algunas frecuencias como <strong>0.090551</strong> (~11 meses) y <strong>0.074803</strong> (~13.4 meses) se acercan al ciclo anual, pero ligeramente desplazadas, indicando posible <strong>modulación o asincronía</strong> respecto a la estacionalidad estricta.</li>
+</ul>
+</section>
+<section id="conclusión-9" class="level3">
+<h3 class="anchored" data-anchor-id="conclusión-9">Conclusión</h3>
+<p>Esta última capa del análisis espectral muestra una <strong>señal sumamente rica y compleja</strong> en la serie de Clorofila a. A diferencia de la TSM, donde las cinco principales frecuencias fueron altamente consistentes y estacionales, en la clorofila encontramos un <strong>mosaico de patrones</strong> que van desde lo subestacional hasta lo multianual, reforzando su sensibilidad a procesos locales, climáticos y biogeoquímicos.</p>
+<p>Estos resultados resaltan la necesidad de un enfoque multiescalar y espacialmente explícito para modelar la productividad biológica en el Golfo de California.</p>
+</section>
+</section>
+<section id="conclusiones-del-análisis-de-frecuencias-dominantes" class="level2">
+<h2 class="anchored" data-anchor-id="conclusiones-del-análisis-de-frecuencias-dominantes">Conclusiones del Análisis de Frecuencias Dominantes</h2>
+<section id="patrones-regionales-consistentes" class="level3">
+<h3 class="anchored" data-anchor-id="patrones-regionales-consistentes">1. Patrones regionales consistentes</h3>
+<p>A nivel global (todas las estaciones combinadas), tanto <strong>TSM</strong> como <strong>Chla</strong> presentan frecuencias dominantes bien definidas:</p>
+<ul>
+<li>En <strong>TSM</strong>, se destacan frecuencias cercanas a <strong>0.005 ciclos/mes</strong> (~200 meses) y <strong>0.0588 ciclos/mes</strong> (~17 meses), lo que indica la presencia de ciclos <strong>interanuales</strong> como los asociados al ENSO, además de componentes anuales o semestrales.</li>
+<li>En <strong>Chla</strong>, la frecuencia más fuerte también es <strong>0.0588 ciclos/mes</strong>, que corresponde a un <strong>ciclo anual</strong>, seguida de frecuencias más bajas (~0.0048), que reflejan variabilidad de largo plazo o efectos interanuales.</li>
+</ul>
+</section>
+<section id="ciclos-anuales-dominantes-en-la-mayoría-de-estaciones" class="level3">
+<h3 class="anchored" data-anchor-id="ciclos-anuales-dominantes-en-la-mayoría-de-estaciones">2. Ciclos anuales dominantes en la mayoría de estaciones</h3>
+<p>En el análisis por estación, la mayoría comparten una frecuencia dominante cercana a <strong>0.08296–0.0852 ciclos/mes</strong>, tanto en TSM como en Chla.</p>
+<ul>
+<li>Estas frecuencias equivalen a un <strong>ciclo de 12 meses</strong>, lo que confirma una <strong>estacionalidad anual</strong> marcada en toda la región de estudio.</li>
+</ul>
+</section>
+<section id="variabilidad-localizada-y-presencia-de-ciclos-secundarios" class="level3">
+<h3 class="anchored" data-anchor-id="variabilidad-localizada-y-presencia-de-ciclos-secundarios">3. Variabilidad localizada y presencia de ciclos secundarios</h3>
+<p>Aunque el ciclo anual es predominante, algunas estaciones muestran frecuencias adicionales:</p>
+<ul>
+<li>En <strong>TSM</strong>, aparecen frecuencias como <strong>0.1659</strong>, asociadas a <strong>ciclos semestrales</strong> o armónicos superiores.</li>
+<li>En <strong>Chla</strong>, se observa mayor diversidad espectral, con frecuencias como <strong>0.2519</strong>, <strong>0.3031</strong>, y algunas muy bajas (<strong>0.0039</strong>), que pueden reflejar dinámicas locales más complejas, como afloramientos o eventos de corta duración.</li>
+</ul>
+</section>
+<section id="mayor-diversidad-espectral-en-chl-a" class="level3">
+<h3 class="anchored" data-anchor-id="mayor-diversidad-espectral-en-chl-a">4. Mayor diversidad espectral en Chl a</h3>
+<p>La <strong>Chla presenta mayor variabilidad entre estaciones</strong> respecto a TSM. Esto es esperable, ya que la productividad biológica está más influenciada por factores locales como disponibilidad de nutrientes, luz, y circulación superficial.</p>
+</section>
+<section id="fundamento-para-la-regionalización" class="level3">
+<h3 class="anchored" data-anchor-id="fundamento-para-la-regionalización">5. Fundamento para la regionalización</h3>
+<p>Las diferencias espectrales encontradas entre estaciones constituyen una base sólida para aplicar técnicas de <strong>agrupamiento regional</strong> (PCA + clustering). Esto permitirá identificar zonas con comportamiento oceanográfico similar y avanzar en una <strong>regionalización climática</strong> del noroeste de México.</p>
 
 
-<section id="metodología-de-la-consultoría" class="level1">
-<h1>Metodología de la Consultoría</h1>
-
-
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
