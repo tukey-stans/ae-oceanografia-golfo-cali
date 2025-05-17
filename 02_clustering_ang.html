@@ -140,19 +140,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#análisis-de-clustering-espacio-temporal" id="toc-análisis-de-clustering-espacio-temporal" class="nav-link active" data-scroll-target="#análisis-de-clustering-espacio-temporal">Análisis de Clustering Espacio-Temporal</a></li>
-  <li><a href="#preparación-e-integración-de-datos-para-análisis-espacio-temporal" id="toc-preparación-e-integración-de-datos-para-análisis-espacio-temporal" class="nav-link" data-scroll-target="#preparación-e-integración-de-datos-para-análisis-espacio-temporal">Preparación e Integración de Datos para Análisis Espacio-Temporal</a>
+  <li><a href="#análisis-de-clustering-espacio-temporal" id="toc-análisis-de-clustering-espacio-temporal" class="nav-link active" data-scroll-target="#análisis-de-clustering-espacio-temporal">Análisis de Clustering Espacio-Temporal</a>
   <ul class="collapse">
-  <li><a href="#descripción-de-los-datos-originales" id="toc-descripción-de-los-datos-originales" class="nav-link" data-scroll-target="#descripción-de-los-datos-originales">1. Descripción de los Datos Originales</a></li>
-  <li><a href="#transformación-y-enriquecimiento-de-los-datos" id="toc-transformación-y-enriquecimiento-de-los-datos" class="nav-link" data-scroll-target="#transformación-y-enriquecimiento-de-los-datos">2. Transformación y Enriquecimiento de los Datos</a>
-  <ul class="collapse">
-  <li><a href="#estructura-longitudinal-de-tsm-y-chl-a" id="toc-estructura-longitudinal-de-tsm-y-chl-a" class="nav-link" data-scroll-target="#estructura-longitudinal-de-tsm-y-chl-a">2.1 Estructura Longitudinal de TSM y Chl a</a></li>
-  <li><a href="#unión-de-variables-oceanográficas" id="toc-unión-de-variables-oceanográficas" class="nav-link" data-scroll-target="#unión-de-variables-oceanográficas">2.2 Unión de Variables Oceanográficas</a></li>
-  <li><a href="#asociación-geoespacial" id="toc-asociación-geoespacial" class="nav-link" data-scroll-target="#asociación-geoespacial">2.3 Asociación Geoespacial</a></li>
-  <li><a href="#enriquecimiento-con-enso-a-nivel-mensual" id="toc-enriquecimiento-con-enso-a-nivel-mensual" class="nav-link" data-scroll-target="#enriquecimiento-con-enso-a-nivel-mensual">2.4 Enriquecimiento con ENSO a Nivel Mensual</a></li>
-  </ul></li>
-  <li><a href="#consolidación-final-del-dataset" id="toc-consolidación-final-del-dataset" class="nav-link" data-scroll-target="#consolidación-final-del-dataset">3. Consolidación Final del Dataset</a></li>
-  <li><a href="#justificación-metodológica" id="toc-justificación-metodológica" class="nav-link" data-scroll-target="#justificación-metodológica">4. Justificación Metodológica</a></li>
+  <li><a href="#preparación-e-integración-de-datos" id="toc-preparación-e-integración-de-datos" class="nav-link" data-scroll-target="#preparación-e-integración-de-datos">Preparación e Integración de Datos</a></li>
   </ul></li>
   <li><a href="#parte-1.-clustering-regional-fijo-por-estación" id="toc-parte-1.-clustering-regional-fijo-por-estación" class="nav-link" data-scroll-target="#parte-1.-clustering-regional-fijo-por-estación">Parte 1. Clustering Regional Fijo por Estación</a>
   <ul class="collapse">
@@ -226,73 +216,12 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="análisis-de-clustering-espacio-temporal" class="level1">
 <h1>Análisis de Clustering Espacio-Temporal</h1>
-</section>
-<section id="preparación-e-integración-de-datos-para-análisis-espacio-temporal" class="level1">
-<h1>Preparación e Integración de Datos para Análisis Espacio-Temporal</h1>
-<section id="descripción-de-los-datos-originales" class="level2">
-<h2 class="anchored" data-anchor-id="descripción-de-los-datos-originales">1. Descripción de los Datos Originales</h2>
-<p>Se trabajó con cuatro fuentes principales de datos:</p>
-<ul>
-<li><strong>Temperatura Superficial del Mar (TSM)</strong>: Datos mensuales por estación de monitoreo para el periodo 1981–2018.</li>
-<li><strong>Clorofila a (Chl a)</strong>: Datos mensuales por estación para el periodo 1997–2018.</li>
-<li><strong>Coordenadas de estaciones</strong>: Posiciones geográficas (latitud y longitud) de 17 estaciones distribuidas en la zona costera occidental del Golfo de California.</li>
-<li><strong>Índice ONI (Oceanic Niño Index)</strong>: Serie temporal trimestral estandarizada de NOAA para identificar eventos ENSO (Niño, Niña, Neutro).</li>
-</ul>
-</section>
-<section id="transformación-y-enriquecimiento-de-los-datos" class="level2">
-<h2 class="anchored" data-anchor-id="transformación-y-enriquecimiento-de-los-datos">2. Transformación y Enriquecimiento de los Datos</h2>
-<section id="estructura-longitudinal-de-tsm-y-chl-a" class="level3">
-<h3 class="anchored" data-anchor-id="estructura-longitudinal-de-tsm-y-chl-a">2.1 Estructura Longitudinal de TSM y Chl a</h3>
-<p>Para facilitar análisis multivariados y temporales, los datasets de TSM y Chl a se reestructuraron de formato ancho a formato largo. En esta estructura, cada fila representa una única observación por estación, mes y año. Se incluyeron variables auxiliares como:</p>
-<ul>
-<li>Año y mes de medición</li>
-<li>Estación del año (Primavera, Verano, Otoño, Invierno)</li>
-<li>Clasificación de evento interanual (Niño, Niña o Neutro, original del dataset)</li>
-</ul>
-</section>
-<section id="unión-de-variables-oceanográficas" class="level3">
-<h3 class="anchored" data-anchor-id="unión-de-variables-oceanográficas">2.2 Unión de Variables Oceanográficas</h3>
-<p>Se realizó una unión por claves comunes entre TSM y Chl a, consolidando las observaciones por estación y fecha en un único dataframe (<code>data_long</code>).</p>
-</section>
-<section id="asociación-geoespacial" class="level3">
-<h3 class="anchored" data-anchor-id="asociación-geoespacial">2.3 Asociación Geoespacial</h3>
-<p>Mediante un mapeo explícito de nombres, se incorporaron las coordenadas geográficas (latitud y longitud) a cada estación, asegurando la disponibilidad de variables espaciales para posteriores análisis geoespaciales y de clustering.</p>
-</section>
-<section id="enriquecimiento-con-enso-a-nivel-mensual" class="level3">
-<h3 class="anchored" data-anchor-id="enriquecimiento-con-enso-a-nivel-mensual">2.4 Enriquecimiento con ENSO a Nivel Mensual</h3>
-<p>El índice ONI original se encontraba a nivel trimestral. Para convertirlo a un formato mensual, se definió una estrategia de expansión: cada trimestre se descompuso en los meses correspondientes, asignando el mismo valor de ONI.</p>
-<p>Posteriormente, se clasificó cada valor mensual de ONI como:</p>
-<ul>
-<li><strong>Niño</strong>: ONI ≥ 0.5</li>
-<li><strong>Niña</strong>: ONI ≤ -0.5</li>
-<li><strong>Neutro</strong>: -0.5 &lt; ONI &lt; 0.5</li>
-</ul>
-<p>Esta clasificación fue incorporada como variable <code>ENSO_CLASE</code>.</p>
-</section>
-</section>
-<section id="consolidación-final-del-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="consolidación-final-del-dataset">3. Consolidación Final del Dataset</h2>
-<p>El dataframe final (<code>data_final_common</code>) resultó de unir la información enriquecida de TSM, Chl a, coordenadas y ENSO. Este dataset cuenta con la siguiente estructura para cada observación mensual por estación:</p>
-<ul>
-<li><strong>Variables temporales</strong>: Año, mes (nombre y número), estación del año</li>
-<li><strong>Variables físicas</strong>: TSM, Chl a</li>
-<li><strong>Variables espaciales</strong>: Latitud, longitud, estación de medición</li>
-<li><strong>Información ENSO</strong>: Valor ONI y su clasificación (Niño, Niña, Neutro)</li>
-</ul>
-<p>Ejemplo de observaciones:</p>
-<pre class="plaintext"><code>| FECHA      | AÑO  | MES     | ESTACIÓN DEL AÑO | estacion | TSM     | Chla   | lon    | lat  | MES_NUM | ONI | ENSO_CLASE |
-|------------|------|---------|------------------|----------|---------|--------|--------|------|---------|-----|-------------|
-| 2018-10-01 | 2018 | Octubre | Otoño            | Est 1°   | 29.91   | 0.15   | -109.3 | 23.8 | 10      | 0.5 | Niño        |
-| 2018-10-01 | 2018 | Octubre | Otoño            | Est 2°   | 29.77   | 0.17   | -109.7 | 24.2 | 10      | 0.5 | Niño        |</code></pre>
-</section>
-<section id="justificación-metodológica" class="level2">
-<h2 class="anchored" data-anchor-id="justificación-metodológica">4. Justificación Metodológica</h2>
-<p>Esta etapa fue esencial para cumplir los tres objetivos específicos del proyecto, ya que:</p>
-<ul>
-<li>Permite analizar la variabilidad temporal y espacial de TSM y Chl a, con integración completa de ENSO como variable explicativa.</li>
-<li>Habilita análisis de clustering geoespacial y temporal para regionalizar dinámicamente el Golfo de California.</li>
-<li>Establece una base robusta para explorar relaciones entre ENSO y cambios en la productividad marina.</li>
-</ul>
+<hr>
+<section id="preparación-e-integración-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="preparación-e-integración-de-datos">Preparación e Integración de Datos</h3>
+<p>Se trabajó con cuatro fuentes principales: datos mensuales de Temperatura Superficial del Mar (TSM, 1981–2018), Clorofila a (Chl a, 1997–2018), coordenadas de 17 estaciones de medición, e índice ENSO (ONI) de NOAA.</p>
+<p>Los datos fueron reorganizados en formato largo (una fila por estación, mes y año), se unieron las variables físicas con ubicación geográfica, y se enriquecieron con una clasificación mensual de eventos ENSO (Niño, Niña o Neutro). El resultado fue un único dataset con información temporal, espacial y climática para cada observación mensual.</p>
+<p>Este proceso permitió preparar la base de datos para análisis espacio-temporales como clustering, detección de patrones y evaluación del impacto de ENSO en la región.</p>
 <hr>
 </section>
 </section>
