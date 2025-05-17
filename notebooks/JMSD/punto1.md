@@ -18,540 +18,46 @@ Además, profundizaremos en:
   - Comparación de medias y varianzas de TSM y Chl a en cada fase.  
   - Análisis estacional dentro de cada fase para detectar respuesta diferencial en ciclos anuales.
 
-**Metodología general**:  
-1. **Carga y limpieza** de datos temporales.  
-2. **Cómputo de estadísticos descriptivos** (media, desviación estándar, percentiles).  
-3. **Análisis de frecuencias** vía periodograma para identificar ciclos dominantes (p.ej. anual, semestral).  
-4. **Regionalización** usando PCA + k-means (o DBSCAN) aplicado a indicadores multivariados TSM–Chl a.  
-5. **Análisis ENSO**: unión con índice ONI, segmentación por fase, pruebas estadísticas (ANOVA/Kruskal–Wallis), y visualizaciones comparativas (boxplots, series descompuestas).
 
-A continuación implementaremos paso a paso estas etapas en Python, apoyándonos en librerías como `pandas`, `numpy`, `scipy`, `scikit-learn` y `statsmodels`. 
+## Análisis de Frecuencias Dominantes mediante Periodograma
 
+Con el objetivo de identificar los ciclos que explican la mayor parte de la variabilidad en las variables TSM (Temperatura Superficial del Mar) y Chl a (Clorofila a), utilizaremos el periodograma como herramienta principal de análisis espectral.
 
-```python
-# Manipulación y análisis de datos
-import pandas as pd
-import numpy as np
+### Etapas del análisis
 
-# Visualización
-import matplotlib.pyplot as plt
-import seaborn as sns
+1. **Cálculo global de frecuencias dominantes**  
+   Se aplicará el periodograma sobre las series temporales completas de TSM y Chl a, integrando los datos de todas las estaciones.  
+   Esto nos permitirá detectar frecuencias comunes de oscilación, como ciclos anuales, semestrales u otros patrones relevantes que afectan a toda la región.
 
-# Análisis de series de tiempo
-from scipy.signal import periodogram
-from pathlib import Path
-```
+2. **Análisis por estación individual**  
+   Posteriormente, se realizará un análisis estación por estación, permitiendo observar si existen diferencias locales en los ciclos dominantes.  
+   Este paso es clave para entender si ciertas regiones del Golfo de California presentan patrones únicos o asincronías respecto al comportamiento promedio.
 
+### Objetivo final
 
-```python
-ruta_actual = Path.cwd()
-PROJECT_DIR = ruta_actual.parents[1]
-PROCESSED_DIR     = PROJECT_DIR / 'data' / 'processed'
-```
-
-
-```python
-df = pd.read_csv(PROCESSED_DIR / 'data.csv')
-```
-
-
-```python
-df.head()
-```
+- Detectar frecuencias dominantes (por ejemplo, 12, 6 o 3 meses) que expliquen la mayor parte de la variabilidad en las series.  
+- Identificar diferencias entre estaciones para futuras etapas de regionalización climática.
 
 
 
+## Exploración Temporal de TSM y Chl a
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+Comenzamos visualizando el comportamiento temporal de las variables TSM (Temperatura Superficial del Mar) y Chl a (Concentración de Clorofila a) a lo largo del periodo de estudio.
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+### Qué hacemos
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>fecha</th>
-      <th>estacion</th>
-      <th>tsm</th>
-      <th>ano</th>
-      <th>mes</th>
-      <th>chla</th>
-      <th>mes_num</th>
-      <th>est_index</th>
-      <th>longitud</th>
-      <th>latitud</th>
-      <th>evento</th>
-      <th>oni</th>
-      <th>estacion_climatica</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1981-09-01</td>
-      <td>est_1</td>
-      <td>30.5000</td>
-      <td>NaN</td>
-      <td>9</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>-109.3</td>
-      <td>23.8</td>
-      <td>Neutro</td>
-      <td>-0.2</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1981-09-01</td>
-      <td>est_10</td>
-      <td>28.6250</td>
-      <td>NaN</td>
-      <td>9</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>9.0</td>
-      <td>-112.3</td>
-      <td>27.6</td>
-      <td>Neutro</td>
-      <td>-0.2</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1981-09-01</td>
-      <td>est_11</td>
-      <td>29.1583</td>
-      <td>NaN</td>
-      <td>9</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10.0</td>
-      <td>-112.6</td>
-      <td>28.0</td>
-      <td>Neutro</td>
-      <td>-0.2</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1981-09-01</td>
-      <td>est_12</td>
-      <td>28.8750</td>
-      <td>NaN</td>
-      <td>9</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>11.0</td>
-      <td>-112.9</td>
-      <td>28.5</td>
-      <td>Neutro</td>
-      <td>-0.2</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1981-09-01</td>
-      <td>est_13</td>
-      <td>26.9667</td>
-      <td>NaN</td>
-      <td>9</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>12.0</td>
-      <td>-113.2</td>
-      <td>28.9</td>
-      <td>Neutro</td>
-      <td>-0.2</td>
-      <td>SON</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+Graficamos las series temporales de ambas variables para observar cómo evolucionan con el tiempo. Esto nos permite:
 
+- Detectar posibles tendencias o estacionalidades.
+- Identificar anomalías o valores extremos.
+- Evaluar visualmente la cobertura y continuidad de los datos.
 
+### Cómo lo hacemos
 
+Usamos datos agregados por mes (o por año) combinando todas las estaciones, para tener una vista general del comportamiento regional. En esta etapa:
 
-```python
-# 1. Inspección básica
-print(df.shape)        # filas × columnas
-print(df.dtypes)       # confirma que 'fecha' es datetime y revisa tipos de otras columnas
-print(df.head(5))      # primeras 5 filas para ver la estructura de datos
-print(df.isna().sum()) # cuántos valores faltan en cada columna
-```
-
-    (7582, 13)
-    fecha                  object
-    estacion               object
-    tsm                   float64
-    ano                   float64
-    mes                     int64
-    chla                  float64
-    mes_num               float64
-    est_index             float64
-    longitud              float64
-    latitud               float64
-    evento                 object
-    oni                   float64
-    estacion_climatica     object
-    dtype: object
-            fecha estacion      tsm  ano  mes  chla  mes_num  est_index  longitud  \
-    0  1981-09-01    est_1  30.5000  NaN    9   NaN      NaN        0.0    -109.3   
-    1  1981-09-01   est_10  28.6250  NaN    9   NaN      NaN        9.0    -112.3   
-    2  1981-09-01   est_11  29.1583  NaN    9   NaN      NaN       10.0    -112.6   
-    3  1981-09-01   est_12  28.8750  NaN    9   NaN      NaN       11.0    -112.9   
-    4  1981-09-01   est_13  26.9667  NaN    9   NaN      NaN       12.0    -113.2   
-    
-       latitud  evento  oni estacion_climatica  
-    0     23.8  Neutro -0.2                SON  
-    1     27.6  Neutro -0.2                SON  
-    2     28.0  Neutro -0.2                SON  
-    3     28.5  Neutro -0.2                SON  
-    4     28.9  Neutro -0.2                SON  
-    fecha                    0
-    estacion                 0
-    tsm                      0
-    ano                   3264
-    mes                      0
-    chla                  3264
-    mes_num               3264
-    est_index                0
-    longitud                 0
-    latitud                  0
-    evento                   0
-    oni                      0
-    estacion_climatica       0
-    dtype: int64
-
-
-
-```python
-# Convertir la columna fecha en datatime
-df["fecha"] = pd.to_datetime(df["fecha"])
-```
-
-
-```python
-print(df.dtypes)  
-```
-
-    fecha                 datetime64[ns]
-    estacion                      object
-    tsm                          float64
-    ano                          float64
-    mes                            int64
-    chla                         float64
-    mes_num                      float64
-    est_index                    float64
-    longitud                     float64
-    latitud                      float64
-    evento                        object
-    oni                          float64
-    estacion_climatica            object
-    dtype: object
-
-
-
-```python
-tsm = df[(df['fecha'].dt.year >= 1981) & (df['fecha'].dt.year <= 2018)]
-chla = df[(df['fecha'].dt.year >= 1997) & (df['fecha'].dt.year <= 2018)].dropna()
-```
-
-
-```python
-tsm
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>fecha</th>
-      <th>estacion</th>
-      <th>tsm</th>
-      <th>ano</th>
-      <th>mes</th>
-      <th>chla</th>
-      <th>mes_num</th>
-      <th>est_index</th>
-      <th>longitud</th>
-      <th>latitud</th>
-      <th>evento</th>
-      <th>oni</th>
-      <th>estacion_climatica</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1981-09-01</td>
-      <td>est_1</td>
-      <td>30.5000</td>
-      <td>NaN</td>
-      <td>9</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>-109.3</td>
-      <td>23.8</td>
-      <td>Neutro</td>
-      <td>-0.2</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1981-09-01</td>
-      <td>est_10</td>
-      <td>28.6250</td>
-      <td>NaN</td>
-      <td>9</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>9.0</td>
-      <td>-112.3</td>
-      <td>27.6</td>
-      <td>Neutro</td>
-      <td>-0.2</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1981-09-01</td>
-      <td>est_11</td>
-      <td>29.1583</td>
-      <td>NaN</td>
-      <td>9</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10.0</td>
-      <td>-112.6</td>
-      <td>28.0</td>
-      <td>Neutro</td>
-      <td>-0.2</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1981-09-01</td>
-      <td>est_12</td>
-      <td>28.8750</td>
-      <td>NaN</td>
-      <td>9</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>11.0</td>
-      <td>-112.9</td>
-      <td>28.5</td>
-      <td>Neutro</td>
-      <td>-0.2</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1981-09-01</td>
-      <td>est_13</td>
-      <td>26.9667</td>
-      <td>NaN</td>
-      <td>9</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>12.0</td>
-      <td>-113.2</td>
-      <td>28.9</td>
-      <td>Neutro</td>
-      <td>-0.2</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>7577</th>
-      <td>2018-10-01</td>
-      <td>est_5</td>
-      <td>29.0756</td>
-      <td>2018.0</td>
-      <td>10</td>
-      <td>0.2772</td>
-      <td>10.0</td>
-      <td>4.0</td>
-      <td>-110.8</td>
-      <td>25.3</td>
-      <td>Niño</td>
-      <td>0.8</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>7578</th>
-      <td>2018-10-01</td>
-      <td>est_6</td>
-      <td>28.6689</td>
-      <td>2018.0</td>
-      <td>10</td>
-      <td>0.3656</td>
-      <td>10.0</td>
-      <td>5.0</td>
-      <td>-111.1</td>
-      <td>25.8</td>
-      <td>Niño</td>
-      <td>0.8</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>7579</th>
-      <td>2018-10-01</td>
-      <td>est_7</td>
-      <td>28.7222</td>
-      <td>2018.0</td>
-      <td>10</td>
-      <td>0.5083</td>
-      <td>10.0</td>
-      <td>6.0</td>
-      <td>-111.2</td>
-      <td>26.3</td>
-      <td>Niño</td>
-      <td>0.8</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>7580</th>
-      <td>2018-10-01</td>
-      <td>est_8</td>
-      <td>28.4456</td>
-      <td>2018.0</td>
-      <td>10</td>
-      <td>0.5119</td>
-      <td>10.0</td>
-      <td>7.0</td>
-      <td>-111.5</td>
-      <td>26.8</td>
-      <td>Niño</td>
-      <td>0.8</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>7581</th>
-      <td>2018-10-01</td>
-      <td>est_9</td>
-      <td>27.9233</td>
-      <td>2018.0</td>
-      <td>10</td>
-      <td>0.9144</td>
-      <td>10.0</td>
-      <td>8.0</td>
-      <td>-111.9</td>
-      <td>27.2</td>
-      <td>Niño</td>
-      <td>0.8</td>
-      <td>SON</td>
-    </tr>
-  </tbody>
-</table>
-<p>7582 rows × 13 columns</p>
-</div>
-
-
-
-
-```python
-print("TSM (1981–2018):")
-print(tsm['tsm'].describe(), "\n")
-```
-
-    TSM (1981–2018):
-    count    7582.000000
-    mean       24.281074
-    std         4.764086
-    min        10.368800
-    25%        20.175000
-    50%        24.325000
-    75%        28.734575
-    max        39.300000
-    Name: tsm, dtype: float64 
-    
-
-
-
-```python
-print("Clorofila a (1997–2018):")
-print(chla['chla'].describe(), "\n")
-```
-
-    Clorofila a (1997–2018):
-    count    4318.000000
-    mean        1.213277
-    std         1.012386
-    min         0.109800
-    25%         0.496325
-    50%         0.968050
-    75%         1.616625
-    max         9.067800
-    Name: chla, dtype: float64 
-    
-
-
-
-```python
-plt.figure(figsize=(12,4))
-plt.plot(tsm['fecha'], tsm['tsm'])
-plt.title('TSM (1981–2018)')
-plt.xlabel('Fecha')
-plt.ylabel('°C')
-plt.gcf().autofmt_xdate()   # formatea fechas en el eje x
-plt.tight_layout()
-plt.show()
-
-plt.figure(figsize=(12,4))
-plt.plot(chla['fecha'], chla['chla'])
-plt.title('Clorofila a (1997–2018)')
-plt.xlabel('Fecha')
-plt.ylabel('mg/m³')
-plt.gcf().autofmt_xdate()
-plt.tight_layout()
-plt.show()
-```
-
+- Para **TSM**, consideramos el periodo de enero de 1981 a diciembre de 2018.
+- Para **Chl a**, usamos datos desde enero de 1997 hasta diciembre de 2018.
 
     
 ![png](otro_eda_files/otro_eda_12_0.png)
@@ -564,28 +70,24 @@ plt.show()
     
 
 
+## Cálculo del Periodograma para Todas las Estaciones
 
-```python
-f_tsm, Pxx_tsm   = periodogram(tsm['tsm'], fs=1, detrend='linear')
-f_chla, Pxx_chla = periodogram(chla['chla'], fs=1, detrend='linear')
+Ahora pasamos al análisis espectral. Lo que hacemos en esta etapa es calcular el **periodograma** utilizando los datos combinados de **todas las estaciones**.
 
-# 5. Graficar periodogramas
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8), sharex=True)
+### Qué buscamos
 
-ax1.plot(f_tsm, Pxx_tsm)
-ax1.set_title('Periodograma TSM (1981–2018)')
-ax1.set_ylabel('Densidad espectral')
-ax1.grid(True)
+Queremos identificar las **frecuencias dominantes** en las series de TSM y Chl a, es decir, los ciclos que explican la mayor parte de su variabilidad temporal.
 
-ax2.plot(f_chla, Pxx_chla)
-ax2.set_title('Periodograma Clorofila a (1997–2018)')
-ax2.set_xlabel('Frecuencia (ciclos/mes)')
-ax2.set_ylabel('Densidad espectral')
-ax2.grid(True)
+### Cómo lo hacemos
 
-plt.tight_layout()
-plt.show()
-```
+Aplicamos el periodograma sobre las series temporales agregadas de TSM y Chl a, para obtener una visión general de los ciclos presentes en toda la región de estudio. Este análisis nos permitirá detectar patrones recurrentes como:
+
+- Ciclos **anuales** (12 meses)
+- Ciclos **semestrales** (6 meses)
+- Otros periodos relevantes
+
+Una vez identificadas las frecuencias principales a nivel regional, más adelante repetiremos este análisis **por estación individual** para comparar los comportamientos locales.
+
 
 
     
@@ -594,31 +96,15 @@ plt.show()
 
 
 
-```python
-def top_peaks(freq, psd, n=3):
-    idx = np.argsort(psd)[-n:][::-1]
-    return list(zip(freq[idx], psd[idx]))
+## Frecuencias Dominantes Identificadas
 
-print("Frecuencias dominantes TSM (ciclos/mes, potencia):")
-print(top_peaks(f_tsm, Pxx_tsm, n=5))
-print("\nFrecuencias dominantes Clorofila a (ciclos/mes, potencia):")
-print(top_peaks(f_chla, Pxx_chla, n=5))
-```
+A continuación, mostramos las **frecuencias dominantes** encontradas mediante el análisis espectral con periodograma para las series combinadas de todas las estaciones.
 
-    Frecuencias dominantes TSM (ciclos/mes, potencia):
-    [(np.float64(0.0048799788973885525), np.float64(125732.98209727819)), (np.float64(0.05882352941176471), np.float64(7029.937399286494)), (np.float64(0.005011870218939594), np.float64(5839.854213327759)), (np.float64(0.00474808757583751), np.float64(2588.4803915366642)), (np.float64(0.05394355051437616), np.float64(2494.5226157637703))]
-    
-    Frecuencias dominantes Clorofila a (ciclos/mes, potencia):
-    [(np.float64(0.058823529411764705), np.float64(732.0658318931544)), (np.float64(0.004863362667901806), np.float64(498.689169736915)), (np.float64(0.23529411764705882), np.float64(211.22189942261372)), (np.float64(0.1764705882352941), np.float64(162.74451608531493)), (np.float64(0.06855025474756832), np.float64(114.83872685123208))]
+Estas frecuencias representan los **ciclos que explican la mayor parte de la variabilidad** en las variables TSM (Temperatura Superficial del Mar) y Chla (Concentración de Clorofila).
+
+Los resultados que se presentan a continuación corresponden a las componentes más significativas de cada serie temporal, ordenadas por su potencia espectral. Esto nos permitirá enfocar el análisis posterior en los periodos más relevantes.
 
 
-
-```python
-for freq, pot in top_peaks(f_tsm, Pxx_tsm, n=5):
-    periodo_meses = 1/freq
-    periodo_anios  = periodo_meses/12
-    print(f"Freq = {freq:.4f} ciclos/mes → periodo ≃ {periodo_meses:.1f} meses ({periodo_anios:.1f} años); potencia = {pot:.0f}")
-```
 
     Freq = 0.0049 ciclos/mes → periodo ≃ 204.9 meses (17.1 años); potencia = 125733
     Freq = 0.0588 ciclos/mes → periodo ≃ 17.0 meses (1.4 años); potencia = 7030
@@ -628,12 +114,8 @@ for freq, pot in top_peaks(f_tsm, Pxx_tsm, n=5):
 
 
 
-```python
-for freq, pot in top_peaks(f_chla, Pxx_chla, n=5):
-    periodo_meses = 1/freq
-    periodo_anios  = periodo_meses/12
-    print(f"Freq = {freq:.4f} ciclos/mes → periodo ≃ {periodo_meses:.1f} meses ({periodo_anios:.1f} años); potencia = {pot:.0f}")
-```
+
+
 
     Freq = 0.0588 ciclos/mes → periodo ≃ 17.0 meses (1.4 años); potencia = 732
     Freq = 0.0049 ciclos/mes → periodo ≃ 205.6 meses (17.1 años); potencia = 499
@@ -695,13 +177,11 @@ Mide cuánta varianza de la señal está concentrada en esa frecuencia. Picos de
 
 - **Periodo**  
 Inverso de la frecuencia:  
-\[
   $\text{periodo (meses)} = \frac{1}{\text{frecuencia (ciclos/mes)}}$
-\]  
+ 
 Y en años:  
-\[
   $\text{periodo (años)} = \frac{\text{periodo (meses)}}{12}.$
-\]
+
 
 ---
 
@@ -720,288 +200,24 @@ Con esta tabla y explicaciones tienes un mapeo claro de **cuáles** y **cada cu�
 
 
 
-```python
-tsm
-```
+## Análisis Espectral por Estación
+
+Después de identificar las frecuencias dominantes a nivel regional, ahora nos enfocamos en calcular el **periodograma de forma individual para cada estación**.
+
+### Objetivo
+
+El propósito de este análisis es detectar **diferencias locales** en los patrones de variación. Aunque ya conocemos las frecuencias que dominan a nivel general, es posible que algunas estaciones presenten:
+
+- Frecuencias adicionales o distintas
+- Intensidades diferentes en los ciclos
+- Comportamientos asincrónicos respecto al promedio regional
+
+### Qué hacemos
+
+Aplicamos el periodograma sobre la serie temporal de cada estación, tanto para TSM como para Chl a. Esto nos permitirá comparar el comportamiento espectral entre estaciones y evaluar si existen zonas con dinámicas propias, lo cual será útil para la posterior **regionalización**.
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>fecha</th>
-      <th>estacion</th>
-      <th>tsm</th>
-      <th>ano</th>
-      <th>mes</th>
-      <th>chla</th>
-      <th>mes_num</th>
-      <th>est_index</th>
-      <th>longitud</th>
-      <th>latitud</th>
-      <th>evento</th>
-      <th>oni</th>
-      <th>estacion_climatica</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1981-09-01</td>
-      <td>est_1</td>
-      <td>30.5000</td>
-      <td>NaN</td>
-      <td>9</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>-109.3</td>
-      <td>23.8</td>
-      <td>Neutro</td>
-      <td>-0.2</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1981-09-01</td>
-      <td>est_10</td>
-      <td>28.6250</td>
-      <td>NaN</td>
-      <td>9</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>9.0</td>
-      <td>-112.3</td>
-      <td>27.6</td>
-      <td>Neutro</td>
-      <td>-0.2</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1981-09-01</td>
-      <td>est_11</td>
-      <td>29.1583</td>
-      <td>NaN</td>
-      <td>9</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10.0</td>
-      <td>-112.6</td>
-      <td>28.0</td>
-      <td>Neutro</td>
-      <td>-0.2</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1981-09-01</td>
-      <td>est_12</td>
-      <td>28.8750</td>
-      <td>NaN</td>
-      <td>9</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>11.0</td>
-      <td>-112.9</td>
-      <td>28.5</td>
-      <td>Neutro</td>
-      <td>-0.2</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1981-09-01</td>
-      <td>est_13</td>
-      <td>26.9667</td>
-      <td>NaN</td>
-      <td>9</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>12.0</td>
-      <td>-113.2</td>
-      <td>28.9</td>
-      <td>Neutro</td>
-      <td>-0.2</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>7577</th>
-      <td>2018-10-01</td>
-      <td>est_5</td>
-      <td>29.0756</td>
-      <td>2018.0</td>
-      <td>10</td>
-      <td>0.2772</td>
-      <td>10.0</td>
-      <td>4.0</td>
-      <td>-110.8</td>
-      <td>25.3</td>
-      <td>Niño</td>
-      <td>0.8</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>7578</th>
-      <td>2018-10-01</td>
-      <td>est_6</td>
-      <td>28.6689</td>
-      <td>2018.0</td>
-      <td>10</td>
-      <td>0.3656</td>
-      <td>10.0</td>
-      <td>5.0</td>
-      <td>-111.1</td>
-      <td>25.8</td>
-      <td>Niño</td>
-      <td>0.8</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>7579</th>
-      <td>2018-10-01</td>
-      <td>est_7</td>
-      <td>28.7222</td>
-      <td>2018.0</td>
-      <td>10</td>
-      <td>0.5083</td>
-      <td>10.0</td>
-      <td>6.0</td>
-      <td>-111.2</td>
-      <td>26.3</td>
-      <td>Niño</td>
-      <td>0.8</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>7580</th>
-      <td>2018-10-01</td>
-      <td>est_8</td>
-      <td>28.4456</td>
-      <td>2018.0</td>
-      <td>10</td>
-      <td>0.5119</td>
-      <td>10.0</td>
-      <td>7.0</td>
-      <td>-111.5</td>
-      <td>26.8</td>
-      <td>Niño</td>
-      <td>0.8</td>
-      <td>SON</td>
-    </tr>
-    <tr>
-      <th>7581</th>
-      <td>2018-10-01</td>
-      <td>est_9</td>
-      <td>27.9233</td>
-      <td>2018.0</td>
-      <td>10</td>
-      <td>0.9144</td>
-      <td>10.0</td>
-      <td>8.0</td>
-      <td>-111.9</td>
-      <td>27.2</td>
-      <td>Niño</td>
-      <td>0.8</td>
-      <td>SON</td>
-    </tr>
-  </tbody>
-</table>
-<p>7582 rows × 13 columns</p>
-</div>
-
-
-
-
-```python
-df_tsm = [
-    tsm[tsm["estacion"] == "est_1"], tsm[tsm["estacion"] == "est_2"], tsm[tsm["estacion"] == "est_3"], 
-    tsm[tsm["estacion"] == "est_4"], tsm[tsm["estacion"] == "est_5"], tsm[tsm["estacion"] == "est_6"], 
-    tsm[tsm["estacion"] == "est_7"], tsm[tsm["estacion"] == "est_8"], tsm[tsm["estacion"] == "est_9"], 
-    tsm[tsm["estacion"] == "est_10"], tsm[tsm["estacion"] == "est_11"], tsm[tsm["estacion"] == "est_12"], 
-    tsm[tsm["estacion"] == "est_13"], tsm[tsm["estacion"] == "est_14"], tsm[tsm["estacion"] == "est_15"], 
-    tsm[tsm["estacion"] == "est_16"], tsm[tsm["estacion"] == "est_17"]
-]
-```
-
-
-```python
-df_chla = [
-    chla[chla["estacion"] == "est_1"], chla[chla["estacion"] == "est_2"], chla[chla["estacion"] == "est_3"], 
-    chla[chla["estacion"] == "est_4"], chla[chla["estacion"] == "est_5"], chla[chla["estacion"] == "est_6"], 
-    chla[chla["estacion"] == "est_7"], chla[chla["estacion"] == "est_8"], chla[chla["estacion"] == "est_9"], 
-    chla[chla["estacion"] == "est_10"], chla[chla["estacion"] == "est_11"], chla[chla["estacion"] == "est_12"], 
-    chla[chla["estacion"] == "est_13"], chla[chla["estacion"] == "est_14"], chla[chla["estacion"] == "est_15"], 
-    chla[chla["estacion"] == "est_16"], chla[chla["estacion"] == "est_17"]
-]
-```
-
-
-```python
-dfs = zip(df_tsm,df_chla)
-```
-
-
-```python
-# Crear figuras
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 10), sharex=True)
-
-# Graficar periodogramas de TSM
-for i, df in enumerate(df_tsm):
-    f_tsm, Pxx_tsm = periodogram(df['tsm'], fs=1, detrend='linear')
-    ax1.plot(f_tsm, Pxx_tsm, alpha=0.6, label=f'Est. {i+1}')
-
-ax1.set_title('Periodogramas TSM — Estaciones 1 a 17 (1981–2018)')
-ax1.set_ylabel('Densidad espectral')
-ax1.grid(True)
-ax1.legend(ncol=3, fontsize=8)
-
-# Graficar periodogramas de CHLA
-for i, df in enumerate(df_chla):
-    f_chla, Pxx_chla = periodogram(df['chla'], fs=1, detrend='linear')
-    ax2.plot(f_chla, Pxx_chla, alpha=0.6, label=f'Est. {i+1}')
-
-ax2.set_title('Periodogramas Clorofila a — Estaciones 1 a 17 (1997–2018)')
-ax2.set_xlabel('Frecuencia (ciclos/mes)')
-ax2.set_ylabel('Densidad espectral')
-ax2.grid(True)
-ax2.legend(ncol=3, fontsize=8)
-
-plt.tight_layout()
-plt.show()
-```
 
 
     
@@ -1010,193 +226,9 @@ plt.show()
 
 
 
-```python
-# Guardar resultados
-top_tsm = []
-top_chla = []
-
-# Recorremos cada estación
-for i in range(17):
-    # TSM
-    f_tsm, Pxx_tsm = periodogram(df_tsm[i]['tsm'], fs=1, detrend='linear')
-    top_idxs_tsm = np.argsort(Pxx_tsm)[-5:][::-1]  # top 5 potencias descendentes
-    top_freqs_tsm = f_tsm[top_idxs_tsm]
-    top_powers_tsm = Pxx_tsm[top_idxs_tsm]
-    top_tsm.append(list(zip(top_freqs_tsm, top_powers_tsm)))
-
-    # CHLA
-    f_chla, Pxx_chla = periodogram(df_chla[i]['chla'], fs=1, detrend='linear')
-    top_idxs_chla = np.argsort(Pxx_chla)[-5:][::-1]
-    top_freqs_chla = f_chla[top_idxs_chla]
-    top_powers_chla = Pxx_chla[top_idxs_chla]
-    top_chla.append(list(zip(top_freqs_chla, top_powers_chla)))
-```
-
-
-```python
-# Comparación por estación
-resumen = []
-
-for i in range(17):
-    for j in range(5):
-        resumen.append({
-            'estacion': f'est_{i+1}',
-            'rank': j + 1,
-            'freq_tsm': top_tsm[i][j][0],
-            'power_tsm': top_tsm[i][j][1],
-            'freq_chla': top_chla[i][j][0],
-            'power_chla': top_chla[i][j][1],
-        })
-
-df_resumen = pd.DataFrame(resumen)
-
-```
-
-
-```python
-df_resumen
-```
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>estacion</th>
-      <th>rank</th>
-      <th>freq_tsm</th>
-      <th>power_tsm</th>
-      <th>freq_chla</th>
-      <th>power_chla</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>est_1</td>
-      <td>1</td>
-      <td>0.082960</td>
-      <td>4474.788905</td>
-      <td>0.082677</td>
-      <td>10.611591</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>est_1</td>
-      <td>2</td>
-      <td>0.085202</td>
-      <td>255.930544</td>
-      <td>0.165354</td>
-      <td>1.353657</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>est_1</td>
-      <td>3</td>
-      <td>0.080717</td>
-      <td>121.567478</td>
-      <td>0.086614</td>
-      <td>1.238070</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>est_1</td>
-      <td>4</td>
-      <td>0.165919</td>
-      <td>79.271464</td>
-      <td>0.015748</td>
-      <td>0.865572</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>est_1</td>
-      <td>5</td>
-      <td>0.087444</td>
-      <td>66.877609</td>
-      <td>0.169291</td>
-      <td>0.643415</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>80</th>
-      <td>est_17</td>
-      <td>1</td>
-      <td>0.082960</td>
-      <td>10155.254833</td>
-      <td>0.082677</td>
-      <td>109.809468</td>
-    </tr>
-    <tr>
-      <th>81</th>
-      <td>est_17</td>
-      <td>2</td>
-      <td>0.085202</td>
-      <td>612.862260</td>
-      <td>0.165354</td>
-      <td>21.535518</td>
-    </tr>
-    <tr>
-      <th>82</th>
-      <td>est_17</td>
-      <td>3</td>
-      <td>0.080717</td>
-      <td>230.945962</td>
-      <td>0.086614</td>
-      <td>19.725943</td>
-    </tr>
-    <tr>
-      <th>83</th>
-      <td>est_17</td>
-      <td>4</td>
-      <td>0.087444</td>
-      <td>148.476481</td>
-      <td>0.169291</td>
-      <td>13.687638</td>
-    </tr>
-    <tr>
-      <th>84</th>
-      <td>est_17</td>
-      <td>5</td>
-      <td>0.165919</td>
-      <td>93.309595</td>
-      <td>0.003937</td>
-      <td>7.995189</td>
-    </tr>
-  </tbody>
-</table>
-<p>85 rows × 6 columns</p>
-</div>
-
-
-
-
-```python
-df_resumen[df_resumen["rank"] == 1][["estacion","freq_tsm"]]
-```
 
 
 
@@ -1336,11 +368,6 @@ Al analizar los periodogramas de la Temperatura Superficial del Mar (TSM) para l
 
 Este resultado estadístico demuestra que, independientemente de la ubicación geográfica dentro del golfo, la TSM sigue un patrón **predominantemente anual**, lo cual es fundamental para la modelación de procesos físicos, biológicos y climáticos en la región.
 
-
-
-```python
-df_resumen[df_resumen["rank"] == 2][["estacion","freq_tsm"]]
-```
 
 
 
@@ -1485,9 +512,7 @@ La existencia de una **segunda frecuencia cercana al ciclo anual** en todas las 
 
 
 
-```python
-df_resumen[df_resumen["rank"] == 3][["estacion","freq_tsm"]]
-```
+
 
 
 
@@ -1632,10 +657,6 @@ A partir del análisis espectral de TSM, la tercera frecuencia dominante muestra
 El análisis de la tercera frecuencia dominante en TSM revela una **transición hacia una mayor heterogeneidad espacial**. Esto puede ser importante para modelos más detallados que busquen capturar **variaciones locales** en la respuesta térmica del océano en el Golfo de California.
 
 
-
-```python
-df_resumen[df_resumen["rank"] == 4][["estacion","freq_tsm"]]
-```
 
 
 
@@ -1783,10 +804,6 @@ La cuarta frecuencia dominante revela patrones **más variables y localizados**,
 
 
 
-```python
-df_resumen[df_resumen["rank"] == 5][["estacion","freq_tsm"]]
-```
-
 
 
 
@@ -1932,9 +949,19 @@ El análisis de la quinta frecuencia dominante evidencia un balance entre **cicl
 
 
 
-```python
-df_resumen[df_resumen["rank"] == 1][["estacion","freq_chla"]]
-```
+## Periodograma por Estación: Clorofila a (Chla)
+
+Ahora iniciamos el análisis espectral individual por estación para la variable **Clorofila a (Chla)**.
+
+### Objetivo
+
+Identificar las **frecuencias dominantes** en cada estación de forma separada, con el fin de:
+
+- Detectar diferencias locales en los ciclos de variación de la productividad oceánica.
+- Comparar el comportamiento espectral entre estaciones y con el análisis global.
+- Evaluar la posible existencia de patrones únicos en ciertas zonas de la región costera occidental del Golfo de California.
+
+Este análisis complementa el enfoque regional y sienta las bases para una futura **agrupación o regionalización** en función de las dinámicas espectrales observadas.
 
 
 
@@ -2076,9 +1103,6 @@ El ciclo **anual** sigue siendo el más común en la dinámica de la clorofila e
 
 
 
-```python
-df_resumen[df_resumen["rank"] == 2][["estacion","freq_chla"]]
-```
 
 
 
@@ -2223,14 +1247,6 @@ Mientras que la frecuencia dominante en Clorofila se agrupaba principalmente en 
 - y que existe **heterogeneidad espacial** en la forma en que la estacionalidad impacta la biomasa fitoplanctónica.
 
 Este tipo de análisis es útil para detectar diferencias entre regiones del golfo y puede orientar investigaciones sobre procesos ecológicos específicos que afectan la productividad primaria.
-
-
-
-```python
-df_resumen[df_resumen["rank"] == 3][["estacion","freq_chla"]]
-```
-
-
 
 
 <div>
@@ -2378,11 +1394,6 @@ El análisis de la tercera frecuencia dominante en Clorofila evidencia una seña
 
 Este nivel de análisis es crucial para comprender la diversidad de factores que afectan la dinámica del fitoplancton en distintas zonas del Golfo de California.
 
-
-
-```python
-df_resumen[df_resumen["rank"] == 4][["estacion","freq_chla"]]
-```
 
 
 
@@ -2534,11 +1545,6 @@ El rango de frecuencias observado en la cuarta posición evidencia que la variab
 
 Este nivel de detalle es útil para estudios que buscan **identificar drivers locales** de productividad biológica en el Golfo de California.
 
-
-
-```python
-df_resumen[df_resumen["rank"] == 5][["estacion","freq_chla"]]
-```
 
 
 
@@ -2695,3 +1701,33 @@ Esta última capa del análisis espectral muestra una **señal sumamente rica y 
 
 Estos resultados resaltan la necesidad de un enfoque multiescalar y espacialmente explícito para modelar la productividad biológica en el Golfo de California.
 
+
+## Conclusiones del Análisis de Frecuencias Dominantes
+
+### 1. Patrones regionales consistentes
+
+A nivel global (todas las estaciones combinadas), tanto **TSM** como **Chla** presentan frecuencias dominantes bien definidas:
+
+- En **TSM**, se destacan frecuencias cercanas a **0.005 ciclos/mes** (~200 meses) y **0.0588 ciclos/mes** (~17 meses), lo que indica la presencia de ciclos **interanuales** como los asociados al ENSO, además de componentes anuales o semestrales.
+- En **Chla**, la frecuencia más fuerte también es **0.0588 ciclos/mes**, que corresponde a un **ciclo anual**, seguida de frecuencias más bajas (~0.0048), que reflejan variabilidad de largo plazo o efectos interanuales.
+
+### 2. Ciclos anuales dominantes en la mayoría de estaciones
+
+En el análisis por estación, la mayoría comparten una frecuencia dominante cercana a **0.08296–0.0852 ciclos/mes**, tanto en TSM como en Chla.
+
+- Estas frecuencias equivalen a un **ciclo de 12 meses**, lo que confirma una **estacionalidad anual** marcada en toda la región de estudio.
+
+### 3. Variabilidad localizada y presencia de ciclos secundarios
+
+Aunque el ciclo anual es predominante, algunas estaciones muestran frecuencias adicionales:
+
+- En **TSM**, aparecen frecuencias como **0.1659**, asociadas a **ciclos semestrales** o armónicos superiores.
+- En **Chla**, se observa mayor diversidad espectral, con frecuencias como **0.2519**, **0.3031**, y algunas muy bajas (**0.0039**), que pueden reflejar dinámicas locales más complejas, como afloramientos o eventos de corta duración.
+
+### 4. Mayor diversidad espectral en Chl a
+
+La **Chla presenta mayor variabilidad entre estaciones** respecto a TSM. Esto es esperable, ya que la productividad biológica está más influenciada por factores locales como disponibilidad de nutrientes, luz, y circulación superficial.
+
+### 5. Fundamento para la regionalización
+
+Las diferencias espectrales encontradas entre estaciones constituyen una base sólida para aplicar técnicas de **agrupamiento regional** (PCA + clustering). Esto permitirá identificar zonas con comportamiento oceanográfico similar y avanzar en una **regionalización climática** del noroeste de México.
