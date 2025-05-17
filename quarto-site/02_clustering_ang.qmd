@@ -1,15 +1,199 @@
 ---
-title: "Datos"
+
+title: "Análisis de Clustering Espacio-Temporal"
 format: html
+------------
+
+# Preparación e Integración de Datos para Análisis Espacio-Temporal
+
+## 1. Descripción de los Datos Originales
+
+Se trabajó con cuatro fuentes principales de datos:
+
+* **Temperatura Superficial del Mar (TSM):** Datos mensuales por estación de monitoreo para el periodo 1981–2018.
+* **Clorofila a (Chl a):** Datos mensuales por estación para el periodo 1997–2018.
+* **Coordenadas de estaciones:** Posiciones geográficas (latitud y longitud) de 17 estaciones distribuidas en la zona costera occidental del Golfo de California.
+* **Índice ONI (Oceanic Niño Index):** Serie temporal trimestral estandarizada de NOAA para identificar eventos ENSO (Niño, Niña, Neutro).
+
+## 2. Transformación y Enriquecimiento de los Datos
+
+* **Restructuración Longitudinal:** Se transformaron TSM y Chl a de formato ancho a largo.
+* **Unificación de variables:** Se fusionaron TSM, Chl a, coordenadas y ENSO mensual clasificado.
+* **Variables Derivadas:** Mes, año, estación del año y ENSO\_CLASE según ONI (Niño: ≥0.5, Niña: ≤-0.5).
+
+## 3. Consolidación Final del Dataset
+
+El dataframe final `data_final_common` contiene:
+
+```plaintext
+| FECHA      | AÑO  | MES     | ESTACION | TSM     | Chla   | lon    | lat  | MES_NUM | ONI | ENSO_CLASE |
+|------------|------|---------|----------|---------|--------|--------|------|----------|-----|-------------|
+| 2018-10-01 | 2018 | Octubre | Est 1º    | 29.91   | 0.15   | -109.3 | 23.8 | 10       | 0.5 | Niño        |
+| 2018-10-01 | 2018 | Octubre | Est 2º    | 29.77   | 0.17   | -109.7 | 24.2 | 10       | 0.5 | Niño        |
+```
+
+Este dataset es la base para los cuatro enfoques de clustering presentados a continuación.
+
 ---
 
-# Datasets y Fuentes de Información
+# Parte 1. Clustering Regional Fijo por Estación
 
-## Variables analizadas
-- **Temperatura Superficial del Mar (TSM)**: 1981–2018
-- **Clorofila a (Chl a)**: 1997–2018
-- **Índice ENSO (ONI)**
+## Objetivo
 
-## Fuentes
-- NOAA ONI: [Enlace oficial](https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php)
-- Datasets satelitales preprocesados por el equipo (detalles en análisis).
+Proponer una regionalización objetiva basada en estadísticas agregadas por estación: TSM, Chl a y ONI.
+
+## Metodología
+
+Se agregaron variables por estación:
+
+* TSM\_mean, TSM\_std, Chla\_mean, Chla\_std
+* ONI\_mean
+
+Estas variables se escalaron y se aplicó **KMeans (k=4)**.
+
+## Resumen de Clusters
+
+```plaintext
+| Cluster | TSM | Chl a | Descripción                   |
+|---------|-----|--------|-------------------------------|
+| 0       | 23  | 2.36   | Frío y altamente productivo   |
+| 1       | 24.8| 0.9    | Térmicamente medio, oligotrófico|
+| 2       | 23.5| 1.6    | Intermedio                     |
+| 3       | 25.9| 0.69   | Más cálido, menos productivo  |
+```
+
+## Visualizaciones
+
+* Mapa de agrupamiento fijo por ubicación
+* Boxplots de TSM y Chl a por cluster
+* Relación TSM-Chl a bajo ENSO
+
+## Contribución a Objetivos
+
+* ✅ Variabilidad espacial (Obj. 1)
+* ✅ Regionalización ambiental (Obj. 2)
+* ✅ Efectos agregados ENSO (Obj. 3)
+
+---
+
+# Parte 2. Clustering Dinámico Interanual (Estación × Año)
+
+## Objetivo
+
+Evaluar cambios interanuales de condiciones ambientales por estación.
+
+## Variables Utilizadas
+
+* TSM y Chl a (media, desviación)
+* ONI\_mean
+* Coordenadas (para mapeo)
+
+Se usó **KMeans (k=4)** sobre valores estandarizados.
+
+## Resumen de Clusters
+
+```plaintext
+| Cluster | TSM | Chl a | ONI   | Interpretación             |
+|---------|-----|--------|--------|-----------------------------|
+| 0       | 23.2| 2.36   | -0.06 | Moderado-productivo         |
+| 1       | 24.8| 0.9    | -0.64 | Cálido (La Niña)            |
+| 2       | 23.5| 1.6    | -0.07 | Estable-intermedio          |
+| 3       | 25.9| 0.69   | +0.20 | Cálido (El Niño leve)        |
+```
+
+## Resultados
+
+* Mapa de calor de evolución de clusters
+* Distribución por ENSO
+* Matriz de transiciones
+
+## Estabilidad de Estaciones
+
+* Estaciones con >10 cambios = alta inestabilidad
+* Visualizadas en mapa codificado por color (rojo = inestable)
+
+## Contribución a Objetivos
+
+* ✅ Frecuencias interanuales (Obj. 1)
+* ✅ Regionalización variable en el tiempo (Obj. 2)
+* ✅ Análisis de ENSO por año y estación (Obj. 3)
+
+---
+
+# Parte 3. Clustering Dinámico Estacional (Estación × Año × Estación del Año)
+
+## Objetivo
+
+Analizar patrones ambientales por **primavera, verano, otoño e invierno** para cada estación.
+
+## Variables
+
+* TSM y Chl a: medias y desviaciones por estación del año
+* ONI\_mean por combinación
+* Se usó **KMeans (k=4)** sobre datos normalizados
+
+## Clusters Estacionales
+
+```plaintext
+| Cluster | TSM | Chl a | ONI  | Característica                 |
+|---------|-----|--------|------|--------------------------------|
+| 0       | 24  | 2.41   | -0.30 | Intermedio y productivo         |
+| 1       | 28.4| 0.66   | -0.03 | Verano térmico, baja clorofila  |
+| 2       | 20.7| 1.51   | +0.73 | Frío con influencia de Niño     |
+| 3       | 20.2| 1.37   | -0.73 | Frío asociado a La Niña        |
+```
+
+## Resultados
+
+* Heatmap espacio-temporal (estación x año x estación del año)
+* Distribución por estación del año
+* Mapa de inestabilidad por estación fija
+* Matriz de transiciones intra-anuales
+
+## Contribución a Objetivos
+
+* ✅ Identificación de patrones intra-anuales (Obj. 1)
+* ✅ Regionalización sensible a la estacionalidad (Obj. 2)
+* ✅ Asociación a eventos ENSO estacionales (Obj. 3)
+
+---
+
+# Parte 4. Clustering Dinámico Mensual (Estación × Año × Mes)
+
+## Objetivo
+
+Detectar variabilidad de **alta frecuencia** a nivel mensual.
+
+## Variables y Método
+
+* TSM\_mean, Chla\_mean, ONI\_mean por estación-año-mes
+* **KMeans (k=4)** con escalado previo
+
+## Clusters Mensuales
+
+```plaintext
+| Cluster | TSM | Chl a | ONI  | Interpretación                    |
+|---------|-----|--------|------|----------------------------------|
+| 0       | 28.9| 0.64   | -0.15| Verano, cálido y oligotrófico    |
+| 1       | 20.9| 3.65   | -0.10| Invierno, frío y productivo       |
+| 2       | 20.2| 1.39   | -0.84| Asociado a La Niña                |
+| 3       | 22.4| 1.26   | +1.11| Asociado a El Niño                |
+```
+
+## Resultados
+
+* Heatmap mensual detallado
+* Distribución por mes del año
+* Evolución anual agregada
+* Mapa de inestabilidad mensual
+* Matriz de transiciones mensuales
+
+## Contribución a Objetivos
+
+* ✅ Variabilidad mensual de alta resolución (Obj. 1)
+* ✅ Regionalización hiper-temporal (Obj. 2)
+* ✅ Detección de transiciones vinculadas a ENSO (Obj. 3)
+
+---
+
+Este análisis multi-escala ofrece una perspectiva comprensiva de la variabilidad oceánica en el Golfo de California, desde escalas anuales hasta mensuales, integrando información física, biológica y climática.
